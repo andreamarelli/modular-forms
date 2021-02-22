@@ -1,0 +1,28 @@
+{
+    "name": "andreamarelli/modular-forms",
+    "description": "A package to build modular data collection forms",
+    "authors": [
+        {
+            "name": "Andrea Marelli",
+            "email": "andrea.marelli.dev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AndreaMarelli\\ModularForm\\": "src/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AndreaMarelli\\ModularForm\\ModularFormServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    }
+}
