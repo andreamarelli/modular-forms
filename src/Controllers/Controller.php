@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForm\Http\Controllers;
+namespace AndreaMarelli\ModularForm\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
