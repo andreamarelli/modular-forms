@@ -2,6 +2,7 @@
 
 namespace AndreaMarelli\ModularForms\Controllers;
 
+use AndreaMarelli\ModularForms\ModularForms;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,7 +15,7 @@ class Controller extends BaseController
     public function hello(): string
     {
         return view('modular-forms::hello', [
-            'message' => 'Hello World'
+            'message' => ModularForms::hi()
         ]);
     }
 }

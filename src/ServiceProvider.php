@@ -14,7 +14,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->make('AndreaMarelli\ModularForms\ModularForms');
     }
 
     /**
