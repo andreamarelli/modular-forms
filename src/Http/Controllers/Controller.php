@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(): string
+    public function hello(): string
     {
         return 'Hello world: '. 'AndreaMarelli\ModularForm\Controller';
     }

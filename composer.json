@@ -7,22 +7,22 @@
             "email": "andrea.marelli.dev@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    },
     "autoload": {
         "psr-4": {
             "AndreaMarelli\\ModularForm\\": "src/"
         }
     },
-    "require": {},
-    "require-dev": {
-        "orchestra/testbench": "^6.0"
-    },
     "extra": {
         "laravel": {
             "providers": [
                 "AndreaMarelli\\ModularForm\\ModularFormServiceProvider"
-            ],
-            "aliases": {
-            }
+            ]
         }
     }
 }
