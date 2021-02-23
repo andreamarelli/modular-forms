@@ -14,10 +14,7 @@
         "orchestra/testbench": "^6.0"
     },
     "autoload": {
-        "classmap": [
-            "src/Controllers"
-        ],
-        "psr-0": {
+        "psr-4": {
             "AndreaMarelli\\ModularForm\\": "src/"
         }
     },
