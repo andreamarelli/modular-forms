@@ -15,13 +15,13 @@
     },
     "autoload": {
         "psr-4": {
-            "AndreaMarelli\\ModularForm\\": "src/"
+            "AndreaMarelli\\ModularForms\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "AndreaMarelli\\ModularForm\\ModularFormServiceProvider"
+                "AndreaMarelli\\ModularForms\\ServiceProvider"
             ]
         }
     }

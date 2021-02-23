@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForm\Controllers;
+namespace AndreaMarelli\ModularForms\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -13,6 +13,8 @@ class Controller extends BaseController
 
     public function hello(): string
     {
-        return 'Hello world: '. 'AndreaMarelli\ModularForm\Controller';
+        return view('modular-forms::hello', [
+            'message' => 'Hello World'
+        ]);
     }
 }
