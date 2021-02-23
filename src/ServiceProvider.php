@@ -2,10 +2,10 @@
 
 namespace AndreaMarelli\ModularForms;
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider as BaseServiceProvide;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class ServiceProvider extends BaseServiceProvide
+
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Register services.
