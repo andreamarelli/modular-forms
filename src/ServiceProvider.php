@@ -25,7 +25,7 @@ class ServiceProvider extends BaseServiceProvide
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/../src/Views', 'modular-forms');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../src/Routes/web.php');
     }
 
 }
