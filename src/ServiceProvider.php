@@ -24,26 +24,8 @@ class ServiceProvider extends BaseServiceProvide
      */
     public function boot()
     {
-        // Views
-        $this->loadViewsFrom(__DIR__.'/../views', 'modular-forms');
-        // Routes
-        Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        });
-    }
-
-
-    /**
-     * Route configuration (eventually from config file)
-     *
-     * @return string[]
-     */
-    protected function routeConfiguration()
-    {
-        return [
-            'prefix' => 'modular-forms',
-            //'middleware' => config('modular-forms.middleware'),
-        ];
+        $this->loadViewsFrom(__DIR__.'/../src/Views', 'modular-forms');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 
 }
