@@ -2,6 +2,7 @@
 
 namespace AndreaMarelli\ModularForms\Models;
 
+use AndreaMarelli\ModularForms\Helpers\Locale;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -50,9 +51,9 @@ class ProtectedArea extends BaseModel
             ->orderBy('name')
             ->get();
 
-        $countries = Country::select(['iso3', 'name_'.LOWER_LOCALE])
+        $countries = Country::select(['iso3', 'name_'.Locale::lower()])
             ->whereIn('iso3', array_values($pas->pluck('country')->unique()->toArray()))
-            ->pluck('name_'.LOWER_LOCALE, 'iso3')
+            ->pluck('name_'.Locale::lower(), 'iso3')
             ->sort()
             ->toArray();
 
@@ -87,9 +88,9 @@ class ProtectedArea extends BaseModel
             ->sort()
             ->toArray();
 
-        return Country::select(['iso3', 'name_'.LOWER_LOCALE])
+        return Country::select(['iso3', 'name_'.Locale::lower()])
             ->whereIn('iso3', array_values($countries))
-            ->pluck('name_'.LOWER_LOCALE, 'iso3')
+            ->pluck('name_'.Locale::lower(), 'iso3')
             ->sort()
             ->toArray();
     }
