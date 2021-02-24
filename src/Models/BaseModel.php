@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\DB;
 use ReflectionClass;
 
 
-define('UPPER_LOCALE', mb_strtoupper(App::getLocale() ?? Config::get('app.locale')));
-define('LOWER_LOCALE', mb_strtolower(App::getLocale() ?? Config::get('app.locale')));
-
 /**
  * Class BaseModel
  *
