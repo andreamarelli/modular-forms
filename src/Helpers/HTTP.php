@@ -4,7 +4,7 @@ namespace AndreaMarelli\ModularForms\Helpers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 
 class HTTP
 {
