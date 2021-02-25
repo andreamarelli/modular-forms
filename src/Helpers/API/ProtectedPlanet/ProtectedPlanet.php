@@ -15,35 +15,32 @@ class ProtectedPlanet
      *
      * @param $url
      * @param $params
-     * @return array|mixed
+     * @return object
      */
-    private static function request($url, $params = []): array
+    private static function request($url, $params = []): object
     {
         $params = array_merge($params, [
             'token' => config('protected_planet_api_key')
         ]);
-        return API::execute_api_request($url, $params);
+        return (object) API::execute_api_request($url, $params);
     }
 
     /**
      * @param $country
-     * @return array|mixed
+     * @return object
      */
-    public static function get_country($country): array
+    public static function get_country($country): object
     {
-        return self::request(self::URL_PREFIX . 'countries/' .$country);
+        return (object) self::request(self::URL_PREFIX . 'countries/' .$country);
     }
 
     /**
      * @param $protected_area
-     * @return array|mixed
+     * @return object
      */
-    public static function get_protected_area($protected_area): array
+    public static function get_protected_area($protected_area): object
     {
-        return self::request(self::URL_PREFIX . 'protected_areas/' .$protected_area);
+        return (object) self::request(self::URL_PREFIX . 'protected_areas/' .$protected_area);
     }
-
-
-
 
 }

@@ -14,14 +14,14 @@ class API
      *
      * @param $url
      * @param $params
-     * @return mixed
+     * @return object
      */
-    public static function execute_api_request($url, $params): array
+    public static function execute_api_request($url, $params): object
     {
         // Retrieve from cache
         $cache_key = Cache::buildKey($url, $params);
         if(($cache_value = Cache::get($cache_key)) !== null){
-            return $cache_value;
+            return (object) $cache_value;
         }
 
         // Execute request to API
@@ -32,8 +32,8 @@ class API
             // store in cache
             Cache::put($cache_key, $response, static::CACHE_TTL);
         } catch (Exception $e) {
-            return ['error' => $e->getMessage()];
+            return (object) ['error' => $e->getMessage()];
         }
-        return $response;
+        return (object) $response;
     }
 }
