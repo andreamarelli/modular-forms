@@ -3,6 +3,7 @@
 namespace AndreaMarelli\ModularForms\Helpers;
 
 use AndreaMarelli\ModularForms\Helpers\File\File;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class Template
 {
@@ -48,6 +49,7 @@ class Template
      * @param $fileName
      * @param string $label
      * @return string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public static function fileLink($relativePath, $fileName, $label = ''): string
     {
@@ -84,6 +86,10 @@ class Template
         if (substr($relativePath, 0, 1) != '/') {
             $relativePath = '/' . $relativePath;
         }
+        $full_path = public_path() . '/' . Template::DOCS_PATH . '/' . $relativePath . $fileName;
+        if(!file_exists($full_path)){
+            throw new FileNotFoundException($full_path);
+        }
         return '<a target="_blank" href="' . asset(Template::DOCS_PATH) . $relativePath . $fileName . '">
                     ' . $icon . '&nbsp;
                     ' . $label . '
@@ -97,15 +103,20 @@ class Template
      * @param $fileName
      * @param string $label
      * @return string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public static function fileLinkWithSize($relativePath, $fileName, $label = ''): string
     {
         if (substr($relativePath, -1, 1) != '/') {
             $relativePath .= '/';
         }
+        $full_path = public_path() . '/' . Template::DOCS_PATH . '/' . $relativePath . $fileName;
+        if(!file_exists($full_path)){
+            throw new FileNotFoundException($full_path);
+        }
         return Template::fileLink($relativePath, $fileName, $label) . '
-                <small>(' . File::readableBytes(
-                filesize(public_path() . '/' . Template::DOCS_PATH . '/' . $relativePath . $fileName),
+        <small>(' . File::readableBytes(
+                filesize($full_path),
                 1
             ) . ')</small>';
     }

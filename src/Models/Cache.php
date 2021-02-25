@@ -34,14 +34,14 @@ class Cache{
      * Retrieve API result from cache
      *
      * @param $cache_key
-     * @return mixed|bool
+     * @return mixed|null
      */
-    public static function get($cache_key): array
+    public static function get($cache_key)
     {
         $cache_value = BaseCache::get($cache_key);
         return $cache_value !== null
             ? $cache_value
-            : false;
+            : null;
     }
 
     /**
