@@ -26,6 +26,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../src/Views', 'modular-forms');
         $this->loadRoutesFrom(__DIR__.'/../src/Routes/web.php');
+        $this->publishes([__DIR__.'/../config/config.php' => config_path('modular-forms.php'),]);
     }
 
 }
