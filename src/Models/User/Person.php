@@ -54,6 +54,7 @@ class Person extends Form
 
     /**
      * Relation to User
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function user(): HasOne
@@ -61,12 +62,18 @@ class Person extends Form
         return $this->hasOne(User::class);
     }
 
+    /**
+     * Get all last_name initials
+     *
+     * @return mixed
+     */
     public static function getInitials() {
         return parent::getInitialLetters('last_name');
     }
 
     /**
      * Get an array with id and name
+     *
      * @param $id
      * @return array
      */
@@ -97,6 +104,7 @@ class Person extends Form
 
     /**
      * Search by key
+     *
      * @param $search_key
      * @return mixed
      */

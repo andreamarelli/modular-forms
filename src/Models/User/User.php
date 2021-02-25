@@ -3,8 +3,11 @@
 namespace AndreaMarelli\ModularForms\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -56,9 +59,19 @@ class User extends Authenticatable
      * Relation to Person
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function person(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function person(): BelongsTo
     {
         return $this->belongsTo(Person::class);
+    }
+
+    /**
+     * Relation to UserRight
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rights(): HasMany
+    {
+        return $this->hasMany(UserRight::class);
     }
 
     /**
@@ -69,5 +82,47 @@ class User extends Authenticatable
     {
         return $this->person->name;
     }
+
+    /**
+     * Check whether user is an administrator
+     *
+     * @param $user
+     * @return bool
+     */
+    public static function isAdmin($user = null): bool
+    {
+        $user = $user ?? Auth::user();
+        if($user!==null){
+            foreach ($user->rights as $right){
+                if(strtolower($right->role)===UserRight::ROLE_ADMIN){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * Check if user has permission to access to the given scope
+     *
+     * @param $scope
+     * @return bool
+     */
+    public function hasAccess($scope): bool
+    {
+        if(User::isAdmin($this)){
+            return true;
+        }
+
+        $scope = is_array($scope) ? $scope : array($scope);
+        foreach ($this->rights as $right){
+            if(in_array($right->scope, $scope) && $right->access=1){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
