@@ -20,7 +20,7 @@ class ProtectedPlanet
     private static function request($url, $params = []): object
     {
         $params = array_merge($params, [
-            'token' => config('protected_planet_api_key')
+            'token' => config('modular-forms.protected_planet_api_key')
         ]);
         return (object) API::execute_api_request($url, $params);
     }
