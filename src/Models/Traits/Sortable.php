@@ -2,7 +2,7 @@
 
 namespace AndreaMarelli\ModularForms\Models\Traits;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Config;
@@ -22,7 +22,7 @@ trait Sortable {
      *
      * @param $query
      * @param null $defaultSortParameters
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      * @throws \Kyslik\ColumnSortable\Exceptions\ColumnSortableException
      */
     public function scopeSortable($query, $defaultSortParameters = null): Builder

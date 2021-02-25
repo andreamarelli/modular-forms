@@ -20,7 +20,7 @@ class API
     {
         // Retrieve from cache
         $cache_key = Cache::buildKey($url, $params);
-        if(($cache_value = Cache::get($cache_key)) !== false){
+        if(($cache_value = Cache::get($cache_key)) !== null){
             return $cache_value;
         }
 

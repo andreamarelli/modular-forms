@@ -3,7 +3,7 @@
 namespace AndreaMarelli\ModularForms\Models;
 
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
 
@@ -52,9 +52,9 @@ class Animal extends BaseModel
     /**
      * Scope a query to filter by class
      *
-     * @param \Illuminate\Database\Query\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $class
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeFilterClass(Builder $query, $class = null): Builder
     {
@@ -78,11 +78,11 @@ class Animal extends BaseModel
     /**
      * Scope a query to filter by taxonomy
      *
-     * @param \Illuminate\Database\Query\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $class
      * @param string $order
      * @param string $family
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeFilterTaxonomy(Builder $query, string $class, string $order, string $family): Builder
     {
@@ -95,9 +95,9 @@ class Animal extends BaseModel
     /**
      * Scope a query to search by string
      *
-     * @param \Illuminate\Database\Query\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $search_key
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSearchName(Builder $query, string $search_key): Builder
     {
