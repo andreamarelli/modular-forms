@@ -253,10 +253,10 @@ class FormController extends Controller
      * Generate and stream PDF
      *
      * @param $item
-     * @return string
+     * @return BinaryFileResponse
      * @throws \Spatie\Browsershot\Exceptions\CouldNotTakeBrowsershot
      */
-    public function pdf($item): string
+    public function pdf($item): BinaryFileResponse
     {
         $view = view('entities.'.static::$form_view.'.pdf', [
             'item' => (new static::$form_class())->find($item)
