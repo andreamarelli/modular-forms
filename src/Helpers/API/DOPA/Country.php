@@ -20,7 +20,7 @@ trait Country{
     }
 
     /**
-     * Returns list of species (Corals, Sharks & Rays, Amphibians, Birds, Mammals) in Country protected; calculated with
+     * Returns list of species (Corals, Sharks & Rays, Amphibians, Birds, Mammals) in country protected; calculated with
      * the returning iso3 of intersection within species ranges and WDPA
      *
      * @param $country
