@@ -1,5 +1,5 @@
 <?php
-/** @var \App\Http\Controllers\Components\FormController $controller */
+/** @var \AndreaMarelli\ModularForms\Controllers\FormController $controller */
 /** @var \AndreaMarelli\ModularForms\Models\Form $item */
 
 ?>
