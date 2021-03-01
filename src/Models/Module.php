@@ -32,6 +32,7 @@ class Module extends BaseModel
     public static $foreign_key = null;
     protected $fixed_rows = false;
     protected $enable_not_applicable = false;
+    protected $enable_preload = false;
     protected $max_rows = null;
 
     /**
@@ -197,6 +198,7 @@ class Module extends BaseModel
             'group_key_field' => static::$group_key_field,
             'predefined_values' => static::getPredefined($form_id), // From Predefined trait
             'enable_not_applicable' => $model->enable_not_applicable,
+            'enable_preload' => $model->enable_preload,
             'fixed_rows' => $model->fixed_rows,
             'max_rows' => $model->max_rows,
             'accordion_title_field' => ($model->module_type === 'ACCORDION' || $model->module_type === 'GROUP_ACCORDION')

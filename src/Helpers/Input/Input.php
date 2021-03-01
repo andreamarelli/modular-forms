@@ -163,12 +163,12 @@ class Input{
      * Date picker with day granularity (base on bootstrap-datepicker)
      *
      * @param string $name
-     * @param string $value
+     * @param string|null $value
      * @param bool $disableJavascript
      * @param string $class
      * @return string
      */
-    public static function dayPicker(string $name, string $value, $disableJavascript = false, $class = 'field-edit'): string
+    public static function dayPicker(string $name, ?string $value, $disableJavascript = false, $class = 'field-edit'): string
     {
         $out = '<input type="text" name="'.$name.'" id="'.$name.'" value="'.$value.'" class="'.$class.' form-daypicker" />';
         if(!$disableJavascript){
