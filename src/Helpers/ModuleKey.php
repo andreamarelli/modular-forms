@@ -60,7 +60,7 @@ class ModuleKey
      * Return view for the given module
      *
      * @param $module_key
-     * @param null $view_type (null, 'vue' or 'preview')
+     * @param null $view_type (null, 'vue' or 'show')
      * @return string
      */
     public static function KeyToView($module_key, $view_type = null): string
@@ -68,8 +68,8 @@ class ModuleKey
         $path = 'modules';
         if ($view_type == 'vue') {
             $path = 'vue';
-        } elseif ($view_type == 'preview') {
-            $path = 'modules_preview';
+        } elseif ($view_type == 'show') {
+            $path = 'modules_show';
         }
 
         $view = 'admin.' . $module_key;

@@ -10,7 +10,7 @@ $definitions = $module_class::getDefinitions($form_id);
 $module_records = $module_class::getModuleRecords($form_id, $collection);
 $records = $module_records['records'];
 $no_data = false;
-$body_view = \AndreaMarelli\ModularForms\Helpers\ModuleKey::KeyToView($definitions['module_key'], 'preview');
+$body_view = \AndreaMarelli\ModularForms\Helpers\ModuleKey::KeyToView($definitions['module_key'], 'show');
 
 if($collection->isEmpty()){
     $no_data = true;

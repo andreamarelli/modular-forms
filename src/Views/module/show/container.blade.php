@@ -11,7 +11,7 @@ $module_records = $module_class::getModuleRecords($form_id, $collection);
 $records = $module_records['records'];
 $mode = $mode ?? 'show';
 $no_data = false;
-$body_view = \AndreaMarelli\ModularForms\Helpers\ModuleKey::KeyToView($definitions['module_key'], 'preview');
+$body_view = \AndreaMarelli\ModularForms\Helpers\ModuleKey::KeyToView($definitions['module_key'], 'show');
 
 if($collection->isEmpty()){
     $no_data = true;
@@ -51,7 +51,6 @@ if($collection->isEmpty()){
             {{-- ########################################################### --}}
             {{--    If a custom view does not exists use the standard one    --}}
             {{-- ########################################################### --}}
-{{ dump($body_view) }}
             @if(!view()->exists($body_view))
                 @include('modular-forms::module.show.body', compact(['definitions', 'records']))
             @else
