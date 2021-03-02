@@ -22,7 +22,7 @@ if($definitions['module_type']=="GROUP_TABLE" || $definitions['module_type']=="G
             ])
 
             {{-- input field --}}
-            @include('modular-forms::module.edit.field.auto_vue', [
+            @include('modular-forms::module.edit.field.module-to-vue', [
                 'definitions' => $definitions,
                 'field' => $field,
                 'vue_record_index' => $vue_record_index,

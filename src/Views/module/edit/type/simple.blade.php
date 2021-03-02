@@ -17,7 +17,7 @@ $vue_record_index = $definitions['module_type']==="ACCORDION" || $definitions['m
             ])
 
             {{-- input field --}}
-            @include('modular-forms::module.edit.field.auto_vue', [
+            @include('modular-forms::module.edit.field.module-to-vue', [
                 'definitions' => $definitions,
                 'field' => $field,
                 'vue_record_index' => $vue_record_index
