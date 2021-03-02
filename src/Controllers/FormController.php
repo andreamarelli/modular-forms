@@ -283,7 +283,7 @@ class FormController extends Controller
 
         return response()->json([
             'records' => $records,
-            'view' => view('modular-forms::module.components.preload.data', [
+            'view' => view('modular-forms::module.preload.data', [
                 'definitions' => $module_class::getDefinitions($form_id),
                 'records' => $records
             ])->render()

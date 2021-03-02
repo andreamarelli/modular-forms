@@ -32,7 +32,7 @@
 
     {{-- #### Preload data from previous years #### --}}
     <span v-if="!not_applicable && !not_available">
-        @include('modular-forms::module.components.preload.container', compact('definitions'))
+        @include('modular-forms::module.preload.container', compact('definitions'))
     </span>
 
 </div>

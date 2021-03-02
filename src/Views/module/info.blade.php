@@ -1,6 +1,6 @@
 <?php
 /** @var Mixed $definitions */
-/** @var string $show_as ['plain', 'info'] */
+/** @var string $show_as ['plain', 'modal'] */
 
 ?>
 
