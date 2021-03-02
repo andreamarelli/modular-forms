@@ -33,7 +33,7 @@ if($definitions['module_type']==='GROUP_TABLE'){
             <tr class="module-table-item">
                 @foreach($definitions['fields'] as $f_index=>$field)
                     <td>
-                        @include('admin.components.module.preview.field', [
+                        @include('modular-forms::module.show.field', [
                             'type' => $field['type'],
                             'value' => $record[$field['name']]
                        ])

@@ -10,7 +10,7 @@
 
         <h5 class="green group_title_{{ $definitions['module_key'] }}_{{ $group_key }}">{{ $group_label }}</h5>
 
-        @include('admin.components.module.preview.type.table', [
+        @include('modular-forms::module.show.type.table', [
             'definitions' => $definitions,
             'records' => $records,
             'group_key' => $group_key

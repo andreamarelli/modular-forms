@@ -19,7 +19,7 @@
 
         {{-- input --}}
         <div class="module-row__input">
-            @include('admin.components.module.preview.field', [
+            @include('modular-forms::module.show.field', [
                 'type' => $field['type'],
                 'value' => $records[$field['name']]
            ])

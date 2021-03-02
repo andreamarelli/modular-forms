@@ -24,7 +24,7 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
                 <h4 class="card-title">
                     <span>{{ $index+1 }}</span> -
                     <span>
-                        @include('admin.components.module.preview.field', [
+                        @include('modular-forms::module.show.field', [
                             'type' => $definitions['fields'][0]['type'],
                             'value' => $record[$definitions['fields'][0]['name']],
                             'only_label' => true
@@ -34,7 +34,7 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
             </div>
             <div>
                 <div class="card-body">
-                    @include('admin.components.module.preview.type.simple', [
+                    @include('modular-forms::module.show.type.simple', [
                         'definitions' => $definitions,
                         'records' => $records,
                         'index' => $index

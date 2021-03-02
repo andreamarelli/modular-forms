@@ -53,7 +53,7 @@ if($collection->isEmpty()){
             {{-- ########################################################### --}}
 {{ dump($body_view) }}
             @if(!view()->exists($body_view))
-                @include('admin.components.module.preview.body', compact(['definitions', 'records']))
+                @include('modular-forms::module.show.body', compact(['definitions', 'records']))
             @else
                 @include($body_view, compact(['collection', 'definitions', 'records']))
             @endif
