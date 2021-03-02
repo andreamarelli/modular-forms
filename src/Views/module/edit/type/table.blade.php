@@ -38,7 +38,7 @@ $tr_record = $definitions['module_type']==='GROUP_TABLE'
                 {{--  fields  --}}
                 @foreach($definitions['fields'] as $field)
                     <td>
-                        @include('modular-forms::module.edit.field.auto_vue', [
+                        @include('modular-forms::module.edit.field.module-to-vue', [
                             'definitions' => $definitions,
                             'field' => $field,
                             'vue_record_index' => 'index',

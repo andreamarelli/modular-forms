@@ -13,7 +13,10 @@
 
 ?>
 
-@if($type=="hidden")
+@if($type=="preview")
+    <div class="field-preview">{!! $value !!}</div>
+
+@elseif($type=="hidden")
     {!! \AndreaMarelli\ModularForms\Helpers\Input\Input::hidden($id, $value)  !!}
 
 @elseif($type=="text")

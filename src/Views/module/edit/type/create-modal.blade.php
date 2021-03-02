@@ -15,7 +15,7 @@ $data = $data ?? [];
            ])
 
         {{-- input field --}}
-        @include('modular-forms::module.edit.field.field', [
+        @include('modular-forms::module.edit.field.plain', [
             'type' => $field['type'],
             'id' => $field['name'],
             'value' => $data[$field['name']] ?? ''
