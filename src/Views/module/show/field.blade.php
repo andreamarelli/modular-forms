@@ -6,7 +6,6 @@
 
 $only_label = $only_label ?? false ;
 $is_custom = $is_custom ?? false ;
-$list = null;
 
 if($value!==null && $value!=='' && $is_custom===false){
     if(preg_match('/dropdown[\w]*-/', $type)>0){
@@ -22,11 +21,6 @@ if($value!==null && $value!=='' && $is_custom===false){
         $value = number_format($value, 0, ',', ' ');
     }
 }
-if(substr_count($type, 'checkbox-')>0 ||
-    substr_count($type, "toggle-")>0){
-    $list = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type);
-}
-
 
 ?>
 @if($type=="hidden")
@@ -50,7 +44,7 @@ if(substr_count($type, 'checkbox-')>0 ||
         <label></label>
     </span>
 @elseif(substr_count($type, 'checkbox-')>0)
-    @foreach($list as $item)
+    @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $item)
         <input type="checkbox" disabled="disabled"
             {{ in_array($item, $value) ? 'checked="checked"' : '' }}
         /> {{ $item }}<br />
@@ -59,7 +53,7 @@ if(substr_count($type, 'checkbox-')>0 ||
 @elseif(substr_count($type, 'toggle-')>0)
     <span class="toggle">
         <span class="btn-group btn-group-sm">
-             @foreach($list as $k=>$v)
+             @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $k=>$v)
                  @if((string) $v !== '')
                     <button type="button" value="true" class="btn
                         {{(string) $k === (string)$value ? 'act-btn-active' : 'act-btn-lighter act-btn-basic' }}"
