@@ -12,6 +12,6 @@
         {!! ucfirst($definitions['module_title']) !!}
     </div>
     <div class="module-info">
-        @include('modular-forms::module.info', ['definitions' => $definitions, 'show_as' => 'modal'])
+        @include('modular-forms::module.info.modal', ['definitions' => $definitions])
     </div>
 </div>

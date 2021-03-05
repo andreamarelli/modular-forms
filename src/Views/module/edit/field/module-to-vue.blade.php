@@ -2,8 +2,8 @@
 /** @var Mixed $definitions  */
 /** @var Mixed $field  */
 /** @var String $vue_record_index  */
-/** @var String $vue_directives  */
-/** @var String $group_key (optional - only used with GROUP_ACCORDION or GROUP_TABLE) */
+/** @var String $vue_directives  [optional]  */
+/** @var String $group_key  [optional] only used with GROUP_ACCORDION or GROUP_TABLE */
 
 $class =  $field['class'] ?? '';
 $rules =  $field['rules'] ?? '';

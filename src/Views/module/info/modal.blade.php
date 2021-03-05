@@ -1,26 +1,11 @@
 <?php
 /** @var Mixed $definitions */
-/** @var string $show_as ['plain', 'modal'] */
 
 ?>
 
 @if($definitions['module_info']!==null)
 
-    {{-- #### Plain: div below module title bar #### --}}
-    @if($show_as==='plain' && $definitions['module_info_type']==='plain')
-
-        <div class="module-bar info-bar">
-            <div class="icon">
-                {!! \AndreaMarelli\ModularForms\Helpers\Template::icon('info-circle', '', '1.4em') !!}
-            </div>
-            <div class="message">
-                {!! $definitions['module_info'] !!}
-            </div>
-        </div>
-
-
-    {{-- #### Modal: anchor icon in right side of title bar #### --}}
-    @elseif($show_as==='modal' && $definitions['module_info_type']==='modal')
+    @if($definitions['module_info_type']==='modal')
 
         {{-- modal anchor --}}
         <span data-toggle="modal" data-target="#info_popup_{{ $definitions['module_key'] }}"
