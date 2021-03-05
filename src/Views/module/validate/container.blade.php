@@ -27,7 +27,7 @@ $only_show = $only_show ?? false;
     @include('modular-forms::module.title', compact('definitions'))
 
     {{-- info --}}
-    @include('modular-forms::module.info.plain', ['definitions' => $definitions])
+    @include('modular-forms::module.info', ['definitions' => $definitions])
 
     <div class="module-body">
 

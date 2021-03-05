@@ -11,7 +11,4 @@
     <div class="module-title">
         {!! ucfirst($definitions['module_title']) !!}
     </div>
-    <div class="module-info">
-        @include('modular-forms::module.info.modal', ['definitions' => $definitions])
-    </div>
 </div>

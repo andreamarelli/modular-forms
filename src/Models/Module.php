@@ -27,7 +27,6 @@ class Module extends BaseModel
     public $module_groups = [];
     public static $group_key_field = 'group_key';
     public $module_info = null;
-    public $module_info_type = 'modal'; // modal or plain
     public $label_width = 3;
     public static $foreign_key = null;
     protected $fixed_rows = false;
@@ -190,7 +189,6 @@ class Module extends BaseModel
             'module_title' => $model->module_title,
             'module_code' => $model->module_code,
             'module_info' => $model->module_info,
-            'module_info_type' => $model->module_info_type,
             'module_class' => PhpClass::ClassWithoutNamespace(get_called_class()),
             'fields' => $model->module_fields,
             'common_fields' => $model->module_common_fields,
