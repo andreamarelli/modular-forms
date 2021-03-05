@@ -5,7 +5,7 @@
     /** @var String $class [optional] */
     /** @var String $rules [optional] */
     /** @var String $other [optional] */
-    /** @var String $module_key */
+    /** @var String $module_key [optional] */
 
     // Ensure at least empty strings
     $id = $id ?? '';
@@ -34,7 +34,7 @@
         'other' => $other,
         'rules' => $rules,
         'type' => $type,
-        'module_key' => $definitions['module_key']
+        'module_key' => $module_key
     ])
 
 {{--  ###### disabled ######  --}}

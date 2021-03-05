@@ -10,7 +10,7 @@
 /** @var String $class [optional] */
 /** @var String $rules [optional] */
 /** @var String $other [optional] */
-/** @var String $module_key */
+/** @var String $module_key [optional] */
 
 ?>
 
@@ -22,5 +22,5 @@
         'class' => $class ?? null,
         'rules' => $rules ?? null,
         'other' => $other ?? null,
-        'module_key' => $module_key
+        'module_key' => $module_key ?? null
     ])
