@@ -91,14 +91,8 @@
         $cached_list = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::CacheListInSession($list_type);
     ?>
 
-    {{-- ## empty list ## --}}
-    @if(empty($cached_list)
-        && $type!=='checkbox-boolean'
-        && $type!=='checkbox-boolean_numeric')
-        <b class="text-danger">List "{{ $list_type }}" is missing. Not been implemented yet.</b>
-
     {{-- ## dropdowns ## --}}
-    @elseif(substr_count($type, "dropdown-")>0)
+    @if(substr_count($type, "dropdown-")>0)
         <dropdown
             data-values='@json($cached_list)'
             {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}

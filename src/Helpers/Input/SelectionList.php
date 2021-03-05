@@ -59,7 +59,9 @@ class SelectionList
         }
 
         // Raise Exception if list not found
-        if(empty($list)){
+        if(empty($list)
+            && $type!=='checkbox-boolean'
+            && $type!=='checkbox-boolean_numeric'){
             throw new Exception('List "'.$type.'" not found.');
         }
 
