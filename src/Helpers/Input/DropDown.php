@@ -20,7 +20,7 @@ class DropDown
     public static function simple($id, $value, $list = '', $tagAttributes = ''): string
     {
         $value         = rtrim($value);
-        $tagAttributes = DOM::addStyleClassToTag($tagAttributes, 'field-edit');
+        $tagAttributes = DOM::addClass($tagAttributes, 'field-edit');
 
         $list = $list === '' ? $id : $list;
         $list = is_string($list) ? SelectionList::getList($list) : $list;

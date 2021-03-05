@@ -5,10 +5,7 @@
     /** @var String $class [optional] */
     /** @var bool  $disableJs [optional] */
 
-    // Ensure at least empty strings
     $class = $class ?? '';
-
-    // Set other attributes
     $class .= ' field-edit';
 
 ?>

@@ -7,20 +7,10 @@
     /** @var String $other [optional] */
     /** @var String $module_key [optional] */
 
-    // Ensure at least empty strings
-    $id = $id ?? '';
-    $class = $class ?? '';
-    $rules = $rules ?? '';
-    $other = $other ?? '';
-
-    // Set Vue attributes
-    $v_bind_id = $id!=='' ? 'v-bind:id="'.$id.'"' : '';
-    $v_model = 'v-model="'.$v_value.'"';
-    $vue_attributes = $v_model . ' ' .$v_bind_id;
-
-    // Set other attributes
-    $class .= ' field-edit';
-    $rules = $rules!=='' ? 'data-rules="'.$rules.'"' : '';
+    $vue_attributes = \AndreaMarelli\ModularForms\Helpers\DOM::vueAttributes($id, $v_value);
+    $class_attribute = \AndreaMarelli\ModularForms\Helpers\DOM::addClass($class, 'field-edit');
+    $rules_attribute = \AndreaMarelli\ModularForms\Helpers\DOM::rulesAttribute($rules);
+    $other_attributes = $other ?? '';
 
 ?>
 
@@ -39,45 +29,49 @@
 
 {{--  ###### disabled ######  --}}
 @elseif($type=="disabled")
-    <input type="text" disabled="disabled" {!! $vue_attributes !!} class="{!! $class !!}" {!! $other !!} />
+    <input type="text" disabled="disabled" {!! $vue_attributes !!} {!! $class_attribute !!} {!! $other_attributes !!} />
 
 
 {{--  ###### hidden ######  --}}
 @elseif($type=="hidden")
-    <input type="hidden" {!! $vue_attributes !!} {!! $other !!} />
+    <input type="hidden" {!! $vue_attributes !!} {!! $other_attributes !!} />
 
 
 {{--  ###### textual simple inputs ######  --}}
 @elseif($type=="text")
-    <simple-text {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-text>
+    <simple-text {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-text>
 @elseif($type=="text-area")
-    <simple-textarea {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-textarea>
+    <simple-textarea {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-textarea>
 @elseif($type=="url")
-    <simple-url {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-url>
+    <simple-url {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-url>
 @elseif($type=="email")
-    <simple-email {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-email>
+    <simple-email {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-email>
 @elseif($type=="password")
-    <simple-password {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-password>
+    <simple-password {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-password>
 @elseif($type=="date")
-    <simple-date {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-date>
+    <simple-date {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 
 
 {{--  ###### numeric inputs ######  --}}
-@elseif($type=="integer" || $type=='numeric' || $type=='float' || $type=='currency' || $type=='code')
-    <simple-numeric numeric-type="{!! $type !!}" {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-numeric>
+@elseif($type=="integer"
+    || $type=='numeric'
+    || $type=='float'
+    || $type=='currency'
+    || $type=='code')
+    <simple-numeric numeric-type="{!! $type !!}" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-numeric>
 
 
 {{--  ###### date ######  --}}
 @elseif($type==="date")
-    <simple-date {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-date>
+    <simple-date {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 @elseif($type==="year")
-    <simple-date date-type="year" {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-date>
+    <simple-date date-type="year" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 @elseif($type==="dateMaxToday")
-    <simple-date end-date="{{ date("Y-M-d") }}" {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-date>
+    <simple-date end-date="{{ date("Y-M-d") }}" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 @elseif($type==="yearMaxCurrent")
-    <simple-date date-type="year" end-date="{{ date("Y") }}-01-01" {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-date>
+    <simple-date date-type="year" end-date="{{ date("Y") }}-01-01" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 @elseif($type==="yearMaxPrev")
-    <simple-date date-type="year" end-date="{{ date("Y")-1 }}-01-01" {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-date>
+    <simple-date date-type="year" end-date="{{ date("Y")-1 }}-01-01" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 
 
 {{--  #######  LISTS #######  --}}
@@ -95,25 +89,25 @@
     @if(substr_count($type, "dropdown-")>0)
         <dropdown
             data-values='@json($cached_list)'
-            {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}
+            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
     @elseif(substr_count($type, "suggestion-")>0)
         <dropdown
             data-values='@json($cached_list)'
             :taggable=true
-            {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}
+            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
     @elseif(substr_count($type, "dropdown_multiple-")>0)
         <dropdown
             :multiple="true"
             data-values='@json($cached_list)'
-            {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}
+            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
     @elseif(substr_count($type, "dropdown_entity-")>0)
         <dropdown-entity
             data-values='@json($cached_list)'
             entity-key="{!! Str::lower($list_type) !!}"
-            {!! $vue_attributes !!} class="{!! $class !!}" {!! $rules !!} {!! $other !!}
+            {!! $vue_attributes !!} {!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         >
             @include('admin.'.strtolower($list_type).'.'.'create-modal')
         </dropdown-entity>
@@ -122,19 +116,19 @@
     @elseif(substr_count($type, "toggle-")>0)
         <toggle
             data-values='@json($cached_list)'
-            {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}
+            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></toggle>
 
     {{-- ## checkbox ## --}}
     @elseif(substr_count($type, "checkbox-")>0)
         @if($type=="checkbox-boolean")
             <checkbox-boolean
-                    {!! $vue_attributes !!} data-class="{!! $class !!}" {!! $rules !!} {!! $other !!}
+                    {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
             ></checkbox-boolean>
         @elseif($type=="checkbox-boolean_numeric")
             <checkbox-boolean
                     :data-numeric=true
-                    {!! $vue_attributes !!} data-class="{!! $class !!}" {!! $rules !!} {!! $other !!}
+                    {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
             ></checkbox-boolean>
         @else
             @foreach($cached_list as $checkbox_value => $checkbox_label)
@@ -143,7 +137,7 @@
                     {!! $v_model !!}
                     :id="index+'_{{ AndreaMarelli\ModularForms\Helpers\Type\Chars::clean($checkbox_value) }}'"
                     value="{{ $checkbox_value }}"
-                    {!! $other !!}
+                    {!! $other_attributes !!}
                 /><span class="checkbox_label">{{ $checkbox_label }}</span><br />
             @endforeach
         @endif
@@ -154,14 +148,14 @@
 @elseif(substr_count($type, "rating-")>0)
 <rating
         rating-type="{{ str_replace('rating-', '', $type) }}"
-        {!! $vue_attributes !!} data-class="{!! $class !!}" {!! $rules !!} {!! $other !!}
+        {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
 ></rating>
 
 
 {{--  ###### file upload ######  --}}
 @elseif($type=="upload")
 <upload
-        {!! $vue_attributes !!} data-class="{!! $class !!}" {!! $rules !!} {!! $other !!}
+        {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
 ></upload>
 
 

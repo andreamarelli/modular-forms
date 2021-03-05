@@ -14,7 +14,7 @@ class DropDownVue
         }
 
         $value         = rtrim($value);
-        $tagAttributes = DOM::addStyleClassToTag($tagAttributes, 'field-edit');
+        $tagAttributes = DOM::addClass($tagAttributes, 'field-edit');
         $tagAttributes .= ' v-model="selectedValue" id="' . $id . '" name="' . $id . '" ';
 
         return [$id, $value, $list, $tagAttributes];
