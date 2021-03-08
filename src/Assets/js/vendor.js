@@ -1,1 +1,1 @@
-// todo
+window._ = require('lodash');

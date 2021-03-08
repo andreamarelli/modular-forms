@@ -2,7 +2,7 @@ window.ModularForms = {}
 
 // Loading mixins
 window.ModularForms.Mixins = {
-    'animation': require('./mixins/animation.js').default,
+    'Animation': require('./mixins/animation.js').default,
     'Input': require('./mixins/input.js').default,
     'Locale': require('./mixins/locale.js').default
 };
