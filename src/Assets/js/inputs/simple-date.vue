@@ -12,8 +12,6 @@
 
 <style lang="scss" type="text/scss" scoped>
 
-    @import "../../sass/abstracts/all";
-
     .simple-date input{
         width: 100px;
         max-width: 100px;
