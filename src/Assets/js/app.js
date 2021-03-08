@@ -18,3 +18,9 @@ window.ModularForms.MixinsVue = {
 // Load components
 require('./module/controller.js');  // window.ModuleController
 require('./table/sortable.js');     // window.ModularForms.SortableTable
+
+// Load INPUT components (old - to be reviewed/deleted)
+Vue.component('currency-unit', require('./inputs/old/currency-unit.vue').default);
+Vue.component('dropdown-simple', require('./inputs/old/dropdown-simple.vue').default);
+Vue.component('dropdown-entity', require('./inputs/old/dropdown-entity.vue').default);
+Vue.component('dropdown-related', require('./inputs/old/dropdown-related.vue').default);

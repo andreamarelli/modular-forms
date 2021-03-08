@@ -2,6 +2,7 @@
   "name": "modular-forms",
   "version": "1.0.0",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "vue": "^2.6.12"
   }
 }
