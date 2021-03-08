@@ -1,15 +1,16 @@
-
-// Load other js files
-require('./module/controller.js');
-
+window.ModularForms = {}
 
 // Loading mixins
-import filter from './mixins-vue/filter.mixin';
-import sorter from './mixins-vue/sorter.mixin';
-import paginate from './mixins-vue/paginate.mixin';
-window.Mixins = {};
-window.MixinsVue = {
-    'filter' : filter,
-    'sorter' : sorter,
-    'paginate' : paginate,
+window.ModularForms.Mixins = {};
+window.ModularForms.MixinsVue = {
+    'dropdown' : require('./mixins-vue/dropdown.mixin').default,
+    'filter' : require('./mixins-vue/filter.mixin').default,
+    'paginate' : require('./mixins-vue/paginate.mixin').default,
+    'sorter' : require('./mixins-vue/sorter.mixin').default,
+    'tooltip' : require('./mixins-vue/tooltip.mixin').default,
+    'values' : require('./mixins-vue/values.mixin').default
 };
+
+// Load components
+require('./module/controller.js');  // window.ModuleController
+require('./table/sortable.js');     // window.ModularForms.SortableTable
