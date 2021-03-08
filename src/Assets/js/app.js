@@ -46,6 +46,7 @@ Vue.component('toggle', require('./inputs/toggle.vue').default);
 Vue.component('rating', require('./inputs/rating.vue').default);
 Vue.component('upload', require('./inputs/upload.vue').default);
 window.ModularForms.Input = {};
+window.ModularForms.Input.components = {};
 window.ModularForms.Input.components.modalSelector = require('./inputs/components/modal-selector.vue').default
 
 // Load INPUT components (old - to be reviewed/deleted)

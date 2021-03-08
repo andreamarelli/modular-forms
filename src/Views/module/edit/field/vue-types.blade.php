@@ -1,21 +1,21 @@
 <?php
-    /** @var String $type */
-    /** @var String $v_value */
-    /** @var String $id [optional] */
-    /** @var String $class [optional] */
-    /** @var String $rules [optional] */
-    /** @var String $other [optional] */
-    /** @var String $module_key [optional] */
+/** @var String $type */
+/** @var String $v_value */
+/** @var String $id [optional] */
+/** @var String $class [optional] */
+/** @var String $rules [optional] */
+/** @var String $other [optional] */
+/** @var String $module_key [optional] */
 
-    $id = $id ?? '';
-    $class = $class ?? '';
-    $rules = $rules ?? '';
-    $other = $other ?? '';
+$id = $id ?? '';
+$class = $class ?? '';
+$rules = $rules ?? '';
+$other = $other ?? '';
 
-    $vue_attributes = \AndreaMarelli\ModularForms\Helpers\DOM::vueAttributes($id, $v_value);
-    $class_attribute = \AndreaMarelli\ModularForms\Helpers\DOM::addClass($class, 'field-edit');
-    $rules_attribute = \AndreaMarelli\ModularForms\Helpers\DOM::rulesAttribute($rules);
-    $other_attributes = $other ?? '';
+$vue_attributes = \AndreaMarelli\ModularForms\Helpers\DOM::vueAttributes($id, $v_value);
+$class_attribute = \AndreaMarelli\ModularForms\Helpers\DOM::addClass($class, 'field-edit');
+$rules_attribute = \AndreaMarelli\ModularForms\Helpers\DOM::rulesAttribute($rules);
+$other_attributes = $other ?? '';
 
 ?>
 
@@ -23,8 +23,8 @@
 {{--  ######  Use given blade template  ###### --}}
 @if(substr_count($type, "blade-")>0)
     @include(explode('-', $type)[1], [
-        'v_model' => $v_model,
-        'v_bind_id' => $v_bind_id,
+        'v_id' => $id,
+        'v_value' => $v_value,
         'class' => $class,
         'other' => $other,
         'rules' => $rules,
@@ -32,17 +32,17 @@
         'module_key' => $module_key
     ])
 
-{{--  ###### disabled ######  --}}
+    {{--  ###### disabled ######  --}}
 @elseif($type=="disabled")
     <input type="text" disabled="disabled" {!! $vue_attributes !!} {!! $class_attribute !!} {!! $other_attributes !!} />
 
 
-{{--  ###### hidden ######  --}}
+    {{--  ###### hidden ######  --}}
 @elseif($type=="hidden")
     <input type="hidden" {!! $vue_attributes !!} {!! $other_attributes !!} />
 
 
-{{--  ###### textual simple inputs ######  --}}
+    {{--  ###### textual simple inputs ######  --}}
 @elseif($type=="text")
     <simple-text {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-text>
 @elseif($type=="text-area")
@@ -57,7 +57,7 @@
     <simple-date {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 
 
-{{--  ###### numeric inputs ######  --}}
+    {{--  ###### numeric inputs ######  --}}
 @elseif($type=="integer"
     || $type=='numeric'
     || $type=='float'
@@ -66,7 +66,7 @@
     <simple-numeric numeric-type="{!! $type !!}" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-numeric>
 
 
-{{--  ###### date ######  --}}
+    {{--  ###### date ######  --}}
 @elseif($type==="date")
     <simple-date {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 @elseif($type==="year")
@@ -79,52 +79,52 @@
     <simple-date date-type="year" end-date="{{ date("Y")-1 }}-01-01" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 
 
-{{--  #######  LISTS #######  --}}
+    {{--  #######  LISTS #######  --}}
 @elseif(substr_count($type, "dropdown")>0
     || substr_count($type, "suggestion")>0
     || substr_count($type, "toggle")>0
     || substr_count($type, "checkbox")>0)
 
     <?php
-        $list_type = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getListType($type);
-        $cached_list = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::CacheListInSession($list_type);
+    $list_type = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getListType($type);
+    $cached_list = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::CacheListInSession($list_type);
     ?>
 
     {{-- ## dropdowns ## --}}
     @if(substr_count($type, "dropdown-")>0)
         <dropdown
-            data-values='@json($cached_list)'
-            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+                data-values='@json($cached_list)'
+                {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
     @elseif(substr_count($type, "suggestion-")>0)
         <dropdown
-            data-values='@json($cached_list)'
-            :taggable=true
-            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+                data-values='@json($cached_list)'
+                :taggable=true
+                {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
     @elseif(substr_count($type, "dropdown_multiple-")>0)
         <dropdown
-            :multiple="true"
-            data-values='@json($cached_list)'
-            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+                :multiple="true"
+                data-values='@json($cached_list)'
+                {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
     @elseif(substr_count($type, "dropdown_entity-")>0)
         <dropdown-entity
-            data-values='@json($cached_list)'
-            entity-key="{!! Str::lower($list_type) !!}"
-            {!! $vue_attributes !!} {!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+                data-values='@json($cached_list)'
+                entity-key="{!! Str::lower($list_type) !!}"
+                {!! $vue_attributes !!} {!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         >
             @include('admin.'.strtolower($list_type).'.'.'create-modal')
         </dropdown-entity>
 
-    {{-- ## toggle ## --}}
+        {{-- ## toggle ## --}}
     @elseif(substr_count($type, "toggle-")>0)
         <toggle
-            data-values='@json($cached_list)'
-            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+                data-values='@json($cached_list)'
+                {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></toggle>
 
-    {{-- ## checkbox ## --}}
+        {{-- ## checkbox ## --}}
     @elseif(substr_count($type, "checkbox-")>0)
         @if($type=="checkbox-boolean")
             <checkbox-boolean
@@ -138,36 +138,36 @@
         @else
             @foreach($cached_list as $checkbox_value => $checkbox_label)
                 <input
-                    type="checkbox"
-                    {!! $v_model !!}
-                    :id="index+'_{{ AndreaMarelli\ModularForms\Helpers\Type\Chars::clean($checkbox_value) }}'"
-                    value="{{ $checkbox_value }}"
-                    {!! $other_attributes !!}
+                        type="checkbox"
+                        v-model="{{ $v_value }}"
+                        :id="index+'_{{ AndreaMarelli\ModularForms\Helpers\Type\Chars::clean($checkbox_value) }}'"
+                        value="{{ $checkbox_value }}"
+                        {!! $other_attributes !!}
                 /><span class="checkbox_label">{{ $checkbox_label }}</span><br />
             @endforeach
         @endif
     @endif
 
 
-{{--  ###### rating ######  --}}
+    {{--  ###### rating ######  --}}
 @elseif(substr_count($type, "rating-")>0)
-<rating
-        rating-type="{{ str_replace('rating-', '', $type) }}"
-        {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
-></rating>
+    <rating
+            rating-type="{{ str_replace('rating-', '', $type) }}"
+            {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+    ></rating>
 
 
-{{--  ###### file upload ######  --}}
+    {{--  ###### file upload ######  --}}
 @elseif($type=="upload")
-<upload
-        {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
-></upload>
+    <upload
+            {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+    ></upload>
 
 
-{{--  ###### text editor ######  --}}
+    {{--  ###### text editor ######  --}}
 @elseif($type=="text-editor")
-<editor v-model="{{ $v_value }}" v-on:update="{{ $v_value }} = $event"></editor>
+    <editor v-model="{{ $v_value }}" v-on:update="{{ $v_value }} = $event"></editor>
 
 @else
-<b class="text-danger">Type "{{ $type }}" has not been implemented yet.</b>
+    <b class="text-danger">Type "{{ $type }}" has not been implemented yet.</b>
 @endif
