@@ -2,7 +2,11 @@
   "name": "modular-forms",
   "version": "1.0.0",
   "dependencies": {
+    "autonumeric": "^4.6.0",
+    "axios": "^0.21.1",
+    "jquery": "^3.6.0",
     "lodash": "^4.17.21",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-select": "^3.11.2"
   }
 }

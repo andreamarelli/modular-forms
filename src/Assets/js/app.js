@@ -20,12 +20,15 @@ require('./module/controller.js');  // window.ModuleController
 require('./table/sortable.js');     // window.ModularForms.SortableTable
 
 // Load TEMPLATES components
+window.ModularForms.Template = {};
+window.ModularForms.Template.flag = require('./templates/flag.vue').default;
+window.ModularForms.Template.redlist_category = require('./templates/redlist_category.vue').default;
 Vue.component('date', require('./templates/date.vue').default);
-Vue.component('flag', require('./templates/flag.vue').default);
+Vue.component('flag', window.ModularForms.Template.flag);
 Vue.component('gauge', require('./templates/gauge.vue').default);
 Vue.component('last_update', require('./templates/last_update.vue').default);
 Vue.component('progress_bar', require('./templates/progress_bar.vue').default);
-Vue.component('redlist_category', require('./templates/redlist_category.vue').default);
+Vue.component('redlist_category', window.ModularForms.Template.redlist_category);
 Vue.component('redlist_link', require('./templates/redlist_link.vue').default);
 Vue.component('user', require('./templates/user.vue').default);
 
@@ -42,6 +45,8 @@ Vue.component('simple-url', require('./inputs/simple-url.vue').default);
 Vue.component('toggle', require('./inputs/toggle.vue').default);
 Vue.component('rating', require('./inputs/rating.vue').default);
 Vue.component('upload', require('./inputs/upload.vue').default);
+window.ModularForms.Input = {};
+window.ModularForms.Input.components.modalSelector = require('./inputs/components/modal-selector.vue').default
 
 // Load INPUT components (old - to be reviewed/deleted)
 Vue.component('currency-unit', require('./inputs-old/currency-unit.vue').default);
