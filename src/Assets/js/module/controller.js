@@ -1,18 +1,26 @@
+import actions from './mixins/actions.mixin'
+import calc from './mixins/transitions.mixin'
 import preload from './mixins/preload.mixin'
+import transitions from './mixins/transitions.mixin'
 
 window.ModuleController = Vue.extend({
 
     mixins: [
-        preload
+        actions,
+        calc,
+        preload,
+        transitions
     ],
 
     store: window.vueStore,
+
     props: [
         'status',
         'error_messages',
         'records_backup',
         'container'
     ],
+
     data: function () {
         return {
             module_key: null,
@@ -27,9 +35,7 @@ window.ModuleController = Vue.extend({
             last_update: null,
             action: null,
             form_id: null,
-            not_applicable: null,
             visible: null,
-            not_available: null,
             warning_on_save: null
         }
     },
@@ -328,28 +334,6 @@ window.ModuleController = Vue.extend({
         },
 
         /**
-         * Parse input field ID: retrieve group_key (where available), row_index and field_name
-         * @param id
-         * @returns {*}
-         * @private
-         */
-        __split_id: function (id) {
-            let _this = this;
-            let regex_indexed = id
-                .replace('upload-modal_', '')
-                .replace(_this.module_key + '_', '')
-                .match(/(.*)_*(\d+)_(.*)/);
-
-            let indexes = {};
-            if (regex_indexed[1] !== '') {
-                indexes.group_key = regex_indexed[1].replace(/_$/, '');
-            }
-            indexes.row_index = regex_indexed[2];
-            indexes.field_name = regex_indexed[3];
-            return indexes;
-        },
-
-        /**
          * Re-organize records for groups (from array to set of arrays organized by group)
          * Applied only for GROUP_ACCORDION and GROUP_TABLE
          * @private
@@ -461,104 +445,6 @@ window.ModuleController = Vue.extend({
                     _this.records[group_key][0] = _this.__no_reactive_copy($empty_record);
                 }
             }
-        },
-
-        /**
-         * Manage bar show/hide transitions
-         */
-        beforeShowBar: function (el) {
-            $(el).css("display", 'none');
-        },
-        showBar: function (el, done) {
-            $(el).slideDown(400, function () {
-                $(this).css("display", 'block');
-                done();
-            });
-        },
-        hideBar: function (el, done) {
-            $(el).slideUp(400, function () {
-                $(this).css("display", 'none');
-                done();
-            });
-        },
-
-        calculateAverage: function (field, group = null) {
-            let sum = 0;
-            let count = 0;
-
-            let values = group === null ? this.records : this.records[group];
-            values.forEach(function (item) {
-                if (item[field] !== null && item[field] !== -99 && item[field] !== '-99') {
-                    sum += parseInt(item[field]);
-                    count++;
-                }
-            });
-            return count > 0 ? (sum / count).toFixed(2) : 0; // simple average
-        },
-
-        sumColumn: function (field, group = null) {
-            let sum = 0;
-            let values = group === null ? this.records : this.records[group];
-            values.forEach(function (item) {
-                if (item[field] !== null && item[field] !== "") {
-                    sum += parseInt(item[field]);
-                }
-            });
-            sum = sum === 0 ? null : sum; // do not show 0
-            return sum;
-        },
-
-        sumColumnFloat: function (field, group = null) {
-            let sum = 0;
-            let tmp = null;
-            let pos = null;
-            let values = group === null ? this.records : this.records[group];
-            values.forEach(function (item) {
-                if (item[field] !== null && item[field] !== "") {
-                    tmp = item[field];
-                    pos = item[field].toString().indexOf(",");
-                    if (pos !== -1) {
-                        tmp = tmp.replace(",", ".");
-                    }
-                    sum += parseFloat(tmp);
-                }
-            });
-
-            sum = sum === 0 ? null : sum; // do not show 0
-
-            if (sum !== null) {
-                if (!Number.isInteger(sum)) {
-                    sum = sum.toFixed(2);
-                }
-            }
-
-            return sum;
-        },
-
-        __init_applicable: function(){
-            if(this.enable_not_applicable===true
-                && 'not_applicable' in this.records[0]
-            ){
-                this.not_applicable = this.records[0]['not_applicable']===true;
-                this.not_available = this.records[0]['not_available']===true;
-            }
-        },
-
-        toggleNotApplicable: function () {
-            let _this = this;
-            _this.not_applicable = !_this.not_applicable;
-            _this.not_available = false;
-            _this.records = [];
-            _this.records.push(_this.__no_reactive_copy(_this.empty_record));
-            _this.records[0]['not_applicable'] = _this.not_applicable === true ? true : null;
-        },
-
-        toggleNotAvailable: function () {
-            let _this = this;
-            _this.not_available = !_this.not_available;
-            _this.records = [];
-            _this.records.push(_this.__no_reactive_copy(_this.empty_record));
-            _this.records[0]['not_available'] = _this.not_available === true ? true : null;
         }
 
     }
