@@ -1,9 +1,9 @@
 window.ModularForms.SortableTable = Vue.extend({
 
     mixins: [
-        window.MixinsVue.filter,
-        window.MixinsVue.sorter,
-        window.MixinsVue.paginate
+        window.ModularForms.MixinsVue.filter,
+        window.ModularForms.MixinsVue.sorter,
+        window.ModularForms.MixinsVue.paginate
     ] ,
 
     data: function () {

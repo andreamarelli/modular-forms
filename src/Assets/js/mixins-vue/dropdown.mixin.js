@@ -14,7 +14,7 @@ export default {
         },
         placeholder: {
             type: String,
-            default: Locale.getLabel('common.select_item') + '...'
+            default: window.ModularForms.Mixins.Locale.getLabel('common.select_item') + '...'
         },
         suggestion: {
             type: Boolean,

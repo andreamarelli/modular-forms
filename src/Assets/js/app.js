@@ -1,14 +1,18 @@
 window.ModularForms = {}
 
 // Loading mixins
-window.ModularForms.Mixins = {};
+window.ModularForms.Mixins = {
+    'animation': require('./mixins/animation.js').default,
+    'Input': require('./mixins/input.js').default,
+    'Locale': require('./mixins/locale.js').default
+};
 window.ModularForms.MixinsVue = {
-    'dropdown' : require('./mixins-vue/dropdown.mixin').default,
-    'filter' : require('./mixins-vue/filter.mixin').default,
-    'paginate' : require('./mixins-vue/paginate.mixin').default,
-    'sorter' : require('./mixins-vue/sorter.mixin').default,
-    'tooltip' : require('./mixins-vue/tooltip.mixin').default,
-    'values' : require('./mixins-vue/values.mixin').default
+    'dropdown': require('./mixins-vue/dropdown.mixin').default,
+    'filter': require('./mixins-vue/filter.mixin').default,
+    'paginate': require('./mixins-vue/paginate.mixin').default,
+    'sorter': require('./mixins-vue/sorter.mixin').default,
+    'tooltip': require('./mixins-vue/tooltip.mixin').default,
+    'values': require('./mixins-vue/values.mixin').default
 };
 
 // Load components
