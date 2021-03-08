@@ -13,7 +13,7 @@
 
 <style lang="scss" type="text/scss" scoped>
 
-    @import "../../../../sass/abstracts/all";
+    @import "../../sass/abstracts/all";
 
     .gauge{
         width: 45px;

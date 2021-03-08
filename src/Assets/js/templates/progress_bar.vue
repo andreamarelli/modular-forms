@@ -10,7 +10,7 @@
 
 <style lang="scss" type="text/scss" scoped>
 
-    @import "../../../../sass/abstracts/all";
+    @import "../.././sass/abstracts/all";
     .progress{
         margin-bottom: 0;
         border-radius: 2px;
