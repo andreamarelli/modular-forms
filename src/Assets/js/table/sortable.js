@@ -1,4 +1,4 @@
-window.ModularForms.SortableTable = Vue.extend({
+window.ModularForms.SortableTable = window.Vue.extend({
 
     mixins: [
         window.ModularForms.MixinsVue.filter,

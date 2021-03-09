@@ -3,7 +3,7 @@ import calc from './mixins/calc.mixin'
 import preload from './mixins/preload.mixin'
 import transitions from './mixins/transitions.mixin'
 
-window.ModuleController = Vue.extend({
+window.ModularForms.ModuleController = window.Vue.extend({
 
     mixins: [
         actions,
@@ -12,7 +12,7 @@ window.ModuleController = Vue.extend({
         transitions
     ],
 
-    store: window.vueStore,
+    store: window.ModularForms.vueStore,
 
     props: [
         'status',
