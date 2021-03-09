@@ -17,6 +17,9 @@ window.ModularForms.MixinsVue = {
 
 window.Locale = window.ModularForms.Mixins.Locale; // Alias
 
+// Load Vuex Store
+require('./store/store.js'); // window.ModularForms.vueStore
+
 // Load components
 require('./module/controller.js');  // window.ModularForms.ModuleController
 require('./table/sortable.js');     // window.ModularForms.SortableTable
