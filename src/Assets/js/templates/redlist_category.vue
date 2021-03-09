@@ -1,7 +1,9 @@
 <template>
 
     <div>
-        <span :class="[compact ? 'compact' : '', 'red-list_'+category]" data-toggle="tooltip" data-placement="top" :title=category_plain>
+        <span :class="[compact ? 'compact' : '', 'red-list_'+category]"
+              data-toggle="tooltip" data-placement="top"
+              :title=category_plain>
             {{ category }}
         </span>
     </div>

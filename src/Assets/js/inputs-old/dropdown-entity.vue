@@ -51,15 +51,21 @@
         props: {
             modalTitle: {
                 type: String,
-                default: ''
+                default: () => {
+                    return Locale.getLabel('common.add_entity');
+                }
             },
             createButtonLabel: {
                 type: String,
-                default: ''
+                default: () => {
+                    return Locale.getLabel('common.create');
+                }
             },
             errorMessage: {
                 type: String,
-                default: ''
+                default: () => {
+                    return Locale.getLabel('common.saved_error');
+                }
             },
             entityKey: {
                 type: String,
@@ -88,9 +94,6 @@
         },
 
         mounted() {
-            this.modalTitle = this.Locale.getLabel('common.add_entity');
-            this.createButtonLabel = this.Locale.getLabel('common.create');
-            this.errorMessage = this.Locale.getLabel('common.saved_error');
             this.dropdown.parent().removeClass('field-edit');     // remove unnecessary class
             this.toggleModal()
         },

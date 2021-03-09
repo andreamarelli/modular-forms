@@ -22,7 +22,9 @@
             },
             placeholder: {
                 type: String,
-                default: ''
+                default: () => {
+                    return Locale.getLabel('common.select_item') + '...'
+                }
             },
             dataValues: String,
         },
@@ -55,7 +57,6 @@
             this.defaultValue = this.selectedValue;
         },
         mounted (){
-            this.placeholder = this.Locale.getLabel('common.select_item') + '...';
             let $component = $('#' + this.id);
             let  $options = {
                 placeholder: this.placeholder,

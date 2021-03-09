@@ -81,7 +81,9 @@
             },
             modalTitle:  {
                 type: String,
-                default: function(){ return Locale.getLabel('common.select_item'); }
+                default: () => {
+                    return Locale.getLabel('common.select_item');
+                }
             },
             anchorLabel:  {
                 type: String,

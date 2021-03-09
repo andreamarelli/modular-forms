@@ -14,7 +14,9 @@ export default {
         },
         placeholder: {
             type: String,
-            default: window.Locale.getLabel('common.select_item') + '...'
+            default: () => {
+                return Locale.getLabel('common.select_item') + '...'
+            }
         },
         suggestion: {
             type: Boolean,
