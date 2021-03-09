@@ -120,7 +120,9 @@
         props: {
             uploadFileLabel: {
                 type: String,
-                default: ''
+                default: () => {
+                    return Locale.getLabel('common.upload.upload_file')
+                },
             },
             allowedFormats: {
                 type: Array,
@@ -132,7 +134,7 @@
 
         data () {
             return {
-                Locale: window.ModularForms.Mixins.Locale,
+                Locale: window.Locale,
                 isFileSelected: false,
                 selectedFile: null,
                 selectedFileName: null,
@@ -143,7 +145,6 @@
 
         mounted(){
             this.modalComponent = this.$children[0];
-            this.uploadFileLabel = this.Locale.getLabel('common.upload.upload_file');
         },
 
         methods: {

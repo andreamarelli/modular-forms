@@ -91,7 +91,7 @@
 
         data (){
             return {
-                Locale: window.ModularForms.Mixins.Locale,
+                Locale: window.Locale,
                 modalId: 'modal-selector_' + this.parentId,
                 modalIsOpen: false,
                 errorLabel: null

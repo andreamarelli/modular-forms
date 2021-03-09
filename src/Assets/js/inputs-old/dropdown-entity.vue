@@ -73,7 +73,7 @@
 
         data (){
             return {
-                Locale: window.ModularForms.Mixins.Locale,
+                Locale: window.Locale,
                 vueInstanceReady: false,
                 hasErrors : false,
                 modalIsOpen: false,

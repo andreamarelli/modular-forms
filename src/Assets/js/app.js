@@ -15,6 +15,8 @@ window.ModularForms.MixinsVue = {
     'values': require('./mixins-vue/values.mixin').default
 };
 
+window.Locale = window.ModularForms.Mixins.Locale; // Alias
+
 // Load components
 require('./module/controller.js');  // window.ModuleController
 require('./table/sortable.js');     // window.ModularForms.SortableTable

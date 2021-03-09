@@ -28,7 +28,7 @@
         },
         data (){
             return {
-                Locale: window.ModularForms.Mixins.Locale,
+                Locale: window.Locale,
                 defaultValue: '',
                 selectedValue: '',
                 selectedLabel: '',

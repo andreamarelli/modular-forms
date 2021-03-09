@@ -15,7 +15,7 @@
 
         data: function () {
             return {
-                Locale: window.ModularForms.Mixins.Locale,
+                Locale: window.Locale
             }
         },
 

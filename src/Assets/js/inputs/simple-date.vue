@@ -54,7 +54,7 @@
 
         data(){
             return {
-                Locale: window.ModularForms.Mixins.Locale,
+                Locale: window.Locale,
                 inputValue: this.value,
             }
         },
@@ -72,7 +72,7 @@
             let textComponent = this.$children[0];
 
             let options = {
-                language: Locale.getLocale(),
+                language: window.Locale.getLocale(),
                 clearBtn: true,
                 autoclose: true,
             };
