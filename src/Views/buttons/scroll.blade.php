@@ -16,11 +16,11 @@ foreach($item::modules()[$step] as $module){
 ?>
 
 <div class="scrollButtons">
-    <div onclick="window.Common.scrollPageTo(0)" class="scrollToTop">{!! AndreaMarelli\ModularForms\Helpers\Template::icon('arrow-up') !!}</div>
+    <div onclick="window.ModularForms.Mixins.Animation.scrollPageTo(0)" class="scrollToTop">{!! AndreaMarelli\ModularForms\Helpers\Template::icon('arrow-up') !!}</div>
     @if(count($scrollButtons)>=2)
         @foreach($scrollButtons as $anchor => $label)
-            <div onclick="window.Common.scrollPageToAnchor('{{ $anchor }}')">{{ $label }}</div>
+            <div onclick="window.ModularForms.Mixins.Animation.scrollPageToAnchor('{{ $anchor }}')">{{ $label }}</div>
         @endforeach
     @endif
-    <div onclick="window.Common.scrollPageTo(document.body.scrollHeight)" class="scrollToBottom">{!! AndreaMarelli\ModularForms\Helpers\Template::icon('arrow-down') !!}</div>
+    <div onclick="window.ModularForms.Mixins.Animation.scrollPageTo(document.body.scrollHeight)" class="scrollToBottom">{!! AndreaMarelli\ModularForms\Helpers\Template::icon('arrow-down') !!}</div>
 </div>
