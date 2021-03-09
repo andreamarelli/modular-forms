@@ -20,9 +20,10 @@ require('./module/controller.js');  // window.ModuleController
 require('./table/sortable.js');     // window.ModularForms.SortableTable
 
 // Load TEMPLATES components
-window.ModularForms.Template = {};
-window.ModularForms.Template.flag = require('./templates/flag.vue').default;
-window.ModularForms.Template.redlist_category = require('./templates/redlist_category.vue').default;
+window.ModularForms.Template = {
+    'flag': require('./templates/flag.vue').default,
+    'redlist_category': require('./templates/redlist_category.vue').default,
+};
 Vue.component('date', require('./templates/date.vue').default);
 Vue.component('flag', window.ModularForms.Template.flag);
 Vue.component('gauge', require('./templates/gauge.vue').default);
