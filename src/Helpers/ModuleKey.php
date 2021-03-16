@@ -53,6 +53,9 @@ class ModuleKey
         foreach ($items as $item) {
             $module_class .= '\\' . ucfirst(Str::camel($item));
         }
+
+        PhpClass::ClassExist($module_class);
+
         return $module_class;
     }
 

@@ -76,7 +76,6 @@ class Form extends BaseModel
 
         // update Module
         $module_class = ModuleKey::KeyToClassName($request->input('module_key'));
-        PhpClass::ClassExist($module_class);
         $return = $module_class::updateModule($request);
 
         // update Form
@@ -102,7 +101,6 @@ class Form extends BaseModel
 
         $module_key = $request->input('module_key');
         $module_class = ModuleKey::KeyToClassName($module_key);
-        PhpClass::ClassExist($module_class);
         return $module_class::updateModule($request);
     }
 
@@ -120,7 +118,6 @@ class Form extends BaseModel
         $records = json_decode($request->input('records_json'), true);
         $module_key = $request->input('module_key');
         $module_class = ModuleKey::KeyToClassName($module_key);
-        PhpClass::ClassExist($module_class);
 
         // Validate data
         if(!empty($messages = $module_class::validate($records[0]))){

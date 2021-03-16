@@ -200,4 +200,33 @@ class BaseModel extends Model
         });
     }
 
+    /**
+     * retrieve multiple records array by their id
+     * @param array $ids
+     * @param array $columns
+     * @param string $whereId
+     * @return array
+     */
+    public static function getRecordsArrayByFieldIds(array $ids, array $columns = ['*'], string $whereId = 'id') : array
+    {
+        return static::getRecordsByFieldIds($ids, $columns, $whereId)
+            ->get()
+            ->toArray();
+    }
+
+    /**
+     * retrieve multiple records
+     *
+     * @param array $ids
+     * @param array $columns
+     * @param string $whereId
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function getRecordsByFieldIds(array $ids, array $columns = ['*'], string $whereId = 'id') : \Illuminate\Database\Eloquent\Builder
+    {
+        return static::select($columns)
+            ->distinct()
+            ->whereIn($whereId, $ids);
+    }
+
 }
