@@ -14,7 +14,7 @@ $expanded = $expanded ?? false;
 ?>
 
 <div class="accordion" id="accordion-filters" style="margin-bottom: 40px;">
-    @component('layouts.components.main.accordion', [
+    @component('modular-forms::page.accordion', [
                 'accordion_group_id' => 'accordion-filters',
                 'accordion_id' => 'accordion-filters-1',
                 'accordion_title' => mb_strtoupper(trans('common.filters')),
