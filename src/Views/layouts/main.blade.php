@@ -13,7 +13,7 @@ $two_cols = $two_cols ?? false;
 @section('body')
 
     <header>
-        @include('modular-forms::components.header')
+        @include('modular-forms::layouts.components.header')
     </header>
 
     @if($full_width)
@@ -48,7 +48,7 @@ $two_cols = $two_cols ?? false;
     @endif
 
     <footer>
-        @include('modular-forms::components.footer')
+        @include('modular-forms::layouts.components.footer')
     </footer>
 
 @endsection
