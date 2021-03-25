@@ -3,11 +3,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="{{ url('/') }}/favicon.ico" type="image/x-icon" rel="icon">
 
-@push('scripts')
-    <script>
-        {!! 'window.Laravel = '.json_encode([
-            'csrfToken' => csrf_token(),
-            'baseUrl' => url('/').'/'
-        ]).';' !!}
-    </script>
-@endpush
+<script>
+    {!! 'window.Laravel = '.json_encode([
+        'csrfToken' => csrf_token(),
+        'baseUrl' => url('/').'/'
+    ]).';' !!}
+</script>

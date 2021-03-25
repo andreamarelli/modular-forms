@@ -7,7 +7,7 @@ $two_cols = $two_cols ?? false;
 
 ?>
 
-@extends('modular-forms::_base')
+@extends('modular-forms::layouts._base')
 
 
 @section('body')
