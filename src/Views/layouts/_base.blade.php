@@ -1,3 +1,8 @@
+<?php
+/** @var string $class_to_body */
+$class_to_body = $class_to_body ?? '';
+
+?>
 <!DOCTYPE html>
 <html lang="{{ App::getLocale() }}">
 
@@ -5,7 +10,7 @@
         @include('modular-forms::layouts.components.head')
     </head>
 
-    <body>
+    <body class="{{ $class_to_body }}">
         @yield('body')
     </body>
 

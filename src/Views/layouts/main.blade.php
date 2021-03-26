@@ -7,7 +7,7 @@ $two_cols = $two_cols ?? false;
 
 ?>
 
-@extends('modular-forms::layouts._base')
+@extends('modular-forms::layouts._base', ['class_to_body' => 'flex-col'])
 
 
 @section('body')
@@ -18,32 +18,30 @@ $two_cols = $two_cols ?? false;
 
     @if($full_width)
         <main>
-            @yield('content')
+            @yield('page_content')
         </main>
     @else
 
         @yield('page_header')
 
-        <main class="container">
 
-            @if($two_cols)
-                <section class="main two-col row">
-                    <nav class="sidebar col-lg-3">
-                        @yield('page_sidebar')
-                    </nav>
-                    <div class="content col-lg-9">
-                        @yield('page_content')
-                    </div>
+        @if($two_cols)
+            <main class="two-col">
+                <nav class="sidebar">
+                    @yield('page_sidebar')
+                </nav>
+                <section class="content">
+                    @yield('page_content')
                 </section>
-            @else
-                <section class="main one-col row">
-                    <div class="content">
-                        @yield('page_content')
-                    </div>
+            </main>
+        @else
+            <main class="one-col">
+                <section class="content">
+                    @yield('page_content')
                 </section>
-            @endif
+            </main>
+        @endif
 
-        </main>
 
     @endif
 
