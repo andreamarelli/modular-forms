@@ -52,9 +52,9 @@
     @lang('common.form.available_years'):&nbsp;
     @foreach($records as $year=>$record)
         @if(!empty($record))
-            <button type="button" class="btn btn-sm act-btn-basic preload_button year_{{ $year }}" onclick="module_{{ $definitions['module_key'] }}.show_previous_year('{{ $year }}')">{{ $year }}</button>&nbsp;
+            <button type="button" class="btn-nav small preload_button year_{{ $year }}" onclick="module_{{ $definitions['module_key'] }}.show_previous_year('{{ $year }}')">{{ $year }}</button>&nbsp;
         @else
-            <button type="button" disabled="disabled" class="btn btn-sm act-btn-disabled">{{ $year }}</button>&nbsp;
+            <button type="button" disabled="disabled" class="btn-nav disabled small">{{ $year }}</button>&nbsp;
         @endif
     @endforeach
 
@@ -93,7 +93,7 @@
                                 </td>
                             @endforeach
                             <td>
-                                <button type="button" class="btn btn-sm btn-success" onclick="module_{{ $definitions['module_key'] }}.apply_preload_one_record('{{ $year }}', '{{ $index }}')">{{ ucfirst(trans('common.import')) }}</button>
+                                <button type="button" class="btn-nav small" onclick="module_{{ $definitions['module_key'] }}.apply_preload_one_record('{{ $year }}', '{{ $index }}')">{{ ucfirst(trans('common.import')) }}</button>
                             </td>
                         </tr>
                         @endforeach

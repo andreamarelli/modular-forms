@@ -9,7 +9,7 @@ $href = $item instanceof \Illuminate\Database\Eloquent\Model
 ?>
 <a
         {!! $href !!}
-        class="btn btn-warning btn-sm"
+        class="btn-nav yellow small"
         role="button"
         data-toggle="tooltip" data-placement="top" data-original-title="@lang('common.edit')">
     {!! AndreaMarelli\ModularForms\Helpers\Template::icon('pen', 'white') !!}

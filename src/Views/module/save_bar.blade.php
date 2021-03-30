@@ -16,9 +16,9 @@
                 {!! ucfirst(trans('common.confirm_save')) !!}
             </div>
             <div class="buttons">
-                <button type="button" v-on:click="resetModule" class="btn btn-danger btn-sm"  v-show="status === 'changed'">{!! ucfirst(trans('common.cancel_modifications')) !!}</button>
-                <button type="button" v-on:click="saveModule" class="btn btn-success btn-sm" v-show="status === 'changed'">{!! ucfirst(trans('common.save')) !!}</button>
-                <button type="button" disabled="disabled" class="btn btn-success btn-sm" v-show="status === 'saving'">&nbsp;&nbsp;<i class="fa fa-spinner fa-pulse"></i>&nbsp;&nbsp;</button>
+                <button type="button" v-on:click="resetModule" class="btn-nav small red"  v-show="status === 'changed'">{!! ucfirst(trans('common.cancel_modifications')) !!}</button>
+                <button type="button" v-on:click="saveModule" class="btn-nav small" v-show="status === 'changed'">{!! ucfirst(trans('common.save')) !!}</button>
+                <button type="button" disabled="disabled" class="btn-nav small" v-show="status === 'saving'">&nbsp;&nbsp;<i class="fa fa-spinner fa-pulse"></i>&nbsp;&nbsp;</button>
             </div>
         </div>
     </div>

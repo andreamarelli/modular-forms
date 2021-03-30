@@ -13,6 +13,6 @@ $iconColor = $iconColor ?? 'white';
 
 
 <button type="button"
-        class="btn btn-success btn-sm " v-on:click="{!! $onClick !!}">
+        class="btn-nav small " v-on:click="{!! $onClick !!}">
     {!! AndreaMarelli\ModularForms\Helpers\Template::icon($icon, $iconColor) !!} {!! ucfirst($label) !!}
 </button>

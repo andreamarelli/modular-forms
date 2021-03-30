@@ -20,7 +20,7 @@ $label = $label ?? null;
 <div style="display: inline-block;"
      data-toggle="tooltip" data-placement="top" data-original-title="{{ ucfirst(trans('common.delete')) }}">
     <button type="submit"
-            class="btn btn-danger btn-sm"
+            class="btn-nav small red"
             data-toggle="modal" {!! $modal_target !!}>
         {!! AndreaMarelli\ModularForms\Helpers\Template::icon('trash', 'white') !!}
         {{ $label }}
@@ -35,11 +35,11 @@ $label = $label ?? null;
                 <strong>@lang('common.confirm_deletion')</strong>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ ucfirst(trans('common.close')) }}</button>
+                <button type="button" class="btn-nav" data-dismiss="modal">{{ ucfirst(trans('common.close')) }}</button>
                 <form style="display: inline-block" method="post" {!! $action !!}>
                     @csrf
                     <input name="_method" type="hidden" value="DELETE">
-                    <button type="submit" class="btn btn-danger">
+                    <button type="submit" class="btn-nav red">
                         {!! AndreaMarelli\ModularForms\Helpers\Template::icon('trash', 'white') !!}
                         {{ ucfirst(trans('common.delete')) }}
                     </button>

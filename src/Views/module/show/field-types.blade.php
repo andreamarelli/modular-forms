@@ -52,15 +52,13 @@ if($value!==null){
 
 @elseif(\Illuminate\Support\Str::contains($type, 'toggle-'))
     <span class="toggle">
-        <span class="btn-group btn-group-sm">
-             @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $k=>$v)
-                @if((string) $v !== '')
-                    <button type="button" value="true" class="btn
-                        {{(string) $k === (string)$value ? 'act-btn-active' : 'act-btn-lighter act-btn-basic' }}"
-                    >{{ $v }}</button>
-                @endif
-            @endforeach
-        </span>
+         @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $k=>$v)
+            @if((string) $v !== '')
+                <button type="button" value="true" class="btn
+                    {{(string) $k === (string)$value ? 'active' : '' }}"
+                >{{ $v }}</button>
+            @endif
+        @endforeach
     </span>
 
 @elseif($type=='upload')

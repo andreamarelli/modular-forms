@@ -10,7 +10,7 @@
 
 $label = $label ?? '';
 $tooltip = $tooltip ?? $label;
-$class = $class ?? 'btn-success';
+$class = $class ?? '';
 $new_page = $new_page ?? true;
 
 $href = $item instanceof \Illuminate\Database\Eloquent\Model
@@ -20,7 +20,7 @@ $href = $item instanceof \Illuminate\Database\Eloquent\Model
 ?>
 <a {!! $href !!}
    @if($new_page) target="_blank" @endif
-   class="btn btn-sm {!! $class !!}"
+   class="btn-nav small {!! $class !!}"
    role="button"
    data-toggle="tooltip" data-placement="top" data-original-title="{{ $tooltip }}">
     {!! $icon!==null ? AndreaMarelli\ModularForms\Helpers\Template::icon($icon) : '' !!} {!! $label !!}

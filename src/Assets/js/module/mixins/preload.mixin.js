@@ -35,9 +35,9 @@ export default {
 
         show_previous_year: function(year){
             $(this.container).find(".preload_preview").css('display', 'none');
-            $(this.container).find(".preload_button").removeClass('act-btn-active').addClass('act-btn-basic');
+            $(this.container).find(".preload_button").removeClass('active-disabled').addClass('basic');
             $(this.container).find(".preload_preview.year_"+year).css('display', 'inline-block');
-            $(this.container).find(".preload_button.year_"+year).removeClass('act-btn-basic').addClass('act-btn-active');
+            $(this.container).find(".preload_button.year_"+year).removeClass('basic').addClass('active-disabled');
         },
 
         apply_preload_one_record: function (year, index) {

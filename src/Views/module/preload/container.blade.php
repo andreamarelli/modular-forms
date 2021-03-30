@@ -9,7 +9,7 @@
     <div style="display: inline-block;"
          data-toggle="tooltip" data-placement="top" data-original-title="{{ ucfirst(trans('common.form.previous_years')) }}">
         <button type="button"
-                class="btn btn-success btn-sm"
+                class="btn-nav small"
                 data-toggle="modal" data-target="#preload_modal__{!! $definitions['module_key'] !!}">
             {{ ucfirst(trans('common.form.previous_years')) }}
         </button>

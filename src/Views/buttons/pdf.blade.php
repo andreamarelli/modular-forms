@@ -6,7 +6,7 @@
 
 <a href="{{ action([$controller, 'pdf'], [$item->getKey()]) }}"
    target="_blank"
-   class="btn btn-danger btn-sm"
+   class="btn-nav small red"
    role="button"
    data-toggle="tooltip" data-placement="top" data-original-title="@lang('common.pdf')">
     {!! AndreaMarelli\ModularForms\Helpers\Template::icon('file-pdf', 'white') !!}

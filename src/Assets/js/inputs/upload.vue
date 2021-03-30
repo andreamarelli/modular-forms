@@ -16,15 +16,15 @@
                    {{ value instanceof Object ? value.original_filename : value }}
                </span>
                 <!-- Link button -->
-                <a class="btn btn-sm act-btn-darkgreen" target="_blank" v-bind:href="value.download_link" v-if="value.original_filename!==null">
+                <a class="btn-nav dark small" target="_blank" v-bind:href="value.download_link" v-if="value.original_filename!==null">
                      <i class="fa fa-cloud-download-alt white" />
                 </a>
                 <!-- Clean Button -->
-                <button type="button" class="btn btn-sm btn-danger" v-if="value.original_filename!==null" v-on:click="cleanSelection">
+                <button type="button" class="btn-nav small red" v-if="value.original_filename!==null" v-on:click="cleanSelection">
                     <i class="fa fa-times-circle white" />
                 </button>
                 <!-- Upload Button-->
-                <button type="button" class="btn btn-sm btn-info" v-if="value.original_filename===null" v-on:click="openModal">
+                <button type="button" class="btn-nav small" v-if="value.original_filename===null" v-on:click="openModal">
                     <i class="fa fa-upload white" />&nbsp;{{ uploadFileLabel }}
                 </button>
             </template>
@@ -40,7 +40,7 @@
                         </label>
                         &nbsp;&nbsp;
                         <!-- Select Button -->
-                        <button type="button" v-on:click="selectFile" class="btn btn-success btn-sm">
+                        <button type="button" v-on:click="selectFile" class="btn-nav small">
                             <i class="fa fa-folder-open white" />
                             {{ Locale.getLabel('common.upload.select_file') }}
                         </button>
@@ -54,7 +54,7 @@
                         </label>
                         &nbsp;&nbsp;
                         <!-- Upload Button -->
-                        <button type="button" v-on:click="uploadFile" class="btn btn-success btn-sm" v-if="!uploading">
+                        <button type="button" v-on:click="uploadFile" class="btn-nav small" v-if="!uploading">
                             <i class="fa fa-upload white" />
                             {{ Locale.getLabel('common.upload.upload') }}
                         </button>

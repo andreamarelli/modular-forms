@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" v-on:click="saveEntity" class="btn btn-success btn-sm" >{{ createButtonLabel }}</button>
+                        <button type="button" v-on:click="saveEntity" class="btn-nav small" >{{ createButtonLabel }}</button>
                     </div>
 
                 </div>
@@ -111,7 +111,7 @@
                     noResults: function () {
                         return '<div class="container-fluid">' +
                                     Locale.getLabel('common.no_record_found') +
-                                    '<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#' + _this.modalId + '">' +
+                                    '<button type="button" class="btn-nav small" data-toggle="modal" data-target="#' + _this.modalId + '">' +
                                         Locale.getLabel('common.add') +
                                     '</button>' +
                                 '</div>';

@@ -6,7 +6,7 @@
 
 <a href="{{ action([$controller, 'publish'], [$item->getKey()]) }}"
    target="_blank"
-   class="btn btn-success btn-sm"
+   class="btn-nav small"
    role="button"
    data-toggle="tooltip" data-placement="top" data-original-title="@lang('common.show')">
     {!! AndreaMarelli\ModularForms\Helpers\Template::icon('eye', 'white') !!}
