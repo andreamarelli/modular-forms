@@ -6,7 +6,7 @@
 ?>
 
 @foreach($definitions['groups'] as $group_key => $group_label)
-    <h5 class="green">{{ $group_label }}</h5>
+    <h5 class="highlight">{{ $group_label }}</h5>
 
     @include('modular-forms::module.edit.type.accordion', [
         'collection' => $collection,

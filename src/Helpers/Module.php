@@ -102,7 +102,7 @@ class Module
      */
     public static function injectGroupTitle($view, $module_key, $beforeGroup, $title)
     {
-        $searchFor = '<h5 class="green group_title_' . $module_key . '_' . $beforeGroup . '">';
+        $searchFor = '<h5 class="highlight group_title_' . $module_key . '_' . $beforeGroup . '">';
         $textToAdd = '<h3>' . $title . '</h3>';
         return str_replace($searchFor, $textToAdd . $searchFor, $view);
     }
