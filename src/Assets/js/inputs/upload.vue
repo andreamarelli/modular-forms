@@ -60,7 +60,7 @@
                         </button>
 
                         <!-- Uploading -->
-                        <i v-if="uploading" class="fa fa-spinner fa-spin fa-2x green_dark"></i>
+                        <i v-if="uploading" class="fa fa-spinner fa-spin fa-2x green-800"></i>
 
                     </span>
 

@@ -8,9 +8,9 @@
         <i>{{ ucfirst(trans('common.page')) }} @{{ pageNumber }}/ @{{ pageCount }}</i>
         <span v-if="pageCount>1">
             &nbsp;
-            <button type="button" class="btn act-btn-basic btn-sm" v-on:click=prevPage :disabled="pageNumber===1"><i class="fa fa-step-backward"></i></button>
+            <button type="button" class="btn-nav small" v-on:click=prevPage :disabled="pageNumber===1"><i class="fa fa-step-backward"></i></button>
             &nbsp;
-            <button type="button" class="btn act-btn-basic btn-sm" v-on:click=nextPage :disabled="pageNumber>=pageCount"><i class="fa fa-step-forward"></i></button>
+            <button type="button" class="btn-nav small" v-on:click=nextPage :disabled="pageNumber>=pageCount"><i class="fa fa-step-forward"></i></button>
         </span>
 
     </div>

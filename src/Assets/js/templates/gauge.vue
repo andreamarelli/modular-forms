@@ -28,19 +28,19 @@
 
             .circle-bg {
                 fill: none;
-                stroke: $lightestGray;
+                stroke: $gray-50;
                 stroke-width: 4.8;
             }
 
             .circle {
                 fill: none;
-                stroke: $darkestGray;
+                stroke: $gray-800;
                 stroke-width: 4.8;
                 animation: progress 1s ease-out forwards;
             }
 
             .percentage {
-                fill: $darkestGray;
+                fill: $gray-800;
                 font-size: 0.6em;
                 letter-spacing: -0.2px;
                 text-anchor: middle;
@@ -49,13 +49,13 @@
 
             &.green{
                 .circle-bg {
-                    stroke: $lightestGreen;
+                    stroke: $green-50;
                 }
                 .circle {
-                    stroke: $baseGreen;
+                    stroke: $green-600;
                 }
                 .percentage{
-                    fill: $baseGreen;
+                    fill: $green-600;
                 }
             }
 
@@ -73,13 +73,13 @@
 
             &.red{
                 .circle-bg {
-                    stroke: $lightRed;
+                    stroke: $red-100;
                 }
                 .circle {
-                    stroke: $darkRed;
+                    stroke: $red-600;
                 }
                 .percentage{
-                    fill: $darkRed;
+                    fill: $red-600;
                 }
             }
 

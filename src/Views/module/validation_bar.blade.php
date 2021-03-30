@@ -30,7 +30,7 @@
         </div>
         <div class="buttons" style="display: flex; align-items: center" v-else>
             <span style="margin-right: 10px;">{{ ucfirst(trans('common.saving')) }}</span>
-            <span><i class="fa fa-spinner fa-spin fa-2x gray_darker"></i></span>
+            <span><i class="fa fa-spinner fa-spin fa-2x gray-600"></i></span>
         </div>
 
     </div>

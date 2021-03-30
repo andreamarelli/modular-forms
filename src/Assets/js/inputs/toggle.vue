@@ -4,14 +4,12 @@
 
         <input type="hidden" value="value" :id="id" :name="id" v-bind:value="value" class="toggle" />
 
-        <span class="btn-group btn-group-sm" role="group" >
-            <button type="button"
-                   v-for="option in listOptions"
-                    :class="isSelected(option.value) ? 'btn act-btn-active' : 'btn btn-sm act-btn-lighter act-btn-basic'"
-                    v-on:click="setOption(option.value)"
-                   :value=option.value
-            >{{ option.label }}</button>
-        </span>
+        <button type="button"
+               v-for="option in listOptions"
+                :class="isSelected(option.value) ? 'active' : ''"
+                v-on:click="setOption(option.value)"
+               :value=option.value
+        >{{ option.label }}</button>
 
     </span>
 
@@ -23,11 +21,8 @@
     @import "../../sass/abstracts/all";
 
     .toggle{
-        .btn-group{
-            display: inline-flex;
-            .btn{
-                border: 1px solid $lighterGray;
-            }
+        button{
+
         }
     }
 </style>

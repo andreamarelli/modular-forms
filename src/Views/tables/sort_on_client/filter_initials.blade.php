@@ -18,7 +18,8 @@
         <input type="button"
             value="{{ strtoupper($l) }}"
             v-on:click="initial = (initial!=='{{ $l }}') ? '{{ $l }}' : null"
-            :class="initial === '{{ $l }}' ? 'btn act-btn-active' : 'btn act-btn-basic'"
+            class="btn-nav"
+            :class="initial === '{{ $l }}' ? 'active-disabled' : ''"
             @if(!in_array($l, $existing))
                 disabled="disabled"
             @endif
