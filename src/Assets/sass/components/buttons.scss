@@ -74,6 +74,17 @@
       }
     }
   }
+  &.blue{
+    background-color: $blue-700;
+    border-color: $blue-500;
+    &.tag, &:hover{
+      color: $blue-500;
+      background-color: white;
+      .fas{
+        color: $blue-500;
+      }
+    }
+  }
   &.yellow{
     color: $gray-800;
     background-color: #ffc107;
