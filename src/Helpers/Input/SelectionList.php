@@ -51,6 +51,11 @@ class SelectionList
                 trans('common.yes'),
                 trans('common.no')
             ];
+        } elseif( $type === "currency-unit-minimal"){
+            $list = [
+                "EUR" => "Euro",
+                "USD" => "US Dollar"
+            ];
         }
 
         // Transpose sequential arrays to associative (same key/value)
