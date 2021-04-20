@@ -146,5 +146,17 @@ class File
         }
     }
 
+    /**
+     * remove all files from path
+     * @param array $files
+     * @param string $disk
+     * @param string $path
+     */
+    public static function removeFiles(array $files, string  $disk = FILE::PRIVATE_STORAGE, string $path = ''): void
+    {
+        foreach ($files as $file) {
+            \Storage::disk($disk)->delete($path.basename($file));
+        }
+    }
 
 }

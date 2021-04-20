@@ -18,7 +18,7 @@ window.ModularForms.MixinsVue = {
 window.Locale = window.ModularForms.Mixins.Locale; // Alias
 
 // Load Vuex Store
-require('./store/store.js'); // window.ModularForms.vueStore
+require('./store/store.js'); // window.ModularForms.formStore
 
 // Load components
 require('./module/controller.js');  // window.ModularForms.ModuleController

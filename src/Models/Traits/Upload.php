@@ -11,7 +11,7 @@ use PDO;
 trait Upload {
 
     public static $UPLOAD_DISK = File::PUBLIC_STORAGE;
-    private static $UPLOAD_PATH = 'temp/';
+    public static $UPLOAD_PATH = 'temp/';
     protected static $DOWNLOAD_ROUTE=  '/file/';
 
     public static $upload_object =  [

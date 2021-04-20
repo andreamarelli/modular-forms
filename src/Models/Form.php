@@ -185,16 +185,22 @@ class Form extends BaseModel
      *
      * @param $records
      * @param $formID
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \ReflectionException
      */
     public static function importModules($records, $formID)
     {
+        $modules_imported = [];
+        /** @var \AndreaMarelli\ModularForms\Models\Module $module_class */
         foreach (static::allModules() as $module_class) {
-            if(array_key_exists($module_class::getShortClassName(), $records)){
-                foreach ($records[$module_class::getShortClassName()] as $record){
+            if (array_key_exists($module_class::getShortClassName(), $records)) {
+                $modules_imported[] = $module_class::getShortClassName();
+                foreach ($records[$module_class::getShortClassName()] as $record) {
                     $module_class::importModule($formID, $record);
                 }
             }
         }
+        return $modules_imported;
     }
 
     /**

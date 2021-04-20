@@ -16,6 +16,10 @@ strong {
 .highlight{
   color: $primary-800;
 }
+.highlighted{
+  font-weight: bold;
+  color: $green-600;
+}
 .small,
 small{
   @include text-xs;

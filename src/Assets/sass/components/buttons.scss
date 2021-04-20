@@ -40,7 +40,8 @@
       }
     }
   }
-  &.dark{
+  &.dark,
+  &.active{
     background-color: $primary-900;
     border-color: $primary-900;
     &.tag, &:hover{

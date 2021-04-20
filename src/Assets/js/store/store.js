@@ -1,5 +1,5 @@
 
-window.ModularForms.vueStore = new window.Vuex.Store({
+window.ModularForms.formStore = new window.Vuex.Store({
 
     modules: {
         validator: require('./modules/validator').default

@@ -12,7 +12,7 @@ window.ModularForms.ModuleController = window.Vue.extend({
         transitions
     ],
 
-    store: window.ModularForms.vueStore,
+    store: window.ModularForms.formStore,
 
     props: [
         'status',
