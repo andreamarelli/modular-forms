@@ -3,7 +3,6 @@
 namespace AndreaMarelli\ModularForms\Models;
 
 use AndreaMarelli\ModularForms\Helpers\ModuleKey;
-use AndreaMarelli\ModularForms\Helpers\PhpClass;
 use AndreaMarelli\ModularForms\Models\Traits\Sortable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;

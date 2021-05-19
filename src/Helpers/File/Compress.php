@@ -1,9 +1,9 @@
 <?php
 
 
-namespace App\Library\Utils\File;
+namespace AndreaMarelli\ModularForms\Helpers\File;
 
-use Storage;
+use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 use AndreaMarelli\ModularForms\Models\Traits\Upload;
 
@@ -19,11 +19,11 @@ class Compress
     public static function extractFilesFromZipFile(string $file, array $fileTypeToCheck = ['json'], int $filesToExtract = 10): array
     {
         $folder = File::PUBLIC_STORAGE . '/' . Upload::$UPLOAD_PATH;
-        $fullPath = \Storage::path($folder);
+        $fullPath = Storage::path($folder);
         $filename = $fullPath . $file;
         $files = [];
 
-        $zip = new \ZipArchive;
+        $zip = new ZipArchive;
         $zipStatus = $zip->open($filename);
         if ($zipStatus !== true) {
             return $files;
@@ -48,12 +48,12 @@ class Compress
      * @param array $files
      * @return string
      */
-    public static function zipFile(array $files)
+    public static function zipFile(array $files): string
     {
         $fileName = "IMETS_" . count($files) . "_" . date('m-d-Y_hisu') . ".zip";
         $store = Storage::disk(File::PRIVATE_STORAGE)->path('') . $fileName;
         $zip = new ZipArchive();
-        $zip->open($store, \ZipArchive::CREATE);
+        $zip->open($store, ZipArchive::CREATE);
         foreach ($files as $file) {
             $zip->addFile($file, basename($file));
         }

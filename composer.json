@@ -12,6 +12,7 @@
         "ext-imagick": "*",
         "ext-json": "*",
         "ext-pdo": "*",
+        "ext-zip": "*",
         "intervention/image": "^2.4",
         "kyslik/column-sortable": "^6.2",
         "phpoffice/phpspreadsheet": "~1.3",

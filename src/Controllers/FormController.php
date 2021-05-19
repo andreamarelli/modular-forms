@@ -266,28 +266,4 @@ class FormController extends Controller
         return File::exportToPDF(static::$form_view.'.pdf', $view);
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public static function retrieve_preload_data(Request $request): JsonResponse
-    {
-        $form_id = $request->input('form_id');
-        $module_key = $request->input('module_key');
-
-        $module_class = ModuleKey::KeyToClassName($module_key);
-
-        // get previous years
-        $previous_years = (static::$form_class)::getPreviousYears($form_id);
-        $records = $module_class::getPreviousYearsRecords($previous_years, $form_id);
-
-        return response()->json([
-            'records' => $records,
-            'view' => view('modular-forms::module.preload.data', [
-                'definitions' => $module_class::getDefinitions($form_id),
-                'records' => $records
-            ])->render()
-        ]);
-    }
-
 }
