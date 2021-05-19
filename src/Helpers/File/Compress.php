@@ -45,12 +45,16 @@ class Compress
 
     /**
      * pass an array of files to add them in a zip
+     *
      * @param array $files
+     * @param string|null $zip_filename
      * @return string
      */
-    public static function zipFile(array $files): string
+    public static function zipFile(array $files, string $zip_filename = null): string
     {
-        $fileName = "IMETS_" . count($files) . "_" . date('m-d-Y_hisu') . ".zip";
+        if ($zip_filename==null){
+            $fileName = date('m-d-Y_hisu') . ".zip";
+        }
         $store = Storage::disk(File::PRIVATE_STORAGE)->path('') . $fileName;
         $zip = new ZipArchive();
         $zip->open($store, ZipArchive::CREATE);
