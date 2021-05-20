@@ -21,8 +21,8 @@ $other_attributes = $other ?? '';
 
 
 {{--  ######  Use given blade template  ###### --}}
-@if(substr_count($type, "blade-")>0)
-    @include(explode('-', $type)[1], [
+@if(\Illuminate\Support\Str::contains($type, "blade-")>0)
+    @include(str_replace('blade-', '', $type), [
         'v_id' => $id,
         'v_value' => $v_value,
         'class' => $class,

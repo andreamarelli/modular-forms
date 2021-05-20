@@ -20,7 +20,7 @@ class FormController extends Controller
 {
 
     protected static $form_class = null;
-    protected static $form_view = null;
+    protected static $form_view_prefix = null;
     protected static $form_default_step = null;
 
     protected const PAGINATE = true;
@@ -48,7 +48,7 @@ class FormController extends Controller
             ? $list = $query_builder->sortable()->paginate(static::PER_PAGE)
             : $query_builder->get();
 
-        return view('admin.'.static::$form_view.'.list', [
+        return view(static::$form_view_prefix.'.list', [
             'controller' => static::class,
             'list' => $list,
             'request' => $request
@@ -66,7 +66,7 @@ class FormController extends Controller
         if(static::AUTHORIZE_BY_POLICY){
             $this->authorize('create', static::$form_class);
         }
-        return view('admin.'.static::$form_view.'.create');
+        return view(static::$form_view_prefix.'.create');
     }
 
     /**
@@ -85,7 +85,7 @@ class FormController extends Controller
         $result = $form->store($request);
         if($result['status'] === 'success'){
             $result['entity_label'] = $form::find($result['entity_id'])->{$form::LABEL};
-            $result['edit_url'] = 'admin/'.static::$form_view.'/'.$result['entity_id'].'/edit';
+            $result['edit_url'] = action([static::class, 'edit'], ['item' => $result['entity_id']]);
         }
         return $result;
     }
@@ -106,7 +106,7 @@ class FormController extends Controller
         $form = new static::$form_class();
         $form = $form->find($item);
         $step = $step ?: static::$form_default_step;
-        return view('admin.'.static::$form_view.'.show', [
+        return view(static::$form_view_prefix.'.show', [
             'item' => $form,
             'step' => $step
         ]);
@@ -126,7 +126,7 @@ class FormController extends Controller
         }
         $form = new static::$form_class();
         $form = $form->find($item);
-        return view('admin.'.static::$form_view.'.print', [
+        return view(static::$form_view_prefix.'.print', [
             'item' => $form,
             'mode' => 'print'
         ]);
@@ -148,7 +148,7 @@ class FormController extends Controller
         $form = new static::$form_class();
         $form = $form->find($item);
         $step = $step ?: static::$form_default_step;
-        return view('admin.'.static::$form_view.'.edit', [
+        return view(static::$form_view_prefix.'.edit', [
             'item' => $form,
             'step' => $step
         ]);
@@ -211,7 +211,7 @@ class FormController extends Controller
     public function csv(): BinaryFileResponse
     {
         $collection = (static::$form_class)::exportCollection();
-        return File::exportToCSV(static::$form_view.'.csv', $collection->toArray());
+        return File::exportToCSV('export.csv', $collection->toArray());
     }
 
     /**
@@ -224,7 +224,7 @@ class FormController extends Controller
     public function xls(): BinaryFileResponse
     {
         $collection = (static::$form_class)::exportCollection();
-        return File::exportToXLS(static::$form_view.'.xls', $collection->toArray());
+        return File::exportToXLS('export.xls', $collection->toArray());
     }
 
     /**
@@ -248,22 +248,6 @@ class FormController extends Controller
         $model = (static::$form_class)::findOrFail($id);
         $models =(static::$form_class)::exportCollection($model);
         return $this->sendAPIResponse($models->toArray());
-    }
-
-    /**
-     * Generate and stream PDF
-     *
-     * @param $item
-     * @return BinaryFileResponse
-     * @throws \Spatie\Browsershot\Exceptions\CouldNotTakeBrowsershot
-     */
-    public function pdf($item): BinaryFileResponse
-    {
-        $view = view('entities.'.static::$form_view.'.pdf', [
-            'item' => (new static::$form_class())->find($item)
-        ]);
-
-        return File::exportToPDF(static::$form_view.'.pdf', $view);
     }
 
 }
