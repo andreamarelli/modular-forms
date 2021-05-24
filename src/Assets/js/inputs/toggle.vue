@@ -16,17 +16,6 @@
 
 </template>
 
-<style lang="scss" type="text/scss" scoped>
-
-    @import "../../sass/abstracts/all";
-
-    .toggle{
-        button{
-
-        }
-    }
-</style>
-
 <script>
 
     export default {

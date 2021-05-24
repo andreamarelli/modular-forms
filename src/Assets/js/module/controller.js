@@ -149,7 +149,7 @@ window.ModularForms.ModuleController = window.Vue.extend({
                     if (response.hasOwnProperty('status')) {
                         if (response['status'] === 'success') {
                             if (_this.action === 'store') {
-                                window.location.href = Laravel.baseUrl + response['edit_url'];
+                                window.location.href = response['edit_url'];
                                 return;
                             }
                             _this.records = _this.__no_reactive_copy(response['records']);

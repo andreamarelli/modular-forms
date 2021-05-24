@@ -37,6 +37,12 @@ class SelectionList
         if(function_exists('get_custom_list')){
             $list = get_custom_list($type);
             if(!empty($list)){
+
+                // Transpose sequential arrays to associative (same key/value)
+                if (!is_string($list) && DataArray::isSequential($list)) {
+                    $list = array_combine($list, $list);
+                }
+
                 return $list;
             }
         }
@@ -56,11 +62,6 @@ class SelectionList
                 "EUR" => "Euro",
                 "USD" => "US Dollar"
             ];
-        }
-
-        // Transpose sequential arrays to associative (same key/value)
-        if (!is_string($list) && DataArray::isSequential($list)) {
-            $list = array_combine($list, $list);
         }
 
         // Raise Exception if list not found

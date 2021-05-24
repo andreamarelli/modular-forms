@@ -13,16 +13,17 @@
 ?>
 
 <label for="filter_initials">@lang('common.initial')</label>
-<div class="btn-group" role="group" id="filter_initials">
-    @foreach($chars as $l)
+<span class="btn-nav-group" id="filter_initials">
+@foreach($chars as $l)
         <input type="button"
-            value="{{ strtoupper($l) }}"
-            v-on:click="initial = (initial!=='{{ $l }}') ? '{{ $l }}' : null"
-            class="btn-nav"
-            :class="initial === '{{ $l }}' ? 'active-disabled' : ''"
-            @if(!in_array($l, $existing))
-                disabled="disabled"
-            @endif
-        />
+               class="btn-nav"
+               :class="initial === '{{ $l }}' ? 'active-disabled' : ''"
+               value="{{ strtoupper($l) }}"
+               v-on:click="initial = (initial!=='{{ $l }}') ? '{{ $l }}' : null"
+               @if(!in_array($l, $existing))
+               disabled="disabled"
+           @endif
+    />
     @endforeach
-</div>
+</span>
+

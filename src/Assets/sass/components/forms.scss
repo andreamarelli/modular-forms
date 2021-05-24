@@ -253,7 +253,7 @@ input.captcha-input{
     border: 1px solid $gray-500;
   }
   &.hover{
-    color: Black;
+    color: Black !important;
     background-color: $primary-300;
     border: 1px solid $gray-500;
     cursor: pointer;
@@ -334,11 +334,16 @@ input.captcha-input{
 }
 
 .toggle{
+  display: flex;
   button{
     font-size: 0.8em;
     color: $gray-700;
-    border: 1px solid $white;
     background-color: $white;
+    white-space: nowrap;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-left: 1px solid $gray-300;
+    border-right: none;
     &:first-of-type{
       border-bottom-left-radius: 4px;
       border-top-left-radius: 4px;
@@ -346,15 +351,19 @@ input.captcha-input{
     &:last-of-type{
       border-bottom-right-radius: 4px;
       border-top-right-radius: 4px;
-    }
-    &:hover{
-      border-color: $primary-500;
-      background-color: $primary-500;
+      border-right: 1px solid $gray-300;
     }
     &.active{
       color: $primary-50;
       background-color: $primary-800;
       border: 1px solid $primary-800;
+    }
+  }
+  &:not(.disabled){
+    button:hover{
+      border-color: $primary-500;
+      background-color: $primary-500;
+      cursor: default;
     }
   }
 }
@@ -567,26 +576,10 @@ nav.steps{
       margin: 40px 0 10px 0;
     }
 
-
-    .module-rowxx {
-      margin-bottom: 10px;
-      .label-container{
-        text-align: right;
-        margin: 0;
-        label{
-          font-weight: bold;
-          padding-top: 7px;
-          margin: 0;
-        }
-      }
-      .field-container{
-      }
-    }
-
     .module-table{
       width: 100%;
       max-width: 1128px;
-      margin: 0;
+      margin: 0 0 15px;
 
       thead tr th,
       tbody tr td{
@@ -650,9 +643,9 @@ nav.steps{
   display: flex;
   margin-bottom: 15px;
 
-  &:last-child{
-    margin-bottom: 0;
-  }
+  //&:last-child{
+  //  margin-bottom: 0;
+  //}
 
   .module-row__label {
     width: 25%;

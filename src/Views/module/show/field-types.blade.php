@@ -51,12 +51,12 @@ if($value!==null){
     @endforeach
 
 @elseif(\Illuminate\Support\Str::contains($type, 'toggle-'))
-    <span class="toggle">
+    <span class="toggle disabled">
          @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $k=>$v)
             @if((string) $v !== '')
-                <button type="button" value="true" class="btn
-                    {{(string) $k === (string)$value ? 'active' : '' }}"
-                >{{ $v }}</button>
+                <button type="button" class="{{ (string) $k === (string)$value ? 'active' : '' }}">
+                    {{ $v }}
+                </button>
             @endif
         @endforeach
     </span>
@@ -80,6 +80,7 @@ if($value!==null){
 
 @elseif(\Illuminate\Support\Str::contains($type, "rating-"))
     @php
+        /** @var string $type */
         $ratingType = explode('-', $type);
         $ratingType = end($ratingType);
         $ratingType = str_replace('WithNA', '', $ratingType);
@@ -104,8 +105,27 @@ if($value!==null){
             {!! $value ?? '&nbsp;' !!}
         </div>
     </div>
+@elseif(\Illuminate\Support\Str::contains($type, 'blade-'))
+    @php
+        /** @var string $type */
+        $view = str_replace('.fields.', '.fields_show.', $type);
+        $view = str_replace('blade-', '', $view);
+    @endphp
+
+    @if(view()->exists($view))
+        @include($view, [
+            'value' => $value
+        ])
+    @else
+        <div class="field-preview">
+            {!! $value ?? '&nbsp;' !!}
+        </div>
+    @endif
+
 @else
+
     <div class="field-preview">
         {!! $value ?? '&nbsp;' !!}
     </div>
+
 @endif

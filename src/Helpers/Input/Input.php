@@ -174,7 +174,7 @@ class Input{
         if(!$disableJavascript){
             $out .= '<script>
                         $(function() {
-                            dayPicker($(\'input#'.$name.'\'));
+                            window.ModularForms.Mixins.Input.dayPicker($(\'input#'.$name.'\'));
                         });
                     </script>';
         }

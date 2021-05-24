@@ -212,7 +212,7 @@ class Module extends BaseModel
      * @param int|null $form_id
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection
      */
-    public static function getModule($form_id = null)
+    public static function getModule(int $form_id = null)
     {
         $model               = new static();
         $model::$foreign_key = $model::$foreign_key ?? $model->primaryKey;
