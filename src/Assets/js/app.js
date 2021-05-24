@@ -52,7 +52,9 @@ window.Vue.component('toggle', require('./inputs/toggle.vue').default);
 window.Vue.component('rating', require('./inputs/rating.vue').default);
 window.Vue.component('upload', require('./inputs/upload.vue').default);
 window.ModularForms.Input = {
-    'modalSelector': require('./inputs/components/modal-selector.vue').default
+    'modalSelector': require('./inputs/components/modal-selector.vue').default,
+    'modalApiSearch': require('./inputs/components/modal-api-search').default,
+    'modalApiSearchWithAdd': require('./inputs/components/modal-api-search-AddElement').default
 };
 
 // Load INPUT components (old - to be reviewed/deleted)
