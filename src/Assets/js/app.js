@@ -41,6 +41,7 @@ window.Vue.component('user', require('./templates/user.vue').default);
 // Load INPUT components
 window.Vue.component('checkbox-boolean', require('./inputs/checkbox-boolean.vue').default);
 window.Vue.component('dropdown', require('./inputs/dropdown.vue').default);
+window.Vue.component('rating', require('./inputs/rating.vue').default);
 window.Vue.component('simple-date', require('./inputs/simple-date.vue').default);
 window.Vue.component('simple-email', require('./inputs/simple-email.vue').default);
 window.Vue.component('simple-numeric', require('./inputs/simple-numeric.vue').default);
@@ -48,8 +49,8 @@ window.Vue.component('simple-password', require('./inputs/simple-password.vue').
 window.Vue.component('simple-text', require('./inputs/simple-text.vue').default);
 window.Vue.component('simple-textarea', require('./inputs/simple-textarea.vue').default);
 window.Vue.component('simple-url', require('./inputs/simple-url.vue').default);
+window.Vue.component('selector-species_animal', require('./inputs/selector-species_animal.vue').default);
 window.Vue.component('toggle', require('./inputs/toggle.vue').default);
-window.Vue.component('rating', require('./inputs/rating.vue').default);
 window.Vue.component('upload', require('./inputs/upload.vue').default);
 window.ModularForms.Input = {
     'modalSelector': require('./inputs/components/modal-selector.vue').default,
