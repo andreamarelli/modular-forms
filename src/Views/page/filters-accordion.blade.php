@@ -30,7 +30,7 @@ $expanded = $expanded ?? false;
                 </div>
 
                 <div class="text-right">
-                    <button type="submit" class="btn-nav rounded">{{ ucfirst(trans('common.apply_filters')) }}</button>
+                    <button type="submit" class="btn-nav rounded">@lang_u('common.apply_filters')</button>
                 </div>
 
             </form>

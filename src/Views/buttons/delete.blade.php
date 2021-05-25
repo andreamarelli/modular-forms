@@ -18,7 +18,7 @@ $label = $label ?? null;
 
 {{-- Delete modal anchor --}}
 <div style="display: inline-block;"
-     data-toggle="tooltip" data-placement="top" data-original-title="{{ ucfirst(trans('common.delete')) }}">
+     data-toggle="tooltip" data-placement="top" data-original-title="@lang_u('common.delete')">
     <button type="submit"
             class="btn-nav small red"
             data-toggle="modal" {!! $modal_target !!}>
@@ -35,13 +35,13 @@ $label = $label ?? null;
                 <strong>@lang('common.confirm_deletion')</strong>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn-nav" data-dismiss="modal">{{ ucfirst(trans('common.close')) }}</button>
+                <button type="button" class="btn-nav" data-dismiss="modal">@lang_u('common.close')</button>
                 <form style="display: inline-block" method="post" {!! $action !!}>
                     @csrf
                     <input name="_method" type="hidden" value="DELETE">
                     <button type="submit" class="btn-nav red">
                         {!! AndreaMarelli\ModularForms\Helpers\Template::icon('trash', 'white') !!}
-                        {{ ucfirst(trans('common.delete')) }}
+                        @lang_u('common.delete')
                     </button>
                 </form>
             </div>

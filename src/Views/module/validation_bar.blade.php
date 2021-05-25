@@ -12,14 +12,14 @@
 
         <div class="message">
             <span v-if="validation!=null && validation.id!=null">
-                {{ ucfirst(trans('form/national_indicators/common.validated_by')) }}:&nbsp;
+                @lang_u('form/national_indicators/common.validated_by'):&nbsp;
                 <b data-toggle="tooltip" data-placement="top" :title="'#'+validation.id">@{{ validation.name }}</b>&nbsp;
                 <i>@{{ validation.date }}</i>
             </span>
         </div>
 
         <div class="buttons" style="display: flex; align-items: center" v-if="loading===false">
-            <span style="margin-right: 10px;">{{ ucfirst(trans('form/national_indicators/common.validation')) }}: </span>
+            <span style="margin-right: 10px;">@lang_u('form/national_indicators/common.validation'): </span>
             <div class="switch_checkbox lg" >
                 <input type="checkbox" id="{{ $definitions['module_key'] }}_is_validated"
                        :checked=is_validated
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="buttons" style="display: flex; align-items: center" v-else>
-            <span style="margin-right: 10px;">{{ ucfirst(trans('common.saving')) }}</span>
+            <span style="margin-right: 10px;">@lang_u('common.saving')</span>
             <span><i class="fa fa-spinner fa-spin fa-2x gray-600"></i></span>
         </div>
 

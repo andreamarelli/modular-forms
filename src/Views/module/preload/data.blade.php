@@ -93,7 +93,7 @@
                                 </td>
                             @endforeach
                             <td>
-                                <button type="button" class="btn-nav small" onclick="module_{{ $definitions['module_key'] }}.apply_preload_one_record('{{ $year }}', '{{ $index }}')">{{ ucfirst(trans('common.import')) }}</button>
+                                <button type="button" class="btn-nav small" onclick="module_{{ $definitions['module_key'] }}.apply_preload_one_record('{{ $year }}', '{{ $index }}')">@lang_u('common.import')</button>
                             </td>
                         </tr>
                         @endforeach

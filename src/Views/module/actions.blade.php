@@ -14,7 +14,7 @@
             <input type="checkbox"
                :checked=not_applicable
                v-on:change="toggleNotApplicable()"
-               data-toggle="tooltip"  data-original-title="{{ ucfirst(trans('common.form.applicable_tooltip')) }}"/>
+               data-toggle="tooltip"  data-original-title="@lang_u('common.form.applicable_tooltip')"/>
         </div>
 
         {{-- #### Not avalibale #### --}}
@@ -25,7 +25,7 @@
             <input type="checkbox"
                :checked=not_available
                v-on:change="toggleNotAvailable()"
-               data-toggle="tooltip"  data-original-title="{{ ucfirst(trans('common.form.available_tooltip')) }}"/>
+               data-toggle="tooltip"  data-original-title="@lang_u('common.form.available_tooltip')"/>
         </div>
 
     @endif

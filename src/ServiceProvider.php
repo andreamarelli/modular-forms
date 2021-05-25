@@ -2,6 +2,7 @@
 
 namespace AndreaMarelli\ModularForms;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 
@@ -33,6 +34,12 @@ class ServiceProvider extends BaseServiceProvider
 
         // Config
         $this->publishes([__DIR__.'/../config/config.php' => config_path('modular-forms.php')], 'config');
+
+
+        // Custom blades
+        Blade::directive('lang_u', function ($key) {
+            return "<?php echo ucfirst(trans($key)); ?>";
+        });
     }
 
 }

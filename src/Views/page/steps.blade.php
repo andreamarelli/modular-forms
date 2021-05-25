@@ -17,7 +17,7 @@ $url = rtrim($url, '/').'/';
                @if($step==$current_step)
                    selected
                @endif"
-            >{{ ucfirst(trans($label_prefix.$step)) }}</a>
+            >@lang_u($label_prefix.$step)</a>
         @endforeach
     @endif
 </nav>
