@@ -7,7 +7,7 @@
 </template>
 
 
-<style lang="scss" type="text/scss" scoped>
+<style lang="scss" scoped>
     a img{
         height: 24px;
     }

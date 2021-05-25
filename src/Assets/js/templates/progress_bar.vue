@@ -8,7 +8,7 @@
 
 </template>
 
-<style lang="scss" type="text/scss" scoped>
+<style lang="scss" scoped>
 
     @import "../.././sass/abstracts/all";
     .progress{

@@ -30,6 +30,7 @@ if($value!==null){
     <div class="field-preview">
         @if($value!==null)
             @php
+                /** @var string $value */
                 $values = json_decode($value)===null ? explode(',', $value) : json_decode($value);
             @endphp
             @foreach($values as $v)
@@ -88,13 +89,23 @@ if($value!==null){
         [$min, $max] = explode('to', $ratingType);
     @endphp
     <span ref="ratingOptions" class="rating-container">
-        @if( Str::contains($type, 'WithNA'))
+        @if(\Illuminate\Support\Str::contains($type, 'WithNA'))
             <span class="rating field-edit ratingNa {{ $value=='-99' ? 'active' : '' }}">N/A</span>
         @endif
         @for($i=$min; $i<=$max; $i++)
             <span class="rating field-edit ratingNum {{ $value!==null && $i<=$value ? 'active' : '' }}">{{ $i }}</span>
         @endfor
     </span>
+
+@elseif(\Illuminate\Support\Str::contains($type, 'selector-species_animal'))
+    <?php
+    if($value!==null && \Illuminate\Support\Str::contains($value, '|')){
+        $value = implode(' ', array_slice(explode('|', $value), 4, 2));
+    }
+    ?>
+    <div class="field-preview">
+        {!! $value ?? '&nbsp;' !!}
+    </div>
 
 
 @elseif($only_label)

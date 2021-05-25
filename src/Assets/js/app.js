@@ -38,6 +38,13 @@ window.Vue.component('redlist_category', window.ModularForms.Template.redlist_ca
 window.Vue.component('redlist_link', require('./templates/redlist_link.vue').default);
 window.Vue.component('user', require('./templates/user.vue').default);
 
+// Load INPUT "abstract" component
+window.ModularForms.Input = {
+    'modalSelector': require('./inputs/components/modal-selector.vue').default,
+    'modalApiSearch': require('./inputs/components/modal-api-search').default,
+    'modalApiSearchWithAdd': require('./inputs/components/modal-api-search-AddElement').default
+};
+
 // Load INPUT components
 window.Vue.component('checkbox-boolean', require('./inputs/checkbox-boolean.vue').default);
 window.Vue.component('dropdown', require('./inputs/dropdown.vue').default);
@@ -52,11 +59,6 @@ window.Vue.component('simple-url', require('./inputs/simple-url.vue').default);
 window.Vue.component('selector-species_animal', require('./inputs/selector-species_animal.vue').default);
 window.Vue.component('toggle', require('./inputs/toggle.vue').default);
 window.Vue.component('upload', require('./inputs/upload.vue').default);
-window.ModularForms.Input = {
-    'modalSelector': require('./inputs/components/modal-selector.vue').default,
-    'modalApiSearch': require('./inputs/components/modal-api-search').default,
-    'modalApiSearchWithAdd': require('./inputs/components/modal-api-search-AddElement').default
-};
 
 // Load INPUT components (old - to be reviewed/deleted)
 window.Vue.component('currency-unit', require('./inputs-old/currency-unit.vue').default);
