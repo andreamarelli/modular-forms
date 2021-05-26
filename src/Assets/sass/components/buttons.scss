@@ -1,5 +1,10 @@
 @import "../abstracts/all";
 
+.btn:focus{
+  outline: none;
+  box-shadow: none;
+}
+
 
 /*  #########  Flat buttons  ########  */
 

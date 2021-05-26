@@ -185,9 +185,6 @@ $other_attributes = $other ?? '';
     ></upload>
 
 
-    {{--  ###### text editor ######  --}}
-@elseif($type=="text-editor")
-    <editor v-model="{{ $v_value }}" v-on:update="{{ $v_value }} = $event"></editor>
 
 @else
     <b class="text-danger">Type "{{ $type }}" has not been implemented yet.</b>
