@@ -2,6 +2,7 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
+
     entry: {
         index: './src/assets/js/app.js',
         vendor: './src/assets/js/vendor.js',
@@ -27,14 +28,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                ],
-            },
-            {
-                test: /\.scss$/i,
+                test: /\.[s]*css$/,
                 use: [
                     'vue-style-loader',
                     'style-loader',
@@ -71,12 +65,22 @@ module.exports = {
                 }]
             },
             {
-                test: /flags\/\dx\d\/([a-z\-]+).svg$/,
+                test: /flags\/4x3\/([a-z\-]+).svg$/,
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: '[path][name].[ext]',
-                        outputPath: 'flags'
+                        name: '[name].[ext]',
+                        outputPath: 'flags/4x3'
+                    }
+                }]
+            },
+            {
+                test: /flags\/1x1\/([a-z\-]+).svg$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'flags/1x1'
                     }
                 }]
             }
