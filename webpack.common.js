@@ -3,16 +3,16 @@ const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
     entry: {
-        modular_forms: './src/assets/js/app.js',
-        modular_forms_vendor: './src/assets/js/vendor.js',
-        modular_forms_vendor_leaflet: './src/assets/js/vendor.js',
-        modular_forms_style: './src/assets/sass/app.scss',
-        modular_forms_vendor_style: './src/assets/sass/vendor.scss',
+        index: './src/assets/js/app.js',
+        vendor: './src/assets/js/vendor.js',
+        vendor_leaflet: './src/assets/js/vendor.js',
+        style: './src/assets/sass/app.scss',
+        vendor_style: './src/assets/sass/vendor.scss',
     },
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: 'modular_forms_[name].js'
     },
 
     resolve: {
@@ -72,7 +72,6 @@ module.exports = {
             },
             {
                 test: /flags\/\dx\d\/([a-z\-]+).svg$/,
-                // type: 'asset/inline'
                 use: [{
                     loader: 'file-loader',
                     options: {
