@@ -20,8 +20,6 @@
 
 <script>
 
-    import AutoNumeric from 'autonumeric/dist/autoNumeric.min';
-
     export default {
 
         mixins: [
@@ -84,7 +82,7 @@
             this.options.emptyInputBehavior = 'null';
         },
         mounted() {
-            this.inputElement = new AutoNumeric(this.$refs.autoNumericElement, this.options);
+            this.inputElement = new window.AutoNumeric(this.$refs.autoNumericElement, this.options);
             this.inputElement.set(this.value);
             this.update();
         },

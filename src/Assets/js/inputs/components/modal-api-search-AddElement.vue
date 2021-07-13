@@ -202,6 +202,7 @@
                 isSearching: false,
                 searchResults: [],
                 showList: [],
+                totalCount: null,
                 selectedValue: null,
             }
         },

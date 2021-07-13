@@ -18,16 +18,14 @@
 
 <script>
 
-    import vSelect from 'vue-select';
-
-    Vue.component('v-select', vSelect);
+    Vue.component('v-select', window.VueSelect);
 
     export default {
 
         mixins: [
             window.ModularForms.MixinsVue.sorter,
             window.ModularForms.MixinsVue.values,
-            vSelect
+            window.VueSelect
         ],
 
         props: {

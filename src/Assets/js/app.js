@@ -41,8 +41,8 @@ window.Vue.component('user', require('./templates/user.vue').default);
 // Load INPUT "abstract" component
 window.ModularForms.Input = {
     'modalSelector': require('./inputs/components/modal-selector.vue').default,
-    'modalApiSearch': require('./inputs/components/modal-api-search').default,
-    'modalApiSearchWithAdd': require('./inputs/components/modal-api-search-AddElement').default
+    'modalApiSearch': require('./inputs/components/modal-api-search.vue').default,
+    'modalApiSearchWithAdd': require('./inputs/components/modal-api-search-AddElement.vue').default
 };
 
 // Load INPUT components
