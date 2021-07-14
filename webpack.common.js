@@ -4,11 +4,9 @@ const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
 
     entry: {
-        index: './src/assets/js/app.js',
-        vendor: './src/assets/js/vendor.js',
-        vendor_leaflet: './src/assets/js/vendor.js',
-        style: './src/assets/sass/app.scss',
-        vendor_style: './src/assets/sass/vendor.scss',
+        index: './src/assets/index.js',
+        vendor: './src/assets/vendor.js',
+        vendor_leaflet: './src/assets/vendor.js'
     },
 
     output: {
