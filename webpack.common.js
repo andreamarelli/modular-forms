@@ -1,12 +1,13 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
 
     entry: {
-        index: './src/assets/index.js',
-        vendor: './src/assets/vendor.js',
-        vendor_leaflet: './src/assets/vendor.js'
+        index: ['./src/assets/index.js', './src/assets/index.scss'],
+        vendor: ['./src/assets/vendor.js', './src/assets/vendor.scss'],
+        vendor_leaflet: ['./src/assets/vendor_mapping_leaflet.js', './src/assets/vendor_mapping_leaflet.scss'],
     },
 
     output: {
@@ -29,7 +30,12 @@ module.exports = {
                 test: /\.[s]*css$/,
                 use: [
                     'vue-style-loader',
-                    'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false,
+                        },
+                    },
                     'css-loader',
                     'sass-loader'
                 ],
@@ -86,6 +92,9 @@ module.exports = {
     },
 
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'modular_forms_[name].css',
+        }),
     ]
 };

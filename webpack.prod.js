@@ -6,6 +6,7 @@ module.exports = merge(common, {
     mode: 'development',
 
     output: {
+        path: path.resolve(__dirname, 'dist/prod'),
         filename: 'modular_forms_[name].js'
     }
 

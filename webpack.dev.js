@@ -6,6 +6,8 @@ module.exports = merge(common, {
     mode: 'production',
 
     output: {
-        filename: 'modular_forms_[name].debug.js'
-    },
+        path: path.resolve(__dirname, 'dist/debug'),
+        filename: 'modular_forms_[name].js'
+    }
+
 });

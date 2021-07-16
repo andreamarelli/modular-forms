@@ -65,10 +65,3 @@ window.Vue.component('currency-unit', require('./js/inputs-old/currency-unit.vue
 window.Vue.component('dropdown-entity', require('./js/inputs-old/dropdown-entity.vue').default);
 window.Vue.component('dropdown-related', require('./js/inputs-old/dropdown-related.vue').default);
 window.Vue.component('dropdown-simple', require('./js/inputs-old/dropdown-simple.vue').default);
-
-
-// Stylesheets
-import "./sass/abstracts/_all.scss";
-import "./sass/base/_all.scss";
-import "./sass/components/_all.scss";
-import "./sass/layout/_all.scss";
