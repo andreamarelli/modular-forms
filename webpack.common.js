@@ -26,6 +26,11 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.js$/,
+                enforce: "pre",
+                use: ["source-map-loader"],
+            },
+            {
                 test: /\.[s]*css$/,
                 use: [
                     'vue-style-loader',
@@ -76,7 +81,7 @@ module.exports = {
                     options: {
                         name: '[name].[ext]',
                         outputPath: 'flags/4x3',
-                        publicPath: 'flags'
+                        publicPath: 'flags/4x3'
                     }
                 }]
             },
@@ -87,7 +92,7 @@ module.exports = {
                     options: {
                         name: '[name].[ext]',
                         outputPath: 'flags/1x1',
-                        publicPath: 'flags'
+                        publicPath: 'flags/1x1'
                     }
                 }]
             }
