@@ -11,8 +11,7 @@ module.exports = {
     },
 
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'modular_forms_[name].js'
+        path: path.resolve(__dirname, 'dist/assets'),
     },
 
     resolve: {
@@ -52,7 +51,8 @@ module.exports = {
                         options: {
                             limit: 8192,
                             name: '[name].[ext]',
-                            outputPath: 'images'
+                            outputPath: 'images',
+                            publicPath: 'images'
                         },
                     },
                 ],
@@ -64,7 +64,8 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'fonts'
+                        outputPath: 'fonts',
+                        publicPath: 'fonts'
                     }
                 }]
             },
@@ -74,7 +75,8 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'flags/4x3'
+                        outputPath: 'flags/4x3',
+                        publicPath: 'flags'
                     }
                 }]
             },
@@ -84,7 +86,8 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'flags/1x1'
+                        outputPath: 'flags/1x1',
+                        publicPath: 'flags'
                     }
                 }]
             }
@@ -92,9 +95,6 @@ module.exports = {
     },
 
     plugins: [
-        new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'modular_forms_[name].css',
-        }),
+        new VueLoaderPlugin()
     ]
 };
