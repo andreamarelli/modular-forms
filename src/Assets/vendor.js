@@ -21,3 +21,4 @@ window.$.fn.select2.defaults.set("theme", "bootstrap");
 
 // Other packages
 window.AutoNumeric = require('autonumeric');
+window.echarts = require('echarts');
