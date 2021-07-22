@@ -35,6 +35,8 @@ class ServiceProvider extends BaseServiceProvider
         // Config
         $this->publishes([__DIR__.'/../config/config.php' => config_path('modular-forms.php')], 'config');
 
+        //Lang
+        $this->loadTranslationsFrom(__DIR__.'/../src/Lang', 'modular-forms');
 
         // Custom blades
         Blade::directive('lang_u', function ($key) {
