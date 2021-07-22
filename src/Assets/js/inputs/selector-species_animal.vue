@@ -77,7 +77,7 @@
                             :disabled="selectedValue===null"
                             v-if=displaySearch
                             v-on:click="confirmSelection" >
-                        {{ Locale.getLabel(('modular-forms::common.confirm_select') }}
+                        {{ Locale.getLabel('modular-forms::common.confirm_select') }}
                     </button>
                 </div>
             </div>

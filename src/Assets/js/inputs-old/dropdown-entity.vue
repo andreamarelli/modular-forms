@@ -58,7 +58,7 @@
             createButtonLabel: {
                 type: String,
                 default: () => {
-                    return Locale.getLabel(('modular-forms::common.create');
+                    return Locale.getLabel('modular-forms::common.create');
                 }
             },
             errorMessage: {

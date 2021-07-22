@@ -98,7 +98,7 @@
                                 :disabled="newKeywords.length<4"
                                 v-on:click="createKeywords"
                                 >
-                            {{ Locale.getLabel(('modular-forms::common.create') }}
+                            {{ Locale.getLabel('modular-forms::common.create') }}
                         </button>
                     </div>
                 </div>
