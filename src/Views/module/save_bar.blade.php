@@ -13,10 +13,10 @@
         </div>
         <div class="module-bar save-bar" >
             <div class="message">
-                {!! ucfirst(trans(('modular-forms::common.confirm_save')) !!}
+                {!! ucfirst(('modular-forms::common.confirm_save')) !!}
             </div>
             <div class="buttons">
-                <button type="button" v-on:click="resetModule" class="btn-nav small red"  v-show="status === 'changed'">{!! ucfirst(trans(('modular-forms::common.cancel_modifications')) !!}</button>
+                <button type="button" v-on:click="resetModule" class="btn-nav small red"  v-show="status === 'changed'">{!! ucfirst(('modular-forms::common.cancel_modifications')) !!}</button>
                 <button type="button" v-on:click="saveModule" class="btn-nav small" v-show="status === 'changed'">{!! ucfirst(trans('modular-forms::common.save')) !!}</button>
                 <button type="button" disabled="disabled" class="btn-nav small" v-show="status === 'saving'">&nbsp;&nbsp;<i class="fa fa-spinner fa-pulse"></i>&nbsp;&nbsp;</button>
             </div>

@@ -2,7 +2,7 @@
 /** @var \AndreaMarelli\ModularForms\Controllers\Controller $controller */
 /** @var String $label */
 
-$label = $label ?? trans(('modular-forms::common.csv');
+$label = $label ?? ('modular-forms::common.csv');
 
 ?>
 
