@@ -24,12 +24,12 @@
                 <td class="text-center"><b>{{ $year }}</b></td>
                 @if(empty($record))
                     <td class="text-center" colspan="{{ count($definitions['fields']) }}">
-                        <i>@lang('common.no_data')</i>
+                        <i>@lang('modular-forms::common.no_data')</i>
                     </td>
                 @else
                     @if(array_key_exists('not_applicable' ,$record[0]) && $record[0]['not_applicable']===true)
                         <td class="text-center" colspan="{{ count($definitions['fields']) }}">
-                            <i>@lang('common.form.not_applicable')</i>
+                            <i>@lang('modular-forms::common.form.not_applicable')</i>
                         </td>
                     @else
                         @foreach($definitions['fields'] as $field)
@@ -49,7 +49,7 @@
 @elseif($definitions['module_type']==='TABLE' || $definitions['module_type']==='ACCORDION')
 
     {{-- Selection year buttons  --}}
-    @lang('common.form.available_years'):&nbsp;
+    @lang('modular-forms::common.form.available_years'):&nbsp;
     @foreach($records as $year=>$record)
         @if(!empty($record))
             <button type="button" class="btn-nav small preload_button year_{{ $year }}" onclick="module_{{ $definitions['module_key'] }}.show_previous_year('{{ $year }}')">{{ $year }}</button>&nbsp;
@@ -66,7 +66,7 @@
                 <table class="striped preload_preview year_{{ $year }}" style="display: none;">
                     <thead>
                     <tr>
-                        <th>@lang('common.form.not_applicable')</th>
+                        <th>@lang('modular-forms::common.form.not_applicable')</th>
                     </tr>
                     </thead>
                 </table>
@@ -93,7 +93,7 @@
                                 </td>
                             @endforeach
                             <td>
-                                <button type="button" class="btn-nav small" onclick="module_{{ $definitions['module_key'] }}.apply_preload_one_record('{{ $year }}', '{{ $index }}')">@lang_u('common.import')</button>
+                                <button type="button" class="btn-nav small" onclick="module_{{ $definitions['module_key'] }}.apply_preload_one_record('{{ $year }}', '{{ $index }}')">@lang_u('modular-forms::common.import')</button>
                             </td>
                         </tr>
                         @endforeach

@@ -23,7 +23,7 @@
             placeholder: {
                 type: String,
                 default: () => {
-                    return Locale.getLabel('common.select_item') + '...'
+                    return Locale.getLabel('modular-forms::common.select_item') + '...'
                 }
             },
             dataValues: String,

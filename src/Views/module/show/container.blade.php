@@ -36,15 +36,15 @@ if($collection->isEmpty()){
         {{-- not applicable / not available --}}
         @if(!$no_data && array_key_exists('not_applicable', $records[0]) && $records[0]['not_applicable'])
             <div class="no-data">
-                @lang('common.form.not_applicable')
+                @lang('modular-forms::common.form.not_applicable')
             </div>
         @elseif(!$no_data && array_key_exists('not_available', $records[0]) && $records[0]['not_available'])
             <div class="no-data">
-                @lang('common.form.not_available')
+                @lang('modular-forms::common.form.not_available')
             </div>
         @elseif($mode==='print' && $no_data)
             <div class="no-data">
-                @lang('common.data_not_available')
+                @lang('modular-forms::common.data_not_available')
             </div>
         @else
 

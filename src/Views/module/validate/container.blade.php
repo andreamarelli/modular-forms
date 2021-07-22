@@ -37,15 +37,15 @@ $only_show = $only_show ?? false;
         {{-- not applicable / not available --}}
         @if($module_records['records'][0]['not_applicable'])
             <div class="no-data">
-                @lang('common.form.not_applicable')
+                @lang('modular-forms::common.form.not_applicable')
             </div>
         @elseif($module_records['records'][0]['not_available'])
             <div class="no-data">
-                @lang('common.form.not_available')
+                @lang('modular-forms::common.form.not_available')
             </div>
         @elseif($no_data)
             <div class="no-data">
-                @lang('form/national_indicators/common.nothing_to_validate')
+                @lang('modular-forms::common.form.nothing_to_validate')
             </div>
         @else
 
@@ -68,7 +68,7 @@ $only_show = $only_show ?? false;
             <div class="message"></div>
             <div class="buttons">
                 {!! \AndreaMarelli\ModularForms\Helpers\Template::icon('info-circle') !!}
-                @lang('form/national_indicators/common.already_validated')
+                @lang('modular-forms::common.form.already_validated')
             </div>
         </div>
     @elseif(!$no_data)

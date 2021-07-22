@@ -36,13 +36,13 @@
 
                     <span v-if="!isFileSelected">
                         <label>
-                            {{ Locale.getLabel('common.upload.no_file_selected') }}
+                            {{ Locale.getLabel('modular-forms::common.upload.no_file_selected') }}
                         </label>
                         &nbsp;&nbsp;
                         <!-- Select Button -->
                         <button type="button" v-on:click="selectFile" class="btn-nav small">
                             <i class="fa fa-folder-open white" />
-                            {{ Locale.getLabel('common.upload.select_file') }}
+                            {{ Locale.getLabel('modular-forms::common.upload.select_file') }}
                         </button>
                     </span>
 
@@ -56,7 +56,7 @@
                         <!-- Upload Button -->
                         <button type="button" v-on:click="uploadFile" class="btn-nav small" v-if="!uploading">
                             <i class="fa fa-upload white" />
-                            {{ Locale.getLabel('common.upload.upload') }}
+                            {{ Locale.getLabel('modular-forms::common.upload.upload') }}
                         </button>
 
                         <!-- Uploading -->
@@ -121,7 +121,7 @@
             uploadFileLabel: {
                 type: String,
                 default: () => {
-                    return Locale.getLabel('common.upload.upload_file')
+                    return Locale.getLabel('modular-forms::common.upload.upload_file')
                 },
             },
             allowedFormats: {
@@ -182,19 +182,19 @@
 
                     // Prevent upload if too big
                     if(this.selectedFile.size > 50000000){
-                        errorMessage = Locale.getLabel('common.upload.too_big');
+                        errorMessage = Locale.getLabel('modular-forms::common.upload.too_big');
                         this.isFileSelected = false;
                     }
 
                     // Check for allowed formats
                     if(this.allowedFormats!==null && !this.allowedFormats.includes(extension)){
-                        errorMessage = Locale.getLabel('common.upload.not_valid_format');
+                        errorMessage = Locale.getLabel('modular-forms::common.upload.not_valid_format');
                         this.isFileSelected = false;
                     }
 
                     let regex = /^[a-zA-Z0-9-_.&()\s]{1,250}\.[a-zA-Z0-9]{2,5}$/;
                     if(!regex.test(this.selectedFileName)){
-                        errorMessage = Locale.getLabel('common.upload.not_valid_filename');
+                        errorMessage = Locale.getLabel('modular-forms::common.upload.not_valid_filename');
                          this.isFileSelected = false;
                     }
                 }
@@ -221,7 +221,7 @@
                         _this.applySelection(response.data);
                     })
                     .catch(function (response) {
-                        _this.modalComponent.setError(Locale.getLabel('common.upload.error'));
+                        _this.modalComponent.setError(Locale.getLabel('modular-forms::common.upload.error'));
                     })
                     .finally(function (response) {
                         _this.loading = false;

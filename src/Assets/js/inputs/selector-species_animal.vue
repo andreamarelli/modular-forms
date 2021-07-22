@@ -16,16 +16,16 @@
                     search-url='ajax/search/species'
                 >
                     <template v-slot:modal_search_results_filters>
-                        <i>{{ Locale.getLabel('common.filter_results') }}: </i>&nbsp;&nbsp;
+                        <i>{{ Locale.getLabel('modular-forms::common.filter_results') }}: </i>&nbsp;&nbsp;
 
-                        {{ Locale.getLabel('entities.biodiversity.taxonomy.class') }}
+                        {{ Locale.getLabel('modular-forms::entities.biodiversity.taxonomy.class') }}
                         <select v-model=filterByClass @change="filterList(true)" class="field-edit">
                             <option v-for="option in classes">
                                 {{ option }}
                             </option>
                         </select>
 
-                        {{ Locale.getLabel('entities.biodiversity.taxonomy.order') }}
+                        {{ Locale.getLabel('modular-forms::entities.biodiversity.taxonomy.order') }}
                         <select v-model=filterByOrder @change="filterList(false)" class="field-edit">
                             <option v-for="option in orderByClass()">
                                 {{ option }}
@@ -47,11 +47,11 @@
             <div v-show="displayInsert" >
                 <div class="modal-body insert">
                     <div>
-                        {{ Locale.getLabel('entities.biodiversity.species', 1) }}
+                        {{ Locale.getLabel('modular-forms::entities.biodiversity.species', 1) }}
                         <input type="text" class="field-edit" value="" :id="'selector_item_insert_'+id" />
                     </div>
                     <div>
-                        <i>{{ Locale.getLabel('common.be_specific_as_possible') }}</i>
+                        <i>{{ Locale.getLabel('modular-forms::common.be_specific_as_possible') }}</i>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                             v-if="enableFreeText && displaySearch"
                             class="btn-nav dark small"
                             v-on:click="enableFreeTextItem" >
-                        {{ Locale.getLabel('common.add_if_not_found') }}
+                        {{ Locale.getLabel('modular-forms::common.add_if_not_found') }}
                     </button>
                 </div>
                 <div>
@@ -70,14 +70,14 @@
                             class="btn-nav dark small"
                             v-if=displayInsert
                             v-on:click="confirmInsert" >
-                        {{ Locale.getLabel('common.add') }}
+                        {{ Locale.getLabel('modular-forms::common.add') }}
                     </button>
                     <button type="button"
                             class="btn-nav dark small"
                             :disabled="selectedValue===null"
                             v-if=displaySearch
                             v-on:click="confirmSelection" >
-                        {{ Locale.getLabel('common.confirm_select') }}
+                        {{ Locale.getLabel(('modular-forms::common.confirm_select') }}
                     </button>
                 </div>
             </div>
@@ -184,7 +184,7 @@
             getSpeciesDescription(item){
                 let description = item.class+' '+item.order+' '+item.family+' <b>'+item.genus+' '+item.species+'</b>';
                 if(this.hasCommonNames(item)){
-                    description += '<div class="common_names"><b><i>'+Locale.getLabel('entities.biodiversity.common_names')+':</i></b><br />';
+                    description += '<div class="common_names"><b><i>'+Locale.getLabel('modular-forms::entities.biodiversity.common_names')+':</i></b><br />';
                     if(item.common_name_en!==null){
                         description += '<div><span class="flag-icon flag-icon-gb"></span>'+item.common_name_en.replace(/\,/g, ', ')+'</div>'
                     }
@@ -216,9 +216,9 @@
             resultTableHeader(){
                 return [
                     '',
-                    Locale.getLabel('entities.biodiversity.species', 1),
-                    Locale.getLabel('entities.biodiversity.red_list_category'),
-                    Locale.getLabel('entities.biodiversity.red_list'),
+                    Locale.getLabel('modular-forms::entities.biodiversity.species', 1),
+                    Locale.getLabel('modular-forms::entities.biodiversity.red_list_category'),
+                    Locale.getLabel('modular-forms::entities.biodiversity.red_list'),
                 ]
             },
 

@@ -82,7 +82,7 @@
             modalTitle:  {
                 type: String,
                 default: () => {
-                    return Locale.getLabel('common.select_item');
+                    return Locale.getLabel('modular-forms::common.select_item');
                 }
             },
             anchorLabel:  {
@@ -149,7 +149,7 @@
 
             setError(label = null){
                 label = label===null
-                    ? Locale.getLabel('common.saved_error')
+                    ? Locale.getLabel('modular-forms::common.saved_error')
                     : label;
                 this.errorLabel = Locale.getLabel(label);
             },

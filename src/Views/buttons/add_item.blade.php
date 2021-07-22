@@ -5,7 +5,7 @@
 /** @var String $iconColor */
 
 $onClick = $onClick ?? 'addItem';
-$label = $label ?? trans('common.add_item');
+$label = $label ?? trans('modular-forms::common.add_item');
 $icon = $icon ?? 'plus-circle';
 $iconColor = $iconColor ?? 'white';
 

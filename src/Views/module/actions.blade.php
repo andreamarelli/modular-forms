@@ -10,22 +10,22 @@
         <div id="applicable-{{ $definitions['module_key'] }}"
              v-if=!not_available
              style="display: inline-block; margin-right: 30px;" >
-            <label for="not_applicable">@lang('common.form.applicable')</label>
+            <label for="not_applicable">@lang('modular-forms::common.form.applicable')</label>
             <input type="checkbox"
                :checked=not_applicable
                v-on:change="toggleNotApplicable()"
-               data-toggle="tooltip"  data-original-title="@lang_u('common.form.applicable_tooltip')"/>
+               data-toggle="tooltip"  data-original-title="@lang_u('modular-forms::common.form.applicable_tooltip')"/>
         </div>
 
         {{-- #### Not avalibale #### --}}
         <div id="available-{{ $definitions['module_key'] }}"
              v-if=!not_applicable
              style="display: inline-block; margin-right: 30px;" >
-            <label for="not_available">@lang('common.form.not_available')</label>
+            <label for="not_available">@lang('modular-forms::common.form.not_available')</label>
             <input type="checkbox"
                :checked=not_available
                v-on:change="toggleNotAvailable()"
-               data-toggle="tooltip"  data-original-title="@lang_u('common.form.available_tooltip')"/>
+               data-toggle="tooltip"  data-original-title="@lang_u('modular-forms::common.form.available_tooltip')"/>
         </div>
 
     @endif
@@ -38,10 +38,10 @@
 </div>
 
 <div v-if=not_applicable class="no-data">
-    @lang('common.form.not_applicable')
+    @lang('modular-forms::common.form.not_applicable')
 </div>
 
 <div v-if=not_available class="no-data">
-    @lang('common.form.not_available')
+    @lang('modular-forms::common.form.not_available')
 </div>
 

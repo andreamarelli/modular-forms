@@ -8,7 +8,7 @@ $show = $show ?? true;
 @if($show)
     <div id="breadcrumb">
         <div class="wrap">
-            <a href="{{ url('/') }}/admin">@lang('layout.admin.admin_page')</a>
+            <a href="{{ url('/') }}/admin">@lang('modular-forms::common.admin_page')</a>
             @if(isset($links))
                 @foreach($links as $url=>$label)
                     <span class="sep">></span>

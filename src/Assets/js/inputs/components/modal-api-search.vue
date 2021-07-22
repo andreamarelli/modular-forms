@@ -6,7 +6,7 @@
 
 
             <div class="modal_search">
-                <i>{{ Locale.getLabel('common.search_item') }}: </i>
+                <i>{{ Locale.getLabel('modular-forms::common.search_item') }}: </i>
                 <!-- Search by key -->
                 <input type="text" class="field-edit" ref="searchByKey" autofocus
                        v-model="searchKey"
@@ -18,7 +18,7 @@
                 <button type="button" class="btn-nav gray small"
                         v-on:click="applySearch"
                         :disabled=!isSearchable >
-                    {{ Locale.getLabel('common.search') }}
+                    {{ Locale.getLabel('modular-forms::common.search') }}
                 </button>
                 <br />
                 <small v-if="searchKey.length>0 && searchKey.length<keyMinLength" ><i>{{ keyLengthErrorMessage }}</i></small>
@@ -185,10 +185,10 @@
 
         computed: {
             keyLengthErrorMessage(){
-                return Locale.getLabel('common.type_at_least', {'num_chars': this.keyMinLength} );
+                return Locale.getLabel('modular-forms::common.type_at_least', {'num_chars': this.keyMinLength} );
             },
             recordFoundLabel(){
-                return Locale.getLabel('common.record_found', this.totalCount);
+                return Locale.getLabel('modular-forms::common.record_found', this.totalCount);
             },
             isSearchable(){
                 return this.parentSearchParamsValid

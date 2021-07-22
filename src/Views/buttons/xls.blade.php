@@ -2,7 +2,7 @@
 /** @var \AndreaMarelli\ModularForms\Controllers\FormController $controller */
 /** @var String $label */
 
-$label = $label ?? trans('common.xls');
+$label = $label ?? trans('modular-forms::common.xls');
 
 ?>
 <a href="{{ action([$controller, 'xls']) }}"

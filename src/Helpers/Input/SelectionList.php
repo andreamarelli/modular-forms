@@ -49,13 +49,13 @@ class SelectionList
 
         if ($type == 'yes_no') {
             $list = [
-                'true' => trans('common.yes'),
-                'false' => trans('common.no')
+                'true' => trans('modular-forms::common.yes'),
+                'false' => trans('modular-forms::common.no')
             ];
         } elseif ($type == 'yes_no_text') {
             $list = [
-                trans('common.yes'),
-                trans('common.no')
+                trans('modular-forms::common.yes'),
+                trans('modular-forms::common.no')
             ];
         } elseif( $type === "currency-unit-minimal"){
             $list = [

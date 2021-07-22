@@ -34,7 +34,7 @@
 
         computed: {
             category_plain(){
-                return Locale.getLabel('entities.biodiversity.red_list_categories.'+this.category)
+                return Locale.getLabel('modular-forms::entities.biodiversity.red_list_categories.'+this.category)
             }
         },
 

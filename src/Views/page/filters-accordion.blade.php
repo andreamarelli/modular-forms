@@ -17,7 +17,7 @@ $expanded = $expanded ?? false;
     @component('modular-forms::page.accordion', [
                 'accordion_group_id' => 'accordion-filters',
                 'accordion_id' => 'accordion-filters-1',
-                'accordion_title' => mb_strtoupper(trans('common.filters')),
+                'accordion_title' => mb_strtoupper(trans('modular-forms::common.filters')),
                 'expanded' => $expanded,
             ])
 
@@ -30,7 +30,7 @@ $expanded = $expanded ?? false;
                 </div>
 
                 <div class="text-right">
-                    <button type="submit" class="btn-nav rounded">@lang_u('common.apply_filters')</button>
+                    <button type="submit" class="btn-nav rounded">@lang_u('modular-forms::common.apply_filters')</button>
                 </div>
 
             </form>

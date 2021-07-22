@@ -12,7 +12,7 @@
 
 ?>
 
-<label for="filter_initials">@lang('common.initial')</label>
+<label for="filter_initials">@lang('modular-forms::common.initial')</label>
 <span class="btn-nav-group" id="filter_initials">
 @foreach($chars as $l)
         <input type="button"

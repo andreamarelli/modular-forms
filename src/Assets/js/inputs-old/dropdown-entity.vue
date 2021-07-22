@@ -52,19 +52,19 @@
             modalTitle: {
                 type: String,
                 default: () => {
-                    return Locale.getLabel('common.add_entity');
+                    return Locale.getLabel('modular-forms::common.add_entity');
                 }
             },
             createButtonLabel: {
                 type: String,
                 default: () => {
-                    return Locale.getLabel('common.create');
+                    return Locale.getLabel(('modular-forms::common.create');
                 }
             },
             errorMessage: {
                 type: String,
                 default: () => {
-                    return Locale.getLabel('common.saved_error');
+                    return Locale.getLabel('modular-forms::common.saved_error');
                 }
             },
             entityKey: {
@@ -110,9 +110,9 @@
                 this.defaultOptions.language = {
                     noResults: function () {
                         return '<div class="container-fluid">' +
-                                    Locale.getLabel('common.no_record_found') +
+                                    Locale.getLabel('modular-forms::common.no_record_found') +
                                     '<button type="button" class="btn-nav small" data-toggle="modal" data-target="#' + _this.modalId + '">' +
-                                        Locale.getLabel('common.add') +
+                                        Locale.getLabel('modular-forms::common.add') +
                                     '</button>' +
                                 '</div>';
                     }

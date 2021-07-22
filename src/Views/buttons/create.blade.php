@@ -2,7 +2,7 @@
 /** @var \AndreaMarelli\ModularForms\Controllers\Controller $controller */
 /** @var String $label */
 
-$label = $label ?? trans('common.create');
+$label = $label ?? trans(('modular-forms::common.create');
 
 ?>
 

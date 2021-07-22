@@ -6,7 +6,7 @@
 
 
             <div class="modal_search">
-                <i>{{ Locale.getLabel('common.search_item') }}: </i>&nbsp;&nbsp;
+                <i>{{ Locale.getLabel('modular-forms::common.search_item') }}: </i>&nbsp;&nbsp;
                 <!-- Search by key -->
                 <input type="text" class="field-edit"
                        v-model="searchKey"
@@ -17,7 +17,7 @@
                 <button type="button" class="btn-nav gray small"
                         v-on:click="applySearch"
                         :disabled=!isSearchable >
-                    {{ Locale.getLabel('common.search') }}
+                    {{ Locale.getLabel('modular-forms::common.search') }}
                 </button>
 
                 <span  v-if="searchExecuted && totalCount===0">
@@ -28,7 +28,7 @@
                             :data-target="'#'+parentId+'_createkeywords_popup'"
                             v-on:click="copySearchKeyTonewKeywords"
                             >
-                        {{ Locale.getLabel('common.add') }}
+                        {{ Locale.getLabel('modular-forms::common.add') }}
                     </button>
                 </span>
                 <br />
@@ -87,7 +87,7 @@
                         </button>
                     </div>
                     <div class="modal-body" >
-                        <i>{{ Locale.getLabel('common.add_if_not_found') }}: </i>&nbsp;&nbsp;
+                        <i>{{ Locale.getLabel('modular-forms::common.add_if_not_found') }}: </i>&nbsp;&nbsp;
 
                         <!--The keywords to be create-->
                         <input type="text" class="field-edit" name="newkeywords" v-model="newKeywords" />
@@ -98,7 +98,7 @@
                                 :disabled="newKeywords.length<4"
                                 v-on:click="createKeywords"
                                 >
-                            {{ Locale.getLabel('common.create') }}
+                            {{ Locale.getLabel(('modular-forms::common.create') }}
                         </button>
                     </div>
                 </div>
@@ -214,10 +214,10 @@
 
         computed: {
             keyLengthErrorMessage() {
-                return Locale.getLabel('common.type_at_least', {'num_chars': this.keyMinLength});
+                return Locale.getLabel('modular-forms::common.type_at_least', {'num_chars': this.keyMinLength});
             },
             recordFoundLabel() {
-                return Locale.getLabel('common.record_found', this.totalCount);
+                return Locale.getLabel('modular-forms::common.record_found', this.totalCount);
             },
             isSearchable() {
                 return this.parentSearchParamsValid
