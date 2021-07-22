@@ -9,6 +9,7 @@ return [
     'add'               => 'add',
     'add_all'           => 'add all',
     'add_if_not_found'  => 'add a new item if not found',
+    'apply'             => 'apply',
     'apply_filters'     => 'apply a filter',
     'be_specific_as_possible' => 'Please be as much specific as possible',
 
@@ -18,13 +19,20 @@ return [
     'saved_successfully' => 'save successful',
     'saved_error'       => 'database error',
     'saving'            => 'saving',
+    'cancel'            => 'cancel',
     'cancel_modifications' => 'cancel modifications',
+    'confirm'           => 'confirm',
     'create'            => 'create',
     'delete'            => 'delete',
     'confirm_deletion'  => 'confirm deletion ?',
     'show'              => 'show',
+    'view_all'          => 'view all',
     'reset'             => 'reset',
     'close'             => 'close',
+    'go_back'           => 'go back',
+    'hide'              => 'hide',
+    'merge'             => 'merge',
+    'print'             => 'print',
 
     'csv'               => 'generate CSV',
     'xls'               => 'generate XLS',
@@ -44,6 +52,7 @@ return [
     'no_record_found'   => 'no records found',
     'no_data_found'     => 'no data found',
     'no_data'           => 'no data',
+    'no_differences'    => 'no differences',
     'data_not_available'=> 'data not available',
 
     'page'              => 'page',
@@ -62,6 +71,7 @@ return [
         'not_applicable'        => 'Not applicable',
         'applicable_tooltip'    => 'Check if this indicator does not apply to your country',
 
+        'global_errors' => 'some information in this form are incorrect or lacking. These information are mandatory, so that your data will be taken into account :',
         'error' => 'some information in this form are incorrect or lacking',
 
         'encoding'              => 'encoding',

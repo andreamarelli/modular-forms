@@ -9,6 +9,7 @@ return [
     'add'               => 'ajouter',
     'add_all'           => 'ajouter tous les éléments',
     'add_if_not_found'  => 'ajouter un nouvel élément s\'il n\'est pas trouvé',
+    'apply'             => 'appliquer',
     'apply_filters'     => 'appliquer les critères',
     'be_specific_as_possible' => 'S\'il vous plaît être le plus précis que possible',
 
@@ -18,13 +19,20 @@ return [
     'saved_successfully'=> 'données enregistrées avec succès',
     'saved_error'       => 'erreur de la base de données',
     'saving'            => 'enregistrer la modification',
+    'cancel'            => 'annuler',
     'cancel_modifications' => 'annuler les modifications',
+    'confirm'           => 'confirmer',
     'create'            => 'créer',
     'delete'            => 'supprimer',
     'confirm_deletion'  => 'confirmer la suppression?',
     'show'              => 'visualiser',
+    'view_all'          => 'voir tous',
     'reset'             => 'réinitialiser',
     'close'             => 'fermer',
+    'go_back'           => 'retourner',
+    'hide'              => 'cacher',
+    'merge'             => 'combiner',
+    'print'             => 'imprimer',
 
     'csv'               => 'générer CSV',
     'xls'               => 'générer XLS',
@@ -44,6 +52,7 @@ return [
     'no_record_found'   => 'aucun résultat trouvé',
     'no_data_found'     => 'aucune donnée trouvée',
     'no_data'           => 'aucune donnée',
+    'no_differences'    => 'aucune différence',
     'data_not_available'=> 'données non disponibles',
 
     'page'              => 'page',
@@ -62,6 +71,7 @@ return [
         'not_applicable'        => 'Pas applicable',
         'applicable_tooltip'    => 'Cochez la case si cet indicateur ne concerne pas votre pays',
 
+        'global_errors' => 'ce formulaire contient des informations incorrectes ou manquantes. Ces informations sont indispensables pour que vos données soient prises en compte :',
         'error' => 'ce formulaire contient des informations incorrectes ou manquantes',
 
         'encoding' => 'encodage',

@@ -9,6 +9,7 @@ return [
     'add'               => 'añadir',
     'add_all'           => 'añadir todo',
     'add_if_not_found'  => 'añadir un nuevo elemento si no se encuentra',
+    'apply'             => 'aplicar',
     'apply_filters'     => 'aplicar un filtro',
     'be_specific_as_possible' => 'Por favor, sea lo más específico posible',
 
@@ -18,13 +19,20 @@ return [
     'saved_successfully' => 'guardado con éxito',
     'saved_error'       => 'error en la base de datos',
     'saving'            => 'guardando',
+    'cancel'            => 'cancelar',
     'cancel_modifications' => 'cancelar las modificaciones',
+    'confirm'           => 'confirmar',
     'create'            => 'crear',
     'delete'            => 'borrar',
     'confirm_deletion'  => '¿confirmar el borrado?',
     'show'              => 'mostrar',
+    'view_all'          => 'ver todo',
     'reset'             => 'reiniciar',
     'close'             => 'cerrar',
+    'go_back'           => 'volver',
+    'hide'              => 'ocultar',
+    'merge'             => 'combinar',
+    'print'             => 'imprimir',
 
     'csv'               => 'generar CSV',
     'xls'               => 'generar XLS',
@@ -44,6 +52,7 @@ return [
     'no_record_found'   => 'no se encontraron registros',
     'no_data_found'     => 'no se encontraron datos',
     'no_data'           => 'sin datos',
+    'no_differences'    => 'sin diferencias',
     'data_not_available'=> 'datos no disponibles',
 
     'page'              => 'página',
@@ -62,6 +71,7 @@ return [
         'not_applicable'        => 'No aplica',
         'applicable_tooltip'    => 'Marque la casilla si este indicador no se aplica a su país',
 
+        'global_errors' => 'algunos datos de este formulario son incorrectos o insuficientes. Esta información es obligatoria para que sus datos sean tomados en cuenta :',
         'error' => 'algunos datos de este formulario son incorrectos o insuficientes',
 
         'encoding' => 'codificacion',

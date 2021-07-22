@@ -9,6 +9,7 @@ return [
     'add'               => 'adicionar',
     'add_all'           => 'adicionar tudo',
     'add_if_not_found'  => 'adicionar um novo item se não for encontrado',
+    'apply'             => 'aplicar',
     'apply_filters'     => 'aplicar um filtro',
     'be_specific_as_possible' => 'Por favor, seja o mais específico possível',
 
@@ -18,13 +19,20 @@ return [
     'saved_successfully'=> 'salvar com sucesso',
     'saved_error'       => 'erro na base de dados',
     'saving'            => 'poupança',
+    'cancel'            => 'cancelar',
     'cancel_modifications' => 'cancelar modificações',
+    'confirm'           => 'confirmar',
     'create'            => 'criar',
     'delete'            => 'eliminar',
     'confirm_deletion'  => 'confirmar a eliminação?',
     'show'              => 'mostrar',
+    'view_all'          => 'ver tudo',
     'reset'             => 'reinicialização',
     'close'             => 'fechar',
+    'go_back'           => 'voltar atrás',
+    'hide'              => 'esconder',
+    'merge'             => 'fundir',
+    'print'             => 'imprimir',
 
     'csv'               => 'gerar CSV',
     'xls'               => 'gerar XLS',
@@ -44,6 +52,7 @@ return [
     'no_record_found'   => 'não foram encontrados registos',
     'no_data_found'     => 'não foram encontrados dados',
     'no_data'           => 'sem dados',
+    'no_differences'    => 'sem diferenças',
     'data_not_available'=> 'dados não disponíveis',
 
     'page'              => 'página',
@@ -62,6 +71,7 @@ return [
         'not_applicable'        => 'Não aplicável',
         'applicable_tooltip'    => 'Marque a caixa se este indicador não se aplicar ao seu país',
 
+        'global_errors' => 'algumas informações nesta forma estão incorrectas ou faltam. Estas informações são obrigatórias, para que os seus dados sejam tidos em conta:',
         'error' => 'algumas informações contidas neste formulário estão incorrectas ou em falta',
 
         'encoding' => 'codificação',
