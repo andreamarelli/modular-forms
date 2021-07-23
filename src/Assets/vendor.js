@@ -3,6 +3,11 @@ window._ = require('lodash');
 window.axios = require('axios');
 window.$ = window.jQuery = require('jquery');
 
+// Temporary replacement for mariuzzo/laravel-js-localization (need to wait support for packages loadTranslationsFrom method)
+// Pull request #149 (https://github.com/rmariuzzo/Laravel-JS-Localization/pull/149)
+import I18n from 'vendor/conedevelopment/i18n/resources/js/I18n.js';
+window.I18n = I18n;
+
 // Vue
 window.Vue = require('vue').default;
 window.vueBus = new window.Vue();
