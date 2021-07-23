@@ -18,7 +18,7 @@ $label = $label ?? null;
 
 {{-- Delete modal anchor --}}
 <div style="display: inline-block;"
-     data-toggle="tooltip" data-placement="top" data-original-title="@lang_u(('modular-forms::common.delete')">
+     data-toggle="tooltip" data-placement="top" data-original-title="@lang_u('modular-forms::common.delete')">
     <button type="submit"
             class="btn-nav small red"
             data-toggle="modal" {!! $modal_target !!}>
@@ -41,7 +41,7 @@ $label = $label ?? null;
                     <input name="_method" type="hidden" value="DELETE">
                     <button type="submit" class="btn-nav red">
                         {!! AndreaMarelli\ModularForms\Helpers\Template::icon('trash', 'white') !!}
-                        @lang_u(('modular-forms::common.delete')
+                        @lang_u('modular-forms::common.delete')
                     </button>
                 </form>
             </div>
