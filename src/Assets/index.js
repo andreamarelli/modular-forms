@@ -1,4 +1,6 @@
-window.ModularForms = {}
+
+window.Laravel = window.Laravel || {};
+window.ModularForms = {};
 
 // Loading mixins
 window.ModularForms.Mixins = {

@@ -1,17 +1,20 @@
 export default {
 
     getLocale: function(){
-        return Lang.getLocale();
+        return window.Laravel.locale;
     },
 
     getLabel: function(key, arg=null){
+
+        let translator = new window.I18n;
+
         let label = '';
         if(arg===null){
-            label = Lang.get(key)
+            label = translator.trans(key)
         } else if(typeof arg === "object"){
-            label = Lang.get(key, arg)
+            label = translator.trans(key, arg)
         } else if(typeof arg === "number"){
-            label = Lang.choice(key, arg)
+            label = translator.trans_choice(key, arg)
         }
         return _.upperFirst(label);
     },

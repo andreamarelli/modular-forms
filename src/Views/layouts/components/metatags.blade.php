@@ -3,9 +3,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="{{ url('/') }}/favicon.ico" type="image/x-icon" rel="icon">
 
-<script>
-    {!! 'window.Laravel = '.json_encode([
+<?php
+
+    $window_js = [
         'csrfToken' => csrf_token(),
-        'baseUrl' => url('/').'/'
-    ]).';' !!}
+        'baseUrl' => url('/').'/',
+        'locale' => \Illuminate\Support\Facades\App::getLocale()
+    ]
+
+?>
+<script>
+    window.Laravel = @json($window_js);
 </script>

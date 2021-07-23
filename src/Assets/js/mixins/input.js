@@ -3,7 +3,7 @@ export default {
     dayPicker: function($item){
         $item.datepicker({
             format: "yyyy-mm-dd",
-            language: Lang.getLocale(),
+            language: window.Locale.getLocale(),
             clearBtn: true,
             autoclose: true,
             todayHighlight: true
