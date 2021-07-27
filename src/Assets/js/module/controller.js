@@ -36,7 +36,8 @@ window.ModularForms.ModuleController = window.Vue.extend({
             action: null,
             form_id: null,
             visible: null,
-            warning_on_save: null
+            warning_on_save: null,
+            reset_status: 'idle'
         }
     },
 
@@ -91,7 +92,7 @@ window.ModularForms.ModuleController = window.Vue.extend({
         _this.__set_predefined_as_disabled();
 
         Vue.nextTick(function () {
-            _this.status = 'idle';
+            _this.status = _this.reset_status;
         });
 
         _this.mountedCallback();
@@ -127,7 +128,7 @@ window.ModularForms.ModuleController = window.Vue.extend({
             _this.__init_applicable();
             _this.resetModuleCallback();
             Vue.nextTick(function () {
-                _this.status = 'idle';
+                _this.status = _this.reset_status;
             });
         },
 

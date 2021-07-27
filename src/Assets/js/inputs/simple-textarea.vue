@@ -1,7 +1,8 @@
 <template>
 
     <span>
-        <span id="simple-textarea" class="field-preview" contenteditable @input="onInput" v-text="originalValue"></span>
+        <span v-if="disabled" id="simple-textarea" class="field-preview disabled" @input="onInput" v-text="originalValue"></span>
+        <span v-else id="simple-textarea" class="field-preview" contenteditable @input="onInput" v-text="originalValue"></span>
     </span>
 
 </template>
@@ -14,6 +15,13 @@
         mixins: [
             window.ModularForms.MixinsVue.values
         ],
+
+        props:{
+            disabled: {
+                type: Boolean,
+                default: false
+            }
+        },
 
         data (){
             return {

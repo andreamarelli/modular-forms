@@ -52,13 +52,12 @@ label{
   min-height: 34px;
   min-width: 80px;
   max-width: 450px;
-  &.field-enabled{
-  }
   &.field-preview{
     display: inline-block;
   }
   &.field-disabled,
-  &:disabled{
+  &:disabled,
+  &.disabled{
     border: 0;
     background-color: $gray-50;
   }
