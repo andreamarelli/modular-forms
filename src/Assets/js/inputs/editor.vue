@@ -27,15 +27,12 @@
 
 <script>
 
-    import CKEditor from '@ckeditor/ckeditor5-vue';
-    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
     export default {
 
         name: "editor",
 
         components: {
-            ckeditor: CKEditor.component
+            ckeditor: window.CKEditor.component
         },
 
         props: {
@@ -53,7 +50,7 @@
 
         data() {
             return {
-                editor: ClassicEditor,
+                editor: window.ClassicEditor,
                 editorData: this.value,
                 editorConfig: {
                     toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList' ],
