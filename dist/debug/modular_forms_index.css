@@ -344,6 +344,12 @@ body {
 [v-cloak] {
   display: none; }
 
+.width25 {
+  width: 25%; }
+
+.width50 {
+  width: 50%; }
+
 .width100 {
   width: 100%; }
 
@@ -2235,13 +2241,16 @@ label {
   .field-preview.field-preview,
   .field-disabled.field-preview {
     display: inline-block; }
-  .field-edit.field-disabled, .field-edit:disabled,
+  .field-edit.field-disabled, .field-edit:disabled, .field-edit.disabled,
   .field-enabled.field-disabled,
   .field-enabled:disabled,
+  .field-enabled.disabled,
   .field-preview.field-disabled,
   .field-preview:disabled,
+  .field-preview.disabled,
   .field-disabled.field-disabled,
-  .field-disabled:disabled {
+  .field-disabled:disabled,
+  .field-disabled.disabled {
     border: 0;
     background-color: #FAFAFA; }
 
