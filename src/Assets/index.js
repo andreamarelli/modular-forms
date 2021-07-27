@@ -5,10 +5,12 @@ window.ModularForms = {};
 // Loading mixins
 window.ModularForms.Mixins = {
     'Animation': require('./js/mixins/animation.js').default,
+    'Cookies': require('./js/mixins/cookie.js').default,
     'Input': require('./js/mixins/input.js').default,
     'Locale': require('./js/mixins/locale.js').default
 };
 window.ModularForms.MixinsVue = {
+    'checkboxes': require('./js/mixins-vue/checkboxes.mixin.js').default,
     'dropdown': require('./js/mixins-vue/dropdown.mixin').default,
     'filter': require('./js/mixins-vue/filter.mixin').default,
     'paginate': require('./js/mixins-vue/paginate.mixin').default,

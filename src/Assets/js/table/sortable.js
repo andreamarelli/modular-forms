@@ -3,7 +3,8 @@ window.ModularForms.SortableTable = window.Vue.extend({
     mixins: [
         window.ModularForms.MixinsVue.filter,
         window.ModularForms.MixinsVue.sorter,
-        window.ModularForms.MixinsVue.paginate
+        window.ModularForms.MixinsVue.paginate,
+        window.ModularForms.MixinsVue.checkboxes
     ] ,
 
     data: function () {
