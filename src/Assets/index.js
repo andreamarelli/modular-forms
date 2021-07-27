@@ -30,8 +30,10 @@ require('./js/table/sortable.js');     // window.ModularForms.SortableTable
 
 // Load TEMPLATES components
 window.ModularForms.Template = {
+    'chart_bar': require('./js/templates/charts/chart_bar.vue').default,
+    'chart_doughnut': require('./js/templates/charts/chart_doughnut.vue').default,
     'flag': require('./js/templates/flag.vue').default,
-    'redlist_category': require('./js/templates/redlist_category.vue').default,
+    'redlist_category': require('./js/templates/redlist_category.vue').default
 };
 window.Vue.component('date', require('./js/templates/date.vue').default);
 window.Vue.component('flag', window.ModularForms.Template.flag);
