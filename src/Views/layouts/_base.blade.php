@@ -9,13 +9,13 @@ $class_to_body = $class_to_body ?? '';
     <head>
         @include('modular-forms::layouts.components.metatags')
         @include('modular-forms::layouts.components.head')
+        @translations
     </head>
 
     <body class="{{ $class_to_body }}">
         @yield('body')
     </body>
 
-    @translations
 
     @stack('scripts')
 
