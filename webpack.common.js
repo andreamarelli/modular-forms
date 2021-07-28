@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         index: ['./src/assets/index.js', './src/assets/index.scss'],
         vendor: ['./src/assets/vendor.js', './src/assets/vendor.scss'],
-        vendor_leaflet: ['./src/assets/vendor_mapping_leaflet.js', './src/assets/vendor_mapping_leaflet.scss'],
+        vendor_mapbox: ['./src/assets/vendor_mapping_mapbox.js', './src/assets/vendor_mapping_mapbox.scss'],
     },
 
     output: {
