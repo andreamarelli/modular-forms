@@ -88,6 +88,9 @@ class Template
         }
         $full_path = public_path() . '/' . Template::DOCS_PATH . '/' . $relativePath . $fileName;
         if(!file_exists($full_path)){
+            if(!env('production')){
+                return '<p class="error">File (' . $fileName . ') NOT FOUND in DEV environment.</p>';
+            }
             throw new FileNotFoundException($full_path);
         }
         return '<a target="_blank" href="' . asset(Template::DOCS_PATH) . $relativePath . $fileName . '">
@@ -112,6 +115,9 @@ class Template
         }
         $full_path = public_path() . '/' . Template::DOCS_PATH . '/' . $relativePath . $fileName;
         if(!file_exists($full_path)){
+            if(!env('production')){
+                return '<p class="error">File (' . $fileName . ') NOT FOUND in DEV environment.</p>';
+            }
             throw new FileNotFoundException($full_path);
         }
         return Template::fileLink($relativePath, $fileName, $label) . '

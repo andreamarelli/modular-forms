@@ -4,8 +4,9 @@ use AndreaMarelli\ModularForms\controllers\Controller;
 use AndreaMarelli\ModularForms\Helpers\Locale;
 use Illuminate\Support\Facades\Route;
 
-define('UPPER_LOCALE', Locale::upper());
-define('LOWER_LOCALE', Locale::lower());
-
-
-Route::get('hello', [Controller::class, 'hello']);
+if(!defined('UPPER_LOCALE')) {
+    define('UPPER_LOCALE', Locale::upper());
+}
+if(!defined('LOWER_LOCALE')) {
+    define('LOWER_LOCALE', Locale::lower());
+}
