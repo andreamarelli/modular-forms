@@ -78,7 +78,7 @@
                 this.options.decimalCharacter = ',';
                 this.options.digitGroupSeparator = ' ';
             }
-
+            this.options.maximumValue = '100000000000000000';
             this.options.emptyInputBehavior = 'null';
         },
         mounted() {
