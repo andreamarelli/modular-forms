@@ -9443,7 +9443,7 @@ div.modal {
     background-image: url(flags/1x1/xk.svg); }
 
 /*!
- * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 .fa,
@@ -13514,9 +13514,6 @@ readers do not read off random characters that represent icons */
 .fa-trello:before {
   content: "\f181"; }
 
-.fa-tripadvisor:before {
-  content: "\f262"; }
-
 .fa-trophy:before {
   content: "\f091"; }
 
@@ -14010,7 +14007,7 @@ readers do not read off random characters that represent icons */
   width: auto; }
 
 /*!
- * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -14027,7 +14024,7 @@ readers do not read off random characters that represent icons */
   font-weight: 900; }
 
 /*!
- * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -15452,9 +15449,8 @@ table.preload_preview {
   clear: both;
   color: #333;
   /* Overrides most CSS frameworks */
-  white-space: nowrap; }
-  .vs__dropdown-option:hover {
-    cursor: pointer; }
+  white-space: nowrap;
+  cursor: pointer; }
 
 .vs__dropdown-option--highlight {
   background: #5897fb;
@@ -15462,9 +15458,8 @@ table.preload_preview {
 
 .vs__dropdown-option--disabled {
   background: inherit;
-  color: rgba(60, 60, 60, 0.5); }
-  .vs__dropdown-option--disabled:hover {
-    cursor: inherit; }
+  color: rgba(60, 60, 60, 0.5);
+  cursor: inherit; }
 
 /* Selected Tags */
 .vs__selected {
