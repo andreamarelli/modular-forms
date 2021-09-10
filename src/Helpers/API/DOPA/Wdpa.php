@@ -134,7 +134,7 @@ trait Wdpa
             'wdpaid' => $wdpa
         ]);
     }
-    
+
     /**
      * Returns the copernicus Global Landcover
      *
@@ -145,6 +145,35 @@ trait Wdpa
          return self::request(self::URL_PREFIX . 'd6dopa40/landcover/get_wdpa_lc_copernicus', [
             'format' => 'json',
              'wdpaid' => $wdpa,
+            'agg' => 2,
+            'year' => 2015
+        ]);
+    }
+
+    /**
+     * Returns Terrestrial and Marine Ecoregions in Protected Area.
+     *
+     * @param $wdpa
+     * @return array
+     */
+    public static function get_wdpa_ecoregions($wdpa)
+    {
+        return self::request(self::URL_PREFIX . 'd6dopa/dopa_41/get_dopa_ecoregion_pa', [
+            'format' => 'json',
+            'wdpaid' => $wdpa
+        ]);
+    }
+
+    /**
+    * Returns the copernicus Global Landcover for wdpa
+     *
+    * @param $wdpa
+    * @return array
+    */
+    public static function get_wdpa_copernicus($wdpa){
+        return self::request(self::URL_PREFIX . 'd6dopa/dopa_41/get_dopa_wdpa_lc_copernicus', [
+            'format' => 'json',
+            'wdpaid' => $wdpa,
             'agg' => 2,
             'year' => 2015
         ]);
