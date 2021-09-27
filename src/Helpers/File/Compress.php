@@ -52,10 +52,9 @@ class Compress
      */
     public static function zipFile(array $files, string $zip_filename = null): string
     {
-        if ($zip_filename==null){
-            $fileName = date('m-d-Y_hisu') . ".zip";
-        }
-        $store = Storage::disk(File::PRIVATE_STORAGE)->path('') . $fileName;
+        $zip_filename = $zip_filename ?? date('m-d-Y_hisu') . ".zip";
+        
+        $store = Storage::disk(File::PRIVATE_STORAGE)->path('') . $zip_filename;
         $zip = new ZipArchive();
         $zip->open($store, ZipArchive::CREATE);
         foreach ($files as $file) {
