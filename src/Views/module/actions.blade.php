@@ -37,10 +37,10 @@
 
 </div>
 
+{{-- "No data" label --}}
 <div v-if=not_applicable class="no-data">
     @lang('modular-forms::common.form.not_applicable')
 </div>
-
 <div v-if=not_available class="no-data">
     @lang('modular-forms::common.form.not_available')
 </div>
