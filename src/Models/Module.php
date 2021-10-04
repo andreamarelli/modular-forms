@@ -246,7 +246,8 @@ class Module extends BaseModel
             ? [0 => $empty_record]
             : $collection->toArray();
 
-        if($records[0]['not_available']!==true && $records[0]['not_applicable']!==true){
+        if((!array_key_exists('not_available', $records[0]) || $records[0]['not_available'] !== true) &&
+            (!array_key_exists('not_applicable', $records[0]) || $records[0]['not_applicable'] !== true)) {
             $records = static::arrange_records_with_predefined($form_id, $records, $empty_record);
         }
 
