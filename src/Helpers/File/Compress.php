@@ -6,6 +6,7 @@ namespace AndreaMarelli\ModularForms\Helpers\File;
 use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 use AndreaMarelli\ModularForms\Models\Traits\Upload;
+use App\Library\Utils\File\File;
 
 class Compress
 {
@@ -45,24 +46,29 @@ class Compress
 
     /**
      * pass an array of files to add them in a zip
-     *
      * @param array $files
-     * @param string|null $zip_filename
+     * @param string $name
+     * @param bool $remove_files
      * @return string
      */
-    public static function zipFile(array $files, string $zip_filename = null): string
+    public static function zipFile(array $files, string $name = "IMETS_", bool $remove_files = true) : string
     {
-        $zip_filename = $zip_filename ?? date('m-d-Y_hisu') . ".zip";
-        
-        $store = Storage::disk(File::PRIVATE_STORAGE)->path('') . $zip_filename;
+        $fileName = $name . count($files) . "_" . date('m-d-Y_hisu') . ".zip";
+        $store = Storage::disk(File::PRIVATE_STORAGE)->path('') . $fileName;
         $zip = new ZipArchive();
-        $zip->open($store, ZipArchive::CREATE);
+
+        $zip->open($store, \ZipArchive::CREATE);
+
         foreach ($files as $file) {
             $zip->addFile($file, basename($file));
         }
 
         $zip->close();
-        File::removeFiles($files);
+
+        if ($remove_files) {
+            File::removeFiles($files);
+        }
+
         return $store;
     }
 }
