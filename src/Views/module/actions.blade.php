@@ -1,6 +1,15 @@
 <?php
 /** @var Mixed $definitions */
 
+$has_observations = false;
+$observation_field = null;
+foreach($definitions['common_fields'] as $common_field){
+    if($common_field['name'] === 'observations'){
+        $has_observations = true;
+        $observation_field = $common_field;
+    }
+}
+
 ?>
 <div class="text-right" style="margin: 0 0 10px;">
 
@@ -37,11 +46,33 @@
 
 </div>
 
+{{-- "No data" label --}}
 <div v-if=not_applicable class="no-data">
     @lang('modular-forms::common.form.not_applicable')
 </div>
-
 <div v-if=not_available class="no-data">
     @lang('modular-forms::common.form.not_available')
 </div>
+
+{{-- Keep "observation" field--}}
+@if($has_observations)
+    <div class="module_body" v-if="not_applicable || not_available">
+
+        @component('modular-forms::module.field_container', [
+                'name' => $observation_field['name'],
+                'label' => $observation_field['label'] ?? '',
+                'label_width' => $definitions['label_width']
+            ])
+
+            {{-- input field --}}
+            @include('modular-forms::module.edit.field.module-to-vue', [
+                'definitions' => $definitions,
+                'field' => $observation_field,
+                'vue_record_index' => '0'
+            ])
+
+        @endcomponent
+
+    </div>
+@endif
 

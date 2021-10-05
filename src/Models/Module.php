@@ -245,7 +245,11 @@ class Module extends BaseModel
         $records = $isEmpty
             ? [0 => $empty_record]
             : $collection->toArray();
-        $records = static::arrange_records_with_predefined($form_id, $records, $empty_record);
+
+        if((!array_key_exists('not_available', $records[0]) || $records[0]['not_available'] !== true) &&
+            (!array_key_exists('not_applicable', $records[0]) || $records[0]['not_applicable'] !== true)) {
+            $records = static::arrange_records_with_predefined($form_id, $records, $empty_record);
+        }
 
         return [
             'id' => $form_id,
