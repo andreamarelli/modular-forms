@@ -1,12 +1,22 @@
 <?php
 /** @var Mixed $definitions */
 
+// Retrieve the "Observation" field (if exists)
 $has_observations = false;
 $observation_field = null;
-foreach($definitions['common_fields'] as $common_field){
-    if($common_field['name'] === 'observations'){
-        $has_observations = true;
-        $observation_field = $common_field;
+if($definitions['module_type']==='TABLE' || $definitions['module_type']==='ACCORDION'){
+    foreach($definitions['common_fields'] as $common_field){
+        if($common_field['name'] === 'observations'){
+            $has_observations = true;
+            $observation_field = $common_field;
+        }
+    }
+} else {
+    foreach($definitions['fields'] as $fields){
+        if($fields['name'] === 'observations'){
+            $has_observations = true;
+            $observation_field = $fields;
+        }
     }
 }
 
