@@ -6,7 +6,6 @@ namespace AndreaMarelli\ModularForms\Helpers\File;
 use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 use AndreaMarelli\ModularForms\Models\Traits\Upload;
-use App\Library\Utils\File\File;
 
 class Compress
 {
