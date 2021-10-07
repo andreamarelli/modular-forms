@@ -1,1 +1,1 @@
-Tests with Laravel Package Development
+A package to build modular data collection forms with Laravel.
