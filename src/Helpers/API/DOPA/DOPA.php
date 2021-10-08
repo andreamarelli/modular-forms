@@ -18,7 +18,7 @@ class DOPA
      * @param $params
      * @return array|mixed
      */
-    private static function request($url, $params): array
+    protected static function request($url, $params): array
     {
         $response = API::execute_api_request($url, $params);
         return  array_key_exists('error', (array) $response)
