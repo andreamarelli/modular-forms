@@ -96,7 +96,7 @@
                 this.indicators.forEach(function(item) {
                     options.color.push(item.color);
                     options.series[0].data.push({
-                        value: _this.api_data[item.field].toFixed(1),
+                        value: _this.api_data[item.field]?.toFixed(1) ?? 0,
                         name: item.label
                     });
                 });
