@@ -1521,6 +1521,133 @@ span.red-list_NE {
 [v-cloak] {
   display: none; }
 
+.list-key-numbers > div {
+  border-bottom: 1px dashed #D4D4D4; }
+  .list-key-numbers > div:first-of-type {
+    border-top: 1px dashed #D4D4D4; }
+
+.list-key-numbers.grid_two_cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px; }
+  .list-key-numbers.grid_two_cols > div:nth-child(2) {
+    border-top: 1px dashed #D4D4D4; }
+
+.list-key-numbers.grid_three_cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 25px; }
+  .list-key-numbers.grid_three_cols > div:nth-child(2),
+  .list-key-numbers.grid_three_cols > div:nth-child(3) {
+    border-top: 1px dashed #D4D4D4; }
+
+.list-key-numbers.horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .list-key-numbers.horizontal > div.list-head {
+    width: 100%;
+    border-bottom: none; }
+  .list-key-numbers.horizontal > div {
+    border-top: 1px dashed #D4D4D4;
+    flex-grow: 1; }
+
+.list-key-numbers > div {
+  padding: 8px 0;
+  display: flex;
+  align-items: center; }
+  .list-key-numbers > div.list-head {
+    padding: 8px 8px 8px 10px;
+    background-color: #FAFAFA;
+    color: #525252;
+    font-size: 1.2rem;
+    line-height: 1.3em;
+    font-weight: 600;
+    display: block; }
+    @media all and (max-width: 1280px) {
+      .list-key-numbers > div.list-head {
+        font-size: 1rem;
+        line-height: 1.4em; } }
+  .list-key-numbers > div > i.icon-svg {
+    background-color: #FAFAFA;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    padding: 5px; }
+    .list-key-numbers > div > i.icon-svg:before {
+      background-color: #16A34A; }
+  .list-key-numbers > div > i.fas {
+    font-size: 1rem;
+    line-height: 1.4em;
+    background-color: #FAFAFA;
+    border-radius: 50%;
+    color: #16A34A;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 7px; }
+    @media all and (max-width: 1280px) {
+      .list-key-numbers > div > i.fas {
+        font-size: 0.85rem;
+        line-height: 1.3em; } }
+    .list-key-numbers > div > i.fas:before {
+      background-color: transparent; }
+  .list-key-numbers > div .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px; }
+    .list-key-numbers > div .content span {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: .75rem;
+      line-height: 1.4em;
+      letter-spacing: .4px;
+      padding-bottom: 2px; }
+      @media all and (max-width: 1280px) {
+        .list-key-numbers > div .content span {
+          font-size: 0.7rem;
+          line-height: 1.4em; } }
+      .list-key-numbers > div .content span:last-child {
+        padding-bottom: 0; }
+      .list-key-numbers > div .content span.number {
+        color: #16A34A;
+        font-size: 1.4rem;
+        line-height: 1.3em;
+        font-weight: 600; }
+        @media all and (max-width: 1280px) {
+          .list-key-numbers > div .content span.number {
+            font-size: 1.2rem;
+            line-height: 1.3em; } }
+      .list-key-numbers > div .content span span.highlighted {
+        font-weight: bold;
+        color: #16A34A; }
+      .list-key-numbers > div .content span.two_columns {
+        display: flex; }
+        .list-key-numbers > div .content span.two_columns span:first-child {
+          flex-grow: 1; }
+        .list-key-numbers > div .content span.two_columns span:nth-child(2) {
+          font-weight: bold; }
+      .list-key-numbers > div .content span sup {
+        font-size: .75rem;
+        line-height: 1.4em;
+        letter-spacing: .4px;
+        font-weight: 400;
+        margin-left: 3px; }
+        @media all and (max-width: 1280px) {
+          .list-key-numbers > div .content span sup {
+            font-size: 0.7rem;
+            line-height: 1.4em; } }
+
+[v-cloak] {
+  display: none; }
+
 table {
   margin: 15px 0;
   border-collapse: collapse;
