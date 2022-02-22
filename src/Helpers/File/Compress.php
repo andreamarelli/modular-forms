@@ -46,13 +46,12 @@ class Compress
     /**
      * pass an array of files to add them in a zip
      * @param array $files
-     * @param string $name
+     * @param string $fileName
      * @param bool $remove_files
      * @return string
      */
-    public static function zipFile(array $files, string $name = "IMETS_", bool $remove_files = true) : string
+    public static function zipFile(array $files, string $fileName, bool $remove_files = true) : string
     {
-        $fileName = $name . count($files) . "_" . date('m-d-Y_hisu') . ".zip";
         $store = Storage::disk(File::PRIVATE_STORAGE)->path('') . $fileName;
         $zip = new ZipArchive();
 
