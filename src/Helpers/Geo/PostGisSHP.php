@@ -34,7 +34,7 @@ class PostGisSHP {
         $unzip_path = $storage->path($unzip_path_prefix);
 
         // Extract files from ZIP
-        $files = Zip::extract($zip_path,  $unzip_path, false);   // TODO: $remove_zip to true
+        $files = Zip::extract($zip_path,  false, true);   // TODO: $remove_zip to true
 
         // Search for SHP file
         $shp_path = null;

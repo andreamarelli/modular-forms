@@ -6,18 +6,19 @@ namespace AndreaMarelli\ModularForms\Helpers\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use ZipArchive;
-use AndreaMarelli\ModularForms\Models\Traits\Upload;
 
 class Zip
 {
     /**
      * retrieve zip file from temp folder open it and extract files
+     *
      * @param string $zip_path
-     * @param string $unzip_path
      * @param boolean $remove_zip
+     * @param boolean $return_full_path
      * @return array
+     * @throws \Exception
      */
-    public static function extract(string $zip_path, $unzip_path, $remove_zip = true): array
+    public static function extract(string $zip_path, bool $remove_zip = true, bool $return_full_path = false): array
     {
         $unzip_path = $unzip_path ?? dirname($zip_path);
         $relative_path = Str::replace(Storage::path(''), '', $unzip_path);
@@ -26,7 +27,7 @@ class Zip
         $zip = new ZipArchive;
         $zipStatus = $zip->open($zip_path);
         if ($zipStatus !== true) {
-            throw new Exception('Unable to extract the archive.');
+            throw new \Exception('Unable to extract the archive.');
         }
         $zip->extractTo($unzip_path);
         $zip->close();
@@ -34,7 +35,7 @@ class Zip
         // Read extracted files' paths
         $files = [];
         foreach(Storage::files($relative_path) as $file){
-            $files[] = Storage::path($file);
+            $files[] = $return_full_path ? Storage::path($file) : $file;
         }
 
         // Remove source ZIP archive
