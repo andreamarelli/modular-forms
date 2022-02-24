@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class File
 {
-
     public const PUBLIC_STORAGE = 'public';
-    public const PUBLIC_FOLDER = 'public_folder';
     public const TEMP_STORAGE = 'temp';
 
     use Export;
