@@ -8,6 +8,7 @@ use BadMethodCallException;
 use ErrorException;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use RuntimeException;
@@ -22,11 +23,12 @@ class PostGisSHP {
      * Import a SHP into a PostGis table (using shp2pgsql binary)
      *
      * @param $zip_path
-     * @param $table_name
+     * @param string|null $table_name
+     * @param string|null $table_SRID
      * @return string
      * @throws \Exception
      */
-    public static function shp2pgsql($zip_path, $table_name = null): string
+    public static function shp2pgsql($zip_path, string $table_name = null, string $primary_table_SRID = null): string
     {
         $storage = Storage::disk(File::TEMP_STORAGE);
 
@@ -35,7 +37,7 @@ class PostGisSHP {
         $storage->makeDirectory($unzip_path_prefix);
         $unzip_path = $storage->path($unzip_path_prefix);
 
-        // Extract files from ZIP
+        // Extract files from ZIP and remove it
         $files = Zip::extract($zip_path,  $unzip_path, false, true);   // TODO: $remove_zip to true
 
         // Search for SHP file
@@ -50,13 +52,10 @@ class PostGisSHP {
         }
 
         // Convert SHP to PostGis (with shp2pgsql binary) and return temporary table name
-        $temporary_table = static::execute_shp2pgsql($shp_path);
+        $temporary_table = static::execute_shp2pgsql($shp_path, $table_name, $primary_table_SRID);
 
-        // Remove ZIP and SHP files
-        $zip_relative_path = Str::replace(Storage::path(''), '', $zip_path);
-        Storage::delete($zip_relative_path);
+        // Remove SHP files
         $storage->deleteDirectory($unzip_path_prefix);
-
         return $temporary_table;
     }
 
@@ -146,27 +145,28 @@ class PostGisSHP {
      *
      * @param string $shp_path
      * @param string|null $table_name
-     * @param bool $drop_if_exists
+     * @param string|null $table_SRID
      * @return string
      */
-    private static function execute_shp2pgsql(string $shp_path, string $table_name = null, bool $drop_if_exists = true): string
+    private static function execute_shp2pgsql(string $shp_path, string $table_name = null, string $table_SRID = null): string
     {
         // Check if shp2pgsql binary path is set in .env
         if(env('SHP2PGSQL')===null){
             dd('SHP2PGSQL not defined in .env');
         }
 
-        // Set destination table (drop if exists)
+        // Set destination table (use SHP filename if not provided)
         $table_name = $table_name ?? Str::replace('.shp', '', Str::lower(basename($shp_path)));
         $table_name = Str::contains($table_name, '.') ? $table_name : 'public.'.$table_name;
-        if($drop_if_exists){
-            DB::unprepared('DROP TABLE IF EXISTS ' . $table_name . ';');
-        }
+
+        // Drop table if exists
+        Schema::dropIfExists($table_name);
 
         // Prepare & execute command
         $path = rtrim(dirname($shp_path), '/') . '/';
         $sql_path = $path . 'shp2pgsql.sql';
-        $command = env('SHP2PGSQL').' ' . $shp_path . ' "' . $table_name . '"';
+        $set_SRID = $table_SRID!==null ? ' -s '.$table_SRID .' ' : '';
+        $command = env('SHP2PGSQL') . $set_SRID . $shp_path . ' "' . $table_name . '"';
         static::execute_command($command . ' > ' . $sql_path);
 
         // Execute SQL command
