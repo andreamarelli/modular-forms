@@ -2,13 +2,22 @@ version: '3'
 
 services:
 
-  composer:
+  php:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
       args:
         - COMPOSER_GITHUB_TOKEN=${COMPOSER_GITHUB_TOKEN}
         - UID=${UID-}
+    image: modular-forms_php
+    container_name: modular-forms_php
+    volumes:
+      - ./:/var/www/html
+
+  composer:
+    image: modular-forms_php
+    depends_on:
+      - php
     container_name: modular-forms_composer
     volumes:
       - ./:/var/www/html
