@@ -21,8 +21,8 @@
                 return this.name || null;
             },
             flagClasses: function () {
-                if(this.iso2===null){
-                    return null;
+                if(this.iso2===null || this.iso2===''){
+                    return '';
                 }
                 let iso2 = this.iso2.toLowerCase();
                 iso2 = iso2==='en' ? 'gb' : iso2;
