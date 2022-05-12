@@ -39,7 +39,7 @@ class DOPA
                 return $response['metadata']['error'];
             }
         } else {
-            return $response['error'];
+            return $response['record'];
         }
         return $response;
     }
