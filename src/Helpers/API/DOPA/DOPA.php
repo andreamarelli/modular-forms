@@ -22,11 +22,11 @@ class DOPA
      * @param string $url
      * @param array $params
      * @param int $on_error
-     * @return array|null
+     * @return object|null
      */
     protected static function request(string $url, array $params, int $on_error = DOPA::ON_ERROR_RESPONSE): ?array
     {
-        $response = (array) API::execute_api_request($url, $params);
+        $response = API::execute_api_request($url, $params);
 
         if(DOPA::response_has_error($response)){
             if($on_error === DOPA::ON_ERROR_ARRAY){
@@ -36,10 +36,10 @@ class DOPA
             } else if($on_error === DOPA::ON_ERROR_RESPONSE){
                 return $response;
             } else if($on_error === DOPA::ON_ERROR_MESSAGE){
-                return $response['metadata']['error'];
+                return $response->metadata->error;
             }
         } else {
-            return $response['record'];
+            return $response->records;
         }
         return $response;
     }
@@ -47,14 +47,14 @@ class DOPA
     /**
      * Check if the API return contains error
      *
-     * @param array $response
+     * @param object $response
      * @return bool
      */
-    private static function response_has_error(array $response): bool
+    private static function response_has_error(object $response): bool
     {
-        return array_key_exists('metadata', $response)
-            and array_key_exists('error', $response['metadata'])
-            and $response['metadata']['error'] != null;
+        return property_exists($response, 'metadata')
+            and property_exists($response->metadata, 'error')
+            and $response->metadata->error != null;
 
     }
 
