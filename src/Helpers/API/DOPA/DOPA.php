@@ -22,7 +22,7 @@ class DOPA
      * @param string $url
      * @param array $params
      * @param int $on_error
-     * @return object|null
+     * @return array|null
      */
     protected static function request(string $url, array $params, int $on_error = DOPA::ON_ERROR_RESPONSE): ?array
     {
@@ -34,14 +34,14 @@ class DOPA
             } else if($on_error === DOPA::ON_ERROR_NULL){
                 return null;
             } else if($on_error === DOPA::ON_ERROR_RESPONSE){
-                return $response;
+                return (array) $response;
             } else if($on_error === DOPA::ON_ERROR_MESSAGE){
-                return $response->metadata->error;
+                return (array) $response->metadata->error;
             }
         } else {
-            return $response->records;
+            return (array) $response->records;
         }
-        return $response;
+        return (array) $response;
     }
 
     /**
