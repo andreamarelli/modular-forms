@@ -52,11 +52,10 @@ class DOPA
      */
     private static function response_has_error(array $response): bool
     {
-        return array_key_exists('error',$response)
-            or (
-                array_key_exists('metadata', $response)
-                and array_key_exists('error', $response['metadata'])
-            );
+        return array_key_exists('metadata', $response)
+            and array_key_exists('error', $response['metadata'])
+            and $response['metadata']['error'] != null;
+
     }
 
     /**
