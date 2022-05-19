@@ -165,8 +165,8 @@ class PostGisSHP {
         // Prepare & execute command
         $path = rtrim(dirname($shp_path), '/') . '/';
         $sql_path = $path . 'shp2pgsql.sql';
-        $set_SRID = $table_SRID!==null ? ' -s '.$table_SRID .' ' : '';
-        $command = env('SHP2PGSQL') . $set_SRID . $shp_path . ' "' . $table_name . '"';
+        $set_SRID = $table_SRID!==null ? '-s '.$table_SRID .' ' : '';
+        $command = env('SHP2PGSQL') . ' ' . $set_SRID . $shp_path . ' "' . $table_name . '"';
         static::execute_command($command . ' > ' . $sql_path);
 
         // Execute SQL command
