@@ -33,7 +33,7 @@ $two_cols = $two_cols ?? false;
                         @yield('page_sidebar_anchor_label')
                     </div>
                     <div class="sidebar_menu">
-                        <i class="close_button fas fa-times"></i>
+                        <i class="sidebar_close_button fas fa-times"></i>
                         @yield('page_sidebar')
                     </div>
                 </nav>
