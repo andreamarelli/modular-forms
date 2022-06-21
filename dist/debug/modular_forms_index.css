@@ -3238,6 +3238,9 @@ body.flex-col {
       #actions #language a.selected {
         color: #16A34A; }
 
+#menu_anchor_mobile {
+  display: none; }
+
 #menu {
   display: flex;
   justify-content: flex-end;
@@ -3437,7 +3440,7 @@ main {
     main.two-col > nav.sidebar {
       width: 35%;
       padding: 8% 45px 5% 0; }
-      main.two-col > nav.sidebar .sidebar_menu_anchor_mobile {
+      main.two-col > nav.sidebar #sidebar_menu_anchor_mobile {
         display: none; }
       main.two-col > nav.sidebar .sidebar_menu h2 {
         font-size: 1.9em;
