@@ -64,13 +64,7 @@ $two_cols = $two_cols ?? false;
         <script>
             window.onload = function() {
 
-                document.querySelector('#menu_anchor_mobile').addEventListener('click', function(){
-                    document.querySelector('#menu').classList.add('active');
-                });
-                document.querySelector('.close_button').addEventListener('click', function(){
-                    document.querySelector('.sidebar_menu').classList.remove('active');
-                });
-
+                // Responsive sidebar
                 document.querySelector('#sidebar_menu_anchor_mobile').addEventListener('click', function(){
                     document.querySelector('.sidebar_menu').classList.add('active');
                 });

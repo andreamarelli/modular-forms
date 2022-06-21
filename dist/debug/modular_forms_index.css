@@ -3238,9 +3238,6 @@ body.flex-col {
       #actions #language a.selected {
         color: #16A34A; }
 
-#menu_anchor_mobile {
-  display: none; }
-
 #menu {
   display: flex;
   justify-content: flex-end;
