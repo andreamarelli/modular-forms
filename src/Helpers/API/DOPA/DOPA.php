@@ -40,7 +40,7 @@ class DOPA
                 return (array) $response->metadata->error;
             }
         } else {
-            return (array) $response->records;
+            return isset($response->records) ? (array) $response->records : [];
         }
         return (array) $response;
     }
