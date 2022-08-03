@@ -29,25 +29,25 @@ class API
      *
      * @param $url
      * @param $params
-     * @return object
+     * @return array
      */
-    public static function execute_api_request($url, $params): object
+    public static function execute_api_request($url, $params): array
     {
         // Retrieve from cache
         $cache_key = Cache::buildKey($url, $params);
         if(($cache_value = Cache::get($cache_key)) !== null){
-            return (object) $cache_value;
+            return (array) $cache_value;
         }
 
         // Execute request to API
-        $response = API::execute_request($url, $params);
+        $response = static::execute_request($url, $params);
         if($response->successful()){
             $response_json = $response->json();
             // store in cache
             Cache::put($cache_key, $response, static::CACHE_TTL);
             return json_decode(json_encode($response_json));
         } else {
-            return (object) ['error' => 'Request to '.$url.' failed'];
+            return ['error' => 'Request to '.$url.' failed'];
         }
 
     }
