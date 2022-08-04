@@ -36,19 +36,28 @@ class API
         // Retrieve from cache
         $cache_key = Cache::buildKey($url, $params);
         if(($cache_value = Cache::get($cache_key)) !== null){
-            return (object) $cache_value;
+            return static::objectFromResponse($cache_value);
         }
 
         // Execute request to API
         $response = API::execute_request($url, $params);
         if($response->successful()){
-            $response_json = $response->json();
             // store in cache
             Cache::put($cache_key, $response, static::CACHE_TTL);
-            return json_decode(json_encode($response_json));
+            return static::objectFromResponse($response);
         } else {
             return (object) ['error' => 'Request to '.$url.' failed'];
         }
 
+    }
+
+    /**
+     * @param $response_value
+     * @return object - json_decoded response
+     */
+    private static function objectFromResponse($response_value): object
+    {
+        $value = $response_value->json();
+        return json_decode(json_encode($value));
     }
 }
