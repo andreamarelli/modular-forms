@@ -36,15 +36,16 @@ class API
         // Retrieve from cache
         $cache_key = Cache::buildKey($url, $params);
         if(($cache_value = Cache::get($cache_key)) !== null){
-            return static::objectFromResponse($cache_value);
+            return static::ensureIsJson($cache_value);
         }
 
         // Execute request to API
         $response = API::execute_request($url, $params);
         if($response->successful()){
             // store in cache
-            Cache::put($cache_key, $response, static::CACHE_TTL);
-            return static::objectFromResponse($response);
+            $response_data = static::ensureIsJson($response->json());
+            Cache::put($cache_key, $response_data, static::CACHE_TTL);
+            return $response_data;
         } else {
             return (object) ['error' => 'Request to '.$url.' failed'];
         }
@@ -52,12 +53,13 @@ class API
     }
 
     /**
-     * @param $response_value
-     * @return object - json_decoded response
+     * Ensure that the data structure is in JSON format
+     *
+     * @param $data
+     * @return object - json_decoded data structure
      */
-    private static function objectFromResponse($response_value): object
+    private static function ensureIsJson($data): object
     {
-        $value = $response_value->json();
-        return json_decode(json_encode($value));
+        return json_decode(json_encode($data));
     }
 }
