@@ -13,7 +13,7 @@
 
                 <modal_api_search
                     :parent-id=id
-                    search-url='ajax/search/species'
+                    :search-url=searchUrl
                 >
                     <template v-slot:modal_search_results_filters>
                         <i>{{ Locale.getLabel('modular-forms::common.filter_results') }}: </i>&nbsp;&nbsp;
@@ -135,6 +135,10 @@
         ],
 
         props: {
+            searchUrl: {
+                type: String,
+                default: null
+            },
             enableFreeText: {
                 type: Boolean,
                 default: false,
