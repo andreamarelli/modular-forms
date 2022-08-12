@@ -230,7 +230,7 @@
 
                     window.axios({
                         method: 'POST',
-                        url: window.Laravel.baseUrl + _this.searchUrl,
+                        url: _this.searchUrl,
                         data: _this.searchParams(),
                     })
                         .then(function (response) {
