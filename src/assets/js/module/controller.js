@@ -126,6 +126,7 @@ window.ModularForms.ModuleController = window.Vue.extend({
             _this.records = _this.__no_reactive_copy(_this.records_backup);
             _this.__arrange_records_by_group();
             _this.__init_applicable();
+            window.vueBus.$emit('module_reset', _this.module_key);
             _this.resetModuleCallback();
             Vue.nextTick(function () {
                 _this.status = _this.reset_status;
@@ -160,6 +161,7 @@ window.ModularForms.ModuleController = window.Vue.extend({
                             _this.records_backup = _this.__no_reactive_copy(_this.records);
                             _this.__arrange_records_by_group();
                             _this.saveModuleDoneCallback(response);
+                            window.vueBus.$emit('module_saved', _this.module_key);
                             window.vueBus.$emit('refresh_validation', _this.module_key);
                             window.vueBus.$emit('refresh_assessment');      // only for IMET
                             Vue.nextTick(function () {
