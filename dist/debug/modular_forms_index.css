@@ -58,7 +58,13 @@
 }
 .gauge > svg .percentage[data-v-1fb8ede0] {
       fill: #262626;
-      font-size: 0.6em;
+      font-size: 0.9em;
+      letter-spacing: -0.2px;
+      text-anchor: middle;
+      font-weight: bold;
+}
+.gauge > svg .percent_symbol[data-v-1fb8ede0] {
+      font-size: 0.35em;
       letter-spacing: -0.2px;
       text-anchor: middle;
       font-weight: bold;
@@ -69,26 +75,17 @@
 .gauge > svg.green .circle[data-v-1fb8ede0] {
       stroke: #16A34A;
 }
-.gauge > svg.green .percentage[data-v-1fb8ede0] {
-      fill: #16A34A;
-}
 .gauge > svg.yellow .circle-bg[data-v-1fb8ede0] {
       stroke: #fcf8e3;
 }
 .gauge > svg.yellow .circle[data-v-1fb8ede0] {
       stroke: #f0ad4e;
 }
-.gauge > svg.yellow .percentage[data-v-1fb8ede0] {
-      fill: #f0ad4e;
-}
 .gauge > svg.red .circle-bg[data-v-1fb8ede0] {
       stroke: #FEE2E2;
 }
 .gauge > svg.red .circle[data-v-1fb8ede0] {
       stroke: #DC2626;
-}
-.gauge > svg.red .percentage[data-v-1fb8ede0] {
-      fill: #DC2626;
 }
 @keyframes progress-1fb8ede0 {
 0% {
