@@ -16,7 +16,8 @@ window.ModularForms.MixinsVue = {
     'paginate': require('./js/mixins-vue/paginate.mixin').default,
     'sorter': require('./js/mixins-vue/sorter.mixin').default,
     'tooltip': require('./js/mixins-vue/tooltip.mixin').default,
-    'values': require('./js/mixins-vue/values.mixin').default
+    'values': require('./js/mixins-vue/values.mixin').default,
+    'ajax': require('./js/mixins-vue/ajax.mixin').default
 };
 window.ModularForms.FiltersVue = {
     'pretty_number': require('./js/mixins-vue/filters/pretty_number.js').default,
