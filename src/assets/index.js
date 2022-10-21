@@ -10,6 +10,7 @@ window.ModularForms.Mixins = {
     'Locale': require('./js/mixins/locale.js').default
 };
 window.ModularForms.MixinsVue = {
+    'ajax': require('./js/mixins-vue/ajax.mixin').default,
     'checkboxes': require('./js/mixins-vue/checkboxes.mixin.js').default,
     'dropdown': require('./js/mixins-vue/dropdown.mixin').default,
     'filter': require('./js/mixins-vue/filter.mixin').default,
@@ -17,7 +18,6 @@ window.ModularForms.MixinsVue = {
     'sorter': require('./js/mixins-vue/sorter.mixin').default,
     'tooltip': require('./js/mixins-vue/tooltip.mixin').default,
     'values': require('./js/mixins-vue/values.mixin').default,
-    'ajax': require('./js/mixins-vue/ajax.mixin').default
 };
 window.ModularForms.FiltersVue = {
     'pretty_number': require('./js/mixins-vue/filters/pretty_number.js').default,
