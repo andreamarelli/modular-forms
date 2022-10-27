@@ -56,7 +56,7 @@ export default {
                 const data = {
                     _token: window.Laravel.csrfToken
                 }
-                let url = `${window.Laravel.baseUrl}${this.url}`;
+                let url = this.url;
                 if (this.method === 'GET') {
                     url = `${url}?${this.parameters}`;
                 } else {
