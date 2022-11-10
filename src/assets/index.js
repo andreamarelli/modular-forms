@@ -7,7 +7,8 @@ window.ModularForms.Mixins = {
     'Animation': require('./js/mixins/animation.js').default,
     'Cookies': require('./js/mixins/cookie.js').default,
     'Input': require('./js/mixins/input.js').default,
-    'Locale': require('./js/mixins/locale.js').default
+    'Locale': require('./js/mixins/locale.js').default,
+    'Payload': require('./js/mixins/payload.js').default
 };
 window.ModularForms.MixinsVue = {
     'ajax': require('./js/mixins-vue/ajax.mixin').default,
