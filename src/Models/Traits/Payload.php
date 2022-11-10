@@ -20,9 +20,9 @@ class Payload{
      * Decode JSON object from Base64
      *
      * @param $encoded_object
-     * @return object
+     * @return array
      */
-    public static function decode($encoded_object): object
+    public static function decode($encoded_object): array
     {
         return json_decode(base64_decode($encoded_object), true);
     }
