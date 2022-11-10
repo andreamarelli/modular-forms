@@ -326,9 +326,9 @@ window.ModularForms.ModuleController = window.Vue.extend({
             data['_method'] = $($(form).find('input[name="_method"]')[0]).val();
             records = _this.parseRecordLocally(records);
             if (this.module_type === "GROUP_ACCORDION" || this.module_type === "GROUP_TABLE") {
-                data['records_json'] = JSON.stringify(_this.__arrange_back_records_by_group(records));
+                data['records_json'] = window.ModularForms.Mixins.Payload.encode(_this.__arrange_back_records_by_group(records));
             } else {
-                data['records_json'] = JSON.stringify(records);
+                data['records_json'] = window.ModularForms.Mixins.Payload.encode(records);
             }
             return data;
         },
