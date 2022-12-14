@@ -24,7 +24,7 @@ class Payload{
      */
     public static function decode($encoded_object): array
     {
-        return json_decode(utf8_decode(base64_decode($encoded_object)), true);
+        return json_decode(utf8_encode(base64_decode($encoded_object)), true);
     }
 
 }
