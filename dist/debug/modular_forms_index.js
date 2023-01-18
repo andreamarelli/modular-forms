@@ -352,7 +352,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n\n    encode(obj){\n        return btoa(JSON.stringify(obj));\n    },\n\n    decode(encoded_obj){\n        return JSON.parse(atob(encoded_obj));\n    }\n\n});\n\n//# sourceURL=webpack://modular-forms/./src/assets/js/mixins/payload.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n\n    /**\n     * Encode JSON object to Base64\n     * @param obj\n     * @returns {string}\n     */\n    encode(obj){\n        console.log(obj);\n        console.log(JSON.stringify(obj));\n        console.log(btoa(JSON.stringify(obj)));\n\n        return btoa(JSON.stringify(obj));\n    },\n\n    /**\n     * Decode JSON object from Base64\n     *\n     * @param encoded_obj\n     * @returns {any}\n     */\n    decode(encoded_obj){\n        return JSON.parse(atob(encoded_obj));\n    }\n\n});\n\n//# sourceURL=webpack://modular-forms/./src/assets/js/mixins/payload.js?");
 
 /***/ }),
 

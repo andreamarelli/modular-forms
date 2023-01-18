@@ -6,7 +6,7 @@ export default {
      * @returns {string}
      */
     encode(obj){
-        return btoa(JSON.stringify(obj));
+        return window.Base64.encode(JSON.stringify(obj));
     },
 
     /**
@@ -16,7 +16,7 @@ export default {
      * @returns {any}
      */
     decode(encoded_obj){
-        return JSON.parse(atob(encoded_obj));
+        return JSON.parse(window.Base64.decode(encoded_obj));
     }
 
 };
