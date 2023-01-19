@@ -470,22 +470,12 @@ nav.steps{
   position: fixed;
   bottom: 20px;
   right: 20px;
-  //right: 0;
   z-index: 99;
-    /*&.show{
-      right: 20px;
-      transform: none;
-    }
-    &.hide{
-      right: 0;
-      transform: translateX(50%);
-    }*/
   div {
     text-align: center;
     background-color: $primary-900;
     color: $white;
     cursor: pointer;
-    //padding: 5px 10px;
     padding: 3px 8px;
     font-size: 0.9rem;
     &.standalone{
@@ -511,6 +501,39 @@ nav.steps{
       color: Black;
     }
   }
+
+
+  /* ### Collapsible ### */
+  &.collapsible{
+    /* Hidden*/
+    right: 0;
+    transform: translateX(45%);
+    div{
+      @include text-2xs();
+      &.scrollToTop, &.scrollToBottom{
+        text-align: left;
+      }
+      &.scrollToAnchor{
+        color: $primary-900;
+        height: 5px;
+      }
+    }
+    /* Visible */
+    &:hover {
+      transform: none;
+      div {
+        @include text-base();
+        &.scrollToTop, &.scrollToBottom{
+          text-align: center;
+        }
+        &.scrollToAnchor{
+          color: $white;
+          height: auto;
+        }
+      }
+    }
+  }
+
 }
 
 // #######################################################
