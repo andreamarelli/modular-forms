@@ -2689,14 +2689,7 @@ nav.steps {
   bottom: 20px;
   right: 20px;
   z-index: 99;
-  /*&.show{
-      right: 20px;
-      transform: none;
-    }
-    &.hide{
-      right: 0;
-      transform: translateX(50%);
-    }*/ }
+  /* ### Collapsible ### */ }
   .scrollButtons div {
     text-align: center;
     background-color: #14532D;
@@ -2728,6 +2721,38 @@ nav.steps {
     .scrollButtons div:hover {
       background-color: #22C55E;
       color: Black; }
+  .scrollButtons.collapsible {
+    /* Hidden*/
+    right: 0;
+    transform: translateX(45%);
+    /* Visible */ }
+    .scrollButtons.collapsible div {
+      font-size: 0.7rem;
+      line-height: 1.4em;
+      letter-spacing: .4px; }
+      @media all and (max-width: 1280px) {
+        .scrollButtons.collapsible div {
+          font-size: 0.7rem;
+          line-height: 1.5em; } }
+      .scrollButtons.collapsible div.scrollToTop, .scrollButtons.collapsible div.scrollToBottom {
+        text-align: left; }
+      .scrollButtons.collapsible div.scrollToAnchor {
+        color: #14532D;
+        height: 5px; }
+    .scrollButtons.collapsible:hover {
+      transform: none; }
+      .scrollButtons.collapsible:hover div {
+        font-size: 1rem;
+        line-height: 1.4em; }
+        @media all and (max-width: 1280px) {
+          .scrollButtons.collapsible:hover div {
+            font-size: 0.85rem;
+            line-height: 1.3em; } }
+        .scrollButtons.collapsible:hover div.scrollToTop, .scrollButtons.collapsible:hover div.scrollToBottom {
+          text-align: center; }
+        .scrollButtons.collapsible:hover div.scrollToAnchor {
+          color: #fff;
+          height: auto; }
 
 .module-container {
   margin-bottom: 40px;
