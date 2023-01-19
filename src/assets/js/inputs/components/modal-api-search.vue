@@ -58,7 +58,7 @@
                                 <input type="radio"
                                        :name="parentId + '_radio'" :id="parentId + '_radio' + index"
                                        v-on:click="selectResultItem(item, $event)"
-                                       data-toggle="tooltip" data-placement="top" :title=radio_tooltip
+                                       data-toggle="tooltip" data-placement="top" :title=radioTooltip
                                 />
                                 <label :for="parentId + '_radio' + index" ></label>
                             </span>
