@@ -55,7 +55,11 @@
                     <tr v-for="(item, index) in showList">
                         <td>
                             <span class="radio">
-                                <input type="radio" :name="parentId + '_radio'" :id="parentId + '_radio' + index" v-on:click="selectResultItem(item)"/>
+                                <input type="radio"
+                                       :name="parentId + '_radio'" :id="parentId + '_radio' + index"
+                                       v-on:click="selectResultItem(item, $event)"
+                                       data-toggle="tooltip" data-placement="top" :title=radio_tooltip
+                                />
                                 <label :for="parentId + '_radio' + index" ></label>
                             </span>
                         </td>
@@ -125,6 +129,16 @@
             .radio{
                 margin-top: 5px;
                 margin-bottom: 0;
+                label{
+                  &::before{
+                    left: 20px;
+                    top: -30px;
+                  }
+                  &::after{
+                    left: 23px;
+                    top: -27px;
+                  }
+                }
             }
             label{
                 margin: 0;
@@ -175,6 +189,7 @@
                 searchResults: [],
                 showList: [],
                 selectedValue: null,
+                radio_tooltip: null
             }
         },
 
@@ -270,7 +285,11 @@
                 _this.showList = filteredList;
             },
 
-            selectResultItem(item){
+            selectResultItem(item, event){
+                if(this.radio_tooltip!==null){
+                  let radio = event.srcElement;
+                  window.$(radio).tooltip('show');
+                }
                 this.selectedValue = item;
                 this.selectorComponent.selectedValue = this.selectedValue;
             },
