@@ -177,6 +177,10 @@
                 type: Boolean,
                 default: false
             },
+            radioTooltip:  {
+              type: String,
+              default: null
+            }
         },
 
         data (){
@@ -188,8 +192,7 @@
                 isSearching: false,
                 searchResults: [],
                 showList: [],
-                selectedValue: null,
-                radio_tooltip: null
+                selectedValue: null
             }
         },
 
@@ -286,7 +289,7 @@
             },
 
             selectResultItem(item, event){
-                if(this.radio_tooltip!==null){
+                if(this.radioTooltip!==null){
                   let radio = event.srcElement;
                   window.$(radio).tooltip('show');
                 }
