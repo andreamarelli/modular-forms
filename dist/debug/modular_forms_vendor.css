@@ -15068,7 +15068,6 @@ nav.steps {
   .scrollButtons.collapsible {
     /* Hidden*/
     right: 0;
-    transform: translateX(45%);
     /* Visible */ }
     .scrollButtons.collapsible div {
       font-size: 0.7rem;
@@ -15079,24 +15078,30 @@ nav.steps {
           font-size: 0.7rem;
           line-height: 1.5em; } }
       .scrollButtons.collapsible div.scrollToTop, .scrollButtons.collapsible div.scrollToBottom {
-        text-align: left; }
+        text-align: left;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0; }
+      .scrollButtons.collapsible div.scrollSpacer {
+        height: 40px; }
       .scrollButtons.collapsible div.scrollToAnchor {
         color: #14532D;
-        height: 5px; }
-    .scrollButtons.collapsible:hover {
-      transform: none; }
-      .scrollButtons.collapsible:hover div {
-        font-size: 1rem;
-        line-height: 1.4em; }
-        @media all and (max-width: 1280px) {
-          .scrollButtons.collapsible:hover div {
-            font-size: 0.85rem;
-            line-height: 1.3em; } }
-        .scrollButtons.collapsible:hover div.scrollToTop, .scrollButtons.collapsible:hover div.scrollToBottom {
-          text-align: center; }
-        .scrollButtons.collapsible:hover div.scrollToAnchor {
-          color: #fff;
-          height: auto; }
+        height: 5px;
+        display: none; }
+    .scrollButtons.collapsible:hover div {
+      font-size: 1rem;
+      line-height: 1.4em; }
+      @media all and (max-width: 1280px) {
+        .scrollButtons.collapsible:hover div {
+          font-size: 0.85rem;
+          line-height: 1.3em; } }
+      .scrollButtons.collapsible:hover div.scrollToTop, .scrollButtons.collapsible:hover div.scrollToBottom {
+        text-align: center; }
+      .scrollButtons.collapsible:hover div.scrollSpacer {
+        display: none; }
+      .scrollButtons.collapsible:hover div.scrollToAnchor {
+        color: #fff;
+        height: auto;
+        display: block; }
 
 .module-container {
   margin-bottom: 40px;
