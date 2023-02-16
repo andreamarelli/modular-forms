@@ -14,7 +14,7 @@ $other_attributes = $other_attributes ?? '';
 
 ?>
 
-<div class="module-row" {!! $other_attributes !!}}>
+<div class="module-row" {!! $other_attributes !!}>
 
     {{-- label  --}}
     <div class="module-row__label" {!! $style_width !!}>
