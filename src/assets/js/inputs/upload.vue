@@ -198,7 +198,7 @@
 
                     // Prevent upload if too big
                     if(this.selectedFile.size > this.maxFileSize){
-                        errorMessage = Locale.getLabel('modular-forms::common.upload.too_big');
+                        errorMessage = Locale.getLabel('modular-forms::common.upload.too_big', { maxFilesize: this.maxFileSize });
                         this.isFileSelected = false;
                     }
 
