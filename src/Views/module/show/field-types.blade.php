@@ -8,10 +8,10 @@ $only_label = $only_label ?? false;
 
 
 if($value!==null){
-    if(preg_match('/dropdown[\w]*-/', $type)>0){
+    if(preg_match('/dropdown-[\w]*/', $type)>0){
         $value = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getLabel($type, $value);
     }
-    elseif(preg_match('/suggestion[\w]*-/', $type)>0){
+    elseif(preg_match('/suggestion-[\w]*/', $type)>0){
         $label = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getLabel($type, $value);
         $value = $label!==null ? $label : $value;
     }
