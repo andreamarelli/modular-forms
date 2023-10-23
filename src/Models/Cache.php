@@ -23,11 +23,16 @@ class Cache{
     {
         unset($params['_token']);
 
-        // Build cache key
+        // Prefix
         $prefix = Str::startsWith($prefix, '_') ? $prefix : '_'.$prefix;
-        return !empty($params)
-            ? $prefix.'?' . http_build_query($params)
-            : $prefix;
+
+        // Params
+        $params = http_build_query($params);
+        $params = !empty($params)
+            ? '?'. $params
+            : '';
+
+        return $prefix . $params;
     }
 
 
