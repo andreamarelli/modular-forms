@@ -35,6 +35,30 @@ class Cache{
         return $prefix . $params;
     }
 
+    /**
+     * Encode the key (suitable also for using in URLs)
+     * Convert normal base64 to base64url as specified in RFC 4648: https://www.rfc-editor.org/rfc/rfc4648#page-7
+    */
+    public static function encodeKey(string $key): string
+    {
+        $key = base64_encode($key);
+        return str_replace(
+            array('+', '/'),
+            array('-', '_'),
+            $key);
+    }
+
+    /**
+     * Decode the key encoded with Cache::encodeKey($key)
+     */
+    public static function decodeKey(string $key): string
+    {
+        $key = str_replace(
+            array('-', '_'),
+            array('+', '/'),
+            $key);
+        return base64_decode($key);
+    }
 
     /**
      * Retrieve API result from cache
