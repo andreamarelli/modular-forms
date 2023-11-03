@@ -12,7 +12,7 @@ $table_id = $definitions['module_type']==='GROUP_TABLE'
 
 $tr_record = $definitions['module_type']==='GROUP_TABLE'
     ? 'records[\''.$group_key.'\']'
-    : 'records'
+    : 'records';
 
 ?>
 
