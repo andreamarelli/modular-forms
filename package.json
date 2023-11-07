@@ -28,6 +28,7 @@
         "@ckeditor/ckeditor5-vue2": "^3.0.1",
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@turf/turf": "^5.1.6",
+        "air-datepicker": "^3.4.0",
         "autonumeric": "^4.6.0",
         "axios": "^0.21.4",
         "bootstrap": "^4.6.1",

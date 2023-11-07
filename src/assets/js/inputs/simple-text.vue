@@ -28,7 +28,7 @@
         },
 
         mounted() {
-            this.container = $(this.$el)[0];
+            this.container = this.$el;
             this.addTooltip();
         },
 

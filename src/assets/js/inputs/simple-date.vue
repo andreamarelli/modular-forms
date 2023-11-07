@@ -1,12 +1,21 @@
 <template>
 
-    <simple-text
-        class="simple-date"
-        v-model=inputValue
-        :id=id
-        :name=id
-        disable-auto-complete=true
-    ></simple-text>
+<!--    <simple-text-->
+<!--        class="simple-date"-->
+<!--        v-model=inputValue-->
+<!--        :id=id-->
+<!--        :name=id-->
+<!--        disable-auto-complete=true-->
+<!--        tooltip-enabled=false-->
+<!--    ></simple-text>-->
+
+    <input class="field-edit"
+           type="text"
+           readonly
+           v-model=inputValue
+           :id=id
+           :name=id
+    />
 
 </template>
 
@@ -56,6 +65,7 @@
             return {
                 Locale: window.Locale,
                 inputValue: this.value,
+                datePicker: null
             }
         },
 
@@ -68,37 +78,39 @@
         mounted(){
 
             let _this = this;
-            let $elem = $(this.$el).find('input');
-            let textComponent = this.$children[0];
 
             let options = {
-                language: window.Locale.getLocale(),
-                clearBtn: true,
-                autoclose: true,
+                locale: window.AirDatepicker.locale[window.Locale.getLocale()],
+                autoClose: true,
+                toggleSelected: false,
+                onSelect({date, formattedDate, datepicker}){
+                    _this.inputValue = formattedDate
+                },
+                buttons: ['clear']
             };
 
-            if(_this.dateType==='day'){
-                options.format = "yyyy-mm-dd";
-                options.todayHighlight = true;
-                options.startDate = _this.startDate!==null ? _this.startDate : -Infinity;
-                options.endDate = _this.endDate!==null ? _this.endDate : Infinity;
-
-            } else if(_this.dateType==='year'){
-                options.format = "yyyy";
-                options.startView = "years";
-                options.minViewMode = "years";
-                options.maxViewMode = "years";
-                options.startDate = _this.startDate!==null ? _this.startDate.substring(0,4) : -Infinity;
-                options.endDate = _this.endDate!==null ? _this.endDate.substring(0,4) : Infinity;
+            if(this.startDate!==null){
+                options.minDate = this.startDate;
             }
-            $($elem).datepicker(options)
-                .on('changeDate', function(){
-                    textComponent.inputValue = $(this).val();
-                })
-                .on('keydown', function(evt){
-                    evt.preventDefault();
-                });
+            if(this.endDate!==null){
+                options.maxDate = this.endDate;
+            }
 
+            if(this.dateType === 'day'){
+                options.dateFormat = "yyyy-MM-dd";
+                if(this.value !== null){
+                    options.selectedDates = [this.value];
+                }
+            } else if(this.dateType === 'year'){
+                options.dateFormat = "yyyy";
+                options.view = "years";
+                options.minView = "years";
+                if(this.value !== null) {
+                    options.selectedDates = [this.value + '-01-01'];
+                }
+            }
+
+            this.datePicker = new window.AirDatepicker('#' + this.id, options);
         },
 
         methods: {

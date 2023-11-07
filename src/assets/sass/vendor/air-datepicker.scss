@@ -1,0 +1,22 @@
+@import "../abstracts/colors";
+@import "~air-datepicker/air-datepicker.css";
+
+.air-datepicker-cell.-current- {
+  color: $primary-500;
+}
+.air-datepicker-cell.-focus- {
+  background-color: $primary-200;
+}
+.air-datepicker-cell.-selected- {
+  color: $primary-100;
+  background: $primary-700;
+}
+
+.air-datepicker-body--day-name {
+  color: $primary-800;
+  font-weight: bold;
+}
+
+.air-datepicker-button {
+  color: $primary-800;
+}

@@ -218,12 +218,11 @@
                 messages = messages || {};
                 if (messages !== {}) {
                     this.hasErrors = true;
-                    let error_bar = $(this.$el).find('.error-bar')[0];
-                    let errors = $(error_bar).find('.errors')[0];
-                    $(errors).html('');
+                    let errors = this.$el.querySelector('.errors');
+                    errors.innerHTML = '';
                     for (let f in messages) {
                         for (let m in messages[f]) {
-                            $(errors).append("<li>" + messages[f][m] + "</li>");
+                            errors.innerHTML = errors.innerHTML + "<li>" + messages[f][m] + "</li>";
                         }
                     }
                 }

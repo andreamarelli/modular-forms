@@ -29,3 +29,18 @@ window.AutoNumeric = require('autonumeric');
 window.Base64 = require('js-base64');
 window.CKEditor = require( '@ckeditor/ckeditor5-vue2' )
 window.ClassicEditor = require( '@ckeditor/ckeditor5-build-classic' )
+
+// AirDatepicker
+import AirDatepicker from 'air-datepicker';
+import AirDatepicker_locale_en from 'air-datepicker/locale/en';
+import AirDatepicker_locale_fr from 'air-datepicker/locale/fr';
+import AirDatepicker_locale_sp from 'air-datepicker/locale/es';
+import AirDatepicker_locale_pt from 'air-datepicker/locale/pt';
+window.AirDatepicker = AirDatepicker;
+window.AirDatepicker.locale = {
+    'en': AirDatepicker_locale_en,
+    'fr': AirDatepicker_locale_fr,
+    'sp': AirDatepicker_locale_sp,
+    'pt': AirDatepicker_locale_pt,
+}
+

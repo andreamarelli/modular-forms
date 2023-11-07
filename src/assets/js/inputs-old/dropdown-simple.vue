@@ -16,11 +16,12 @@
         ],
 
         mounted() {
-            let $elem = $(this.$el);
-            $elem.removeClass('field-edit');
-            if($elem.hasClass("width100px")){
-                $elem.removeClass('width100px');
-                $elem.find('span.select2').addClass('width100px').css("width", "");
+            let elem = this.$el;
+            elem.classList.remove('field-edit');
+            if(elem.classList.contains('width100px')){
+                elem.classList.remove('width100px');
+                elem.querySelector('span.select2').classList.add('width100px');
+                elem.querySelector('span.select2').style.width = "";
             }
         },
 
