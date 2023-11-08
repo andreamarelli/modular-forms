@@ -145,14 +145,6 @@ $other_attributes = $other ?? '';
             data-values='@json($cached_list)'
             {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
-    @elseif(substr_count($type, "dropdown_entity-")>0)
-        <dropdown-entity
-            data-values='@json($cached_list)'
-            entity-key="{!! Str::lower($list_type) !!}"
-            {!! $vue_attributes !!} {!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
-        >
-            @include('admin.'.strtolower($list_type).'.'.'create-modal')
-        </dropdown-entity>
 
         {{-- ## toggle ## --}}
     @elseif(substr_count($type, "toggle-")>0)

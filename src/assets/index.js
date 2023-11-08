@@ -70,7 +70,3 @@ window.Vue.component('simple-url', require('./js/inputs/simple-url.vue').default
 window.Vue.component('selector-species_animal', require('./js/inputs/selector-species_animal.vue').default);
 window.Vue.component('toggle', require('./js/inputs/toggle.vue').default);
 window.Vue.component('upload', require('./js/inputs/upload.vue').default);
-
-// Load INPUT components (old - to be reviewed/deleted)
-window.Vue.component('currency-unit', require('./js/inputs-old/currency-unit.vue').default);
-window.Vue.component('dropdown-entity', require('./js/inputs-old/dropdown-entity.vue').default);
