@@ -57,6 +57,7 @@ window.ModularForms.Input = {
 // Load INPUT components
 window.Vue.component('checkbox-boolean', require('./js/inputs/checkbox-boolean.vue').default);
 window.Vue.component('dropdown', require('./js/inputs/dropdown.vue').default);
+window.Vue.component('dropdown-related', require('./js/inputs/dropdown-related.vue').default);
 window.Vue.component('editor', require('./js/inputs/editor.vue').default);
 window.Vue.component('rating', require('./js/inputs/rating.vue').default);
 window.Vue.component('simple-date', require('./js/inputs/simple-date.vue').default);
@@ -73,5 +74,3 @@ window.Vue.component('upload', require('./js/inputs/upload.vue').default);
 // Load INPUT components (old - to be reviewed/deleted)
 window.Vue.component('currency-unit', require('./js/inputs-old/currency-unit.vue').default);
 window.Vue.component('dropdown-entity', require('./js/inputs-old/dropdown-entity.vue').default);
-window.Vue.component('dropdown-related', require('./js/inputs-old/dropdown-related.vue').default);
-window.Vue.component('dropdown-simple', require('./js/inputs-old/dropdown-simple.vue').default);

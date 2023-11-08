@@ -1,14 +1,5 @@
 <template>
 
-<!--    <simple-text-->
-<!--        class="simple-date"-->
-<!--        v-model=inputValue-->
-<!--        :id=id-->
-<!--        :name=id-->
-<!--        disable-auto-complete=true-->
-<!--        tooltip-enabled=false-->
-<!--    ></simple-text>-->
-
     <input class="field-edit"
            type="text"
            readonly
@@ -32,19 +23,11 @@
 
 <script>
 
-
-    import simple_text from './simple-text.vue';
-
     export default {
-
-        components: {
-            simple_text
-        },
 
         mixins: [
             window.ModularForms.MixinsVue.values
         ],
-
 
         props: {
             dateType: {
