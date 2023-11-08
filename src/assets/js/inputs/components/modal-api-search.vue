@@ -190,8 +190,9 @@
                 searchKey: '',
                 searchExecuted: false,
                 isSearching: false,
-                searchResults: [],
-                showList: [],
+                searchResults: {},
+                showList: {},
+                totalCount: null,
                 selectedValue: null
             }
         },
@@ -243,8 +244,8 @@
                     _this.isSearching = true;
                     _this.searchExecuted = false;
                     _this.selectedValue = null;
-                    _this.searchResults = [];
-                    _this.showList = [];
+                    _this.searchResults = {};
+                    _this.showList = {};
 
                     window.axios({
                         method: 'POST',
@@ -254,7 +255,7 @@
                         .then(function (response) {
                             _this.searchResults = response.data['records'];
                             _this.showList = _this.searchResults;
-                            _this.totalCount = _this.searchResults.length;
+                            _this.totalCount = Object.keys(_this.searchResults).length;
                             _this.searchExecuted = true;
                             _this.isSearching = false;
                             _this.afterSearch(response);

@@ -273,7 +273,7 @@
                             .then(function (response) {
                                 _this.searchResults = response.data['records'];
                                 _this.showList = _this.searchResults;
-                                _this.totalCount = _this.searchResults.length;
+                                _this.totalCount = Object.keys(_this.searchResults).length;
                                 _this.searchExecuted = true;
                                 _this.isSearching = false;
                                 _this.afterSearch(response.data);
@@ -319,7 +319,7 @@
                         .then(function (response1) {
                             _this.searchResults = response1.data['records'];
                             _this.showList = _this.searchResults;
-                            _this.totalCount = _this.searchResults.length;
+                            _this.totalCount = Object.keys(_this.searchResults).length;
                             _this.searchExecuted = true;
                             _this.isSearching = false;
                             _this.afterSearch(response1.data);
