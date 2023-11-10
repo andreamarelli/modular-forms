@@ -7,36 +7,33 @@
 /** @var boolean $accordion_title [optional] */
 /** @var boolean $submit_button_label [optional] */
 
+use Illuminate\Support\Str;
+
 $method              = $method ?? 'GET';
-$url                 = \Illuminate\Support\Str::contains($url, url('/')) ? $url : url('/') . '/' . $url;
+$url                 = Str::contains($url, url('/')) ? $url : url('/') . '/' . $url;
 $expanded            = $expanded ?? false;
 $accordion_title     = $accordion_title ?? trans('modular-forms::common.filters');
 $submit_button_label = $submit_button_label ?? trans('modular-forms::common.apply_filters');
 
 ?>
 
-<div class="accordion" id="accordion-filters" style="margin-bottom: 40px;">
-    @component('modular-forms::page.accordion', [
-                'accordion_group_id' => 'accordion-filters',
-                'accordion_id' => 'accordion-filters-1',
-                'accordion_title' => mb_strtoupper($accordion_title),
-                'expanded' => $expanded,
-            ])
+<x-modular-forms::accordion.accordion class="form-filters">
 
-        @slot('accordion_content')
-            <form class="form-horizontal form-filters" method="{{ $method }}" action="{{ $url }}">
-                {{ csrf_field() }}
+    <x-modular-forms::accordion.item title="{{ mb_strtoupper($accordion_title) }}">
 
-                <div class="form-grid">
-                    {{ $filter_content }}
-                </div>
+        <form class="form-horizontal form-filters" method="{{ $method }}" action="{{ $url }}">
+            {{ csrf_field() }}
 
-                <div class="text-right">
-                    <button type="submit" class="btn-nav rounded">{{ ucfirst($submit_button_label) }}</button>
-                </div>
+            <div class="form-grid">
+                {{ $filter_content }}
+            </div>
 
-            </form>
-        @endslot
+            <div class="text-right">
+                <button type="submit" class="btn-nav rounded">{{ ucfirst($submit_button_label) }}</button>
+            </div>
 
-    @endcomponent
-</div>
+        </form>
+
+    </x-modular-forms::accordion.item>
+
+</x-modular-forms::accordion.accordion>
