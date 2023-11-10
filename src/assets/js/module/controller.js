@@ -55,7 +55,6 @@ window.ModularForms.ModuleController = window.Vue.extend({
             if (_this.module_type === "ACCORDION") {
                 _this.records.forEach(function (item, index) {
                     let input_value = item[_this.accordion_title_field] || '';
-                    input_value = (parseInt(index) + 1) + ' - ' + input_value;
                     accordion_titles.push(input_value);
                 });
             } else if (_this.module_type === "GROUP_ACCORDION") {
@@ -63,7 +62,6 @@ window.ModularForms.ModuleController = window.Vue.extend({
                     let group_title = [];
                     _this.records[key].forEach(function (item, index) {
                         let input_value = item[_this.accordion_title_field] || '';
-                        input_value = (parseInt(index) + 1) + ' - ' + input_value;
                         group_title.push(input_value);
                     });
                     accordion_titles[key] = group_title;

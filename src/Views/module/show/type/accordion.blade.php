@@ -16,13 +16,14 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
 
 ?>
 
-<div id="{{ $accordion_id }}">
+<div class="accordion" id="{{ $accordion_id }}">
 
     @foreach($records as $index=>$record)
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">
-                    <span>{{ $index+1 }}</span> -
+        <div class="accordion-item show">
+
+            <div class="accordion-item-header">
+                <div class="accordion-item-header-title">
+                    <span>{{ $index+1 }} - </span>
                     <span>
                         @include('modular-forms::module.show.field', [
                             'type' => $definitions['fields'][0]['type'],
@@ -30,10 +31,11 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
                             'only_label' => true
                         ])
                     </span>
-                </h4>
+                </div>
             </div>
-            <div>
-                <div class="card-body">
+
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
                     @include('modular-forms::module.show.type.simple', [
                         'definitions' => $definitions,
                         'records' => $records,
@@ -41,6 +43,7 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
                     ])
                 </div>
             </div>
+
         </div>
     @endforeach
 

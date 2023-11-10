@@ -18,29 +18,25 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
 
 ?>
 
-<div class="accordion module_accordion_container" id="{{ $accordion_id }}">
+<div class="accordion" id="{{ $accordion_id }}">
 
-    <div class="card module_accordion module_accordion_item" v-for="(item, index) in {{ $accordion_item_record }}">
+    <div class="accordion-item" v-for="(item, index) in {{ $accordion_item_record }}">
 
-        <div class="card-header" :id="'{{ $accordion_id }}_heading_'+index">
-            <h4 class="card-title collapsed" role="button" data-toggle="collapse" :data-target="'#{{ $accordion_id }}_content_'+index">
-                <div style="display: flex; align-items: center;">
-                    <div style="flex-grow: 1">
-                        {{ $accordion_titles }}
-                    </div>
-                    <div>
-                        @if(!$definitions['fixed_rows'])
-                            <span v-if="typeof item.__predefined === 'undefined'">
-                                @include('modular-forms::buttons.delete_item')
-                            </span>
-                        @endif
-                    </div>
-                </div>
-            </h4>
+        <div class="accordion-item-header" :id="'{{ $accordion_id }}_heading_'+index" :data-target="'#{{ $accordion_id }}_content_'+index">
+            <div class="accordion-item-header-title" onclick="window.ModularForms.Mixins.Accordion.toggle(event)">
+                <span>@{{ parseInt(index) + 1 }} - </span><span>{{ $accordion_titles }}</span>
+            </div>
+            <div>
+                @if(!$definitions['fixed_rows'])
+                    <span v-if="typeof item.__predefined === 'undefined'">
+                        @include('modular-forms::buttons.delete_item')
+                    </span>
+                @endif
+            </div>
         </div>
 
-        <div :id="'{{ $accordion_id }}_content_'+index" class="collapse" data-parent="#{{ $accordion_id }}" >
-            <div class="card-body">
+        <div class="accordion-item-body" :id="'{{ $accordion_id }}_content_'+index" >
+            <div class="accordion-item-body-content">
                 @include('modular-forms::module.edit.type.simple', compact(['collection', 'vue_data', 'definitions']))
             </div>
         </div>

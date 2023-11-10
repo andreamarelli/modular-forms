@@ -659,18 +659,6 @@ nav.steps{
       }
     }
 
-    .accordion.module_accordion_container{
-      .card{
-        .card-header{
-          padding: 5px 10px 5px 15px;
-        }
-        .card-body{
-          background-color: $gray-50;
-          border-image: $gray-400;
-        }
-      }
-    }
-
   }
 
   &.validation-error{

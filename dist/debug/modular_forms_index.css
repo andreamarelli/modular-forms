@@ -1328,130 +1328,52 @@ span.red-list_NE {
 [v-cloak] {
   display: none; }
 
-.card {
+.accordion-item-header-title {
+  cursor: pointer; }
+
+.accordion-item:not(.show) .accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 200ms linear; }
+
+.accordion-item.show .accordion-item-body {
+  max-height: 10px;
+  overflow: hidden;
+  transition: all 200ms linear; }
+
+.module-container .accordion-item {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
   border: none;
   margin-bottom: 8px; }
-  .card > .card-header {
+  .module-container .accordion-item-header {
     background-color: #FAFAFA;
-    border-image: #A3A3A3;
-    padding: 10px 10px 10px 15px;
+    padding: 5px 10px 5px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between; }
-    .card > .card-header > .card-title {
+    .module-container .accordion-item-header-title {
       flex-grow: 1;
       font-weight: bold;
       color: #262626;
       font-size: 1em;
       margin: 0; }
-      .card > .card-header > .card-title:hover, .card > .card-header > .card-title:focus {
+      .module-container .accordion-item-header-title:hover, .module-container .accordion-item-header-title:focus {
         color: #166534;
         text-decoration: none; }
-      .card > .card-header > .card-title a {
+      .module-container .accordion-item-header-title a {
         display: flex;
         align-items: center; }
-        .card > .card-header > .card-title a:hover, .card > .card-header > .card-title a:focus {
+        .module-container .accordion-item-header-title a:hover, .module-container .accordion-item-header-title a:focus {
           color: #14532D;
           text-decoration: none; }
-
-.accordion .card {
-  overflow: unset; }
-
-.accordion .card-title a::before {
-  font-family: "Font Awesome 5 Free";
-  padding-right: 20px;
-  text-align: center;
-  width: 1.25em;
-  font-size: 1.4rem;
-  line-height: 1.3em; }
-  @media all and (max-width: 1280px) {
-    .accordion .card-title a::before {
-      font-size: 1.2rem;
-      line-height: 1.3em; } }
-
-.accordion .card-title a.collapsed::before {
-  content: "\f105"; }
-
-.accordion .card-title a:not(.collapsed)::before {
-  content: "\f107"; }
-
-.accordion-container > .card {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none; }
-  .accordion-container > .card > .card-header {
+  .module-container .accordion-item-body {
     background-color: #FAFAFA;
-    border-radius: 4px;
-    border-bottom: none;
-    padding: 0 10px 0 0; }
-    .accordion-container > .card > .card-header .card-title {
-      flex-grow: 1; }
-      .accordion-container > .card > .card-header .card-title a {
-        display: flex;
-        align-items: center;
-        padding: 5px 15px;
-        font-weight: normal;
-        color: #262626;
-        font-size: 1.2rem;
-        line-height: 1.3em; }
-        @media all and (max-width: 1280px) {
-          .accordion-container > .card > .card-header .card-title a {
-            font-size: 1rem;
-            line-height: 1.4em; } }
-        .accordion-container > .card > .card-header .card-title a:hover, .accordion-container > .card > .card-header .card-title a:focus {
-          text-decoration: none; }
-        .accordion-container > .card > .card-header .card-title a i {
-          margin-right: 15px;
-          background-color: white;
-          border-radius: 50%;
-          border: 1px solid white;
-          width: 30px;
-          height: 30px;
-          padding: 5px; }
-          .accordion-container > .card > .card-header .card-title a i:before {
-            background-color: #16A34A; }
-        .accordion-container > .card > .card-header .card-title a.collapsed {
-          font-weight: 500; }
-          .accordion-container > .card > .card-header .card-title a.collapsed i {
-            background-color: #FAFAFA;
-            padding: 10px;
-            border-radius: 50%;
-            border: 1px solid white;
-            width: 40px;
-            height: 40px;
-            width: 30px;
-            height: 30px;
-            padding: 5px; }
-            .accordion-container > .card > .card-header .card-title a.collapsed i:before {
-              background-color: #16A34A; }
-        .accordion-container > .card > .card-header .card-title a:hover i {
-          background-color: white;
-          border-radius: 50%;
-          border: 1px solid white;
-          width: 30px;
-          height: 30px;
-          padding: 5px; }
-          .accordion-container > .card > .card-header .card-title a:hover i:before {
-            background-color: #16A34A; }
-  .accordion-container > .card > .collapse.show {
-    display: block;
-    height: auto; }
-  .accordion-container > .card > .collapse {
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  .accordion-container > .card .card-body {
-    padding: 10px 15px;
     margin: 0;
-    border: none;
-    font-size: .85rem;
-    line-height: 1.3em;
-    letter-spacing: .5px; }
-    @media all and (max-width: 1280px) {
-      .accordion-container > .card .card-body {
-        font-size: 0.8rem;
-        line-height: 1.5em; } }
+    padding: 0;
+    border: none; }
+    .module-container .accordion-item-body-content {
+      border-top: 1px solid #D4D4D4;
+      padding: 15px 15px 10px 15px; }
 
 [v-cloak] {
   display: none; }
@@ -2513,11 +2435,6 @@ nav.steps {
       .module-container .module-body .module-table tr td .ofac-table-unit {
         display: inline-block;
         max-width: 80px; }
-    .module-container .module-body .accordion.module_accordion_container .card .card-header {
-      padding: 5px 10px 5px 15px; }
-    .module-container .module-body .accordion.module_accordion_container .card .card-body {
-      background-color: #FAFAFA;
-      border-image: #A3A3A3; }
   .module-container.validation-error {
     border: solid 1px #F87171; }
     .module-container.validation-error .module-header > div {

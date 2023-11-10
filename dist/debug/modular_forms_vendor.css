@@ -13778,11 +13778,6 @@ nav.steps {
       .module-container .module-body .module-table tr td .ofac-table-unit {
         display: inline-block;
         max-width: 80px; }
-    .module-container .module-body .accordion.module_accordion_container .card .card-header {
-      padding: 5px 10px 5px 15px; }
-    .module-container .module-body .accordion.module_accordion_container .card .card-body {
-      background-color: #FAFAFA;
-      border-image: #A3A3A3; }
   .module-container.validation-error {
     border: solid 1px #F87171; }
     .module-container.validation-error .module-header > div {

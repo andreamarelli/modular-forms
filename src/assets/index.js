@@ -4,9 +4,9 @@ window.ModularForms = {};
 
 // Loading mixins
 window.ModularForms.Mixins = {
+    'Accordion': require('./js/mixins/accordion.js').default,
     'Animation': require('./js/mixins/animation.js').default,
     'Cookies': require('./js/mixins/cookie.js').default,
-    'Input': require('./js/mixins/input.js').default,
     'Locale': require('./js/mixins/locale.js').default,
     'Payload': require('./js/mixins/payload.js').default
 };
