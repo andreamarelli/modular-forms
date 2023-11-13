@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/vendor_mapping_mapbox.scss":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/vendor_mapping_mapbox.scss ***!
-  \**********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/vendor_mapping_mapbox.scss":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/vendor_mapping_mapbox.scss ***!
+  \********************************************************************************************************************************************************************************************************************/
 /***/ (() => {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://modular-forms/./src/assets/vendor_mapping_mapbox.scss?./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use%5B1%5D!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://modular-forms/./src/resources/assets/vendor_mapping_mapbox.scss?./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use%5B1%5D!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -61,23 +61,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/assets/vendor_mapping_mapbox.js":
-/*!*********************************************!*\
-  !*** ./src/assets/vendor_mapping_mapbox.js ***!
-  \*********************************************/
+/***/ "./src/resources/assets/vendor_mapping_mapbox.js":
+/*!*******************************************************!*\
+  !*** ./src/resources/assets/vendor_mapping_mapbox.js ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("window.Turf = __webpack_require__(/*! @turf/turf */ \"./node_modules/@turf/turf/turf.min.js\");\nwindow.mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\");\n\n\n//# sourceURL=webpack://modular-forms/./src/assets/vendor_mapping_mapbox.js?");
+eval("window.Turf = __webpack_require__(/*! @turf/turf */ \"./node_modules/@turf/turf/turf.min.js\");\nwindow.mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\");\n\n\n//# sourceURL=webpack://modular-forms/./src/resources/assets/vendor_mapping_mapbox.js?");
 
 /***/ }),
 
-/***/ "./src/assets/vendor_mapping_mapbox.scss":
-/*!***********************************************!*\
-  !*** ./src/assets/vendor_mapping_mapbox.scss ***!
-  \***********************************************/
+/***/ "./src/resources/assets/vendor_mapping_mapbox.scss":
+/*!*********************************************************!*\
+  !*** ./src/resources/assets/vendor_mapping_mapbox.scss ***!
+  \*********************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !!../../node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./vendor_mapping_mapbox.scss */ \"./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/vendor_mapping_mapbox.scss\");\nif(content.__esModule) content = content.default;\nif(typeof content === 'string') content = [[module.id, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = (__webpack_require__(/*! !../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\")[\"default\"])\nvar update = add(\"64a764f0\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack://modular-forms/./src/assets/vendor_mapping_mapbox.scss?");
+eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !!../../../node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./vendor_mapping_mapbox.scss */ \"./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/vendor_mapping_mapbox.scss\");\nif(content.__esModule) content = content.default;\nif(typeof content === 'string') content = [[module.id, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = (__webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\")[\"default\"])\nvar update = add(\"1664ab63\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack://modular-forms/./src/resources/assets/vendor_mapping_mapbox.scss?");
 
 /***/ })
 
@@ -141,8 +141,8 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	__webpack_require__("./src/assets/vendor_mapping_mapbox.js");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/vendor_mapping_mapbox.scss");
+/******/ 	__webpack_require__("./src/resources/assets/vendor_mapping_mapbox.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/resources/assets/vendor_mapping_mapbox.scss");
 /******/ 	
 /******/ })()
 ;

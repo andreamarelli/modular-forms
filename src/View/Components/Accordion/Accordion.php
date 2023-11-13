@@ -1,10 +1,9 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Views\Components\Accordion;
+namespace AndreaMarelli\ModularForms\View\Components\Accordion;
 
 use Illuminate\View\Component;
-
-use function Termwind\render;
+use Illuminate\View\View;
 
 class Accordion extends Component
 {
@@ -18,12 +17,8 @@ class Accordion extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): string
+    public function render(): View
     {
-        return <<<'blade'
-            <div class="accordion {{ $class }}">
-                {{ $slot }}
-            </div>
-        blade;
+        return view('modular-forms::components.accordion.container');
     }
 }

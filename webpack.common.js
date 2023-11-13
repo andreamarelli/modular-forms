@@ -6,9 +6,9 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
 
     entry: {
-        index: ['./src/assets/index.js', './src/assets/index.scss'],
-        vendor: ['./src/assets/vendor.js', './src/assets/vendor.scss'],
-        vendor_mapbox: ['./src/assets/vendor_mapping_mapbox.js', './src/assets/vendor_mapping_mapbox.scss'],
+        index: ['./src/resources/assets/index.js', './src/resources/assets/index.scss'],
+        vendor: ['./src/resources/assets/vendor.js', './src/resources/assets/vendor.scss'],
+        vendor_mapbox: ['./src/resources/assets/vendor_mapping_mapbox.js', './src/resources/assets/vendor_mapping_mapbox.scss'],
     },
 
     output: {
@@ -18,10 +18,10 @@ module.exports = {
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '~$': path.resolve(__dirname, '../', 'node_modules/'),
-            'vendor': path.resolve(__dirname, 'vendor/'),
-            'assets': path.resolve(__dirname, 'src/', 'assets/'),
-            'fonts': path.resolve(__dirname, 'src/', 'assets/', 'fonts/'),
+            '~$': path.resolve(__dirname, '..', 'node_modules'),
+            'vendor': path.resolve(__dirname, 'vendor'),
+            'assets': path.resolve(__dirname, 'src', 'resources', 'assets'),
+            'fonts': path.resolve(__dirname, 'src', 'resources', 'assets', 'fonts'),
         }
     },
 
@@ -106,7 +106,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'src', 'assets', 'images'),
+                    from: path.resolve(__dirname, 'src', 'resources', 'assets', 'images'),
                     to: path.resolve(__dirname, 'dist', 'images')
                 },
             ],

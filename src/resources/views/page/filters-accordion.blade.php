@@ -17,7 +17,7 @@ $submit_button_label = $submit_button_label ?? trans('modular-forms::common.appl
 
 ?>
 
-<x-modular-forms::accordion.accordion class="form-filters">
+<x-modular-forms::accordion.container class="form-filters">
 
     <x-modular-forms::accordion.item title="{{ mb_strtoupper($accordion_title) }}">
 
@@ -36,4 +36,4 @@ $submit_button_label = $submit_button_label ?? trans('modular-forms::common.appl
 
     </x-modular-forms::accordion.item>
 
-</x-modular-forms::accordion.accordion>
+</x-modular-forms::accordion.container>

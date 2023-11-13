@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/vendor.scss":
-/*!*******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/vendor.scss ***!
-  \*******************************************************************************************************************************************************************************************/
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/vendor.scss":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/vendor.scss ***!
+  \*****************************************************************************************************************************************************************************************************/
 /***/ (() => {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://modular-forms/./src/assets/vendor.scss?./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use%5B1%5D!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://modular-forms/./src/resources/assets/vendor.scss?./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use%5B1%5D!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -516,14 +516,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/assets/vendor.js":
-/*!******************************!*\
-  !*** ./src/assets/vendor.js ***!
-  \******************************/
+/***/ "./src/resources/assets/vendor.js":
+/*!****************************************!*\
+  !*** ./src/resources/assets/vendor.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vendor_conedevelopment_i18n_resources_js_I18n_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vendor/conedevelopment/i18n/resources/js/I18n.js */ \"./vendor/conedevelopment/i18n/resources/js/I18n.js\");\n/* harmony import */ var air_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/index.es.js\");\n/* harmony import */ var air_datepicker_locale_en__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! air-datepicker/locale/en */ \"./node_modules/air-datepicker/locale/en.js\");\n/* harmony import */ var air_datepicker_locale_fr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! air-datepicker/locale/fr */ \"./node_modules/air-datepicker/locale/fr.js\");\n/* harmony import */ var air_datepicker_locale_es__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! air-datepicker/locale/es */ \"./node_modules/air-datepicker/locale/es.js\");\n/* harmony import */ var air_datepicker_locale_pt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! air-datepicker/locale/pt */ \"./node_modules/air-datepicker/locale/pt.js\");\n// Utilities & frameworks\nwindow._ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\nwindow.axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\nwindow.$ = window.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\n// Temporary replacement for mariuzzo/laravel-js-localization (need to wait support for packages loadTranslationsFrom method)\n// Pull request #149 (https://github.com/rmariuzzo/Laravel-JS-Localization/pull/149)\n\nwindow.I18n = vendor_conedevelopment_i18n_resources_js_I18n_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n\n// Vue\nwindow.Vue = (__webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\")[\"default\"]);\nwindow.vueBus = new window.Vue();\n\n// Vuex\nwindow.Vuex = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\nwindow.Vue.use(window.Vuex);\n\n// Bootstrap\n__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n\n// Other packages\nwindow.AutoNumeric = __webpack_require__(/*! autonumeric */ \"./node_modules/autonumeric/dist/autoNumeric.min.js\");\nwindow.Base64 = __webpack_require__(/*! js-base64 */ \"./node_modules/js-base64/base64.js\");\nwindow.CKEditor = __webpack_require__( /*! @ckeditor/ckeditor5-vue2 */ \"./node_modules/@ckeditor/ckeditor5-vue2/dist/ckeditor.js\" )\nwindow.ClassicEditor = __webpack_require__( /*! @ckeditor/ckeditor5-build-classic */ \"./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js\" )\n\n// AirDatepicker\n;\n\n\n\n\nwindow.AirDatepicker = air_datepicker__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\nwindow.AirDatepicker.locale = {\n    'en': air_datepicker_locale_en__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n    'fr': air_datepicker_locale_fr__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n    'sp': air_datepicker_locale_es__WEBPACK_IMPORTED_MODULE_4__[\"default\"],\n    'pt': air_datepicker_locale_pt__WEBPACK_IMPORTED_MODULE_5__[\"default\"],\n}\n\n\n\n//# sourceURL=webpack://modular-forms/./src/assets/vendor.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vendor_conedevelopment_i18n_resources_js_I18n_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vendor/conedevelopment/i18n/resources/js/I18n.js */ \"./vendor/conedevelopment/i18n/resources/js/I18n.js\");\n/* harmony import */ var air_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/index.es.js\");\n/* harmony import */ var air_datepicker_locale_en__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! air-datepicker/locale/en */ \"./node_modules/air-datepicker/locale/en.js\");\n/* harmony import */ var air_datepicker_locale_fr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! air-datepicker/locale/fr */ \"./node_modules/air-datepicker/locale/fr.js\");\n/* harmony import */ var air_datepicker_locale_es__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! air-datepicker/locale/es */ \"./node_modules/air-datepicker/locale/es.js\");\n/* harmony import */ var air_datepicker_locale_pt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! air-datepicker/locale/pt */ \"./node_modules/air-datepicker/locale/pt.js\");\n// Utilities & frameworks\nwindow._ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\nwindow.axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\nwindow.$ = window.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\n// Temporary replacement for mariuzzo/laravel-js-localization (need to wait support for packages loadTranslationsFrom method)\n// Pull request #149 (https://github.com/rmariuzzo/Laravel-JS-Localization/pull/149)\n\nwindow.I18n = vendor_conedevelopment_i18n_resources_js_I18n_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n\n// Vue\nwindow.Vue = (__webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\")[\"default\"]);\nwindow.vueBus = new window.Vue();\n\n// Vuex\nwindow.Vuex = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\nwindow.Vue.use(window.Vuex);\n\n// Bootstrap\n__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n\n// Other packages\nwindow.AutoNumeric = __webpack_require__(/*! autonumeric */ \"./node_modules/autonumeric/dist/autoNumeric.min.js\");\nwindow.Base64 = __webpack_require__(/*! js-base64 */ \"./node_modules/js-base64/base64.js\");\nwindow.CKEditor = __webpack_require__( /*! @ckeditor/ckeditor5-vue2 */ \"./node_modules/@ckeditor/ckeditor5-vue2/dist/ckeditor.js\" )\nwindow.ClassicEditor = __webpack_require__( /*! @ckeditor/ckeditor5-build-classic */ \"./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js\" )\n\n// AirDatepicker\n;\n\n\n\n\nwindow.AirDatepicker = air_datepicker__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\nwindow.AirDatepicker.locale = {\n    'en': air_datepicker_locale_en__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n    'fr': air_datepicker_locale_fr__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n    'sp': air_datepicker_locale_es__WEBPACK_IMPORTED_MODULE_4__[\"default\"],\n    'pt': air_datepicker_locale_pt__WEBPACK_IMPORTED_MODULE_5__[\"default\"],\n}\n\n\n\n//# sourceURL=webpack://modular-forms/./src/resources/assets/vendor.js?");
 
 /***/ }),
 
@@ -538,13 +538,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/assets/vendor.scss":
-/*!********************************!*\
-  !*** ./src/assets/vendor.scss ***!
-  \********************************/
+/***/ "./src/resources/assets/vendor.scss":
+/*!******************************************!*\
+  !*** ./src/resources/assets/vendor.scss ***!
+  \******************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !!../../node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./vendor.scss */ \"./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/vendor.scss\");\nif(content.__esModule) content = content.default;\nif(typeof content === 'string') content = [[module.id, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = (__webpack_require__(/*! !../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\")[\"default\"])\nvar update = add(\"108e7978\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack://modular-forms/./src/assets/vendor.scss?");
+eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !!../../../node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./vendor.scss */ \"./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-2.use[1]!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/vendor.scss\");\nif(content.__esModule) content = content.default;\nif(typeof content === 'string') content = [[module.id, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = (__webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\")[\"default\"])\nvar update = add(\"0cd73bcb\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack://modular-forms/./src/resources/assets/vendor.scss?");
 
 /***/ }),
 
@@ -655,8 +655,8 @@ eval("module.exports = JSON.parse('{\"name\":\"axios\",\"version\":\"0.21.4\",\"
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	__webpack_require__("./src/assets/vendor.js");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/vendor.scss");
+/******/ 	__webpack_require__("./src/resources/assets/vendor.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/resources/assets/vendor.scss");
 /******/ 	
 /******/ })()
 ;

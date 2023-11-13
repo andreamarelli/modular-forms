@@ -1,241 +1,241 @@
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/templates/gauge.vue?vue&type=style&index=0&id=1fb8ede0&lang=scss&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
-[v-cloak][data-v-1fb8ede0] {
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/templates/gauge.vue?vue&type=style&index=0&id=432594b6&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+[v-cloak][data-v-432594b6] {
   display: none;
 }
-.gauge[data-v-1fb8ede0] {
+.gauge[data-v-432594b6] {
   width: 45px;
   display: inline-block;
   font-size: 1.2rem;
   line-height: 1.3em;
 }
 @media all and (max-width: 1280px) {
-.gauge[data-v-1fb8ede0] {
+.gauge[data-v-432594b6] {
       font-size: 1rem;
       line-height: 1.4em;
 }
 }
-.gauge > svg[data-v-1fb8ede0] {
+.gauge > svg[data-v-432594b6] {
     display: block;
     margin: 0 auto;
     max-width: 100%;
 }
-.gauge > svg .circle-bg[data-v-1fb8ede0] {
+.gauge > svg .circle-bg[data-v-432594b6] {
       fill: none;
       stroke: #FAFAFA;
       stroke-width: 4.8;
 }
-.gauge > svg .circle[data-v-1fb8ede0] {
+.gauge > svg .circle[data-v-432594b6] {
       fill: none;
       stroke: #262626;
       stroke-width: 4.8;
-      animation: progress-1fb8ede0 1s ease-out forwards;
+      animation: progress-432594b6 1s ease-out forwards;
 }
-.gauge > svg .percentage[data-v-1fb8ede0] {
+.gauge > svg .percentage[data-v-432594b6] {
       fill: #262626;
       font-size: 0.9em;
       letter-spacing: -0.2px;
       text-anchor: middle;
       font-weight: bold;
 }
-.gauge > svg .percent_symbol[data-v-1fb8ede0] {
+.gauge > svg .percent_symbol[data-v-432594b6] {
       font-size: 0.35em;
       letter-spacing: -0.2px;
       text-anchor: middle;
       font-weight: bold;
 }
-.gauge > svg.green .circle-bg[data-v-1fb8ede0] {
+.gauge > svg.green .circle-bg[data-v-432594b6] {
       stroke: #F0FDF4;
 }
-.gauge > svg.green .circle[data-v-1fb8ede0] {
+.gauge > svg.green .circle[data-v-432594b6] {
       stroke: #16A34A;
 }
-.gauge > svg.yellow .circle-bg[data-v-1fb8ede0] {
+.gauge > svg.yellow .circle-bg[data-v-432594b6] {
       stroke: #fcf8e3;
 }
-.gauge > svg.yellow .circle[data-v-1fb8ede0] {
+.gauge > svg.yellow .circle[data-v-432594b6] {
       stroke: #f0ad4e;
 }
-.gauge > svg.red .circle-bg[data-v-1fb8ede0] {
+.gauge > svg.red .circle-bg[data-v-432594b6] {
       stroke: #FEE2E2;
 }
-.gauge > svg.red .circle[data-v-1fb8ede0] {
+.gauge > svg.red .circle[data-v-432594b6] {
       stroke: #DC2626;
 }
-@keyframes progress-1fb8ede0 {
+@keyframes progress-432594b6 {
 0% {
     stroke-dasharray: 0 100;
 }
 }
 
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/templates/progress_bar.vue?vue&type=style&index=0&id=0fdb536a&lang=scss&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
-[v-cloak][data-v-0fdb536a] {
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/templates/progress_bar.vue?vue&type=style&index=0&id=54436fd4&lang=scss&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+[v-cloak][data-v-54436fd4] {
   display: none;
 }
-.progress[data-v-0fdb536a] {
+.progress[data-v-54436fd4] {
   margin-bottom: 0;
   border-radius: 2px;
 }
-.progress .progress-bar[data-v-0fdb536a] {
+.progress .progress-bar[data-v-54436fd4] {
     background-color: #16A34A;
     color: #fff;
     font-weight: normal;
 }
-.progress.progress-small[data-v-0fdb536a] {
+.progress.progress-small[data-v-54436fd4] {
     height: 12px;
 }
-.progress.progress-small .progress-bar[data-v-0fdb536a] {
+.progress.progress-small .progress-bar[data-v-54436fd4] {
       font-size: 10px;
       line-height: 14px;
 }
-.progress.progress-dark .progress-bar[data-v-0fdb536a] {
+.progress.progress-dark .progress-bar[data-v-54436fd4] {
     color: #262626;
 }
 
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/templates/redlist_link.vue?vue&type=style&index=0&id=439d1d73&lang=scss&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
-a img[data-v-439d1d73] {
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/templates/redlist_link.vue?vue&type=style&index=0&id=eff58c46&lang=scss&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+a img[data-v-eff58c46] {
   height: 24px;
 }
 
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/inputs/components/modal-selector.vue?vue&type=style&index=0&id=aa4d3ef6&lang=scss&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.modal_selector .modal-anchor[data-v-aa4d3ef6],
-.modal_selector .modal-custom-anchor[data-v-aa4d3ef6] {
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/modal-selector.vue?vue&type=style&index=0&id=3780806f&lang=scss&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.modal_selector .modal-anchor[data-v-3780806f],
+.modal_selector .modal-custom-anchor[data-v-3780806f] {
   cursor: pointer;
 }
-.modal_selector .error-bar[data-v-aa4d3ef6] {
+.modal_selector .error-bar[data-v-3780806f] {
   font-size: 0.9em;
   font-weight: bold;
 }
 
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/inputs/components/modal-api-search.vue?vue&type=style&index=0&id=4ec017e1&lang=scss&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
-[v-cloak][data-v-4ec017e1] {
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/modal-api-search.vue?vue&type=style&index=0&id=4e1ee54b&lang=scss&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+[v-cloak][data-v-4e1ee54b] {
   display: none;
 }
-.modal_selector .modal-header[data-v-4ec017e1] {
+.modal_selector .modal-header[data-v-4e1ee54b] {
   flex-direction: column;
   align-items: center;
 }
-.modal_selector .modal_search[data-v-4ec017e1],
-.modal_selector .modal_search_results_filters[data-v-4ec017e1] {
+.modal_selector .modal_search[data-v-4e1ee54b],
+.modal_selector .modal_search_results_filters[data-v-4e1ee54b] {
   font-size: 0.9em;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.modal_selector .field-edit[data-v-4ec017e1] {
+.modal_selector .field-edit[data-v-4e1ee54b] {
   width: 250px;
   height: 28px;
   padding: 4px 12px;
   margin: 2px 16px;
 }
-.modal_selector .searchByKey[data-v-4ec017e1]:focus {
+.modal_selector .searchByKey[data-v-4e1ee54b]:focus {
   background-color: #D9534F;
 }
-.modal_selector .modal_search_loading[data-v-4ec017e1] {
+.modal_selector .modal_search_loading[data-v-4e1ee54b] {
   text-align: center;
 }
-.modal_selector .modal_search_count[data-v-4ec017e1] {
+.modal_selector .modal_search_count[data-v-4e1ee54b] {
   padding: 8px 10px;
   color: #166534;
 }
-.modal_selector table.modal_search_results td[data-v-4ec017e1], .modal_selector table.modal_search_results tr[data-v-4ec017e1] {
+.modal_selector table.modal_search_results td[data-v-4e1ee54b], .modal_selector table.modal_search_results tr[data-v-4e1ee54b] {
   font-size: 0.9em;
   text-align: center;
 }
-.modal_selector table.modal_search_results td[data-v-4ec017e1] {
+.modal_selector table.modal_search_results td[data-v-4e1ee54b] {
   padding: 4px 12px;
 }
-.modal_selector table.modal_search_results td .result_left[data-v-4ec017e1] {
+.modal_selector table.modal_search_results td .result_left[data-v-4e1ee54b] {
     display: block;
     text-align: left;
 }
-.modal_selector table.modal_search_results .radio[data-v-4ec017e1] {
+.modal_selector table.modal_search_results .radio[data-v-4e1ee54b] {
   margin-top: 5px;
   margin-bottom: 0;
 }
-.modal_selector table.modal_search_results label[data-v-4ec017e1] {
+.modal_selector table.modal_search_results label[data-v-4e1ee54b] {
   margin: 0;
   padding: 0;
 }
 
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/inputs/editor.vue?vue&type=style&index=0&id=6b0828d0&lang=scss&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/editor.vue?vue&type=style&index=0&id=79fc8d26&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
 @media print {
-.text-editor-edit[data-v-6b0828d0] {
+.text-editor-edit[data-v-79fc8d26] {
     display: none;
 }
 }
-.text-editor-print[data-v-6b0828d0] {
+.text-editor-print[data-v-79fc8d26] {
   background-color: white !important;
   padding: 15px;
 }
 @media screen {
-.text-editor-print[data-v-6b0828d0] {
+.text-editor-print[data-v-79fc8d26] {
       display: none;
 }
 }
 
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/inputs/simple-date.vue?vue&type=style&index=0&id=7bca8ed4&lang=scss&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
-.simple-date input[data-v-7bca8ed4] {
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/simple-date.vue?vue&type=style&index=0&id=23059a00&lang=scss&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.simple-date input[data-v-23059a00] {
   width: 100px;
   max-width: 100px;
   text-align: center;
   cursor: pointer;
 }
 
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/inputs/simple-numeric.vue?vue&type=style&index=0&id=1b81c056&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
-.field-edit[data-v-1b81c056] {
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/simple-numeric.vue?vue&type=style&index=0&id=578cce2b&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.field-edit[data-v-578cce2b] {
   max-width: 180px;
 }
-.field-numeric[data-v-1b81c056] {
+.field-numeric[data-v-578cce2b] {
   text-align: right;
 }
 
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/inputs/selector-species_animal.vue?vue&type=style&index=0&id=11e5fe3a&lang=scss&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.selector-species_animal .common_names[data-v-11e5fe3a] {
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/selector-species_animal.vue?vue&type=style&index=0&id=4ec810a4&lang=scss&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.selector-species_animal .common_names[data-v-4ec810a4] {
   margin-top: 4px;
 }
-.selector-species_animal .flag-icon[data-v-11e5fe3a] {
+.selector-species_animal .flag-icon[data-v-4ec810a4] {
   margin-right: 4px;
 }
-.selector-species_animal .modal-body.insert[data-v-11e5fe3a] {
+.selector-species_animal .modal-body.insert[data-v-4ec810a4] {
   font-size: 0.8em;
   text-align: center;
 }
-.selector-species_animal .modal-body.insert div[data-v-11e5fe3a] {
+.selector-species_animal .modal-body.insert div[data-v-4ec810a4] {
     margin-bottom: 4px;
 }
-.selector-species_animal .modal-body.insert input[data-v-11e5fe3a] {
+.selector-species_animal .modal-body.insert input[data-v-4ec810a4] {
     width: 380px;
 }
-.selector-species_animal .modal-footer[data-v-11e5fe3a] {
+.selector-species_animal .modal-footer[data-v-4ec810a4] {
   justify-content: space-between;
 }
 
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/assets/js/inputs/upload.vue?vue&type=style&index=0&id=8d60a938&lang=scss&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************/
-.modal_selector.selector-upload[data-v-8d60a938] {
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/upload.vue?vue&type=style&index=0&id=6f77e08c&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+.modal_selector.selector-upload[data-v-6f77e08c] {
   margin-top: 3px;
 }
-.modal_selector.selector-upload .field-enabled[data-v-8d60a938] {
+.modal_selector.selector-upload .field-enabled[data-v-6f77e08c] {
     cursor: default;
     display: inline-block;
     /* padding: 8px 12px; */
@@ -246,16 +246,16 @@ a img[data-v-439d1d73] {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.modal_selector.selector-upload .field-enabled a[data-v-8d60a938], .modal_selector.selector-upload .field-enabled a[data-v-8d60a938]:hover {
+.modal_selector.selector-upload .field-enabled a[data-v-6f77e08c], .modal_selector.selector-upload .field-enabled a[data-v-6f77e08c]:hover {
       text-decoration: none;
 }
-.modal_selector.selector-upload .field-edit[data-v-8d60a938] {
+.modal_selector.selector-upload .field-edit[data-v-6f77e08c] {
     max-width: 450px;
 }
 
-/*!****************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/index.scss ***!
-  \****************************************************************************************************************/
+/*!**************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/index.scss ***!
+  \**************************************************************************************************************************/
 [v-cloak] {
   display: none; }
 
@@ -1341,6 +1341,52 @@ span.red-list_NE {
   overflow: hidden;
   transition: all 200ms linear; }
 
+.accordion.form-filters .accordion-item {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 25px; }
+  .accordion.form-filters .accordion-item-header {
+    background-color: #F5F5F5;
+    padding: 10px 10px 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .accordion.form-filters .accordion-item-header-title {
+      flex-grow: 1;
+      font-weight: bold;
+      color: #16A34A;
+      font-size: 1rem;
+      line-height: 1.4em;
+      margin: 0; }
+      @media all and (max-width: 1280px) {
+        .accordion.form-filters .accordion-item-header-title {
+          font-size: 0.85rem;
+          line-height: 1.3em; } }
+      .accordion.form-filters .accordion-item-header-title:hover, .accordion.form-filters .accordion-item-header-title:focus {
+        color: #166534;
+        text-decoration: none; }
+      .accordion.form-filters .accordion-item-header-title::before {
+        font-family: "Font Awesome 5 Free";
+        padding-left: 5px;
+        padding-right: 10px;
+        font-size: 1.2rem;
+        line-height: 1.3em;
+        content: "\f105"; }
+        @media all and (max-width: 1280px) {
+          .accordion.form-filters .accordion-item-header-title::before {
+            font-size: 1rem;
+            line-height: 1.4em; } }
+  .accordion.form-filters .accordion-item.show .accordion-item-header-title::before {
+    content: "\f107"; }
+  .accordion.form-filters .accordion-item-body {
+    background-color: #FAFAFA;
+    margin: 0;
+    padding: 0;
+    border: none; }
+    .accordion.form-filters .accordion-item-body-content {
+      padding: 15px; }
+
 .module-container .accordion-item {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
   border: none;
@@ -1360,12 +1406,9 @@ span.red-list_NE {
       .module-container .accordion-item-header-title:hover, .module-container .accordion-item-header-title:focus {
         color: #166534;
         text-decoration: none; }
-      .module-container .accordion-item-header-title a {
-        display: flex;
-        align-items: center; }
-        .module-container .accordion-item-header-title a:hover, .module-container .accordion-item-header-title a:focus {
-          color: #14532D;
-          text-decoration: none; }
+      .module-container .accordion-item-header-title a:hover, .module-container .accordion-item-header-title a:focus {
+        color: #14532D;
+        text-decoration: none; }
   .module-container .accordion-item-body {
     background-color: #FAFAFA;
     margin: 0;
