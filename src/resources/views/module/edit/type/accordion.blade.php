@@ -18,32 +18,28 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
 
 ?>
 
-<div class="accordion" id="{{ $accordion_id }}">
+<x-modular-forms::accordion.container id="{{ $accordion_id }}">
 
-    <div class="accordion-item" v-for="(item, index) in {{ $accordion_item_record }}">
+    <x-modular-forms::accordion.item v-for="(item, index) in {{ $accordion_item_record }}">
 
-        <div class="accordion-item-header" :id="'{{ $accordion_id }}_heading_'+index" :data-target="'#{{ $accordion_id }}_content_'+index">
-            <div class="accordion-item-header-title" onclick="window.ModularForms.Mixins.Accordion.toggle(event)">
-                <span>@{{ parseInt(index) + 1 }} - </span><span>{{ $accordion_titles }}</span>
-            </div>
-            <div>
-                @if(!$definitions['fixed_rows'])
-                    <span v-if="typeof item.__predefined === 'undefined'">
+        <x-slot:title>
+            <span>@{{ parseInt(index) + 1 }} - </span><span>{{ $accordion_titles }}</span>
+        </x-slot:title>
+
+        <x-slot:header-actions>
+            @if(!$definitions['fixed_rows'])
+                <span v-if="typeof item.__predefined === 'undefined'">
                         @include('modular-forms::buttons.delete_item')
                     </span>
-                @endif
-            </div>
-        </div>
+            @endif
+        </x-slot:header-actions>
 
-        <div class="accordion-item-body" :id="'{{ $accordion_id }}_content_'+index" >
-            <div class="accordion-item-body-content">
-                @include('modular-forms::module.edit.type.simple', compact(['collection', 'vue_data', 'definitions']))
-            </div>
-        </div>
+        @include('modular-forms::module.edit.type.simple', compact(['collection', 'vue_data', 'definitions']))
 
-    </div>
+    </x-modular-forms::accordion.item>
 
-</div>
+</x-modular-forms::accordion.container>
+
 
 @if(!$definitions['fixed_rows'])
     <div v-if="max_rows==null || {{ $accordion_item_record }}.length < max_rows" class="module-row">

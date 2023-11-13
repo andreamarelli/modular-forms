@@ -20,7 +20,7 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
 <x-modular-forms::accordion.container id="{{ $accordion_id }}">
 
     @foreach($records as $index=>$record)
-        <x-modular-forms::accordion.item class="show">
+        <x-modular-forms::accordion.item class="show" :is-collapsible=false>
 
             <x-slot:title>
                 <span>{{ $index+1 }} - </span>
