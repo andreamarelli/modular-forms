@@ -1,9 +1,10 @@
-@props(['$title'])
+@props(['title', 'isInteractive'])
 
-<div class="accordion-item">
+
+<div {{ $attributes->merge(['class' => 'accordion-item']) }}>
 
     <div class="accordion-item-header">
-        <div class="accordion-item-header-title" onclick="window.ModularForms.Mixins.Accordion.toggle(event)">
+        <div class="accordion-item-header-title" @if($isInteractive) onclick="window.ModularForms.Mixins.Accordion.toggle(event)" @endif>
             {{ $title }}
         </div>
     </div>

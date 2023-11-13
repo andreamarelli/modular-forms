@@ -16,35 +16,30 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
 
 ?>
 
-<div class="accordion" id="{{ $accordion_id }}">
+
+<x-modular-forms::accordion.container id="{{ $accordion_id }}">
 
     @foreach($records as $index=>$record)
-        <div class="accordion-item show">
+        <x-modular-forms::accordion.item class="show">
 
-            <div class="accordion-item-header">
-                <div class="accordion-item-header-title">
-                    <span>{{ $index+1 }} - </span>
-                    <span>
-                        @include('modular-forms::module.show.field', [
-                            'type' => $definitions['fields'][0]['type'],
-                            'value' => $record[$definitions['fields'][0]['name']],
-                            'only_label' => true
-                        ])
-                    </span>
-                </div>
-            </div>
-
-            <div class="accordion-item-body">
-                <div class="accordion-item-body-content">
-                    @include('modular-forms::module.show.type.simple', [
-                        'definitions' => $definitions,
-                        'records' => $records,
-                        'index' => $index
+            <x-slot:title>
+                <span>{{ $index+1 }} - </span>
+                <span>
+                    @include('modular-forms::module.show.field', [
+                        'type' => $definitions['fields'][0]['type'],
+                        'value' => $record[$definitions['fields'][0]['name']],
+                        'only_label' => true
                     ])
-                </div>
-            </div>
+                </span>
+            </x-slot:title>
 
-        </div>
+            @include('modular-forms::module.show.type.simple', [
+                'definitions' => $definitions,
+                'records' => $records,
+                'index' => $index
+            ])
+
+        </x-modular-forms::accordion.item>
     @endforeach
 
-</div>
+</x-modular-forms::accordion.container>

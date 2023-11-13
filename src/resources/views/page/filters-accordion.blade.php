@@ -21,7 +21,7 @@ $submit_button_label = $submit_button_label ?? trans('modular-forms::common.appl
 
     <x-modular-forms::accordion.item title="{{ mb_strtoupper($accordion_title) }}">
 
-        <form class="form-horizontal form-filters" method="{{ $method }}" action="{{ $url }}">
+        <form class="form-horizontal" method="{{ $method }}" action="{{ $url }}">
             {{ csrf_field() }}
 
             <div class="form-grid">

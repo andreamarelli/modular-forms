@@ -1,5 +1,4 @@
-@props(['class'])
 
-<div class="accordion {{ $class }}">
+<div {{ $attributes->merge(['class' => 'accordion']) }}>
     {{ $slot }}
 </div>

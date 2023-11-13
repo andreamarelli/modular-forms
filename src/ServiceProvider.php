@@ -22,7 +22,7 @@ class ServiceProvider extends BaseServiceProvider
     public function boot(): void
     {
         // Components
-        Blade::componentNamespace('AndreaMarelli\\ModularForms\\Views\\Components', 'modular-forms');
+        Blade::componentNamespace('AndreaMarelli\\ModularForms\\View\\Components', 'modular-forms');
 
         // Views
         $this->loadViewsFrom(__DIR__.'/resources/views', 'modular-forms');
