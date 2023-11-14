@@ -1337,7 +1337,6 @@ span.red-list_NE {
   transition: all 200ms linear; }
 
 .accordion-item.show .accordion-item-body {
-  max-height: 10px;
   overflow: hidden;
   transition: all 200ms linear; }
 

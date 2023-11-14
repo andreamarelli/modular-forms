@@ -85,14 +85,12 @@ window.ModularForms.ModuleController = window.Vue.extend({
 
     mounted: function () {
         let _this = this;
-        _this.container = $(_this.$el)[0];
+        this.container = this.$el;
 
-        _this.__set_predefined_as_disabled();
-
+        this.__set_predefined_as_disabled();
         Vue.nextTick(function () {
             _this.status = _this.reset_status;
         });
-
         _this.mountedCallback();
     },
 
@@ -136,13 +134,12 @@ window.ModularForms.ModuleController = window.Vue.extend({
          */
         saveModule: function () {
             let _this = this;
-            let form = $(this.container).find('form')[0];
-            _this.status = 'saving';
+            let form = this.container.querySelector('form');
 
             $.ajax({
-                method: $(form).attr('method'),
-                url: $(form).attr('action'),
-                data: _this.__parse_form(),
+                method: form.getAttribute('method'),
+                url: form.getAttribute('action'),
+                data: _this.__parse_form(form),
                 cache: false
             })
                 .done(function (response) {
@@ -266,18 +263,18 @@ window.ModularForms.ModuleController = window.Vue.extend({
                     Object.keys(_this.records).forEach(function (group_key) {
                         _this.records[group_key].forEach(function (item, index) {
                             if (typeof item.__predefined !== 'undefined' && item.__predefined === true) {
-                                let input = $(_this.container).find("[id$=_" + group_key + "_" + index + "_" + _this.predefined_values['field'] + "]");
-                                input.attr('readonly', 'readonly');
-                                input.addClass('field-disabled');
+                                let input = _this.container.querySelector("[id$=_" + group_key + "_" + index + "_" + _this.predefined_values['field'] + "]");
+                                input.setAttribute('readonly', 'readonly');
+                                input.classList.add('field-disabled');
                             }
                         });
                     });
                 } else {
                     _this.records.forEach(function (item, index) {
                         if (typeof item.__predefined !== 'undefined' && item.__predefined === true) {
-                            let input = $(_this.container).find("[id$=_" + index + "_" + _this.predefined_values['field'] + "]");
-                            input.attr('readonly', 'readonly');
-                            input.addClass('field-disabled');
+                            let input = _this.container.querySelector("[id$=_" + index + "_" + _this.predefined_values['field'] + "]");
+                            input.setAttribute('readonly', 'readonly');
+                            input.classList.add('field-disabled');
                         }
                     });
                 }
@@ -313,15 +310,14 @@ window.ModularForms.ModuleController = window.Vue.extend({
          * @returns {*}
          * @private
          */
-        __parse_form: function () {
+        __parse_form: function (form) {
             let _this = this;
-            let form = $(_this.container).find('form')[0];
             let records = _this.__no_reactive_copy(_this.$data['records']);
             let data = {};
             data['form_id'] = _this.form_id;
             data['module_key'] = _this.module_key;
-            data['_token'] = $($(form).find('input[name="_token"]')[0]).val();
-            data['_method'] = $($(form).find('input[name="_method"]')[0]).val();
+            data['_token'] = form.querySelector('input[name="_token"]').value;
+            data['_method'] = form.querySelector('input[name="_method"]').value;
             records = _this.parseRecordLocally(records);
             if (this.module_type === "GROUP_ACCORDION" || this.module_type === "GROUP_TABLE") {
                 data['records_json'] = window.ModularForms.Mixins.Payload.encode(_this.__arrange_back_records_by_group(records));
@@ -391,11 +387,11 @@ window.ModularForms.ModuleController = window.Vue.extend({
             let key = null;
 
             if (this.module_type === "GROUP_TABLE") {
-                let table = $(event.currentTarget).parents('table');
-                key = $(table).attr('id').replace('group_table_' + this.module_key + '_', '');
+                let table = event.currentTarget.closest('table');
+                key = table.getAttribute('id').replace('group_table_' + this.module_key + '_', '');
             } else if (this.module_type === "GROUP_ACCORDION") {
-                let accordion = $(event.currentTarget).parent().prev();
-                key = $(accordion).attr('id').replace('group_accordion_' + this.module_key + '_', '');
+                let accordion = event.currentTarget.closest('[id^=\'group_accordion_\']')
+                key = accordion.getAttribute('id').replace('group_accordion_' + this.module_key + '_', '');
             }
 
             if (key === null) {
@@ -418,22 +414,27 @@ window.ModularForms.ModuleController = window.Vue.extend({
             let row_index = null;
             let group_key = null;
             if (_this.module_type === "TABLE") {
-                let table_cell = $(event.currentTarget).parents('td')[0];
-                row_index = $(table_cell).parent().index();
+                row_index = event.currentTarget.closest('tr').rowIndex - 1; // start from 1 (because of header)
             } else if (_this.module_type === "ACCORDION") {
-                let accordion = $(event.currentTarget).parents('.module_accordion')[0];
-                let accordion_container = $(accordion).parent('.module_accordion_container')[0];
-                row_index = $(accordion_container).find('.module_accordion').index(accordion);
+                let accordion = event.currentTarget.closest('.accordion');
+                let accordion_item = event.currentTarget.closest('.accordion-item');
+                row_index = Array.from(accordion.children).indexOf(accordion_item);
             } else if (_this.module_type === "GROUP_TABLE") {
-                let table_cell = $(event.currentTarget).parents('td')[0];
-                row_index = $(table_cell).parent().index();
-                group_key = $(table_cell).parents('table').attr('id').replace('group_table_' + _this.module_key + '_', '');
+                row_index = event.currentTarget.closest('tr').rowIndex - 1;
+                group_key = event.currentTarget.closest('table')
+                    .getAttribute('id')
+                    .replace('group_table_' + this.module_key + '_', '')
             } else if (_this.module_type === "GROUP_ACCORDION") {
-                let accordion = $(event.currentTarget).parents('.module_accordion')[0];
-                let accordion_container = $(accordion).parent('.module_accordion_container')[0];
-                row_index = $(accordion_container).find('.module_accordion').index(accordion);
-                group_key = $(accordion_container).attr('id').replace('group_accordion_' + _this.module_key + '_', '');
+                let accordion = event.currentTarget.closest('.accordion');
+                let accordion_item = event.currentTarget.closest('.accordion-item');
+
+                row_index = Array.from(accordion.children).indexOf(accordion_item);
+                group_key = event.currentTarget.closest('[id^=\'group_accordion_\']')
+                    .getAttribute('id')
+                    .replace('group_accordion_' + this.module_key + '_', '');
             }
+
+            console.log(row_index, group_key);
 
             if (group_key === null) {
                 _this.records.splice(row_index, 1);

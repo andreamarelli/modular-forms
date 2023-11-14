@@ -12,7 +12,7 @@ class Item extends Component
      */
     public function __construct(
         public string $title = '',
-        public string $header_actions = '',
+        public string $headerActions = '',
         public bool $isCollapsible = true
     ){}
 

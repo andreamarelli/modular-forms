@@ -38,11 +38,13 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
 
     </x-modular-forms::accordion.item>
 
+    @if(!$definitions['fixed_rows'])
+        <div v-if="max_rows==null || {{ $accordion_item_record }}.length < max_rows">
+            @include('modular-forms::buttons.add_item')
+        </div>
+    @endif
+
 </x-modular-forms::accordion.container>
 
 
-@if(!$definitions['fixed_rows'])
-    <div v-if="max_rows==null || {{ $accordion_item_record }}.length < max_rows" class="module-row">
-        @include('modular-forms::buttons.add_item')
-    </div>
-@endif
+
