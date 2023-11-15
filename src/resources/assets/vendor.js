@@ -39,3 +39,8 @@ window.AirDatepicker.locale = {
     'pt': AirDatepicker_locale_pt,
 }
 
+// Popper
+import { createPopper } from '@popperjs/core';
+window.Popper = createPopper;
+
+

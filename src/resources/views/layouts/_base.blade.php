@@ -6,6 +6,8 @@ $class_to_body = $class_to_body ?? '';
 <!DOCTYPE html>
 <html lang="{{ App::getLocale() }}">
 
+    <div id="tooltips_stack"></div>
+
     <head>
         @include('modular-forms::layouts.components.metatags')
         @translations

@@ -2724,8 +2724,8 @@ section.convergence-plan div.card div.card-body h4 {
     background-color: #14532D !important; }
   .table td, .table th {
     background-color: transparent !important; }
-  .card-header,
-  .card-body,
+  .accordion-item-header,
+  .accordion-item-body,
   .progress {
     background-color: #FAFAFA !important; }
   .field-preview,
