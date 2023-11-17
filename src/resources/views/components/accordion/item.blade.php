@@ -1,6 +1,3 @@
-@props(['title', 'headerActions', 'isCollapsible'])
-
-
 <div {{ $attributes->merge(['class' => 'accordion-item']) }}>
 
     <div class="accordion-item-header">
