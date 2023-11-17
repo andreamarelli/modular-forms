@@ -10,7 +10,7 @@
         <!-- Modal anchor -->
         <span v-if="!disable_modal" data-toggle="modal" :data-target="'#'+modalId" class="modal-anchor">
             <slot name="modal_anchor">
-                <div class="field-preview" data-toggle="tooltip" :title="anchorLabel">
+                <div class="field-preview">
                      {{ anchorLabel }}
                 </div>
             </slot>

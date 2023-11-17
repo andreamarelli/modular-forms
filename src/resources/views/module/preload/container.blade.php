@@ -6,13 +6,15 @@
 @if(array_key_exists('enable_preload', $definitions) && $definitions['enable_preload']===true)
 
     {{-- Preload modal anchor --}}
-    <div style="display: inline-block;"
-         data-toggle="tooltip" data-placement="top" data-original-title="@uclang('modular-forms::common.form.previous_years')">
+    <div style="display: inline-block;">
         <button type="button"
                 class="btn-nav small"
                 data-toggle="modal" data-target="#preload_modal__{!! $definitions['module_key'] !!}">
             @uclang('modular-forms::common.form.previous_years')
         </button>
+        <tooltip>
+            @uclang('modular-forms::common.form.previous_years')
+        </tooltip>
     </div>
 
     {{-- Preload modal --}}

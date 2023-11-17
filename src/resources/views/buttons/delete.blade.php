@@ -21,15 +21,18 @@ $label = $label ?? null;
 ?>
 
 {{-- Delete modal anchor --}}
-<div style="display: inline-block;"
-     data-toggle="tooltip" data-placement="top" data-original-title="@uclang('modular-forms::common.delete')">
+<div style="display: inline-block;">
     <button type="submit"
             class="btn-nav small red"
             data-toggle="modal" {!! $modal_target !!}>
         {!! AndreaMarelli\ModularForms\Helpers\Template::icon('trash', 'white') !!}
         {{ $label }}
     </button>
+    <tooltip>
+        @uclang('modular-forms::common.delete')
+    </tooltip>
 </div>
+
 
 {{-- Delete modal --}}
 <div {!! $modal_id !!} class="modal fade" tabindex="-1" role="dialog">

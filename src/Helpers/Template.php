@@ -38,8 +38,8 @@ class Template
         $iso2    = strtolower($iso2);
         $iso2    = ($iso2 == 'en') ? 'gb' : $iso2;
         $iso2    = ($iso2 == 'sp') ? 'es' : $iso2;
-        $tooltip = $tooltip != '' ? ' data-toggle="tooltip" data-placement="top" title="' . $tooltip . '"' : '';
-        return '<span ' . $tooltip . ' class="flag-icon flag-icon-' . $iso2 . '"></span>';
+        $tooltip = $tooltip != '' ? '<tooltip>'.$tooltip.'</tooltip>' : '';
+        return '<span  class="flag-icon flag-icon-' . $iso2 . '"></span>' . $tooltip;
     }
 
     /**

@@ -58,7 +58,6 @@
                                 <input type="radio"
                                        :name="parentId + '_radio'" :id="parentId + '_radio' + index"
                                        v-on:click="selectResultItem(item, $event)"
-                                       data-toggle="tooltip" data-placement="top" :title=radioTooltip
                                 />
                                 <label :for="parentId + '_radio' + index" ></label>
                             </span>
@@ -176,10 +175,6 @@
             parentSearchParamsValid:  {
                 type: Boolean,
                 default: false
-            },
-            radioTooltip:  {
-              type: String,
-              default: null
             }
         },
 
@@ -290,10 +285,6 @@
             },
 
             selectResultItem(item, event){
-                if(this.radioTooltip!==null){
-                  let radio = event.srcElement;
-                  window.$(radio).tooltip('show');
-                }
                 this.selectedValue = item;
                 this.selectorComponent.selectedValue = this.selectedValue;
             },

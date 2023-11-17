@@ -8,6 +8,8 @@
    target="_blank"
    class="btn-nav small"
    role="button"
-   data-toggle="tooltip" data-placement="top" data-original-title="@lang('modular-forms::common.show')">
     {!! AndreaMarelli\ModularForms\Helpers\Template::icon('eye', 'white') !!}
 </a>
+<tooltip>
+    @uclang('modular-forms::common.show')
+</tooltip>

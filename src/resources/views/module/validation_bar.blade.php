@@ -13,7 +13,10 @@
         <div class="message">
             <span v-if="validation!=null && validation.id!=null">
                 @uclang('modular-forms::common.form.validated_by'):&nbsp;
-                <b data-toggle="tooltip" data-placement="top" :title="'#'+validation.id">@{{ validation.name }}</b>&nbsp;
+                <b>@{{ validation.name }}</b>
+                <tooltip>
+                    @{{ '#' + validation.id }}
+                </tooltip>&nbsp;
                 <i>@{{ validation.date }}</i>
             </span>
         </div>

@@ -8,6 +8,8 @@
    target="_blank"
    class="btn-nav small red"
    role="button"
-   data-toggle="tooltip" data-placement="top" data-original-title="@lang('modular-forms::common.pdf')">
     {!! AndreaMarelli\ModularForms\Helpers\Template::icon('file-pdf', 'white') !!}
 </a>
+<tooltip>
+    @uclang('modular-forms::common.pdf')
+</tooltip>

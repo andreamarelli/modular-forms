@@ -11,6 +11,8 @@ $href = $item instanceof \Illuminate\Database\Eloquent\Model
         {!! $href !!}
         class="btn-nav yellow small"
         role="button"
-        data-toggle="tooltip" data-placement="top" data-original-title="@lang('modular-forms::common.edit')">
     {!! AndreaMarelli\ModularForms\Helpers\Template::icon('pen', 'white') !!}
 </a>
+<tooltip>
+    @uclang('modular-forms::common.edit')
+</tooltip>

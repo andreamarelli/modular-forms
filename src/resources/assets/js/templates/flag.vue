@@ -1,6 +1,11 @@
 <template>
 
-    <span data-toggle="tooltip" data-placement="top" :title=countryName :class=flagClasses ></span>
+    <span>
+        <span :class=flagClasses ></span>
+        <tooltip>
+            {{ countryName }}
+        </tooltip>
+    </span>
 
 </template>
 

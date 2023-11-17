@@ -4,9 +4,9 @@
         <span :class="[compact ? 'compact' : '', 'red-list_'+category]">
             {{ category }}
         </span>
-        <tooltip
-            :content=category_plain
-        />
+        <tooltip>
+            {{ category_plain}}
+        </tooltip>
     </div>
 
 </template>

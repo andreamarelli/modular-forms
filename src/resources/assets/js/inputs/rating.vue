@@ -2,15 +2,20 @@
     <div>
 
         <span ref="ratingOptions" class="rating-container">
-            <span class="rating field-edit"
-                  v-for="(item, index) in list"
-                  v-on:click="updateRating(item['value'])"
-                  v-on:mouseover=setHover
-                  v-on:mouseout=setHover
-                  v-bind:class="[item['value']==='-99' ? 'ratingNa' : 'ratingNum', setActive(item['value'])]"
-                  v-bind:rate="item['value']"
-                  data-toggle="tooltip" data-placement="top" :title=tooltipLabel(index)
+            <span v-for="(item, index) in list">
+
+                <span class="rating field-edit"
+                      v-on:click="updateRating(item['value'])"
+                      v-on:mouseover=setHover
+                      v-on:mouseout=setHover
+                      v-bind:class="[item['value']==='-99' ? 'ratingNa' : 'ratingNum', setActive(item['value'])]"
+                      v-bind:rate="item['value']"
                 >{{ item['label'] }}</span>
+                <tooltip>
+                    {{ tooltipLabel(index) }}
+                </tooltip>
+            </span>
+
         </span>
 
         <input type="hidden"
@@ -102,7 +107,7 @@
                         return _.upperFirst(this.legend[index]);
                     }
                 }
-                return ''
+                return '';
             }
         }
     }

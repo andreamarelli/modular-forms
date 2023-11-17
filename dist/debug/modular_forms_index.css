@@ -112,7 +112,7 @@ a img[data-v-eff58c46] {
   top: 0;
   left: 0;
 }
-[role=tooltip] .arrow[data-v-0736a980] {
+[role=tooltip] .tooltip-arrow[data-v-0736a980] {
     position: absolute;
     width: 8px;
     height: 8px;
@@ -2774,7 +2774,7 @@ section.convergence-plan div.card div.card-body h4 {
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 13px; }
-  [role=tooltip] .arrow {
+  [role=tooltip] .tooltip-arrow {
     background-color: #333; }
 
 [v-cloak] {

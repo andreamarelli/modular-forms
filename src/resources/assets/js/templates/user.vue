@@ -1,6 +1,11 @@
 <template>
 
-    <span data-toggle="tooltip" data-placement="top" :title=popUp>{{ user_name }}</span>
+    <span>
+        <span>{{ user_name }}</span>
+        <tooltip>
+            {{ popUp }}
+        </tooltip>
+    </span>
 
 </template>
 

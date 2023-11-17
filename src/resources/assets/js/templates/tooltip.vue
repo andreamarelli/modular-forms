@@ -1,8 +1,10 @@
 <template>
 
     <div role="tooltip">
-        <slot></slot>
-        <div class="arrow"></div>
+        <div class="tooltip-content">
+            <slot></slot>
+        </div>
+        <div class="tooltip-arrow"></div>
     </div>
 
 </template>
@@ -16,7 +18,7 @@
     top: 0;
     left: 0;
 
-    .arrow {
+    .tooltip-arrow {
         position: absolute;
         width: 8px;
         height: 8px;
@@ -56,7 +58,7 @@ export default {
             : this.$el.previousElementSibling; // if ID is not provided it assumes the anchor is the previous sibling element in DOM
 
         this.tooltipElem = this.$el;
-        this.arrowElem = this.$el.querySelector('.arrow');
+        this.arrowElem = this.$el.querySelector('.tooltip-arrow');
 
         // set event listener to toggle tooltip
         if(this.onHover){
@@ -142,11 +144,14 @@ export default {
          */
         showTooltip() {
             let _this = this;
-            this.tooltipElem.style.display = 'block';
-            this.setTooltipPosition();
-            setTimeout(function(){
-                _this.hideTooltip();
-            }, 10000);
+            let content = this.tooltipElem.querySelector('.tooltip-content').textContent.trim();
+            if(content !== ''){
+                this.tooltipElem.style.display = 'block';
+                this.setTooltipPosition();
+                setTimeout(function(){
+                    _this.hideTooltip();
+                }, 10000);
+            }
         },
 
         /**
