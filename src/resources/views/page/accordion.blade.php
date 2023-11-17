@@ -9,35 +9,19 @@
 $expanded  = $expanded ?? false;
 $accordion_title_action = $accordion_title_action ?? '';
 
-$collapsed = $expanded ? '' : 'collapsed';
-$show = $expanded ? 'show' : '';
+$show = $expanded ? 'class="show"' : '';
 
 ?>
 
-<div class="card">
+<x-modular-forms::accordion.item {{ $show }}>
 
-    <div class="card-header" id="heading_{{ $accordion_id }}">
-        <h4 class="card-title">
-            <a role="button"
-               class="{{ $collapsed }}"
-               data-toggle="collapse"
-               data-target="#content_{{ $accordion_id }}"
-            >
-                {!! $accordion_title !!}
-            </a>
-        </h4>
-        <div class="card-header-action">
-            {!! $accordion_title_action !!}
-        </div>
-    </div>
+    <x-slot:title>
+        {!! $accordion_title !!}
+    </x-slot:title>
+    <x-slot:header-actions>
+        {!! $accordion_title_action !!}
+    </x-slot:header-actions>
 
-    <div id="content_{{ $accordion_id }}"
-         data-parent="#{{ $accordion_group_id }}"
-         class="collapse {{ $show }}"
-    >
-        <div class="card-body">
-            {{ $accordion_content }}
-        </div>
-    </div>
+    {{ $accordion_content }}
 
-</div>
+</x-modular-forms::accordion.item>
