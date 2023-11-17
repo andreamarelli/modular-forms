@@ -64,10 +64,10 @@ label{
 }
 .field-preview{
   .multiple{
-    background-color: #f0f0f0;
-    border: 1px solid rgba(60, 60, 60, 0.26);
+    background-color: $gray-50;
+    border: 1px solid  rgba($gray-700, 0.26);
     border-radius: 4px;
-    color: #333;
+    color: $gray-700;
     line-height: 1.4;
     padding: 2px 4px;
   }
@@ -148,7 +148,7 @@ input.captcha-input{
       opacity: 0.65;
     }
     &:disabled + label::before {
-      background-color: #eeeeee;
+      background-color: $gray-200;
       cursor: not-allowed;
     }
   }
@@ -254,12 +254,12 @@ input.captcha-input{
     width: 22px;
   }
   &.active{
-    color: White !important;
+    color: $white !important;
     background-color: $primary-800;
     border: 1px solid $gray-500;
   }
   &.hover{
-    color: Black !important;
+    color: $black !important;
     background-color: $primary-300;
     border: 1px solid $gray-500;
     cursor: pointer;
@@ -439,7 +439,7 @@ nav.steps{
     @include transition(background-color);
     &:hover{
       text-decoration: none;
-      background-color: #dedede;
+      background-color: $gray-300;
       &.selected {
         background-color: $primary-900;
       }
@@ -486,11 +486,11 @@ nav.steps{
     }
     &.highlight{
       background-color: $primary-500;
-      color: Black;
+      color: $black;
     }
     &.error{
       background-color: $contextual-danger;
-      color: Black;
+      color: $black;
     }
     &.scrollToTop, &.scrollToBottom{
       font-size: 1.2rem;
@@ -498,7 +498,7 @@ nav.steps{
     @include selector_border-radius-vertical(5px);
     &:hover {
       background-color: $primary-500;
-      color: Black;
+      color: $black;
     }
   }
 

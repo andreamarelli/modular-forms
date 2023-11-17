@@ -18,9 +18,9 @@
   padding: 15px;
 }
 .alert-popup .alert-danger{
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
+    color: $red-800;
+    background-color: $red-100;
+    border-color: $red-200;
 }
 .alert-popup-hide{
   height: 0;

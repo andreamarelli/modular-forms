@@ -11,13 +11,16 @@
 
 
 <style lang="scss" scoped>
+
+      @import "../../sass/abstracts/colors";
+
       .text-editor-edit{
           @media print {
               display: none;
           }
       }
       .text-editor-print{
-          background-color: white !important;
+          background-color: $white !important;
           padding: 15px;
           @media screen {
               display: none;

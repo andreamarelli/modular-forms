@@ -37,7 +37,7 @@
   // Colors
   &, &.basic{
     &.tag, &:hover{
-      background-color: white;
+      background-color: $white;
       color: $primary-600;
       text-decoration: none;
       .fas{
@@ -51,7 +51,7 @@
     border-color: $primary-900;
     &.tag, &:hover{
       color: $primary-900;
-      background-color: white;
+      background-color: $white;
       .fas{
         color: $primary-900;
       }
@@ -63,7 +63,7 @@
     border-color: $primary-300;
     &.tag, &:hover{
       color: $primary-500;
-      background-color: white;
+      background-color: $white;
       .fas{
         color: $primary-300;
       }
@@ -74,7 +74,7 @@
     border-color: $red-400;
     &.tag, &:hover{
       color: $red-400;
-      background-color: white;
+      background-color: $white;
       .fas{
         color: $red-400;
       }
@@ -85,7 +85,7 @@
     border-color: $blue-400;
     &.tag, &:hover{
       color: $blue-400;
-      background-color: white;
+      background-color: $white;
       .fas{
         color: $blue-400;
       }
@@ -96,7 +96,7 @@
     background-color: #ffc107;
     border-color: #ffc107;
     &.tag, &:hover{
-      background-color: white;
+      background-color: $white;
       color: darken(#ffc107, 30%);
       .fas{
         color: darken(#ffc107, 30%);
@@ -108,7 +108,7 @@
     border-color: $gray-300;
     color: $gray-700;
     &.tag, &:hover{
-      background-color: white;
+      background-color: $white;
       color: $gray-700;
       .fas{
         color: $gray-700;
@@ -204,7 +204,7 @@
 .act-btn-basic:hover,
 .act-btn-light{
   font-weight: bold;
-  color: Black;
+  color: $black;
   background-color: $primary-300;
   border-color: $primary-300;
 }
@@ -222,7 +222,7 @@
 .act-btn-active,
 .act-btn-active:active{
   font-weight: bold;
-  color: white !important;
+  color: $white !important;
   background-color: $primary-800;
   border-color: $primary-800;
   outline: none;

@@ -46,7 +46,8 @@ header{
     @include transition(background-color);
     @include transition(background-color);
     &:hover {
-      background-color: rgba(0, 0, 0, .2);
+      background-color: $black;
+        opacity: 0.2;
     }
   }
 
@@ -177,7 +178,7 @@ ul.menu-header{
             }
             ul {
                 display: block;
-                background-color: rgba(255, 255, 255, 1);
+                background-color: rgba($white, 1);
             }
         }
         ul {
@@ -188,7 +189,7 @@ ul.menu-header{
             top: 100%;
             left: -60px;
             padding: 10px 0 10px 30px;
-            background-color: rgba(255, 255, 255, 0);
+            background-color: rgba($white, 0);
             text-align: left;
             @include transition(background-color);
             min-width: 100%;
@@ -208,7 +209,7 @@ ul.menu-header{
                     display: block;
                     @include transition(background-color);
                     &:hover {
-                        background-color: #efeded;
+                        background-color: $gray-200;
                         text-decoration: none;
                         color: $primary-800;
                     }

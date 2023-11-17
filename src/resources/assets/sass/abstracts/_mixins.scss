@@ -103,7 +103,7 @@
 }
 
 @mixin icon-white-s() {
-  background-color: white;
+  background-color: $white;
   border-radius: 50%;
   border: 1px solid white;
   width: 30px;

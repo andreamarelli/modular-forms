@@ -101,7 +101,7 @@
             margin: 2px 16px;
         }
         .searchByKey:focus{
-            background-color: #D9534F;
+            background-color: $contextual-danger;
         }
 
         .modal_search_loading{
