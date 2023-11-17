@@ -8,6 +8,12 @@
                class="field-edit"
                autocomplete="off"
         />
+        <tooltip
+            v-if=tooltipEnabled
+            :anchor-elem-id=id
+        >
+            {{ inputValue }}
+        </tooltip>
     </span>
 
 </template>
@@ -17,8 +23,7 @@
     export default {
 
         mixins: [
-            window.ModularForms.MixinsVue.values,
-            window.ModularForms.MixinsVue.tooltip
+            window.ModularForms.MixinsVue.values
         ],
 
         data() {
@@ -29,7 +34,6 @@
 
         mounted() {
             this.container = this.$el;
-            this.addTooltip();
         },
 
         watch: {

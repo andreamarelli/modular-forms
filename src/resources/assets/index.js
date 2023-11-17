@@ -16,7 +16,6 @@ window.ModularForms.MixinsVue = {
     'filter': require('./js/mixins-vue/filter.mixin').default,
     'paginate': require('./js/mixins-vue/paginate.mixin').default,
     'sorter': require('./js/mixins-vue/sorter.mixin').default,
-    'tooltip': require('./js/mixins-vue/tooltip.mixin').default,
     'values': require('./js/mixins-vue/values.mixin').default,
 };
 window.ModularForms.FiltersVue = {
@@ -46,6 +45,7 @@ window.Vue.component('progress_bar', require('./js/templates/progress_bar.vue').
 window.Vue.component('redlist_category', window.ModularForms.Template.redlist_category);
 window.Vue.component('redlist_link', require('./js/templates/redlist_link.vue').default);
 window.Vue.component('user', require('./js/templates/user.vue').default);
+window.Vue.component('tooltip', require('./js/templates/tooltip.vue').default);
 
 // Load INPUT "abstract" component
 window.ModularForms.Input = {

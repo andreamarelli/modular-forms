@@ -102,6 +102,23 @@ a img[data-v-eff58c46] {
   height: 24px;
 }
 
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/templates/tooltip.vue?vue&type=style&index=0&id=0736a980&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+[role=tooltip][data-v-0736a980] {
+  display: none;
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+[role=tooltip] .arrow[data-v-0736a980] {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+}
+
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/modal-selector.vue?vue&type=style&index=0&id=3780806f&lang=scss&scoped=true& ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -2750,6 +2767,15 @@ section.convergence-plan div.card div.card-body h4 {
     background-color: #F0F9FF !important; }
   .module-bar.module_subTitle {
     background-color: #E5E5E5 !important; } }
+
+[role=tooltip] {
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px; }
+  [role=tooltip] .arrow {
+    background-color: #333; }
 
 [v-cloak] {
   display: none; }

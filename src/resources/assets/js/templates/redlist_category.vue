@@ -1,11 +1,12 @@
 <template>
 
     <div>
-        <span :class="[compact ? 'compact' : '', 'red-list_'+category]"
-              data-toggle="tooltip" data-placement="top"
-              :title=category_plain>
+        <span :class="[compact ? 'compact' : '', 'red-list_'+category]">
             {{ category }}
         </span>
+        <tooltip
+            :content=category_plain
+        />
     </div>
 
 </template>
@@ -36,13 +37,6 @@
             category_plain(){
                 return Locale.getLabel('modular-forms::entities.biodiversity.red_list_categories.'+this.category)
             }
-        },
-
-        mounted() {
-            let elements = this.$el.querySelector('[data-toggle="tooltip"]');
-            $(elements).tooltip();
-
-            // $('[data-toggle="tooltip"]').tooltip();
         }
 
     }

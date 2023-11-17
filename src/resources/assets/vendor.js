@@ -39,8 +39,16 @@ window.AirDatepicker.locale = {
     'pt': AirDatepicker_locale_pt,
 }
 
-// Popper
-import { createPopper } from '@popperjs/core';
-window.Popper = createPopper;
+// Floating UI (former Popper.js)
+import {computePosition, autoUpdate, flip, shift, offset, arrow, size} from '@floating-ui/dom';
+window.FloatingUI = {
+    'computePosition': computePosition,
+    'autoUpdate': autoUpdate,
+    'flip': flip,
+    'shift': shift,
+    'offset': offset,
+    'arrow': arrow,
+    'size': size
+};
 
 
