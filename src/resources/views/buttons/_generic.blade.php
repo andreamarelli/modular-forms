@@ -21,7 +21,7 @@ $href = $item instanceof \Illuminate\Database\Eloquent\Model
 <a {!! $href !!}
    @if($new_page) target="_blank" @endif
    class="btn-nav small {!! $class !!}"
-   role="button"
+   role="button">
     {!! $icon!==null ? AndreaMarelli\ModularForms\Helpers\Template::icon($icon) : '' !!} {!! $label !!}
 </a>
 <tooltip>

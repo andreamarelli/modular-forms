@@ -232,10 +232,11 @@ input.captcha-input{
 
 .rating-container{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 2px;
 }
 .rating {
+    display: block;
   min-height: 0;
   min-width: 0;
   font-weight: bold;
@@ -282,59 +283,6 @@ input.captcha-input{
       border-radius: 50%;
       height: 20px;
       width: 20px;
-    }
-  }
-}
-.datepicker {
-  padding: 3px;
-  table{
-    margin: 0;
-    font-size: 0.9em;
-    .prev, .next, .clear{
-      cursor: pointer;
-    }
-    tr {
-      th {
-        background-color: $gray-50;
-        border-radius: 0;
-        text-align: center;
-      }
-      td {
-        border-radius: 2px;
-        text-align: center;
-        &.day:hover,
-        span.year:hover{
-          background-color: $primary-300;
-          cursor: pointer;
-        }
-        span.year{
-          padding: 4px;
-          border-radius: 2px;
-        }
-        &.today {
-          background-color: $primary-200;
-          &:hover {
-            background-color: $primary-300;
-          }
-        }
-        &.disabled, &.disabled:hover,
-        span.disabled, span.disabled:hover {
-          //display: none;
-          color: $gray-300;
-          cursor: default;
-          background-color: $white;
-        }
-        &.active, &.active.active,
-        span.active, span.active.active {
-          background-color: $primary-800;
-          color: $gray-50;
-          font-weight: bold;
-          &:hover {
-            background-color: $primary-900;
-            color: $black;
-          }
-        }
-      }
     }
   }
 }
