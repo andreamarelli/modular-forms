@@ -70,6 +70,10 @@
                     value = null;
                 }
                 this.emitValue(value);
+                let ratingOptions = this.$refs.ratingOptions.querySelectorAll('.rating');
+                for(let item of ratingOptions.values()) {
+                    item.classList.remove('hover');
+                }
             },
 
             setActive: function(value){
@@ -80,7 +84,7 @@
             setHover: function (evt) {
                 let _this = this;
                 let hoverValue = evt.target.getAttribute('rate')
-                let ratingOptions = this.$refs.ratingOptions.childNodes
+                let ratingOptions = this.$refs.ratingOptions.querySelectorAll('.rating');
                 for(let item of ratingOptions.values()) {
                     let value = item.getAttribute('rate');
                     let applyClass = _this.__applyClass(value, hoverValue);
