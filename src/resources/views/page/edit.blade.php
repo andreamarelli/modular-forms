@@ -3,6 +3,9 @@
 /** @var \AndreaMarelli\ModularForms\Models\Form $item */
 /** @var string $step */
 /** @var string $label_prefix */
+/** @var boolean $show_scrollbar [optional] */
+
+$show_scrollbar = $show_scrollbar ?? true;
 
 ?>
 
@@ -37,5 +40,10 @@
             'form_id' => $item->getKey()
         ])
     @endforeach
-    
+
+    {{--  Scroll buttons  --}}
+    @if($show_scrollbar)
+        @include('modular-forms::module.scroll', ['item' => $item, 'step' => $step])
+    @endif
+
 @endsection

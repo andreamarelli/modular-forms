@@ -2,9 +2,9 @@
 
 namespace AndreaMarelli\ModularForms\View\Components\Button;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+
 
 class GenericButton extends Component
 {
@@ -12,23 +12,17 @@ class GenericButton extends Component
      * Create the component instance.
      */
     public function __construct(
-        public String $controller,
-        public Model|String $item,
-        public String|null $action = null,
+        public String|null $url = null,
         public String|null $text = null,
         public bool $newPage = false,
         public String|null $tooltip = null
     ){
-        $this->controller = $controller;
-        $this->action = $action;
-        $this->item = $item;
+        $this->url = $url;
     }
 
     public function href(): string
     {
-        return $this->item instanceof Model
-            ? 'href=' . action([$this->controller, $this->action], [$this->item->getKey()])
-            : ':href="\'' . vueAction($this->controller, $this->action, $this->item ?? 'item.id') . '\'"';
+        return 'href=' . $this->url;
     }
 
     /**

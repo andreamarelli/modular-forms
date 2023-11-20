@@ -6,7 +6,7 @@ use AndreaMarelli\ModularForms\Helpers\Template;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Show extends _Base
+class Show extends _Button
 {
     public function __construct(string $controller, Model|string $item)
     {

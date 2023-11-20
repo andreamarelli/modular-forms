@@ -2,11 +2,11 @@
 
 namespace AndreaMarelli\ModularForms\View\Components\Button\Form;
 
+use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
-use Illuminate\View\View;
 
-abstract class _Base extends Component
+abstract class _Button extends Component
 {
     protected string $action;
     public string $text;
@@ -31,9 +31,16 @@ abstract class _Base extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View
+    public function render(): Closure
     {
-        return view('modular-forms::components.button.generic');
+        return function (array $data)
+        {
+            $merged_attributes = $data['attributes']->merge(['class' => 'small']);
+            $this->attributes->setAttributes([
+                'class' => $merged_attributes['class']
+            ]);
+            return view('modular-forms::components.button.generic');
+        };
     }
 
 }
