@@ -12,6 +12,7 @@ abstract class _Button extends Component
     public string $text;
     public string $tooltip;
     public bool $newPage = false;
+    public string $role = 'button';
 
     public function __construct(
         public String $controller,

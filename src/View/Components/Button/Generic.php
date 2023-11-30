@@ -6,7 +6,7 @@ use Illuminate\View\Component;
 use Illuminate\View\View;
 
 
-class GenericButton extends Component
+class Generic extends Component
 {
     /**
      * Create the component instance.
@@ -15,14 +15,15 @@ class GenericButton extends Component
         public String|null $url = null,
         public String|null $text = null,
         public bool $newPage = false,
-        public String|null $tooltip = null
+        public String|null $tooltip = null,
+        public String|null $role = 'button',
     ){
         $this->url = $url;
     }
 
     public function href(): string
     {
-        return 'href=' . $this->url;
+        return $this->url ? 'href=' . $this->url : '';
     }
 
     /**
