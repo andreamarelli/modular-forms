@@ -13293,10 +13293,10 @@ label {
     background-color: #FAFAFA; }
 
 .field-preview .multiple {
-  background-color: #f0f0f0;
-  border: 1px solid rgba(60, 60, 60, 0.26);
+  background-color: #FAFAFA;
+  border: 1px solid rgba(64, 64, 64, 0.26);
   border-radius: 4px;
-  color: #333;
+  color: #404040;
   line-height: 1.4;
   padding: 2px 4px; }
 
@@ -13361,7 +13361,7 @@ input.captcha-input {
   .checkbox input[type="checkbox"]:disabled + label {
     opacity: 0.65; }
   .checkbox input[type="checkbox"]:disabled + label::before {
-    background-color: #eeeeee;
+    background-color: #E5E5E5;
     cursor: not-allowed; }
 
 .module-body .checkbox_label {
@@ -13430,10 +13430,11 @@ input.captcha-input {
 
 .rating-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 2px; }
 
 .rating {
+  display: block;
   min-height: 0;
   min-width: 0;
   font-weight: bold;
@@ -13449,11 +13450,11 @@ input.captcha-input {
   .rating.ratingNum {
     width: 22px; }
   .rating.active {
-    color: White !important;
+    color: #fff !important;
     background-color: #166534;
     border: 1px solid #737373; }
   .rating.hover {
-    color: Black !important;
+    color: #000 !important;
     background-color: #86EFAC;
     border: 1px solid #737373;
     cursor: pointer; }
@@ -13472,46 +13473,6 @@ input.captcha-input {
       border-radius: 50%;
       height: 20px;
       width: 20px; }
-
-.datepicker {
-  padding: 3px; }
-  .datepicker table {
-    margin: 0;
-    font-size: 0.9em; }
-    .datepicker table .prev, .datepicker table .next, .datepicker table .clear {
-      cursor: pointer; }
-    .datepicker table tr th {
-      background-color: #FAFAFA;
-      border-radius: 0;
-      text-align: center; }
-    .datepicker table tr td {
-      border-radius: 2px;
-      text-align: center; }
-      .datepicker table tr td.day:hover,
-      .datepicker table tr td span.year:hover {
-        background-color: #86EFAC;
-        cursor: pointer; }
-      .datepicker table tr td span.year {
-        padding: 4px;
-        border-radius: 2px; }
-      .datepicker table tr td.today {
-        background-color: #BBF7D0; }
-        .datepicker table tr td.today:hover {
-          background-color: #86EFAC; }
-      .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover,
-      .datepicker table tr td span.disabled, .datepicker table tr td span.disabled:hover {
-        color: #D4D4D4;
-        cursor: default;
-        background-color: #fff; }
-      .datepicker table tr td.active, .datepicker table tr td.active.active,
-      .datepicker table tr td span.active, .datepicker table tr td span.active.active {
-        background-color: #166534;
-        color: #FAFAFA;
-        font-weight: bold; }
-        .datepicker table tr td.active:hover, .datepicker table tr td.active.active:hover,
-        .datepicker table tr td span.active:hover, .datepicker table tr td span.active.active:hover {
-          background-color: #14532D;
-          color: #000; }
 
 .toggle {
   display: flex; }
@@ -13591,7 +13552,7 @@ nav.steps {
       border-right: 1px solid #E5E5E5; }
     nav.steps a.step:hover {
       text-decoration: none;
-      background-color: #dedede; }
+      background-color: #D4D4D4; }
       nav.steps a.step:hover.selected {
         background-color: #14532D; }
     nav.steps a.step.selected {
@@ -13633,10 +13594,10 @@ nav.steps {
       border-radius: 5px; }
     .scrollButtons div.highlight {
       background-color: #22C55E;
-      color: Black; }
+      color: #000; }
     .scrollButtons div.error {
       background-color: #F87171;
-      color: Black; }
+      color: #000; }
     .scrollButtons div.scrollToTop, .scrollButtons div.scrollToBottom {
       font-size: 1.2rem; }
     .scrollButtons div:first-child {
@@ -13648,7 +13609,7 @@ nav.steps {
       border-bottom-right-radius: 5px; }
     .scrollButtons div:hover {
       background-color: #22C55E;
-      color: Black; }
+      color: #000; }
   .scrollButtons.collapsible {
     /* Hidden*/
     right: 0;

@@ -38,6 +38,7 @@ window.ModularForms.Template = {
 };
 
 window.Vue.component('date', require('./js/templates/date.vue').default);
+window.Vue.component('floating-dialog', require('./js/templates/dialog.vue').default);
 window.Vue.component('flag', window.ModularForms.Template.flag);
 window.Vue.component('gauge', require('./js/templates/gauge.vue').default);
 window.Vue.component('last_update', require('./js/templates/last_update.vue').default);

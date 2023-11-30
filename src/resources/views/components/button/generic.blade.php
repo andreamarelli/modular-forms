@@ -1,4 +1,4 @@
-<a role="button"
+<a role="{{ $role }}"
     {{ $attributes->merge(['class' => 'btn-nav']) }}
     {{ $href() }}
     {{ $newPage ? 'target="_blank"' : '' }}

@@ -1,0 +1,29 @@
+@import "../abstracts/colors";
+
+.floating-dialog{
+
+    .with_header_and_footer{
+        display: flex;
+        flex-direction: column;
+
+        .header{
+            border-bottom: 1px solid $gray-50;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
+        .body{
+            padding: 0 5px;
+        }
+        .footer{
+            display: flex;
+            flex-direction: row;
+            column-gap: 5px;
+            align-items: center;
+            justify-content: flex-end;
+
+            padding-top: 5px;
+            border-top: 1px solid $gray-50;
+        }
+    }
+
+}
