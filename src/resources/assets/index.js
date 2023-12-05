@@ -34,11 +34,12 @@ require('./js/table/sortable.js');     // window.ModularForms.SortableTable
 // Load TEMPLATES components
 window.ModularForms.Template = {
     'flag': require('./js/templates/flag.vue').default,
-    'redlist_category': require('./js/templates/redlist_category.vue').default
+    'redlist_category': require('./js/templates/redlist_category.vue').default,
+    'floatingDialog': require('./js/templates/dialog.vue').default
 };
 
 window.Vue.component('date', require('./js/templates/date.vue').default);
-window.Vue.component('floating-dialog', require('./js/templates/dialog.vue').default);
+window.Vue.component('floatingDialog', require('./js/templates/dialog.vue').default);
 window.Vue.component('flag', window.ModularForms.Template.flag);
 window.Vue.component('gauge', require('./js/templates/gauge.vue').default);
 window.Vue.component('last_update', require('./js/templates/last_update.vue').default);
@@ -49,10 +50,7 @@ window.Vue.component('user', require('./js/templates/user.vue').default);
 window.Vue.component('tooltip', require('./js/templates/tooltip.vue').default);
 
 // Load INPUT "abstract" component
-window.ModularForms.Input = {
-    'modalSelector': require('./js/inputs/components/modal-selector.vue').default,
-    'modalApiSearch': require('./js/inputs/components/modal-api-search.vue').default
-};
+window.Vue.component('selectorDialog', require('./js/inputs/components/selector/dialog.vue').default);
 
 // Load INPUT components
 window.Vue.component('checkbox-boolean', require('./js/inputs/checkbox-boolean.vue').default);

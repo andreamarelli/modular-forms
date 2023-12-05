@@ -196,6 +196,11 @@ $other_attributes = $other ?? '';
         :max-file-size=85000000
         {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
     ></upload>
+@elseif($type=="upload2")
+    <upload2
+        :max-file-size=85000000
+        {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+    ></upload2>
 
 
 

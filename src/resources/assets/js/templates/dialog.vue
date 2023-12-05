@@ -8,7 +8,7 @@
 
         </div>
         <div class="dialog-overlay">
-            <div class="floating-dialog dialog-content">
+            <div class="floatingDialog dialog-content">
 
                 <!-- content -->
                 <slot name="dialog-content"></slot>
@@ -28,6 +28,11 @@
     display: inline-block;
 
     .dialog-anchor{
+        cursor: pointer;
+
+        .dontOpenDialog{
+            cursor: default;
+        }
     }
 
     .dialog-overlay{
@@ -92,7 +97,13 @@ export default {
         this.originalBodyOverflow = this.overlayElem.style.display.overflow;
 
         // open dialog on anchor click
-        this.anchorElem.addEventListener('click', this.openDialog);
+        this.anchorElem.addEventListener('click',  function(evt){
+            let clickedElem = evt.target;
+            if(!clickedElem.classList.contains('dontOpenDialog') &&
+                clickedElem.closest('.dontOpenDialog') == null){
+                _this.openDialog();
+            }
+        });
 
         // close dialog on click outside dialog
         this.overlayElem.addEventListener('click', function(evt){
