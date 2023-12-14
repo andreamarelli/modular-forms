@@ -272,7 +272,7 @@ export default {
                     _this.applySelection(response.data);
                 })
                 .catch(function (response) {
-                    _this.modalComponent.setError(Locale.getLabel('modular-forms::common.upload.error'));
+                    _this.errorMessage = Locale.getLabel('modular-forms::common.upload.error');
                 })
                 .finally(function (response) {
                     _this.uploading = false;
