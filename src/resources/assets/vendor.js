@@ -16,9 +16,6 @@ window.vueBus = new window.Vue();
 window.Vuex = require('vuex');
 window.Vue.use(window.Vuex);
 
-// Bootstrap
-require('bootstrap');
-
 // Other packages
 window.AutoNumeric = require('autonumeric');
 window.Base64 = require('js-base64');
