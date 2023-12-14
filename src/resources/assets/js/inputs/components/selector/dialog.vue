@@ -110,22 +110,20 @@
     @import "../../../../sass/abstracts/sizes";
 
     .with_header_and_footer{
-        min-width: 400px;
-        max-width: 800px;
-        width: 100vw;
-    }
 
-    .header,
-    .footer{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        .dialog-title{
-            font-weight: bold;
+        .header,
+        .footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .dialog-title{
+                font-weight: bold;
+            }
+            .spacer{
+                flex-grow: 1;
+            }
         }
-        .spacer{
-            flex-grow: 1;
-        }
+
     }
 
     .dialog_insert {

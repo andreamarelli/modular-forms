@@ -7255,15 +7255,6 @@ a.text-dark:hover, a.text-dark:focus {
 .table > tfoot > tr > td {
   line-height: 22px; }
 
-div.modal {
-  text-align: left; }
-  div.modal .modal-content {
-    border: none;
-    border-radius: 0; }
-  div.modal .modal-body {
-    max-height: calc(50vh);
-    overflow-y: scroll; }
-
 .tooltip-inner {
   white-space: pre-wrap; }
 
@@ -13675,24 +13666,6 @@ nav.steps {
       .module-container .module-header .module-title.module-title,
       .module-container .module-header .module-info.module-title {
         flex: 1; }
-      .module-container .module-header .module-code.module-info .module-info_modal-anchor,
-      .module-container .module-header .module-title.module-info .module-info_modal-anchor,
-      .module-container .module-header .module-info.module-info .module-info_modal-anchor {
-        cursor: pointer;
-        font-size: 0.5em; }
-      .module-container .module-header .module-code.module-info .module-info_modal .modal-body,
-      .module-container .module-header .module-title.module-info .module-info_modal .modal-body,
-      .module-container .module-header .module-info.module-info .module-info_modal .modal-body {
-        color: #737373;
-        font-weight: normal;
-        font-size: 1rem;
-        line-height: 1.4em; }
-        @media all and (max-width: 1280px) {
-          .module-container .module-header .module-code.module-info .module-info_modal .modal-body,
-          .module-container .module-header .module-title.module-info .module-info_modal .modal-body,
-          .module-container .module-header .module-info.module-info .module-info_modal .modal-body {
-            font-size: 0.85rem;
-            line-height: 1.3em; } }
   .module-container .module-body {
     padding: 10px 20px 20px 20px;
     border: 1px solid #E5E5E5;

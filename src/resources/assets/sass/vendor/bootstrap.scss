@@ -26,18 +26,6 @@ $state-success-bg: $contextual-light-success !default;
   line-height: 22px;
 }
 
-div.modal{
-  text-align: left;
-  .modal-content{
-    border: none;
-    border-radius: 0;
-  }
-  .modal-body{
-    max-height: calc(50vh);
-    overflow-y: scroll;
-  }
-}
-
 .tooltip-inner {
   white-space:pre-wrap;
 }

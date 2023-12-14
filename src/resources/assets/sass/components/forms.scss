@@ -524,19 +524,6 @@ nav.steps{
       &.module-title{
         flex: 1;
       }
-      &.module-info{
-        .module-info_modal-anchor{
-          cursor: pointer;
-          font-size: 0.5em;
-        }
-        .module-info_modal{
-          .modal-body{
-            color: $gray-500;
-            font-weight: normal;
-            @include text-base;
-          }
-        }
-      }
     }
 
   }

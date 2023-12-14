@@ -125,7 +125,6 @@
     .with_header_and_footer{
         min-width: 200px;
         max-width: 500px;
-        width: 100vw;
 
         .header,
         .footer{

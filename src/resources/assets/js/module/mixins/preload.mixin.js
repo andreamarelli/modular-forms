@@ -7,14 +7,12 @@ export default {
         },
     },
 
-    mounted (){
-        let _this = this;
-        $(document).on('show.bs.modal','#preload_modal__'+this.module_key, function () {
-            _this.__retrieve_preload_data();
-        });
-    },
-
     methods: {
+
+        openPreloadDialog(){
+            this.__retrieve_preload_data();
+            this.openDialog();
+        },
 
         __retrieve_preload_data: function(){
             let _this = this;

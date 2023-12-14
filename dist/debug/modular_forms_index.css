@@ -207,23 +207,18 @@ a img[data-v-eff58c46] {
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/selector/dialog.vue?vue&type=style&index=0&id=7af72690&lang=scss&scoped=true& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.with_header_and_footer[data-v-7af72690] {
-  min-width: 400px;
-  max-width: 800px;
-  width: 100vw;
-}
-.header[data-v-7af72690],
-.footer[data-v-7af72690] {
+.with_header_and_footer .header[data-v-7af72690],
+.with_header_and_footer .footer[data-v-7af72690] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.header .dialog-title[data-v-7af72690],
-  .footer .dialog-title[data-v-7af72690] {
+.with_header_and_footer .header .dialog-title[data-v-7af72690],
+  .with_header_and_footer .footer .dialog-title[data-v-7af72690] {
     font-weight: bold;
 }
-.header .spacer[data-v-7af72690],
-  .footer .spacer[data-v-7af72690] {
+.with_header_and_footer .header .spacer[data-v-7af72690],
+  .with_header_and_footer .footer .spacer[data-v-7af72690] {
     flex-grow: 1;
 }
 .dialog_insert[data-v-7af72690] {
@@ -319,7 +314,6 @@ a img[data-v-eff58c46] {
 .with_header_and_footer[data-v-6f77e08c] {
   min-width: 200px;
   max-width: 500px;
-  width: 100vw;
 }
 .with_header_and_footer .header[data-v-6f77e08c],
   .with_header_and_footer .footer[data-v-6f77e08c] {
@@ -1515,7 +1509,10 @@ span.red-list_NE {
 
 .floatingDialog .with_header_and_footer {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  min-width: 400px;
+  max-width: 800px;
+  width: 100vw; }
   .floatingDialog .with_header_and_footer .header {
     border-bottom: 1px solid #FAFAFA;
     padding-bottom: 5px;
@@ -1530,6 +1527,10 @@ span.red-list_NE {
     justify-content: flex-end;
     padding-top: 5px;
     border-top: 1px solid #FAFAFA; }
+  .floatingDialog .with_header_and_footer .header,
+  .floatingDialog .with_header_and_footer .footer {
+    display: flex;
+    flex-direction: row; }
 
 [v-cloak] {
   display: none; }
@@ -2488,24 +2489,6 @@ nav.steps {
       .module-container .module-header .module-title.module-title,
       .module-container .module-header .module-info.module-title {
         flex: 1; }
-      .module-container .module-header .module-code.module-info .module-info_modal-anchor,
-      .module-container .module-header .module-title.module-info .module-info_modal-anchor,
-      .module-container .module-header .module-info.module-info .module-info_modal-anchor {
-        cursor: pointer;
-        font-size: 0.5em; }
-      .module-container .module-header .module-code.module-info .module-info_modal .modal-body,
-      .module-container .module-header .module-title.module-info .module-info_modal .modal-body,
-      .module-container .module-header .module-info.module-info .module-info_modal .modal-body {
-        color: #737373;
-        font-weight: normal;
-        font-size: 1rem;
-        line-height: 1.4em; }
-        @media all and (max-width: 1280px) {
-          .module-container .module-header .module-code.module-info .module-info_modal .modal-body,
-          .module-container .module-header .module-title.module-info .module-info_modal .modal-body,
-          .module-container .module-header .module-info.module-info .module-info_modal .modal-body {
-            font-size: 0.85rem;
-            line-height: 1.3em; } }
   .module-container .module-body {
     padding: 10px 20px 20px 20px;
     border: 1px solid #E5E5E5;
