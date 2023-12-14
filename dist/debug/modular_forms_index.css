@@ -4,6 +4,12 @@
 [role=dialog][data-v-34626a4a] {
   display: inline-block;
 }
+[role=dialog] .dialog-anchor[data-v-34626a4a] {
+    cursor: pointer;
+}
+[role=dialog] .dialog-anchor .dontOpenDialog[data-v-34626a4a] {
+      cursor: default;
+}
 [role=dialog] .dialog-overlay[data-v-34626a4a] {
     display: none;
     position: fixed;
@@ -155,70 +161,90 @@ a img[data-v-eff58c46] {
     transform: rotate(45deg);
 }
 
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/modal-selector.vue?vue&type=style&index=0&id=3780806f&lang=scss&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.modal_selector .modal-anchor[data-v-3780806f],
-.modal_selector .modal-custom-anchor[data-v-3780806f] {
-  cursor: pointer;
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/selector/api-search.vue?vue&type=style&index=0&id=838c12aa&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dialog_search[data-v-838c12aa] {
+  padding: 10px;
+  text-align: center;
 }
-.modal_selector .error-bar[data-v-3780806f] {
-  font-size: 0.9em;
-  font-weight: bold;
+.dialog_search .dialog_search_by_key[data-v-838c12aa] {
+    width: 200px;
+    margin: 0 10px;
+}
+.dialog_search .dialog_search_error[data-v-838c12aa] {
+    color: #B91C1C;
+}
+.dialog_search .dialog_search_error[data-v-838c12aa],
+  .dialog_search .dialog_search_count[data-v-838c12aa] {
+    font-size: .75rem;
+    line-height: 1.4em;
+    letter-spacing: .4px;
+    margin: 5px 0;
+}
+@media all and (max-width: 1280px) {
+.dialog_search .dialog_search_error[data-v-838c12aa],
+      .dialog_search .dialog_search_count[data-v-838c12aa] {
+        font-size: 0.7rem;
+        line-height: 1.4em;
+}
+}
+.dialog_search .dialog_search_results_filters[data-v-838c12aa] {
+    margin: 10px 0;
+}
+.dialog_search .dialog_search_results th[data-v-838c12aa], .dialog_search .dialog_search_results td[data-v-838c12aa] {
+    font-size: .75rem;
+    line-height: 1.4em;
+    letter-spacing: .4px;
+}
+@media all and (max-width: 1280px) {
+.dialog_search .dialog_search_results th[data-v-838c12aa], .dialog_search .dialog_search_results td[data-v-838c12aa] {
+        font-size: 0.7rem;
+        line-height: 1.4em;
+}
 }
 
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/modal-api-search.vue?vue&type=style&index=0&id=4e1ee54b&lang=scss&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-[v-cloak][data-v-4e1ee54b] {
-  display: none;
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/selector/dialog.vue?vue&type=style&index=0&id=7af72690&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.with_header_and_footer[data-v-7af72690] {
+  min-width: 400px;
+  max-width: 800px;
+  width: 100vw;
 }
-.modal_selector .modal-header[data-v-4e1ee54b] {
-  flex-direction: column;
-  align-items: center;
-}
-.modal_selector .modal_search[data-v-4e1ee54b],
-.modal_selector .modal_search_results_filters[data-v-4e1ee54b] {
-  font-size: 0.9em;
-  text-align: center;
+.header[data-v-7af72690],
+.footer[data-v-7af72690] {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.modal_selector .field-edit[data-v-4e1ee54b] {
-  width: 250px;
-  height: 28px;
-  padding: 4px 12px;
-  margin: 2px 16px;
+.header .dialog-title[data-v-7af72690],
+  .footer .dialog-title[data-v-7af72690] {
+    font-weight: bold;
 }
-.modal_selector .searchByKey[data-v-4e1ee54b]:focus {
-  background-color: #F87171;
+.header .spacer[data-v-7af72690],
+  .footer .spacer[data-v-7af72690] {
+    flex-grow: 1;
 }
-.modal_selector .modal_search_loading[data-v-4e1ee54b] {
+.dialog_insert[data-v-7af72690] {
+  padding: 10px;
   text-align: center;
 }
-.modal_selector .modal_search_count[data-v-4e1ee54b] {
-  padding: 8px 10px;
-  color: #166534;
+.dialog_insert .dialog_insert_freetext[data-v-7af72690] {
+    width: 200px;
+    margin: 0 10px;
 }
-.modal_selector table.modal_search_results td[data-v-4e1ee54b], .modal_selector table.modal_search_results tr[data-v-4e1ee54b] {
-  font-size: 0.9em;
-  text-align: center;
+.dialog_insert .dialog_insert_msg[data-v-7af72690] {
+    font-size: .75rem;
+    line-height: 1.4em;
+    letter-spacing: .4px;
+    margin: 5px 0;
 }
-.modal_selector table.modal_search_results td[data-v-4e1ee54b] {
-  padding: 4px 12px;
+@media all and (max-width: 1280px) {
+.dialog_insert .dialog_insert_msg[data-v-7af72690] {
+        font-size: 0.7rem;
+        line-height: 1.4em;
 }
-.modal_selector table.modal_search_results td .result_left[data-v-4e1ee54b] {
-    display: block;
-    text-align: left;
-}
-.modal_selector table.modal_search_results .radio[data-v-4e1ee54b] {
-  margin-top: 5px;
-  margin-bottom: 0;
-}
-.modal_selector table.modal_search_results label[data-v-4e1ee54b] {
-  margin: 0;
-  padding: 0;
 }
 
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -262,48 +288,56 @@ a img[data-v-eff58c46] {
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/selector-species_animal.vue?vue&type=style&index=0&id=4ec810a4&lang=scss&scoped=true& ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.selector-species_animal .common_names[data-v-4ec810a4] {
-  margin-top: 4px;
+.result_left[data-v-4ec810a4] {
+  text-align: left;
 }
-.selector-species_animal .flag-icon[data-v-4ec810a4] {
-  margin-right: 4px;
-}
-.selector-species_animal .modal-body.insert[data-v-4ec810a4] {
-  font-size: 0.8em;
-  text-align: center;
-}
-.selector-species_animal .modal-body.insert div[data-v-4ec810a4] {
-    margin-bottom: 4px;
-}
-.selector-species_animal .modal-body.insert input[data-v-4ec810a4] {
-    width: 380px;
-}
-.selector-species_animal .modal-footer[data-v-4ec810a4] {
-  justify-content: space-between;
+.field-edit.filterByClass[data-v-4ec810a4],
+.field-edit.filterByOrder[data-v-4ec810a4] {
+  width: 200px;
+  margin: 0 5px;
 }
 
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/upload.vue?vue&type=style&index=0&id=6f77e08c&lang=scss&scoped=true& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************/
-.modal_selector.selector-upload[data-v-6f77e08c] {
-  margin-top: 3px;
+.upload-anchor[data-v-6f77e08c] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 5px;
 }
-.modal_selector.selector-upload .field-enabled[data-v-6f77e08c] {
-    cursor: default;
-    display: inline-block;
-    /* padding: 8px 12px; */
-    margin-right: 4px;
-    /* max-width: 380px; */
-    /* min-width: 150px; */
-    vertical-align: middle;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.upload-anchor button[data-v-6f77e08c] {
+    white-space: nowrap;
 }
-.modal_selector.selector-upload .field-enabled a[data-v-6f77e08c], .modal_selector.selector-upload .field-enabled a[data-v-6f77e08c]:hover {
-      text-decoration: none;
+.upload-anchor a.btn-nav[data-v-6f77e08c] {
+    cursor: pointer;
 }
-.modal_selector.selector-upload .field-edit[data-v-6f77e08c] {
-    max-width: 450px;
+.upload-anchor .upload-filename[data-v-6f77e08c] {
+    min-width: 300px;
+}
+.with_header_and_footer[data-v-6f77e08c] {
+  min-width: 200px;
+  max-width: 500px;
+  width: 100vw;
+}
+.with_header_and_footer .header[data-v-6f77e08c],
+  .with_header_and_footer .footer[data-v-6f77e08c] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.with_header_and_footer .header .dialog-title[data-v-6f77e08c],
+    .with_header_and_footer .footer .dialog-title[data-v-6f77e08c] {
+      font-weight: bold;
+}
+.with_header_and_footer .header .spacer[data-v-6f77e08c],
+    .with_header_and_footer .footer .spacer[data-v-6f77e08c] {
+      flex-grow: 1;
+}
+.with_header_and_footer .body[data-v-6f77e08c] {
+    margin: 20px 0 10px 0;
+    text-align: center;
 }
 
 /*!**************************************************************************************************************************!*\
@@ -1479,16 +1513,16 @@ span.red-list_NE {
   [role=tooltip] .tooltip-arrow {
     background-color: #404040; }
 
-.floating-dialog .with_header_and_footer {
+.floatingDialog .with_header_and_footer {
   display: flex;
   flex-direction: column; }
-  .floating-dialog .with_header_and_footer .header {
+  .floatingDialog .with_header_and_footer .header {
     border-bottom: 1px solid #FAFAFA;
     padding-bottom: 5px;
     font-weight: bold; }
-  .floating-dialog .with_header_and_footer .body {
+  .floatingDialog .with_header_and_footer .body {
     padding: 0 5px; }
-  .floating-dialog .with_header_and_footer .footer {
+  .floatingDialog .with_header_and_footer .footer {
     display: flex;
     flex-direction: row;
     column-gap: 5px;

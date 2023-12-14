@@ -193,6 +193,8 @@
         data (){
             return {
                 selectorComponent: null,
+                dialogComponent: null,
+                searchComponent: null,
                 Locale: window.Locale,
                 dialogId: 'selectorDialog_' + this.parentId,
                 errorLabel: null,
