@@ -8,7 +8,7 @@
 
         </div>
         <div class="dialog-overlay">
-            <div class="floatingDialog dialog-content">
+            <div class="floating_dialog dialog-content">
 
                 <!-- content -->
                 <slot name="dialog-content"></slot>

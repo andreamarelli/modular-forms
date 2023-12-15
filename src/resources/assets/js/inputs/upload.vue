@@ -1,6 +1,6 @@
 <template>
 
-    <floatingDialog>
+    <floating_dialog>
 
         <!-- anchor -->
         <template v-slot:dialog-anchor>
@@ -93,7 +93,7 @@
 
         </template>
 
-    </floatingDialog>
+    </floating_dialog>
 
 </template>
 
@@ -153,7 +153,7 @@
 export default {
 
     components: {
-        'floatingDialog': window.ModularForms.Template.floatingDialog,
+        'floating_dialog': window.ModularForms.Template.floating_dialog,
     },
 
     mixins: [

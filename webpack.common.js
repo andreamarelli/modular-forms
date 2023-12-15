@@ -2,13 +2,14 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
 const CopyPlugin = require("copy-webpack-plugin");
+const tailwindcss = require('tailwindcss');
 
 module.exports = {
 
     entry: {
         index: ['./src/resources/assets/index.js', './src/resources/assets/index.scss'],
-        vendor: ['./src/resources/assets/vendor.js', './src/resources/assets/vendor.scss'],
-        vendor_mapbox: ['./src/resources/assets/vendor_mapping_mapbox.js', './src/resources/assets/vendor_mapping_mapbox.scss'],
+        vendor: ['./src/resources/assets/vendor.js'],
+        mapbox: ['./src/resources/assets/mapbox.js', './src/resources/assets/mapbox.scss'],
     },
 
     output: {
@@ -43,6 +44,7 @@ module.exports = {
                         },
                     },
                     'css-loader',
+                    'postcss-loader',
                     'sass-loader'
                 ],
             },
@@ -102,6 +104,7 @@ module.exports = {
     },
 
     plugins: [
+        tailwindcss,
         new VueLoaderPlugin(),
         new CopyPlugin({
             patterns: [

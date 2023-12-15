@@ -1,4 +1,4 @@
-<floatingDialog>
+<floating_dialog>
     <template slot="dialog-anchor">
         <x-modular-forms::button.generic class="small red"
                                          :text="AndreaMarelli\ModularForms\Helpers\Template::icon('trash')"
@@ -25,4 +25,4 @@
         </div>
 
     </template>
-</floatingDialog>
+</floating_dialog>

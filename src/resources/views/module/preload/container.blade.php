@@ -5,7 +5,7 @@
 
 @if(array_key_exists('enable_preload', $definitions) && $definitions['enable_preload']===true)
 
-    <floatingDialog>
+    <floating_dialog>
 
         <template slot="dialog-anchor">
 
@@ -40,5 +40,5 @@
             </div>
 
         </template>
-    </floatingDialog>
+    </floating_dialog>
 @endif
