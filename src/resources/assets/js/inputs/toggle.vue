@@ -4,12 +4,10 @@
 
         <input type="hidden" value="value" :id="id" :name="id" v-bind:value="value" class="toggle" />
 
-        <button type="button"
-               v-for="option in listOptions"
+        <div v-for="option in listOptions"
                 :class="isSelected(option.value) ? 'active' : ''"
                 v-on:click="setOption(option.value)"
-               :value=option.value
-        >{{ option.label }}</button>
+        >{{ option.label }}</div>
 
     </span>
 

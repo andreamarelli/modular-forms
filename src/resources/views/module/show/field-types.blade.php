@@ -11,7 +11,7 @@ if($value!==null){
     if(preg_match('/dropdown-[\w]*/', $type)>0){
         $value = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getLabel($type, $value);
     }
-    elseif(preg_match('/suggestion-[\w]*/', $type)>0){
+    elseif(preg_match('/suggestion[-_]{1}[\w]*/', $type)>0){
         $label = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getLabel($type, $value);
         $value = $label!==null ? $label : $value;
     }
@@ -30,7 +30,7 @@ if($value!==null){
 @if($type=="hidden")
     {{-- nothing to show --}}
 
-@elseif(\Illuminate\Support\Str::contains($type, "dropdown_multiple-") || \Illuminate\Support\Str::endsWith($type, '_multiple'))
+@elseif(\Illuminate\Support\Str::contains($type, '_multiple'))
     <div class="field-preview">
         @if($value!==null)
             @php
@@ -59,9 +59,9 @@ if($value!==null){
     <span class="toggle disabled">
          @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $k=>$v)
             @if((string) $v !== '')
-                <button type="button" class="{{ (string) $k === (string)$value ? 'active' : '' }}">
+                <div class="{{ (string) $k === (string)$value ? 'active' : '' }}">
                     {{ $v }}
-                </button>
+                </div>
             @endif
         @endforeach
     </span>

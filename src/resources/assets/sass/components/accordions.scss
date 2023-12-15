@@ -17,8 +17,7 @@
         }
         &.show {
             .accordion-item-body {
-                //max-height: 10px;
-                overflow: hidden;
+                overflow: visible;
                 transition: all 200ms linear;
             }
         }

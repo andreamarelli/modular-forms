@@ -41,7 +41,7 @@
         <template v-slot:selector-api-search-result-item="{ item }">
             <td><span class="result_left" v-html="getSpeciesDescription(item)"></span></td>
             <td><redlist_category :category=item.iucn_redlist_category></redlist_category></td>
-            <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img src="/assets/images/iucn_red_list.png"/></a></td>
+            <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img style="display: inline-block" src="/assets/images/iucn_red_list.png" alt="IUCN RedList"/></a></td>
         </template>
 
     </selectorDialog>
@@ -121,7 +121,7 @@ export default {
         },
 
         getSpeciesDescription(item) {
-            let description = item.class + ' ' + item.order + ' ' + item.family + ' <b>' + item.genus + ' ' + item.species + '</b>';
+            let description = '<div>' + item.class + ' ' + item.order + ' ' + item.family + ' <b>' + item.genus + ' ' + item.species + '</b>' + '</div>';
             if (this.hasCommonNames(item)) {
                 description += '<div class="common_names"><b><i>' + Locale.getLabel('modular-forms::entities.biodiversity.common_names') + ':</i></b><br />';
                 if (item.common_name_en !== null && item.common_name_en.toLowerCase() !== 'null') {
