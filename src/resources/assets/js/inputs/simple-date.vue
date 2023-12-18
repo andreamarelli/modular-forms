@@ -1,6 +1,6 @@
 <template>
 
-    <input class="field-edit"
+    <input class="field-edit field-date"
            type="text"
            readonly
            v-model=inputValue
@@ -12,9 +12,9 @@
 
 <style lang="scss" scoped>
 
-    .simple-date input{
-        width: 100px;
-        max-width: 100px;
+    .field-date{
+        width: 120px;
+        max-width: 120px;
         text-align: center;
         cursor: pointer;
     }

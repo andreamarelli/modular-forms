@@ -1,0 +1,370 @@
+@import "../abstracts/all";
+
+// #######################################################
+// ######################  heading  ######################
+// #######################################################
+
+.entity-heading{
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    line-height: 35px;
+
+    .id, .name, .subtitle, .location{
+        display: inline-block;
+    }
+    .id{
+        color: $gray-500;
+        margin-right: 10px;
+        //border: 1px solid $gray-400;
+        padding: 2px 5px;
+    }
+    .name{
+        font-size: 1.3em;
+    }
+    .subtitle{
+        color: $gray-500;
+        font-style: italic;
+    }
+    .location{
+        color: $gray-500;
+        margin-left: 10px;
+    }
+}
+
+.entity-heading-medium {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+// #######################################################
+// #######################  steps  #######################
+// #######################################################
+
+nav.steps{
+    display: flex;
+    margin-bottom: 30px;
+    clear: both;
+    a.step {
+        color: $gray-800;
+        background-color: $gray-50;
+        flex-grow: 1;
+        font-weight: 600;
+        display: inline-block;
+        text-align: center;
+        padding: 20px 5px;
+        border: 1px solid $gray-200;
+        border-right: none;
+        overflow-wrap: anywhere;
+        min-width: 90px;
+        &:last-child {
+            border-right: 1px solid $gray-200;
+        }
+        @include transition(background-color);
+        &:hover{
+            text-decoration: none;
+            background-color: $gray-300;
+            &.selected {
+                background-color: $primary-900;
+            }
+        }
+        &.selected{
+            background-color: $primary-900;
+            border-color: $primary-900;
+            position: relative;
+            color: $white;
+            &:after{
+                content:'';
+                height: 0;
+                width: 0;
+                display: inline-block;
+                position: absolute;
+                left: 50%;
+                bottom: -8px;
+                border-top: 8px solid $primary-900;
+                margin-left: -13px;
+                border-right: 13px solid transparent;
+                border-left: 13px solid transparent;
+            }
+        }
+    }
+}
+
+// ######################################################
+// #################   scroll buttons   #################
+// ######################################################
+
+.scrollButtons{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    div {
+        text-align: center;
+        background-color: $primary-900;
+        color: $white;
+        cursor: pointer;
+        padding: 3px 8px;
+        font-size: 0.9rem;
+        &.standalone{
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        &.highlight{
+            background-color: $primary-500;
+            color: $black;
+        }
+        &.error{
+            background-color: $contextual-danger;
+            color: $black;
+        }
+        &.scrollToTop, &.scrollToBottom{
+            font-size: 1.2rem;
+        }
+        @include selector_border-radius-vertical(5px);
+        &:hover {
+            background-color: $primary-500;
+            color: $black;
+        }
+    }
+
+    // ### Collapsible ###
+    &.collapsible{
+        // Hidden
+        right: 0;
+        div{
+            @include text-2xs;
+            &.scrollToTop, &.scrollToBottom{
+                text-align: left;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            &.scrollSpacer{
+                height: 40px;
+            }
+            &.scrollToAnchor{
+                color: $primary-900;
+                height: 5px;
+                display: none;
+            }
+        }
+        // Visible
+        &:hover {
+            div {
+                @include text-base;
+                &.scrollToTop, &.scrollToBottom{
+                    text-align: center;
+                }
+                &.scrollSpacer{
+                    display: none;
+                }
+                &.scrollToAnchor{
+                    color: $white;
+                    height: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+
+}
+
+// #######################################################
+// ##############  module container & bars  ##############
+// #######################################################
+
+.module-container {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    &.validation-error{
+        border: solid 1px $contextual-danger;
+        .module-header > div{
+            background-color: $contextual-danger;
+        }
+    }
+
+    // #####  header  #####
+    .module-header{
+        margin: 0;
+        border: 0;
+        display: flex;
+        flex-direction: row;
+
+        font-weight: bold;
+        font-size: 1.4em;
+        color: $gray-800;
+        background-color: $gray-500;
+        -webkit-print-color-adjust: exact;
+
+        .module-code,
+        .module-title,
+        .module-info{
+            padding: 10px 15px;
+            &.module-code{
+                color: $gray-400;
+                background-color: $primary-900;
+            }
+            &.module-title{
+                flex: 1;
+            }
+        }
+    }
+
+    // #####  body  #####
+    .module-body {
+        padding: 10px 20px 20px 20px;
+        border: 1px solid $gray-200;
+        background-color: $gray-200;
+
+        .module-log {
+            margin: 0 0 10px;
+            font-size: 0.8em;
+        }
+
+        .no-data {
+            font-weight: 600;
+            line-height: 1.2em;
+            color: $gray-400;
+            font-size: 1.4em;
+            text-align: center;
+            margin: 40px 0 40px 0;
+        }
+
+
+        .module-row {
+            display: flex;
+            margin-bottom: 15px;
+            .module-row__label {
+                width: 25%;
+                text-align: right;
+                margin-right: 15px;
+                label {
+                    font-weight: bold;
+                    margin: 0;
+                }
+            }
+            .module-row__input {
+                flex-grow: 1;
+            }
+        }
+
+        .module-table{
+            max-width: 1128px;
+            margin: 0 0 15px 0;
+            thead tr th,
+            tbody tr td{
+                border: 0;
+                border-bottom: 1px solid $gray-300;
+            }
+            tr.module-table-item td{
+                text-align: center;
+                vertical-align: middle;
+                padding: 6px 2px;
+                &:first-of-type{
+                    padding-left: 0;
+                }
+                &:last-of-type{
+                    padding-right: 0;
+                }
+            }
+            tfoot td{
+                padding-top: 10px ;
+            }
+        }
+
+    }
+
+    // #####  bars  #####
+    .module-bar{
+        margin: 0;
+        padding: 10px 15px;
+        &.save-bar,
+        &.saved-bar,
+        &.error-bar{
+            display: flex;
+            align-items: center;
+            .message{
+                flex: 1;
+                font-weight: bold;
+            }
+        }
+        &.info-bar,
+        &.info-black-bar{
+            display: flex;
+            .icon{
+                padding: 5px 20px 5px 5px;
+            }
+            .message{
+                flex: 1;
+                font-weight: normal;
+            }
+        }
+
+        &.save-bar,
+        &.info-bar{
+            background-color: $contextual-light-info;
+            color: $contextual-primary;
+        }
+        &.info-black-bar{
+            background-color: $contextual-light-info;
+            color: $gray-800;
+            .blue {
+                color: $contextual-primary;
+            }
+        }
+        &.saved-bar{
+            background-color: $contextual-light-success;
+            color: $contextual-success;
+        }
+        &.error-bar{
+            background-color: $contextual-light-danger;
+            color: $contextual-danger;
+            ul.errors{
+                font-weight: normal;
+                margin: 5px 0 0 0;
+            }
+        }
+        &.module_subTitle{
+            background-color: $gray-200;
+            .message{
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+        }
+
+    }
+
+}
+
+
+// ######################################################
+// ###################  global errors ###################
+// ######################################################
+
+.module-errors{
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: $contextual-light-danger;
+    color: $contextual-danger;
+    .title{
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        div:first-child {
+            margin-right: 20px;
+        }
+    }
+    ul.errors{
+        font-weight: normal;
+        margin: 5px 0 0 0;
+        color: $black;
+        padding-inline-start: 40px;
+    }
+}

@@ -1,5 +1,6 @@
 export default {
 
+    CLASS_NAME_SHOWING: 'showing',
     CLASS_NAME_SHOW: 'show',
 
     toggle: function(evt){
@@ -11,20 +12,31 @@ export default {
         // Close all others
         let accordion_items = accordion.querySelectorAll('.accordion-item');
         accordion_items.forEach((item) => {
-            item.querySelector('.accordion-item-body').style.maxHeight = null;
-            item.classList.remove(this.CLASS_NAME_SHOW)
+            this.close(item);
         });
 
         // Toggle the clicked item
         if(is_current_clicked_item_active){
-            clicked_accordion_item.classList.remove(this.CLASS_NAME_SHOW);
+            this.close(clicked_accordion_item);
         } else {
-            let clicked_accordion_item_body = clicked_accordion_item.querySelector('.accordion-item-body');
-            clicked_accordion_item_body.style.maxHeight = clicked_accordion_item_body.scrollHeight + "px";
-            clicked_accordion_item.classList.add(this.CLASS_NAME_SHOW);
+            this.open(clicked_accordion_item);
         }
 
+    },
 
-    }
+    open: function(item){
+        let item_body = item.querySelector('.accordion-item-body');
+        item_body.style.maxHeight = item_body.scrollHeight + "px";
+        item.classList.add(this.CLASS_NAME_SHOWING);
+        setTimeout(() => {
+            item.classList.add(this.CLASS_NAME_SHOW);
+            item.classList.remove(this.CLASS_NAME_SHOWING)
+            }, 500);
+    },
+
+    close: function(item){
+        item.querySelector('.accordion-item-body').style.maxHeight = null;
+        item.classList.remove(this.CLASS_NAME_SHOW)
+    },
 
 }

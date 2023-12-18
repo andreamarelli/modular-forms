@@ -15,10 +15,15 @@
                 transition: all 200ms linear;
             }
         }
+        &.showing {
+            .accordion-item-body {
+                overflow: hidden;
+                transition: all 200ms linear;
+            }
+        }
         &.show {
             .accordion-item-body {
                 overflow: visible;
-                transition: all 200ms linear;
             }
         }
     }

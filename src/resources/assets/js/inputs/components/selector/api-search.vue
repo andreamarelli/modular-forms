@@ -86,7 +86,7 @@
         }
         .dialog_search_error,
         .dialog_search_count{
-            @include text-xs();
+            @include text-xs;
             margin: 5px 0;
         }
 
@@ -96,7 +96,7 @@
 
         .dialog_search_results{
             th, td{
-                @include text-xs();
+                @include text-xs;
             }
         }
 

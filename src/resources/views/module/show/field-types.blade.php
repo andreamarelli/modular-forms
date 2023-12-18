@@ -114,12 +114,17 @@ if($value!==null){
 
 @elseif($only_label)
     {!! $value ?? '&nbsp;' !!}
-@elseif($type==='numeric' || $type==='currency' || $type==='integer')
-    <div class="field-preview">
-        <div class="text-right">
-            {!! $value ?? '&nbsp;' !!}
-        </div>
+
+@elseif($type==='numeric' || $type==='currency' || $type==='integer' || $type==='float' || $type==='code')
+    <div class="field-preview field-numeric">
+        {!! $value ?? '&nbsp;' !!}
     </div>
+
+@elseif(\Illuminate\Support\Str::contains($type, 'date') || \Illuminate\Support\Str::contains($type, 'year'))
+    <div class="field-preview field-date">
+        {!! $value ?? '&nbsp;' !!}
+    </div>
+
 @elseif(\Illuminate\Support\Str::contains($type, 'blade-'))
     @php
         /** @var string $type */

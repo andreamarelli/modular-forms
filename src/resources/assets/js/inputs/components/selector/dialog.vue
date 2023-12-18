@@ -135,7 +135,7 @@
             margin: 0 10px;
         }
         .dialog_insert_msg{
-            @include text-xs();
+            @include text-xs;
             margin: 5px 0;
         }
 

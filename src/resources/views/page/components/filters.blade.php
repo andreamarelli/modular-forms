@@ -14,7 +14,7 @@ use \Illuminate\Support\Str;
         <form class="form-horizontal" method="GET" action="{{ action([$controller, 'index']) }}">
             {{ csrf_field() }}
 
-            <div class="form-grid">
+            <div class="filters-grid">
                 {{ $content }}
             </div>
 
