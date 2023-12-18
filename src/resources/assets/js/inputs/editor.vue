@@ -20,7 +20,7 @@
           }
       }
       .text-editor-print{
-          background-color: $white !important;
+          @apply bg-white; /*@apply bg-white #{!important};*/
           padding: 15px;
           @media screen {
               display: none;

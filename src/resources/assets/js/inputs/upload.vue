@@ -99,8 +99,6 @@
 
 <style lang="scss" scoped>
 
-    @import "../../sass/abstracts/sizes";
-
     .upload-anchor{
         display: flex;
         flex-direction: row;

@@ -38,7 +38,7 @@
         border-radius: 0.5rem;
         margin-bottom: 25px;
         &-header {
-            background-color: $gray-100;
+            @apply bg-gray-100;
             padding: 10px 10px 10px 15px;
             display: flex;
             align-items: center;
@@ -46,18 +46,18 @@
             &-title {
                 flex-grow: 1;
                 font-weight: bold;
-                color: $primary-600;
-                @include text-base;
+                @apply text-primary-600;
+                @apply text-base;
                 margin: 0;
                 &:hover, &:focus{
-                    color: $primary-800;
+                    @apply text-primary-800;
                     text-decoration: none;
                 }
                 &::before{
                     font-family: $fontFamily-FontAwesome;
                     padding-left: 5px;
                     padding-right: 10px;
-                    @include text-lg;
+                    @apply text-lg;
                     content: "\f105"; // fa-angle-right
                 }
             }
@@ -68,7 +68,7 @@
             }
         }
         &-body {
-            background-color: $gray-50;
+            @apply bg-gray-50;
             margin: 0;
             padding: 0;
             border: none;
@@ -90,7 +90,10 @@
             margin-bottom: 8px;
 
             &-header {
-                background-color: $gray-50;
+                @apply bg-gray-50;
+                &:hover{
+                  @apply bg-gray-100;
+                }
                 padding: 5px 10px 5px 15px;
                 display: flex;
                 align-items: center;
@@ -98,16 +101,16 @@
                 &-title {
                     flex-grow: 1;
                     font-weight: bold;
-                    color: $gray-800;
+                    @apply text-gray-800;
                     font-size: 1em;
                     margin: 0;
                     &:hover, &:focus{
-                      color: $primary-800;
+                      @apply text-primary-800;
                       text-decoration: none;
                     }
                     a {
                         &:hover, &:focus {
-                            color: $primary-900;
+                            @apply text-primary-900;
                             text-decoration: none;
                         }
                     }
@@ -115,12 +118,12 @@
             }
 
             &-body {
-                background-color: $gray-50;
+                @apply bg-gray-50;
                 margin: 0;
                 padding: 0;
                 border: none;
                 &-content{
-                    border-top: 1px solid $gray-300;
+                    @apply border-t border-gray-300;
                     padding: 15px 15px 10px 15px;
                 }
             }

@@ -21,7 +21,7 @@ class Template
      */
     public static function icon($icon, $color = '', $size = '', $other = ''): string
     {
-        $color = $color ?? '';
+        $color = $color!='' ? 'text-'.$color : '';
         $size  = $size != '' ? 'style="font-size: ' . $size . '"' : '';
         return '<span class="fas fa-fw fa-' . $icon . ' ' . $other . ' ' . $color . '" ' . $size . ' ></span>';
     }

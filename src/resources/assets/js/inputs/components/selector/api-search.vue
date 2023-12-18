@@ -69,7 +69,6 @@
 <style lang="scss" scoped>
 
     @import "../../../../sass/abstracts/colors";
-    @import "../../../../sass/abstracts/sizes";
 
     .dialog_search{
 
@@ -82,11 +81,11 @@
         }
 
         .dialog_search_error{
-            color: $red-700;
+            @apply text-red-700;
         }
         .dialog_search_error,
         .dialog_search_count{
-            @include text-xs;
+            @apply text-xs;
             margin: 5px 0;
         }
 
@@ -96,7 +95,7 @@
 
         .dialog_search_results{
             th, td{
-                @include text-xs;
+                @apply text-xs;
             }
         }
 

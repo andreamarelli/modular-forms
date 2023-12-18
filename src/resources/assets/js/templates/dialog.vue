@@ -42,7 +42,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba($gray-800, 0.7);
+        @apply bg-gray-800/75;
         backdrop-filter: blur(2px);
         z-index: 1;
 

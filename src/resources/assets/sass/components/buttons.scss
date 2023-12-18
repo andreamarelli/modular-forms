@@ -5,11 +5,12 @@
 .btn-nav{
   font-weight: normal;
   font-size: 0.8rem;
-  background-color: $primary-600;
-  color: $white;
+  @apply bg-primary-600;
+  @apply text-white;
   padding: 5px 10px;
   display: inline-block;
-  border:1px solid $primary-600;
+  border: 1px solid;
+  @apply border-primary-600;
   border-radius: 0.2rem;
   @include transition();
 
@@ -31,66 +32,66 @@
   // Colors
   &, &.basic{
     &.tag, &:hover{
-      background-color: $white;
-      color: $primary-600;
+      @apply bg-white;
+      @apply text-primary-600;
       text-decoration: none;
       .fas{
-        color: $primary-600;
+        @apply text-primary-600;
       }
     }
   }
   &.dark,
   &.active{
-    background-color: $primary-900;
-    border-color: $primary-900;
+    @apply bg-primary-900;
+    @apply border-primary-900;
     &.tag, &:hover{
-      color: $primary-900;
-      background-color: $white;
+      @apply text-primary-900;
+      @apply bg-white;
       .fas{
-        color: $primary-900;
+        @apply text-primary-900;
       }
     }
   }
   &.light{
-    color: $gray-800;
-    background-color: $primary-300;
-    border-color: $primary-300;
+    @apply text-gray-800;
+    @apply bg-primary-300;
+    @apply border-primary-300;
     &.tag, &:hover{
-      color: $primary-500;
-      background-color: $white;
+      @apply text-primary-500;
+      @apply bg-white;
       .fas{
-        color: $primary-300;
+        @apply text-primary-300;
       }
     }
   }
   &.red{
-    background-color: $red-600;
-    border-color: $red-400;
+    @apply bg-red-600;
+    @apply border-red-400;
     &.tag, &:hover{
-      color: $red-400;
-      background-color: $white;
+      @apply text-red-400;
+      @apply bg-white;
       .fas{
-        color: $red-400;
+        @apply text-red-400;
       }
     }
   }
   &.blue{
-    background-color: $blue-600;
-    border-color: $blue-400;
+    @apply bg-blue-600;
+    @apply border-blue-400;
     &.tag, &:hover{
-      color: $blue-400;
-      background-color: $white;
+      @apply text-blue-400;
+      @apply bg-white;
       .fas{
-        color: $blue-400;
+        @apply text-blue-400;
       }
     }
   }
   &.yellow{
-    color: $gray-800;
+    @apply text-gray-800;
     background-color: #ffc107;
     border-color: #ffc107;
     &.tag, &:hover{
-      background-color: $white;
+      @apply bg-white;
       color: darken(#ffc107, 30%);
       .fas{
         color: darken(#ffc107, 30%);
@@ -98,43 +99,43 @@
     }
   }
   &.gray{
-    background-color: $gray-300;
-    border-color: $gray-300;
-    color: $gray-700;
+    @apply bg-gray-300;
+    @apply border-gray-300;
+    @apply text-gray-700;
     &.tag, &:hover{
-      background-color: $white;
-      color: $gray-700;
+      @apply bg-white;
+      @apply text-gray-700;
       .fas{
-        color: $gray-700;
+        @apply text-gray-700;
       }
     }
   }
   &.active-disabled{
-    color: $white;
-    background-color: $primary-900;
-    border-color: $primary-900;
+    @apply text-white;
+    @apply bg-primary-900;
+    @apply border-primary-900;
     pointer-events: none;
     &.tag, &:hover{
-      color: $white;
-      background-color: $primary-900;
-      border-color: $primary-900;
+      @apply text-white;
+      @apply bg-primary-900;
+      @apply border-primary-900;
       cursor: not-allowed;
       .fas{
-        color: $white;
+        @apply text-white;
       }
     }
   }
   &:disabled,
   &.disabled{
-    background-color: $gray-300;
-    border-color: $gray-300;
+    @apply bg-gray-300;
+    @apply border-gray-300;
     pointer-events: none;
     &.tag, &:hover{
-      color: $white;
-      background-color: $gray-300;
+      @apply text-white;
+      @apply bg-gray-300;
       cursor: not-allowed;
       .fas{
-        color: $white;
+        @apply text-white;
       }
     }
   }
@@ -148,11 +149,11 @@
     background-color: transparent;
     &:hover{
       background-color: transparent;
-      color: $gray-800;
-      border-color: $gray-800;
+      @apply text-gray-800;
+      @apply border-gray-800;
     }
     .fas{
-      color: $gray-800;
+      @apply text-gray-800;
     }
   }
 }

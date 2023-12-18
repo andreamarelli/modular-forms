@@ -8,6 +8,12 @@ $fontFamily-FontAwesome: "Font Awesome 5 Free";
 $base_font-family: $fontFamily-2;
 $input_font-family: $fontFamily-1;
 
+//   ######  Font sizes (not included in tailwind)  ######
+.text-2xs{
+    font-size: 0.7rem;
+    line-height: 0.8em;
+}
+
 //   ######  Type-faces - web fonts  ######
 
 /* Varela Round - ALL */

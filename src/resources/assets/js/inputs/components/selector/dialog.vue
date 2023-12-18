@@ -107,8 +107,6 @@
 
 <style lang="scss" scoped>
 
-    @import "../../../../sass/abstracts/sizes";
-
     .with_header_and_footer{
 
         .header,
@@ -135,7 +133,7 @@
             margin: 0 10px;
         }
         .dialog_insert_msg{
-            @include text-xs;
+            @apply text-xs;
             margin: 5px 0;
         }
 

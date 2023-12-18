@@ -15,8 +15,8 @@
         margin-bottom: 0;
         border-radius: 2px;
         .progress-bar{
-            background-color: $green-600;
-            color: $white;
+            @apply bg-green-600;
+            @apply text-white;
             font-weight: normal;
         }
 
@@ -29,7 +29,7 @@
         }
         &.progress-dark{
             .progress-bar {
-                color: $gray-800;
+                @apply text-gray-800;
             }
         }
     }

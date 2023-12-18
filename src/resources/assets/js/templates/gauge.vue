@@ -20,7 +20,7 @@
     .gauge{
         width: 45px;
         display: inline-block;
-        @include text-lg;
+        @apply text-lg;
 
         >svg {
 
@@ -30,19 +30,19 @@
 
             .circle-bg {
                 fill: none;
-                stroke: $gray-50;
+                @apply stroke-gray-50;
                 stroke-width: 4.8;
             }
 
             .circle {
                 fill: none;
-                stroke: $gray-800;
+                @apply stroke-gray-800;
                 stroke-width: 4.8;
                 animation: progress 1s ease-out forwards;
             }
 
             .percentage {
-                fill: $gray-800;
+                @apply fill-gray-800;
                 font-size: 0.9em;
                 letter-spacing: -0.2px;
                 text-anchor: middle;
@@ -57,28 +57,28 @@
 
             &.green{
                 .circle-bg {
-                    stroke: $green-50;
+                    @apply stroke-green-50;
                 }
                 .circle {
-                    stroke: $green-600;
+                    @apply stroke-green-600;
                 }
             }
 
             &.yellow{
                 .circle-bg {
-                    stroke: $contextual-light-warning;
+                    @apply stroke-contextual-light-warning;
                 }
                 .circle {
-                    stroke: $contextual-warning;
+                    @apply stroke-contextual-warning;
                 }
             }
 
             &.red{
                 .circle-bg {
-                    stroke: $red-100;
+                    @apply stroke-red-100;
                 }
                 .circle {
-                    stroke: $red-600;
+                    @apply stroke-red-600;
                 }
             }
 

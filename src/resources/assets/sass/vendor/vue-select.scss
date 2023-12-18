@@ -8,7 +8,7 @@
 
 .v-select{
 
-  @include text-xs;
+  @apply text-xs;
   @include field-size;
 
   &.vs--single{
@@ -42,7 +42,8 @@
     .vs__actions{
       padding: 0;
       .vs__clear{
-        fill: $contextual-danger;
+        border: 1px solid;
+        @apply fill-contextual-danger;
         line-height: 0.9em;
       }
       .vs__open-indicator{
@@ -59,11 +60,11 @@
       padding-left: 15px;
       &:hover,
       &.vs__dropdown-option--selected{
-        background-color: $primary-300;
+        @apply bg-primary-300;
       }
       &.vs__dropdown-option--highlight{
-        background-color: $primary-800;
-        color: $white;
+        @apply bg-primary-800;
+        @apply text-white;
       }
     }
   }

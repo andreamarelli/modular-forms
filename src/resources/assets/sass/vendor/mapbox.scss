@@ -18,7 +18,7 @@
     .popup-item {
       font-family: $fontFamily-3;
       font-size: 1.1em;
-      border-bottom: 1px solid $gray-300;
+      @apply border-b border-gray-300;
       padding-bottom: 8px;
       margin-bottom: 5px;
 

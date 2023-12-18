@@ -14,20 +14,20 @@
         display: inline-block;
     }
     .id{
-        color: $gray-500;
+        @apply text-gray-500;
         margin-right: 10px;
-        //border: 1px solid $gray-400;
+        //@apply border border-gray-400;
         padding: 2px 5px;
     }
     .name{
         font-size: 1.3em;
     }
     .subtitle{
-        color: $gray-500;
+        @apply text-gray-500;
         font-style: italic;
     }
     .location{
-        color: $gray-500;
+        @apply text-gray-500;
         margin-left: 10px;
     }
 }
@@ -48,33 +48,33 @@ nav.steps{
     margin-bottom: 30px;
     clear: both;
     a.step {
-        color: $gray-800;
-        background-color: $gray-50;
+        @apply text-gray-800;
+        @apply bg-gray-50;
         flex-grow: 1;
         font-weight: 600;
         display: inline-block;
         text-align: center;
         padding: 20px 5px;
-        border: 1px solid $gray-200;
+        @apply border border-gray-200;
         border-right: none;
         overflow-wrap: anywhere;
         min-width: 90px;
         &:last-child {
-            border-right: 1px solid $gray-200;
+            @apply border-r border-gray-200;
         }
         @include transition(background-color);
         &:hover{
             text-decoration: none;
-            background-color: $gray-300;
+            @apply bg-gray-300;
             &.selected {
-                background-color: $primary-900;
+                @apply bg-primary-900;
             }
         }
         &.selected{
-            background-color: $primary-900;
-            border-color: $primary-900;
+            @apply bg-primary-900;
+            @apply border-primary-900;
             position: relative;
-            color: $white;
+            @apply text-white;
             &:after{
                 content:'';
                 height: 0;
@@ -83,7 +83,8 @@ nav.steps{
                 position: absolute;
                 left: 50%;
                 bottom: -8px;
-                border-top: 8px solid $primary-900;
+                border-top: 8px solid;
+                @apply border-primary-900;
                 margin-left: -13px;
                 border-right: 13px solid transparent;
                 border-left: 13px solid transparent;
@@ -103,8 +104,8 @@ nav.steps{
     z-index: 99;
     div {
         text-align: center;
-        background-color: $primary-900;
-        color: $white;
+        @apply bg-primary-900;
+        @apply text-white;
         cursor: pointer;
         padding: 3px 8px;
         font-size: 0.9rem;
@@ -115,20 +116,20 @@ nav.steps{
             border-radius: 5px;
         }
         &.highlight{
-            background-color: $primary-500;
-            color: $black;
+            @apply bg-primary-500;
+            @apply text-black;
         }
         &.error{
-            background-color: $contextual-danger;
-            color: $black;
+            @apply bg-contextual-danger;
+            @apply text-black;
         }
         &.scrollToTop, &.scrollToBottom{
             font-size: 1.2rem;
         }
         @include selector_border-radius-vertical(5px);
         &:hover {
-            background-color: $primary-500;
-            color: $black;
+            @apply bg-primary-500;
+            @apply text-black;
         }
     }
 
@@ -137,7 +138,7 @@ nav.steps{
         // Hidden
         right: 0;
         div{
-            @include text-2xs;
+            @apply text-2xs;
             &.scrollToTop, &.scrollToBottom{
                 text-align: left;
                 border-top-right-radius: 0;
@@ -147,7 +148,7 @@ nav.steps{
                 height: 40px;
             }
             &.scrollToAnchor{
-                color: $primary-900;
+                @apply text-primary-900;
                 height: 5px;
                 display: none;
             }
@@ -155,7 +156,7 @@ nav.steps{
         // Visible
         &:hover {
             div {
-                @include text-base;
+                @apply text-base;
                 &.scrollToTop, &.scrollToBottom{
                     text-align: center;
                 }
@@ -163,7 +164,7 @@ nav.steps{
                     display: none;
                 }
                 &.scrollToAnchor{
-                    color: $white;
+                    @apply text-white;
                     height: auto;
                     display: block;
                 }
@@ -184,9 +185,10 @@ nav.steps{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
     &.validation-error{
-        border: solid 1px $contextual-danger;
+        border: 1px solid;
+        @apply border-contextual-danger;
         .module-header > div{
-            background-color: $contextual-danger;
+            @apply bg-contextual-danger;
         }
     }
 
@@ -199,8 +201,8 @@ nav.steps{
 
         font-weight: bold;
         font-size: 1.4em;
-        color: $gray-800;
-        background-color: $gray-400;
+        @apply text-gray-800;
+        @apply bg-gray-400;
         -webkit-print-color-adjust: exact;
 
         .module-code,
@@ -208,8 +210,8 @@ nav.steps{
         .module-info{
             padding: 10px 15px;
             &.module-code{
-                color: $gray-200;
-                background-color: $primary-900;
+                @apply text-gray-200;
+                @apply bg-primary-900;
             }
             &.module-title{
                 flex: 1;
@@ -220,8 +222,8 @@ nav.steps{
     // #####  body  #####
     .module-body {
         padding: 5px 10px 5px 10px;
-        border: 1px solid $gray-200;
-        background-color: $gray-200;
+        @apply border border-gray-200;
+        @apply bg-gray-200;
 
         .module-log {
             margin: 0 0 10px;
@@ -231,7 +233,7 @@ nav.steps{
         .no-data {
             font-weight: 600;
             line-height: 1.2em;
-            color: $gray-400;
+            @apply text-gray-400;
             font-size: 1.4em;
             text-align: center;
             margin: 40px 0 40px 0;
@@ -256,12 +258,11 @@ nav.steps{
         }
 
         .module-table{
-            max-width: 1128px;
             margin: 0 0 15px 0;
             thead tr th,
             tbody tr td{
                 border: 0;
-                border-bottom: 1px solid $gray-300;
+                @apply border-b border-gray-300;
             }
             tr.module-table-item td{
                 text-align: center;
@@ -285,7 +286,7 @@ nav.steps{
     .module-bar{
         margin: 0;
         padding: 7px 8px;
-        @include text-sm;
+        @apply text-sm;
         &.save-bar,
         &.saved-bar,
         &.error-bar{
@@ -310,30 +311,33 @@ nav.steps{
 
         &.save-bar,
         &.info-bar{
-            background-color: $contextual-light-info;
-            color: $contextual-primary;
+            @apply bg-contextual-light-info;
+            @apply text-contextual-primary;
         }
         &.info-black-bar{
-            background-color: $contextual-light-info;
-            color: $gray-800;
+            @apply bg-contextual-light-info;
+            @apply text-gray-800;
             .blue {
-                color: $contextual-primary;
+                @apply text-contextual-primary;
             }
         }
         &.saved-bar{
-            background-color: $contextual-light-success;
-            color: $contextual-success;
+            @apply bg-contextual-light-success;
+            @apply text-contextual-success;
         }
         &.error-bar{
-            background-color: $contextual-light-danger;
-            color: $contextual-danger;
+            @apply bg-contextual-light-danger;
+            @apply text-contextual-danger;
             ul.errors{
                 font-weight: normal;
                 margin: 5px 0 0 0;
+                li{
+                    list-style-position: inside;
+                }
             }
         }
         &.module_subTitle{
-            background-color: $gray-200;
+            @apply bg-gray-200;
             .message{
                 font-weight: bold;
                 font-size: 1.1em;
@@ -352,8 +356,8 @@ nav.steps{
 .module-errors{
     margin-bottom: 20px;
     padding: 10px 20px;
-    background-color: $contextual-light-danger;
-    color: $contextual-danger;
+    @apply bg-contextual-light-danger;
+    @apply text-contextual-danger;
     .title{
         display: flex;
         align-items: center;
@@ -365,7 +369,7 @@ nav.steps{
     ul.errors{
         font-weight: normal;
         margin: 5px 0 0 0;
-        color: $black;
+        @apply text-black;
         padding-inline-start: 40px;
     }
 }
