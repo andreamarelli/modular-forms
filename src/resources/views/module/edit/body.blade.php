@@ -30,5 +30,5 @@
     @include('modular-forms::module.edit.type.commons', compact(['collection', 'vue_data', 'definitions']))
 
 @else
-    <b class="text-danger">Type "{{ $definitions['module_type'] }}" has not been implemented yet.</b>
+    <b class="error">Type "{{ $definitions['module_type'] }}" has not been implemented yet.</b>
 @endif

@@ -200,7 +200,7 @@ nav.steps{
         font-weight: bold;
         font-size: 1.4em;
         color: $gray-800;
-        background-color: $gray-500;
+        background-color: $gray-400;
         -webkit-print-color-adjust: exact;
 
         .module-code,
@@ -208,7 +208,7 @@ nav.steps{
         .module-info{
             padding: 10px 15px;
             &.module-code{
-                color: $gray-400;
+                color: $gray-200;
                 background-color: $primary-900;
             }
             &.module-title{
@@ -219,7 +219,7 @@ nav.steps{
 
     // #####  body  #####
     .module-body {
-        padding: 10px 20px 20px 20px;
+        padding: 5px 10px 5px 10px;
         border: 1px solid $gray-200;
         background-color: $gray-200;
 
@@ -240,7 +240,7 @@ nav.steps{
 
         .module-row {
             display: flex;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             .module-row__label {
                 width: 25%;
                 text-align: right;
@@ -284,7 +284,8 @@ nav.steps{
     // #####  bars  #####
     .module-bar{
         margin: 0;
-        padding: 10px 15px;
+        padding: 7px 8px;
+        @include text-sm;
         &.save-bar,
         &.saved-bar,
         &.error-bar{
@@ -299,7 +300,7 @@ nav.steps{
         &.info-black-bar{
             display: flex;
             .icon{
-                padding: 5px 20px 5px 5px;
+                padding: 0 8px 0 0;
             }
             .message{
                 flex: 1;

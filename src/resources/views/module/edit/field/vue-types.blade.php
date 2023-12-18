@@ -146,14 +146,14 @@ $other_attributes = $other ?? '';
             {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></dropdown>
 
-        {{-- ## toggle ## --}}
+    {{-- ## toggle ## --}}
     @elseif(substr_count($type, "toggle-")>0)
         <toggle
             data-values='@json($cached_list)'
             {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
         ></toggle>
 
-        {{-- ## checkbox ## --}}
+    {{-- ## checkbox ## --}}
     @elseif(substr_count($type, "checkbox-")>0)
         @if($type=="checkbox-boolean")
             <checkbox-boolean
@@ -200,5 +200,5 @@ $other_attributes = $other ?? '';
 
 
 @else
-    <b class="text-danger">Type "{{ $type }}" has not been implemented yet.</b>
+    <b class="error">Type "{{ $type }}" has not been implemented yet.</b>
 @endif

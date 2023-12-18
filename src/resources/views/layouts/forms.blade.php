@@ -22,7 +22,7 @@ if (Session::has('lists')) {
             @include('modular-forms::layouts.components.header', ['is_admin' => true])
         </header>
 
-        <main class="one-col">
+        <main>
             <section class="content">
                 @yield('content')
             </section>

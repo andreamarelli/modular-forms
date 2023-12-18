@@ -1,15 +1,5 @@
 @import "../abstracts/all";
 
-.wrap {
-  max-width: 1170px;
-  margin: 0 auto;
-}
-
-@mixin wrap {
-  max-width: 1170px;
-  margin: 0 auto;
-}
-
 body.flex-col{
   display: flex;
   flex-direction: column;
@@ -17,5 +7,12 @@ body.flex-col{
   > main {
     flex-grow: 1;
     width: 100%;
+    > section.content{
+      padding: 30px 0 40px 0;
+      width: 100%;
+      margin: 0 auto;
+      min-width: 850px;
+      max-width: 85vw;
+    }
   }
 }

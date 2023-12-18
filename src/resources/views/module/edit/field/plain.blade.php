@@ -26,5 +26,5 @@
     {!! \AndreaMarelli\ModularForms\Helpers\Input\DropDown::simple($id, $value, str_replace('dropdown-', '', $type), $class) !!}
 
 @else
-    <b class="text-danger">Type "{{ $type }}" has not been implemented yet.</b>
+    <b class="error">Type "{{ $type }}" has not been implemented yet.</b>
 @endif

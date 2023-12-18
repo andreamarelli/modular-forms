@@ -1,11 +1,5 @@
 @import "../abstracts/all";
 
-.btn:focus{
-  outline: none;
-  box-shadow: none;
-}
-
-
 /*  #########  Flat buttons  ########  */
 
 .btn-nav{
@@ -160,86 +154,5 @@
     .fas{
       color: $gray-800;
     }
-  }
-}
-
-.btn-nav-group{
-  display: flex;
-  .btn-nav{
-    border-radius: 0;
-    &:first-of-type{
-      border-bottom-left-radius: 4px;
-      border-top-left-radius: 4px;
-    }
-    &:last-of-type{
-      border-bottom-right-radius: 4px;
-      border-top-right-radius: 4px;
-    }
-  }
-}
-
-
-.btn-group-justified{
-  button{
-    border:1px solid $gray-300;
-    border-radius: 30px;
-    color: $primary-600;
-    @include transition();
-    @include text-sm;
-    &:active, &:focus, &:hover, &.active{
-      background-color: $gray-50;
-      color: $black;
-    }
-  }
-}
-
-
-/*  #########  Actions buttons  ########  */
-.act-btn-basic{
-  font-weight: bold;
-  color: $gray-600;
-  background-color: $gray-200;
-  border-color: $gray-200;
-}
-.act-btn-basic:hover,
-.act-btn-light{
-  font-weight: bold;
-  color: $black;
-  background-color: $primary-300;
-  border-color: $primary-300;
-}
-.act-btn-basic:disabled,
-.act-btn-disabled{
-  font-weight: bold;
-  color: $gray-600;
-  background-color: $gray-200;
-  border-color: $gray-200;
-  opacity: 0.65;
-}
-.act-btn-basic:active,
-.act-btn-basic:active:focus,
-.act-btn-dark,
-.act-btn-active,
-.act-btn-active:active{
-  font-weight: bold;
-  color: $white !important;
-  background-color: $primary-800;
-  border-color: $primary-800;
-  outline: none;
-  opacity: 1;
-}
-
-.act-btn-darkred{
-  font-weight: bold;
-  color: $white !important;
-  background-color: $red-600;
-  border-color: $red-600;
-  outline: none;
-  opacity: 1;
-  @include transition();
-  &:hover{
-    background-color: $white;
-    border-color: $red-400;
-    color: $red-600 !important;
   }
 }
