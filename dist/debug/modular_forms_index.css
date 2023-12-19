@@ -790,54 +790,6 @@
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype");
 }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype");
-}
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype");
-}
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype");
-}
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype");
-}
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype");
-}
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype");
-}
 .text-primary-50[data-v-432594b6] {
   --tw-text-opacity: 1;
   color: rgb(240 253 244 / var(--tw-text-opacity));
@@ -1648,54 +1600,6 @@
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype");
-}
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype");
-}
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype");
-}
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype");
-}
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype");
-}
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype");
-}
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype");
 }
 .text-primary-50[data-v-54436fd4] {
   --tw-text-opacity: 1;
@@ -4019,48 +3923,6 @@ video {
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
 
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
-
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
   color: rgb(240 253 244 / var(--tw-text-opacity));
@@ -5006,48 +4868,6 @@ video {
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -6034,48 +5854,6 @@ body {
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -7079,48 +6857,6 @@ ul {
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -8157,48 +7893,6 @@ span.red-list_NE {
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -9745,48 +9439,6 @@ span.red-list_NE {
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
 
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
-
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
   color: rgb(240 253 244 / var(--tw-text-opacity));
@@ -10790,48 +10442,6 @@ table.striped > tbody > tr:nth-child(even){
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -11967,48 +11577,6 @@ table.striped > tbody > tr:nth-child(even){
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -13294,48 +12862,6 @@ nav.steps {
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
 
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
-
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
   color: rgb(240 253 244 / var(--tw-text-opacity));
@@ -14399,48 +13925,6 @@ nav.steps {
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
 
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
-
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
   color: rgb(240 253 244 / var(--tw-text-opacity));
@@ -15412,48 +14896,6 @@ nav.steps {
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -16464,48 +15906,6 @@ input[type="checkbox"]:checked + label::before{
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
 
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
-
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
   color: rgb(240 253 244 / var(--tw-text-opacity));
@@ -17466,48 +16866,6 @@ body.flex-col {
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
 
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
-
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
   color: rgb(240 253 244 / var(--tw-text-opacity));
@@ -18453,48 +17811,6 @@ body.flex-col {
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -19459,48 +18775,6 @@ body.flex-col {
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;
@@ -30515,48 +29789,6 @@ readers do not read off random characters that represent icons */
   font-family: 'Montserrat';
   font-weight: 700;
   src: url(fonts/montserrat-v10-latin_latin-ext-700.woff2) format("woff2"), url(fonts/montserrat-v10-latin_latin-ext-700.woff) format("woff"), url(fonts/montserrat-v10-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-300*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  src: url(fonts/raleway-v11-latin_latin-ext-300.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-300.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-300.ttf) format("truetype"); }
-
-/* raleway-regular*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway-v11-latin_latin-ext-regular.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-regular.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-regular.ttf) format("truetype"); }
-
-/* raleway-600*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600.ttf) format("truetype"); }
-
-/* raleway-600italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 600;
-  src: url(fonts/raleway-v11-latin_latin-ext-600italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-600italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-600italic.ttf) format("truetype"); }
-
-/* raleway-700*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700.ttf) format("truetype"); }
-
-/* raleway-700italic*/
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway-v11-latin_latin-ext-700italic.woff2) format("woff2"), url(fonts/raleway-v11-latin_latin-ext-700italic.woff) format("woff"), url(fonts/raleway-v11-latin_latin-ext-700italic.ttf) format("truetype"); }
 
 .text-primary-50, .toggle div.active{
   --tw-text-opacity: 1;

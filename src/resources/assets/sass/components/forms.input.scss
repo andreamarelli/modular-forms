@@ -1,7 +1,7 @@
 @import "../abstracts/all";
 
 @mixin field-base{
-    font-family: $input_font-family;
+    font-family: $secondary-font;
     @apply text-xs;
     @apply text-gray-800;
     @apply bg-white;
