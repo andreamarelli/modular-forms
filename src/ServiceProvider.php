@@ -25,7 +25,7 @@ class ServiceProvider extends BaseServiceProvider
         Blade::componentNamespace('AndreaMarelli\\ModularForms\\View\\Components', 'modular-forms');
 
         // Assets
-        $this->publishes([__DIR__.'/dist' => public_path('vendor/modular-forms')]);
+        $this->publishes([__DIR__.'/dist' => public_path('vendor/modular-forms')], ['modular-form', 'laravel-assets']);
 
         // Views
         $this->loadViewsFrom(__DIR__.'/resources/views', 'modular-forms');
