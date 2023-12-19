@@ -42,14 +42,25 @@
     .vs__actions{
       padding: 0;
       .vs__clear{
-        border: 1px solid;
+        margin-right: 5px;
         @apply fill-contextual-danger;
         line-height: 0.9em;
       }
       .vs__open-indicator{
         transform: scale(0.8);
+        cursor: pointer;
       }
     }
+  }
+
+  &.vs--open{
+      .vs__dropdown-toggle{
+          .vs__actions{
+              .vs__open-indicator{
+                  transform: rotate(180deg) scale(0.8);
+              }
+          }
+      }
   }
 
   .vs__dropdown-menu{
