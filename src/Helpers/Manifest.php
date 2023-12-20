@@ -12,7 +12,7 @@ class Manifest
      */
     public static function asset($hashed_asset, $debug=false): string
     {
-        $asset_path = 'vendor/modular-forms/';
+        $asset_path = '/vendor/modular-forms/';
         $path = public_path($asset_path);
 
         $manifest_path = $path . 'manifest' . ($debug ?  '-debug' : '') . '.json';
