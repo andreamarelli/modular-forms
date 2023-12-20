@@ -15,7 +15,7 @@ class Manifest
         $asset_path = 'vendor/modular-forms/';
         $path = public_path($asset_path);
 
-        $manifest_path = ($debug ? $path . 'debug/' : $path). 'manifest.json';
+        $manifest_path = $path . 'manifest' . ($debug ?  '-debug' : '') . '.json';
         $manifest = json_decode(file_get_contents($manifest_path), true);
 
         if(!isset($manifest[$hashed_asset])){

@@ -8,15 +8,15 @@ module.exports = merge(common, {
     mode: 'development',
 
     output: {
-        filename: 'debug/[name].[contenthash].js'
+        filename: '[name]-debug.[contenthash].js'
     },
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'debug/[name].[contenthash].css',
+            filename: '[name]-debug.[contenthash].css',
         }),
         new ManifestPlugin({
-            output: 'debug/manifest.json'
+            output: 'manifest-debug.json'
         }),
     ]
 
