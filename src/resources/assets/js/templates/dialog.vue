@@ -94,7 +94,7 @@ export default {
         this.anchorElem = this.$el.querySelector('.dialog-anchor');
         this.overlayElem = this.$el.querySelector('.dialog-overlay');
         this.dialogElem = this.$el.querySelector('.dialog-content');
-        this.originalBodyOverflow = this.overlayElem.style.display.overflow;
+        this.originalBodyOverflow = this.overlayElem.style.overflow;
 
         // open dialog on anchor click
         this.anchorElem.addEventListener('click',  function(evt){
