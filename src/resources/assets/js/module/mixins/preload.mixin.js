@@ -27,15 +27,17 @@ export default {
             })
                 .done(function (response) {
                     _this.preload_records = response['records'];
-                    $(_this.container).find("div.preload_container").html(response['view']);
+                    _this.container.querySelector('.preload_container').innerHTML = response['view'];
                 })
         },
 
         show_previous_year: function(year){
-            $(this.container).find(".preload_preview").css('display', 'none');
-            $(this.container).find(".preload_button").removeClass('active-disabled').addClass('basic');
-            $(this.container).find(".preload_preview.year_"+year).css('display', 'inline-block');
-            $(this.container).find(".preload_button.year_"+year).removeClass('basic').addClass('active-disabled');
+            this.container.querySelector(".preload_preview").style.display = 'none';
+            this.container.querySelector(".preload_button").classList.remove('active-disabled');
+            this.container.querySelector(".preload_button").classList.add('basic');
+            this.container.querySelector(".preload_preview.year_" + year).style.display = 'inline-block';
+            this.container.querySelector(".preload_button.year_" + year).classList.remove('basic');
+            this.container.querySelector(".preload_button.year_" + year).classList.remove('active-disabled');
         },
 
         apply_preload_one_record: function (year, index) {

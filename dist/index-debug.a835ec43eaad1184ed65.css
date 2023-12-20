@@ -2902,7 +2902,7 @@ a img[data-v-eff58c46] {
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/resources/assets/index.scss ***!
   \********************************************************************************************************************************************************************/
 /*
-! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.0 | MIT License | https://tailwindcss.com
 */
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -2927,16 +2927,19 @@ a img[data-v-eff58c46] {
 4. Use the user's configured `sans` font-family by default.
 5. Use the user's configured `sans` font-feature-settings by default.
 6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
 */
-html {
+html,
+:host {
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
 }
 /*
 1. Remove the margin in all browsers.
@@ -12301,23 +12304,17 @@ nav.steps {
       .module-container .module-body .module-table tfoot td {
         padding-top: 10px; }
   .module-container .module-bar {
+    display: flex;
+    align-items: center;
     margin: 0;
     padding: 7px 8px;
     font-size: 0.875rem;
     line-height: 1.25rem; }
-    .module-container .module-bar.save-bar, .module-container .module-bar.saved-bar, .module-container .module-bar.error-bar {
-      display: flex;
-      align-items: center; }
-      .module-container .module-bar.save-bar .message, .module-container .module-bar.saved-bar .message, .module-container .module-bar.error-bar .message {
-        flex: 1;
-        font-weight: bold; }
-    .module-container .module-bar.info-bar, .module-container .module-bar.info-black-bar {
-      display: flex; }
-      .module-container .module-bar.info-bar .icon, .module-container .module-bar.info-black-bar .icon {
-        padding: 0 8px 0 0; }
-      .module-container .module-bar.info-bar .message, .module-container .module-bar.info-black-bar .message {
-        flex: 1;
-        font-weight: normal; }
+    .module-container .module-bar .icon {
+      padding: 0 8px 0 0; }
+    .module-container .module-bar .message {
+      flex: 1;
+      font-weight: bold; }
     .module-container .module-bar.save-bar, .module-container .module-bar.info-bar{
   --tw-bg-opacity: 1;
   background-color: rgb(239 246 255 / var(--tw-bg-opacity));

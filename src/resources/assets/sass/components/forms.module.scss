@@ -284,30 +284,20 @@ nav.steps{
 
     // #####  bars  #####
     .module-bar{
+        display: flex;
+        align-items: center;
         margin: 0;
         padding: 7px 8px;
         @apply text-sm;
-        &.save-bar,
-        &.saved-bar,
-        &.error-bar{
-            display: flex;
-            align-items: center;
-            .message{
-                flex: 1;
-                font-weight: bold;
-            }
+
+        .icon{
+            padding: 0 8px 0 0;
         }
-        &.info-bar,
-        &.info-black-bar{
-            display: flex;
-            .icon{
-                padding: 0 8px 0 0;
-            }
-            .message{
-                flex: 1;
-                font-weight: normal;
-            }
+        .message{
+            flex: 1;
+            font-weight: bold;
         }
+
 
         &.save-bar,
         &.info-bar{
