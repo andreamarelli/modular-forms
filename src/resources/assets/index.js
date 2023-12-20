@@ -2,6 +2,8 @@
 window.Laravel = window.Laravel || {};
 window.ModularForms = {};
 
+window.ModularForms.assetPath = '/vendor/modular-forms/';
+
 // Loading mixins
 window.ModularForms.Mixins = {
     'Accordion': require('./js/mixins/accordion.js').default,
