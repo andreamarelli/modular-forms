@@ -89,16 +89,17 @@ export default {
         enableClickListeners(){
             let _this = this;
             // toggle on anchor click
-            this.anchorElem.addEventListener('click', this.isVisible ? this.hideTooltip : this.showTooltip);
-            // // close on click outside tooltip
-            // document.addEventListener('click', function(evt){
-            //     if(_this.isVisible) {
-            //         let clickedElem = evt.target;
-            //         if (clickedElem.closest('.tooltip-content') == null) {
-            //             _this.hideTooltip();
-            //         }
-            //     }
-            // });
+            this.anchorElem.addEventListener('click', this.toggleTooltip);
+            // close on click outside tooltip
+            document.addEventListener('click', function(evt){
+                if(_this.isVisible) {
+                    let clickedElem = evt.target;
+                    if (clickedElem.closest('[role=tooltip]') == null
+                        && clickedElem.closest('#'+_this.anchorElemId) == null) {
+                        _this.hideTooltip();
+                    }
+                }
+            });
         },
 
         /**
@@ -157,19 +158,31 @@ export default {
 
         },
 
+        toggleTooltip(){
+            if(this.isVisible){
+                this.hideTooltip();
+            } else{
+                this.showTooltip();
+            }
+        },
+
         /**
          * Show tooltip
          */
         showTooltip() {
-            let _this = this;
-            let content = this.tooltipElem.querySelector('.tooltip-content').textContent.trim();
-            if(content !== ''){
-                this.tooltipElem.style.display = 'block';
-                this.setTooltipPosition();
-                this.isVisible = true;
-                setTimeout(function(){
-                    _this.hideTooltip();
-                }, 10000);
+            if(!this.isVisible) {
+                let _this = this;
+                let content = this.tooltipElem.querySelector('.tooltip-content').textContent.trim();
+                if (content !== '') {
+                    this.tooltipElem.style.display = 'block';
+                    this.setTooltipPosition();
+                    this.isVisible = true;
+                    if(!this.onClick){
+                        setTimeout(function () {
+                            _this.hideTooltip();
+                        }, 10000);
+                    }
+                }
             }
         },
 
@@ -177,8 +190,10 @@ export default {
          * Hide tooltip
          */
         hideTooltip() {
-            this.tooltipElem.style.display = '';
-            this.isVisible = false;
+            if(this.isVisible){
+                this.tooltipElem.style.display = '';
+                this.isVisible = false;
+            }
         }
 
     }
