@@ -37,9 +37,9 @@ export default {
             type: String,
             default: null
         },
-        onHover: {
+        onClick: {
             type: Boolean,
-            default: true
+            default: false
         },
     },
 
@@ -47,6 +47,7 @@ export default {
         return {
             tooltipElem: null,
             arrowElem: null,
+            isVisible: false,
         }
     },
 
@@ -60,8 +61,10 @@ export default {
         this.tooltipElem = this.$el;
         this.arrowElem = this.$el.querySelector('.tooltip-arrow');
 
-        // set event listener to toggle tooltip
-        if(this.onHover){
+        // set event listeners
+        if(this.onClick){
+            this.enableClickListeners();
+        } else {
             this.enableHoverListeners();
         }
 
@@ -81,6 +84,21 @@ export default {
             ].forEach(([event, listener]) => {
                 this.anchorElem.addEventListener(event, listener);
             });
+        },
+
+        enableClickListeners(){
+            let _this = this;
+            // toggle on anchor click
+            this.anchorElem.addEventListener('click', this.isVisible ? this.hideTooltip : this.showTooltip);
+            if(this.isVisible){
+                // close on click outside tooltip
+                document.addEventListener('click', function(evt){
+                    let clickedElem = evt.target;
+                    if(clickedElem.closest('.tooltip-content') == null){
+                        _this.hideTooltip();
+                    }
+                });
+            }
         },
 
         /**
@@ -148,6 +166,7 @@ export default {
             if(content !== ''){
                 this.tooltipElem.style.display = 'block';
                 this.setTooltipPosition();
+                this.isVisible = true;
                 setTimeout(function(){
                     _this.hideTooltip();
                 }, 10000);
@@ -159,6 +178,7 @@ export default {
          */
         hideTooltip() {
             this.tooltipElem.style.display = '';
+            this.isVisible = false;
         }
 
     }
