@@ -90,15 +90,15 @@ export default {
             let _this = this;
             // toggle on anchor click
             this.anchorElem.addEventListener('click', this.isVisible ? this.hideTooltip : this.showTooltip);
-            if(this.isVisible){
-                // close on click outside tooltip
-                document.addEventListener('click', function(evt){
+            // close on click outside tooltip
+            document.addEventListener('click', function(evt){
+                if(_this.isVisible) {
                     let clickedElem = evt.target;
-                    if(clickedElem.closest('.tooltip-content') == null){
+                    if (clickedElem.closest('.tooltip-content') == null) {
                         _this.hideTooltip();
                     }
-                });
-            }
+                }
+            });
         },
 
         /**
