@@ -16,10 +16,12 @@
 
 <script>
 
+    import values from '../mixins-vue/values.mixin';
+
     export default {
 
         mixins: [
-            window.ModularForms.MixinsVue.values
+            values
         ],
 
         props: {

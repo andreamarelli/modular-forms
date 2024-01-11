@@ -2,8 +2,9 @@ import actions from './mixins/actions.mixin'
 import calc from './mixins/calc.mixin'
 import preload from './mixins/preload.mixin'
 import transitions from './mixins/transitions.mixin'
+import payload from "../mixins/payload";
 
-window.ModularForms.ModuleController = window.Vue.extend({
+window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
 
     mixins: [
         actions,
@@ -320,9 +321,9 @@ window.ModularForms.ModuleController = window.Vue.extend({
             data['_method'] = form.querySelector('input[name="_method"]').value;
             records = _this.parseRecordLocally(records);
             if (this.module_type === "GROUP_ACCORDION" || this.module_type === "GROUP_TABLE") {
-                data['records_json'] = window.ModularForms.Mixins.Payload.encode(_this.__arrange_back_records_by_group(records));
+                data['records_json'] = payload.encode(_this.__arrange_back_records_by_group(records));
             } else {
-                data['records_json'] = window.ModularForms.Mixins.Payload.encode(records);
+                data['records_json'] = payload.encode(records);
             }
             return data;
         },

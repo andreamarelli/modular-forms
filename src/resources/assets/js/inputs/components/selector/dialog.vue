@@ -143,18 +143,19 @@
 </style>
 
 <script>
-
+    import values from '../../../mixins-vue/values.mixin';
+    import floating_dialog from "../../../templates/dialog.vue";
     import selectorApiSearch from "./api-search.vue"
 
     export default {
 
         components: {
-            'floating_dialog': window.ModularForms.Template.floating_dialog,
+            floating_dialog,
             selectorApiSearch
         },
 
         mixins: [
-            window.ModularForms.MixinsVue.values
+            values
         ],
 
         props: {

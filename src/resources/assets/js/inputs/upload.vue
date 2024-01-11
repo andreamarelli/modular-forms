@@ -148,14 +148,17 @@
 
 <script>
 
+import values from '../mixins-vue/values.mixin';
+import floating_dialog from '../templates/dialog.vue';
+
 export default {
 
     components: {
-        'floating_dialog': window.ModularForms.Template.floating_dialog,
+        'floating_dialog': floating_dialog,
     },
 
     mixins: [
-        window.ModularForms.MixinsVue.values
+        values
     ],
 
     props: {

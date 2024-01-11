@@ -6,7 +6,7 @@ export default {
 
     getLabel: function(key, arg=null){
 
-        let translator = new window.I18n;
+        let translator = new window.ModularFormsVendor.I18n;
 
         let label = '';
         if(arg===null){

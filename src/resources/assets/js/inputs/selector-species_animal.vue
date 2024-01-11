@@ -60,14 +60,19 @@
 </style>
 
 <script>
+
+import values from '../mixins-vue/values.mixin';
+import redlist_category from "../templates/redlist_category.vue";
+
+
 export default {
 
     components: {
-        'redlist_category': window.ModularForms.Template.redlist_category
+        'redlist_category': redlist_category
     },
 
     mixins: [
-        window.ModularForms.MixinsVue.values
+        values
     ],
 
     props: {

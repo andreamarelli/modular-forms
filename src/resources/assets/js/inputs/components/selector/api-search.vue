@@ -106,11 +106,14 @@
 
 <script>
 
+import filter from '../../../mixins-vue/filter.mixin';
+import values from '../../../mixins-vue/values.mixin';
+
 export default {
 
     mixins: [
-        window.ModularForms.MixinsVue.filter,
-        window.ModularForms.MixinsVue.values
+        filter,
+        values
     ],
 
     props: {

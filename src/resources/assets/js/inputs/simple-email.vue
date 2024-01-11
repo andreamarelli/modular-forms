@@ -11,6 +11,7 @@
 
 <script>
 
+    import values from '../mixins-vue/values.mixin';
     import simple_text from './simple-text.vue';
 
     export default {
@@ -20,7 +21,7 @@
         },
 
         mixins: [
-            window.ModularForms.MixinsVue.values
+            values
         ],
 
         watch: {

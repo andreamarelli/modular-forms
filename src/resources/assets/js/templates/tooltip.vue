@@ -108,22 +108,22 @@ export default {
         setTooltipPosition(){
             let _this = this;
 
-            window.FloatingUI.autoUpdate(_this.anchorElem, _this.tooltipElem, () => {
+            window.ModularFormsVendor.FloatingUI.autoUpdate(_this.anchorElem, _this.tooltipElem, () => {
 
                 const arrowWidth = _this.arrowElem.offsetWidth;
                 const floatingOffset = Math.sqrt(2 * arrowWidth ** 2) / 2;
 
-                window.FloatingUI.computePosition(_this.anchorElem, _this.tooltipElem, {
+                window.ModularFormsVendor.FloatingUI.computePosition(_this.anchorElem, _this.tooltipElem, {
                     placement: 'top',
                     middleware: [
-                        window.FloatingUI.flip(),
-                        window.FloatingUI.shift({
+                        window.ModularFormsVendor.FloatingUI.flip(),
+                        window.ModularFormsVendor.FloatingUI.shift({
                             padding: 5
                         }),
-                        window.FloatingUI.offset({
+                        window.ModularFormsVendor.FloatingUI.offset({
                             mainAxis: floatingOffset,
                         }),
-                        window.FloatingUI.arrow({element: this.arrowElem})
+                        window.ModularFormsVendor.FloatingUI.arrow({element: this.arrowElem})
                     ],
                 })
                 .then(({x, y, placement, middlewareData}) => {

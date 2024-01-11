@@ -23,10 +23,12 @@
 
 <script>
 
+    import values from '../mixins-vue/values.mixin';
+
     export default {
 
         mixins: [
-            window.ModularForms.MixinsVue.values
+            values
         ],
 
         props: {
@@ -63,7 +65,7 @@
             let _this = this;
 
             let options = {
-                locale: window.AirDatepicker.locale[window.Locale.getLocale()],
+                locale: window.ModularFormsVendor.AirDatepicker.locale[window.Locale.getLocale()],
                 autoClose: true,
                 toggleSelected: false,
                 onSelect({date, formattedDate, datepicker}){
@@ -93,7 +95,7 @@
                 }
             }
 
-            this.datePicker = new window.AirDatepicker('#' + this.id, options);
+            this.datePicker = new window.ModularFormsVendor.AirDatepicker('#' + this.id, options);
         },
 
         methods: {

@@ -27,7 +27,7 @@
 <script>
 
     // ## Initialize Vue ##
-    new window.Vue({
+    new window.ModularFormsVendor.Vue({
 
         store: window.ModularForms.formStore,
 

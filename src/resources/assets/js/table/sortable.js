@@ -1,10 +1,16 @@
-window.ModularForms.SortableTable = window.Vue.extend({
+import filter from "../mixins-vue/filter.mixin";
+import sorter from "../mixins-vue/sorter.mixin";
+import paginate from "../mixins-vue/paginate.mixin";
+import checkboxes from "../mixins-vue/checkboxes.mixin";
+
+
+export default {
 
     mixins: [
-        window.ModularForms.MixinsVue.filter,
-        window.ModularForms.MixinsVue.sorter,
-        window.ModularForms.MixinsVue.paginate,
-        window.ModularForms.MixinsVue.checkboxes
+        filter,
+        sorter,
+        paginate,
+        checkboxes,
     ] ,
 
     data: function () {
@@ -26,4 +32,4 @@ window.ModularForms.SortableTable = window.Vue.extend({
 
     }
 
-});
+};

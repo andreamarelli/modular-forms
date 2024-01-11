@@ -529,9 +529,9 @@
   "fonts/varela-round-v8-latin_latin-ext-regular.woff": "fonts/varela-round-v8-latin_latin-ext-regular.woff",
   "fonts/varela-round-v8-latin_latin-ext-regular.woff2": "fonts/varela-round-v8-latin_latin-ext-regular.woff2",
   "images/iucn_red_list.png": "images/iucn_red_list.png",
-  "index.css": "index-debug.8e87eb609ddf0b733d36.css",
-  "index.js": "index-debug.bc9a797483f61e6b3730.js",
+  "index.css": "index-debug.769de90926de30fc957a.css",
+  "index.js": "index-debug.ae51806de8db3e13e5d8.js",
   "mapbox.css": "mapbox-debug.ba631fb091eb34fa390e.css",
   "mapbox.js": "mapbox-debug.f8ff371537efdabf743e.js",
-  "vendor.js": "vendor-debug.b5f35d3bbccb3ad36f7b.js"
+  "vendor.js": "vendor-debug.f3b744d3007d2c1a03ce.js"
 }
