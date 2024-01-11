@@ -529,11 +529,11 @@
   "fonts/varela-round-v8-latin_latin-ext-regular.woff": "fonts/varela-round-v8-latin_latin-ext-regular.woff",
   "fonts/varela-round-v8-latin_latin-ext-regular.woff2": "fonts/varela-round-v8-latin_latin-ext-regular.woff2",
   "images/iucn_red_list.png": "images/iucn_red_list.png",
-  "index.css": "index.186a31ee0b97944b1526.css",
-  "index.js": "index.4edf43c00a501f2b47ca.js",
+  "index.css": "index.3c05c9bcba4ffa143aec.css",
+  "index.js": "index.5e747cc9fa00932ecb3c.js",
+  "mapbox.7b690175bfb62a871975.js.LICENSE.txt": "mapbox.7b690175bfb62a871975.js.LICENSE.txt",
   "mapbox.css": "mapbox.152407ccf9552b03407c.css",
-  "mapbox.e536150925599f9286b8.js.LICENSE.txt": "mapbox.e536150925599f9286b8.js.LICENSE.txt",
-  "mapbox.js": "mapbox.e536150925599f9286b8.js",
-  "vendor.9f62e28933cbd0b2cf25.js.LICENSE.txt": "vendor.9f62e28933cbd0b2cf25.js.LICENSE.txt",
-  "vendor.js": "vendor.9f62e28933cbd0b2cf25.js"
+  "mapbox.js": "mapbox.7b690175bfb62a871975.js",
+  "vendor.bb87a26216e3be11e076.js.LICENSE.txt": "vendor.bb87a26216e3be11e076.js.LICENSE.txt",
+  "vendor.js": "vendor.bb87a26216e3be11e076.js"
 }

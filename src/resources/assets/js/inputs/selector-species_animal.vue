@@ -143,9 +143,9 @@ export default {
             return (item.common_name_en !== null || item.common_name_fr !== null || item.common_name_sp !== null);
         },
 
-        afterSearch(response){
-            this.orders = response['data']['orders'];
-            this.classes = response['data']['classes'];
+        afterSearch(data){
+            this.orders = data['orders'];
+            this.classes = data['classes'];
             this.filterByOrder = null;
             this.filterByClass = null;
         },

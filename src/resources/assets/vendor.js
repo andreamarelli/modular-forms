@@ -1,5 +1,4 @@
 // Utilities & frameworks
-window.axios = require('axios');
 window.$ = window.jQuery = require('jquery');
 
 // Temporary replacement for mariuzzo/laravel-js-localization (need to wait support for packages loadTranslationsFrom method)

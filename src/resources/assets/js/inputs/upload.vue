@@ -217,8 +217,6 @@ export default {
             let errorMessage = null;
             this.errorMessage = null;
 
-            console.log(event.target.files);
-
             if(event.target.files.length>0){
 
                 this.selectedFile = event.target.files[0];
@@ -256,22 +254,24 @@ export default {
         uploadFile: function () {
             let _this = this;
             let data = new FormData();
-            data.append('_token', window.Laravel.csrfToken);
             data.append('file_upload', this.selectedFile);
             this.uploading = true;
 
-            window.axios({
+            fetch(window.Laravel.baseUrl + 'ajax/upload', {
                 method: 'post',
-                url: window.Laravel.baseUrl + 'ajax/upload',
+                headers: {
+                    "X-CSRF-Token": window.Laravel.csrfToken
+                },
                 data: data
             })
-                .then(function (response) {
-                    _this.applySelection(response.data);
+                .then((response) => response.json())
+                .then(function(data){
+                    _this.applySelection(data);
                 })
-                .catch(function (response) {
+                .catch(function (data) {
                     _this.errorMessage = Locale.getLabel('modular-forms::common.upload.error');
                 })
-                .finally(function (response) {
+                .finally(function (data) {
                     _this.uploading = false;
                     _this.loading = false;
                     _this.changed = true;

@@ -434,8 +434,6 @@ window.ModularForms.ModuleController = window.Vue.extend({
                     .replace('group_accordion_' + this.module_key + '_', '');
             }
 
-            console.log(row_index, group_key);
-
             if (group_key === null) {
                 _this.records.splice(row_index, 1);
                 if (_this.records.length === 0) {

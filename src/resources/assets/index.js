@@ -13,7 +13,6 @@ window.ModularForms.Mixins = {
     'Payload': require('./js/mixins/payload.js').default
 };
 window.ModularForms.MixinsVue = {
-    'ajax': require('./js/mixins-vue/ajax.mixin').default,
     'checkboxes': require('./js/mixins-vue/checkboxes.mixin.js').default,
     'filter': require('./js/mixins-vue/filter.mixin').default,
     'paginate': require('./js/mixins-vue/paginate.mixin').default,

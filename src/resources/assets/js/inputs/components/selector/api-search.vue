@@ -183,7 +183,6 @@ export default {
         searchParams(){
             let _this = this;
             let params = {
-                '_token': window.Laravel.csrfToken,
                 'search_key': _this.searchKey
             };
             if(typeof this.selectorComponent.searchParams === "function"){
@@ -207,19 +206,23 @@ export default {
                 _this.reset_search_result();
                 this.isSearching = true;
 
-                window.axios({
+                fetch(_this.searchUrl, {
                     method: 'POST',
-                    url: _this.searchUrl,
-                    data: _this.searchParams(),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "X-CSRF-Token": window.Laravel.csrfToken
+                    },
+                    body: JSON.stringify(_this.searchParams())
                 })
-                    .then(function (response) {
-                        _this.searchResults = response.data['records'];
+                    .then((response) => response.json())
+                    .then(function(data){
+                        _this.searchResults = data['records'];
                         _this.showList = _this.searchResults;
                         _this.totalCount = Object.keys(_this.searchResults).length;
                         _this.searchExecuted = true;
                         _this.isSearching = false;
                         if(typeof _this.selectorComponent.afterSearch === "function"){
-                            _this.selectorComponent.afterSearch(response);
+                            _this.selectorComponent.afterSearch(data);
                         }
                     })
                     .catch(function () {

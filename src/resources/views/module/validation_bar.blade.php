@@ -66,20 +66,23 @@
                     this.validation.id = null;
                     this.validation.name = null;
 
-                    window.axios({
+                    fetch('{{ action([$controller, 'validate_module'], ['item' => $item->getKey()]) }}', {
                         method: 'post',
-                        url: '{{ action([$controller, 'validate_module'], ['item' => $item->getKey()]) }}',
-                        data: {
-                            _token: window.Laravel.csrfToken,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            "X-CSRF-Token": window.Laravel.csrfToken
+                        },
+                        data: JSON.stringify({
                             module_key: '{{ $definitions['module_key'] }}',
                             validate: !_this.is_validated
-                        },
+                        }),
                     })
-                        .then(function (response) {
-                            _this.is_validated = response.data.validated;
-                            _this.validation.date = response.data.date;
-                            _this.validation.id = response.data.id;
-                            _this.validation.name = response.data.name;
+                        .then((response) => response.json())
+                        .then(function(data){
+                            _this.is_validated = data.validated;
+                            _this.validation.date = data.date;
+                            _this.validation.id = data.id;
+                            _this.validation.name = data.name;
                         })
                         .catch(function (error) {
                             console.log(error);
