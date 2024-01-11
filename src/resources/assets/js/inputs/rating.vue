@@ -108,7 +108,7 @@
             tooltipLabel(index){
                 if(this.legend!=null){
                     if(this.legend.hasOwnProperty(index)){
-                        return _.upperFirst(this.legend[index]);
+                        return this.legend[index].charAt(0).toUpperCase() + this.legend[index].slice(1);
                     }
                 }
                 return '';

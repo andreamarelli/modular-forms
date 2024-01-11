@@ -16,7 +16,7 @@ export default {
         } else if(typeof arg === "number"){
             label = translator.trans_choice(key, arg)
         }
-        return _.upperFirst(label);
+        return label.charAt(0).toUpperCase() + label.slice(1);
     },
 
 };
