@@ -9,22 +9,22 @@ window.ModularForms.assetPath = '/vendor/modular-forms/';
 window.ModularForms.Mixins = {
     Accordion: require('./js/mixins/accordion.js').default,
     Animation: require('./js/mixins/animation.js').default,
-    // Cookies: require('./js/mixins/cookie.js').default,
+    Cookies: require('./js/mixins/cookie.js').default,
     Locale: window.Locale, // Alias
-    // Payload: require('./js/mixins/payload.js').default
+    Payload: require('./js/mixins/payload.js').default
 };
 
-    // MixinsVue: {
-    //     'checkboxes': require('./js/mixins-vue/checkboxes.mixin.js').default,
-    //     'filter': require('./js/mixins-vue/filter.mixin').default,
-    //     'paginate': require('./js/mixins-vue/paginate.mixin').default,
-    //     'sorter': require('./js/mixins-vue/sorter.mixin').default,
-    //     'values': require('./js/mixins-vue/values.mixin').default,
-    // },
+window.ModularForms.MixinsVue = {
+    checkboxes: require('./js/mixins-vue/checkboxes.mixin.js').default,
+    filter: require('./js/mixins-vue/filter.mixin').default,
+    paginate: require('./js/mixins-vue/paginate.mixin').default,
+    sorter: require('./js/mixins-vue/sorter.mixin').default,
+    values: require('./js/mixins-vue/values.mixin').default,
+};
 
-    // FiltersVue: {
-    //     'pretty_number': require('./js/mixins-vue/filters/pretty_number.js').default,
-    // }
+window.ModularForms.FiltersVue = {
+    pretty_number: require('./js/mixins-vue/filters/pretty_number.js').default,
+};
 
 
 // Load VueBus
@@ -43,11 +43,11 @@ import SortableTable from "./js/table/sortable";
 window.ModularForms.SortableTable = SortableTable;
 
 // Load TEMPLATES components
-// ModularForms.Template = {
-//     'flag': require('./js/templates/flag.vue').default,
-//     'redlist_category': require('./js/templates/redlist_category.vue').default,
-//     'floating_dialog': require('./js/templates/dialog.vue').default
-// };
+window.ModularForms.Template = {
+    flag: require('./js/templates/flag.vue').default,
+    redlist_category: require('./js/templates/redlist_category.vue').default,
+    floating_dialog: require('./js/templates/dialog.vue').default
+};
 window.ModularFormsVendor.Vue.component('date', require('./js/templates/date.vue').default);
 window.ModularFormsVendor.Vue.component('floating_dialog', require('./js/templates/dialog.vue').default);
 window.ModularFormsVendor.Vue.component('flag',  require('./js/templates/flag.vue').default),
