@@ -22,9 +22,9 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 abstract class FormController extends Controller
 {
 
-    protected static $form_class;
-    protected static string|null $form_view_prefix;
-    protected static string|null $form_default_step;
+    protected static $form_class = null;
+    protected static string|null $form_view_prefix = null;
+    protected static string|null $form_default_step = null;
 
     protected const PAGINATE = true;
     protected const PER_PAGE = 50;
