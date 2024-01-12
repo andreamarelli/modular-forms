@@ -19780,8 +19780,12 @@ body.flex-col {
 .module-table .rating-container {
   justify-content: center; }
 
-.ck-editor__editable_inline p,
-.ck-editor__editable_inline h2 {
+.ck.ck-editor {
+  min-width: 80px;
+  width: 100%;
+  max-width: 800px; }
+
+.ck-editor__editable_inline p, .ck-editor__editable_inline h2 {
   font-family: Montserrat, sans-serif;
   font-size: 0.75rem;
   line-height: 1rem;

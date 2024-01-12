@@ -18,6 +18,10 @@ window.ModularFormsVendor.Vuex = require('vuex');
 window.ModularFormsVendor.AutoNumeric = require('autonumeric');
 window.ModularFormsVendor.Base64 = require('js-base64');
 
+// Vue-select
+import vSelect from 'vue-select';
+window.ModularFormsVendor.vSelect = vSelect;
+
 // CKEditor
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';

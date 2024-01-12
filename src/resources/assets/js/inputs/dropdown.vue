@@ -19,10 +19,9 @@
 
 <script>
 
-    import vSelect from 'vue-select';
     import values from '../mixins-vue/values.mixin';
     import sorter from '../mixins-vue/sorter.mixin';
-    Vue.component('v-select', vSelect);
+    window.ModularFormsVendor.Vue.component('v-select', window.ModularFormsVendor.vSelect);
 
     export default {
 
