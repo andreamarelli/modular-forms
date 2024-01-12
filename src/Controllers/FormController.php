@@ -4,6 +4,9 @@ namespace AndreaMarelli\ModularForms\Controllers;
 
 use AndreaMarelli\ModularForms\Helpers\File\File;
 use AndreaMarelli\ModularForms\Helpers\ModuleKey;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,12 +19,12 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
  *
  * @package AndreaMarelli\ModularForms\Controllers
  */
-class FormController extends Controller
+abstract class FormController extends Controller
 {
 
-    protected static $form_class = null;
-    protected static $form_view_prefix = null;
-    protected static $form_default_step = null;
+    protected static $form_class;
+    protected static string $form_view_prefix;
+    protected static string $form_default_step;
 
     protected const PAGINATE = true;
     protected const PER_PAGE = 50;
@@ -32,11 +35,9 @@ class FormController extends Controller
     /**
      * Manage "index" route
      *
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function index(Request $request)
+    public function index(Request $request): Application|View|Factory
     {
         if(static::AUTHORIZE_BY_POLICY){
             $this->authorize('viewAny', static::$form_class);
@@ -58,10 +59,9 @@ class FormController extends Controller
     /**
      * Manage "create" route
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function create()
+    public function create(): Application|View|Factory
     {
         if(static::AUTHORIZE_BY_POLICY){
             $this->authorize('create', static::$form_class);
@@ -72,8 +72,6 @@ class FormController extends Controller
     /**
      * Manage "store" route
      *
-     * @param Request $request
-     * @return Mixed
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Request $request)
@@ -93,12 +91,9 @@ class FormController extends Controller
     /**
      * Manage "show" route
      *
-     * @param $item
-     * @param null $step
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     *@throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function show($item, $step=null)
+    public function show($item, $step=null): Application|View|Factory
     {
         if(static::AUTHORIZE_BY_POLICY){
             $this->authorize('view', (static::$form_class)::find($item));
@@ -107,6 +102,7 @@ class FormController extends Controller
         $form = $form->find($item);
         $step = $step ?: static::$form_default_step;
         return view(static::$form_view_prefix.'.show', [
+            'controller' => static::class,
             'item' => $form,
             'step' => $step
         ]);
@@ -115,11 +111,9 @@ class FormController extends Controller
     /**
      * Manage "print" route
      *
-     * @param $item
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function print($item)
+    public function print($item): Application|View|Factory
     {
         if(static::AUTHORIZE_BY_POLICY){
             $this->authorize('view', (static::$form_class)::find($item));
@@ -127,6 +121,7 @@ class FormController extends Controller
         $form = new static::$form_class();
         $form = $form->find($item);
         return view(static::$form_view_prefix.'.print', [
+            'controller' => static::class,
             'item' => $form,
             'mode' => 'print'
         ]);
@@ -134,13 +129,9 @@ class FormController extends Controller
 
     /**
      * Manage "edit" route
-     *
-     * @param $item
-     * @param null $step
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function edit($item, $step=null)
+    public function edit($item, $step=null): Application|View|Factory
     {
         if(static::AUTHORIZE_BY_POLICY) {
             $this->authorize('update', (static::$form_class)::find($item));
@@ -149,6 +140,7 @@ class FormController extends Controller
         $form = $form->find($item);
         $step = $step ?: static::$form_default_step;
         return view(static::$form_view_prefix.'.edit', [
+            'controller' => static::class,
             'item' => $form,
             'step' => $step
         ]);
@@ -157,12 +149,9 @@ class FormController extends Controller
     /**
      * Manage "update" route
      *
-     * @param $item
-     * @param Request $request
-     * @return mixed
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update($item, Request $request)
+    public function update($item, Request $request): array
     {
         if(static::AUTHORIZE_BY_POLICY) {
             $this->authorize('update', (static::$form_class)::find($item));
@@ -190,10 +179,8 @@ class FormController extends Controller
 
     /**
      * Get pair id/name list
-     * @param Request $request
-     * @return mixed
      */
-    public function getList(Request $request)
+    public function getList(Request $request): array
     {
         HTTP::sanitize($request, static::sanitization_rules);
 
