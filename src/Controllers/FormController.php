@@ -23,8 +23,8 @@ abstract class FormController extends Controller
 {
 
     protected static $form_class = null;
-    protected static string|null $form_view_prefix = null;
-    protected static string|null $form_default_step = null;
+    protected static $form_view_prefix = null;
+    protected static $form_default_step = null;
 
     protected const PAGINATE = true;
     protected const PER_PAGE = 50;
