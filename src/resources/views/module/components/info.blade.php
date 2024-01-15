@@ -1,8 +1,3 @@
-<?php
-/** @var Mixed $definitions */
-
-?>
-
 @if($definitions['module_info']!==null)
 
     {{-- #### Plain: div below module title bar #### --}}

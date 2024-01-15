@@ -15,7 +15,7 @@ $show_scrollbar = $show_scrollbar ?? true;
 
     {{--  Heading --}}
     <div class="entity-heading">
-       @yield('header')
+        @yield('header')
     </div>
 
     {{--  Steps menu --}}
@@ -37,8 +37,8 @@ $show_scrollbar = $show_scrollbar ?? true;
         'controller' => $controller,
         'item' => $item,
         'step' => $step,
-        'mode' => 'edit'
-    ]);
+        'mode' => \AndreaMarelli\ModularForms\View\Module\Container::MODE_EDIT
+    ])
 
     {{--  Scroll buttons  --}}
     @if($show_scrollbar)

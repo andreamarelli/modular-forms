@@ -9,9 +9,12 @@
 
 {{--  Modules (by step) --}}
 @foreach($item::modules()[$step] as $module)
-    @include('modular-forms::module.' . $mode . '.container', [
-        'controller' => $controller,
-        'module_class' => $module,
-        'form_id' => $item->getKey()
-    ])
+
+    <x-modular-forms::module.container
+        :controller="$controller"
+        :module="$module"
+        :formId="$item->getKey()"
+        :mode="$mode"
+    ></x-modular-forms::module.container>
+
 @endforeach

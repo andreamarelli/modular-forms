@@ -1,7 +1,3 @@
-<?php
-/** @var Mixed $definitions */
-?>
-
 <div class="module-header">
     @if($definitions['module_code']!==null)
         <div class="module-code text-center">

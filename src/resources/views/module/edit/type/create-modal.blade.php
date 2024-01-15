@@ -8,7 +8,7 @@ $data = $data ?? [];
 <div class="module-rows">
 @foreach($definitions['fields'] as $field)
 
-    @component('modular-forms::module.field_container', [
+    @component('modular-forms::module.components.field_container', [
                'name' => $field['name'],
                'label' => $field['label'] ?? '',
                'label_width' => $definitions['label_width']

@@ -1,67 +1,70 @@
 <?php
-    /** @var String $controller */
-    /** @var \AndreaMarelli\ModularForms\Models\Module $module_class */
-    /** @var int $form_id */
 
-    $collection = $module_class::getModule($form_id);
-    $definitions = $module_class::getDefinitions($form_id);
-    $vue_data = $module_class::getVueData($form_id, $collection);
+use AndreaMarelli\ModularForms\View\Module\Container;
+use Illuminate\Support\Facades\Blade;
 
-    $mode = 'edit';
-    $controller = \Illuminate\Support\Str::startsWith($controller, 'App\Http') ? '\\'.$controller : $controller;
-    $body_view = \AndreaMarelli\ModularForms\Helpers\ModuleKey::KeyToView($definitions['module_key']);
-
-    if($collection->isEmpty()){
-        $collection = collect([new $module_class()]);
-    }
-
-unset($module_class);
 ?>
 
 <div class="module-container" id="module_{{ $definitions['module_key'] }}">
 
     {{-- title --}}
-    @include('modular-forms::module.title', compact(['definitions']))
+    {!! Blade::renderComponent(new $title_view($definitions)) !!}
 
     {{-- info --}}
-    @include('modular-forms::module.info', ['definitions' => $definitions])
+    {!! Blade::renderComponent(new $info_view($definitions)) !!}
 
     <div class="module-body">
 
         {{-- last update --}}
-        @include('modular-forms::module.last_update', ['mode' => $mode])
+        {!! Blade::renderComponent(new $last_update_view($mode, $records)) !!}
 
-        <form method="post" action="{{ action([$controller, $form_id!==null ? 'update' : 'store'], [$form_id]) }}">
+        <form method="post" action="{{ action([$controller, $formId!==null ? 'update' : 'store'], [$formId]) }}">
 
-            @if($form_id!==null)
+            @if($formId!==null)
                 @method('PATCH')
             @endif
 
             {{-- crsf --}}
             @csrf
 
-            {{-- preload / not applicable / not available --}}
-            @include('modular-forms::module.actions', compact(['definitions']))
+            {{--  not applicable / not available / preload --}}
+            <div class="text-right" style="margin: 0 0 10px;">
+                {!! Blade::renderComponent(new $not_applicable_view($definitions)) !!}
+                {!! Blade::renderComponent(new $preload_data_view($definitions)) !!}
+            </div>
 
-            <div class="module_body" v-show="!not_applicable && !not_available">
+            {{-- kepp "observation" field even if not_applicable/not_available --}}
+            {!! Blade::renderComponent(new $observations_view($definitions)) !!}
+
+            <div v-show="!not_applicable && !not_available">
 
                 {{-- ########################################################### --}}
                 {{--    If a custom view does not exists use the standard one    --}}
                 {{-- ########################################################### --}}
-                @if(!view()->exists($body_view))
-                    @include('modular-forms::module.edit.body', compact(['collection', 'vue_data', 'definitions']))
-                    @include('modular-forms::module.edit.script', compact(['collection', 'vue_data', 'definitions']))
+                @if(!view()->exists($default_model_view_name))
+                    <x-modular-forms::module.components.body
+                        :collection="$collection"
+                        :vueData="$vueData"
+                        :definitions="$definitions"
+                        :mode="$mode"
+                    ></x-modular-forms::module.components.body>
+                    <x-modular-forms::module.components.script
+                        :collection="$collection"
+                        :vueData="$vueData"
+                        :definitions="$definitions"
+                    ></x-modular-forms::module.components.script>
                 @else
                     {{-- custom view --}}
-                    @include($body_view, compact(['collection', 'vue_data', 'definitions']))
+                    @include($default_model_view_name, compact(['collection', 'vueData', 'definitions', 'mode']))
                 @endif
 
             </div>
 
         </form>
+
     </div>
 
-    {{-- save action bars --}}
-    @include('modular-forms::module.save_bar')
+    {{-- save bars --}}
+    @include('modular-forms::module.components.save_bar')
 
 </div>

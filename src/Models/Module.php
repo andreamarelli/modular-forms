@@ -268,17 +268,9 @@ class Module extends BaseModel
 
     /**
      * Generate the array of data needed by the Vue.JS module's controller
-     *
-     * @param $form_id
-     * @param $collection
-     * @return array
-     * @throws \ReflectionException
      */
-    public static function getVueData($form_id, $collection = null): array
+    public static function getVueData($form_id, $records, $definitions): array
     {
-        $definitions    = static::getDefinitions($form_id);
-        $module_records = static::getModuleRecords($form_id, $collection);
-
         return [
             'module_key' => $definitions['module_key'],
             'module_type' => $definitions['module_type'],
@@ -288,9 +280,9 @@ class Module extends BaseModel
             'predefined_values' => $definitions['predefined_values'],
             'max_rows' => $definitions['max_rows'],
             'accordion_title_field' => $definitions['accordion_title_field'],
-            'empty_record' => $module_records['empty_record'],
-            'records' => $module_records['records'],
-            'last_update' => $module_records['last_update'],
+            'empty_record' => $records['empty_record'],
+            'records' => $records['records'],
+            'last_update' => $records['last_update'],
             'action' => $form_id !== null ? 'update' : 'store',
             'form_id' => $form_id,
             'enable_not_applicable' => $definitions['enable_not_applicable']

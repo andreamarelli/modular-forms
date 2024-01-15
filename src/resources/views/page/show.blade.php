@@ -3,6 +3,9 @@
 /** @var \AndreaMarelli\ModularForms\Models\Form $item */
 /** @var string $step */
 /** @var string $label_prefix */
+/** @var boolean $show_scrollbar [optional] */
+
+$show_scrollbar = $show_scrollbar ?? true;
 
 ?>
 
@@ -28,7 +31,12 @@
         'controller' => $controller,
         'item' => $item,
         'step' => $step,
-        'mode' => 'show'
-    ]);
+        'mode' => \AndreaMarelli\ModularForms\View\Module\Container::MODE_SHOW
+    ])
+
+    {{--  Scroll buttons  --}}
+    @if($show_scrollbar)
+        @include('modular-forms::module.scroll', ['item' => $item, 'step' => $step])
+    @endif
 
 @endsection
