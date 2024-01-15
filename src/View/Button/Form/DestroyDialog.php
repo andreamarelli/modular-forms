@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Components\Button\Form;
+namespace AndreaMarelli\ModularForms\View\Button\Form;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;

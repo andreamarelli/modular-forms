@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Components\Button\Form;
+namespace AndreaMarelli\ModularForms\View\Button\Form;
 
 use AndreaMarelli\ModularForms\Helpers\Template;
 use Closure;

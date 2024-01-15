@@ -1,9 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Components\Button\Form;
+namespace AndreaMarelli\ModularForms\View\Button\Action;
 
 use Closure;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
 
 abstract class _Button extends Component
@@ -16,17 +15,16 @@ abstract class _Button extends Component
 
     public function __construct(
         public String $controller,
-        public Model|String $item
+        ?string $text = null,
+        bool $newPage = false,
+        ?string $tooltip = null
     ) {
         $this->controller = $controller;
-        $this->item = $item;
     }
 
     public function href(): string
     {
-        return $this->item instanceof Model
-            ? 'href=' . action([$this->controller, $this->action], [$this->item->getKey()])
-            : ':href="\'' . vueAction($this->controller, $this->action, $this->item ?? 'item.id') . '\'"';
+        return 'href=' . action([$this->controller, $this->action]);
     }
 
     /**
@@ -36,7 +34,7 @@ abstract class _Button extends Component
     {
         return function (array $data)
         {
-            $merged_attributes = $data['attributes']->merge(['class' => 'small']);
+            $merged_attributes = $data['attributes']->merge(['class' => 'rounded']);
             $this->attributes->setAttributes([
                 'class' => $merged_attributes['class']
             ]);
