@@ -46,6 +46,7 @@ use Illuminate\Support\Facades\Blade;
                         :collection="$collection"
                         :vueData="$vueData"
                         :definitions="$definitions"
+                        :records="$records"
                         :mode="$mode"
                     ></x-modular-forms::module.components.body>
                     <x-modular-forms::module.components.script

@@ -53,7 +53,7 @@ $only_show = $only_show ?? false;
                 @lang('modular-forms::common.form.already_validated')
             </div>
         </div>
-    @elseif(!$no_data)
+    @elseif(!$noData)
         @include('modular-forms::module.validation_bar', [
             'controller' => $controller,
             'definitions' => $definitions,

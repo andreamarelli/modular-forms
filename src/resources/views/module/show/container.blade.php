@@ -41,6 +41,7 @@ use Illuminate\Support\Facades\Blade;
                     :collection="$collection"
                     :vueData="$vueData"
                     :definitions="$definitions"
+                    :records="$records"
                     :mode="$mode"
                 ></x-modular-forms::module.components.body>
             @else
@@ -53,11 +54,7 @@ use Illuminate\Support\Facades\Blade;
     </div>
 
     @if($mode===Container::MODE_VALIDATE)
-        <x-modular-forms::module.components.validation_bar
-            :controller="$controller"
-            :definitions="$definitions"
-            :validation="$validation"
-        ></x-modular-forms::module.components.validation_bar>
+        @include('modular-forms::module.components.validation_bar', compact(['controller', 'definitions', 'validation']))
     @endif
 
 </div>

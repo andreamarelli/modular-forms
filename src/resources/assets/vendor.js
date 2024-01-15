@@ -2,6 +2,7 @@ window.ModularFormsVendor = {}
 
 // Utilities & frameworks
 window.ModularFormsVendor.jQuery = require('jquery');
+window.$ = window.ModularFormsVendor.jQuery // Alias
 
 // Temporary replacement for mariuzzo/laravel-js-localization (need to wait support for packages loadTranslationsFrom method)
 // Pull request #149 (https://github.com/rmariuzzo/Laravel-JS-Localization/pull/149)
