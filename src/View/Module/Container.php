@@ -22,7 +22,7 @@ class Container extends Component
     public array $vueData;
     public bool $noData = false;
     public ?string $default_model_view_name;
-    public array $last_update;
+    public ?array $last_update;
     public ?array $validation;
 
     public const MODE_EDIT = 'edit';
