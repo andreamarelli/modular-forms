@@ -43,7 +43,7 @@ class Container extends Component
     public function __construct(
          public string $controller,
          public string $module,
-         public int $formId,
+         public ?int $formId,
          public string $mode
     ) {
         /** @var \AndreaMarelli\ModularForms\Models\Module $module */
