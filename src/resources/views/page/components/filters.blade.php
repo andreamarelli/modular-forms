@@ -2,8 +2,11 @@
 /** @var string $content */
 /** @var string $controller */
 /** @var \Illuminate\Http\Request $request [optional] */
+/** @var string $action [optional] */
 
 use \Illuminate\Support\Str;
+
+$action = $action ?? 'index';
 
 ?>
 
@@ -11,7 +14,7 @@ use \Illuminate\Support\Str;
 
     <x-modular-forms::accordion.item title="{{ Str::upper(trans('modular-forms::common.filters')) }}">
 
-        <form class="form-horizontal" method="GET" action="{{ action([$controller, 'index']) }}">
+        <form class="form-horizontal" method="GET" action="{{ action([$controller, $action]) }}">
             {{ csrf_field() }}
 
             <div class="filters-grid">

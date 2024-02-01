@@ -3,10 +3,17 @@ use AndreaMarelli\ModularForms\Helpers\Manifest;
 use Illuminate\Support\Facades\App;
 
 $debug = !App::environment('production');
+$only_css = $only_css ?? false;
+
 ?>
 
-<script src="{{ Manifest::asset('mapbox.js', $debug) }}"></script>
+{{-- Stylesheets--}}
 <link rel="stylesheet" href="{{ Manifest::asset('mapbox.css', $debug) }}">
-<script>
-    window.mapboxgl.accessToken = '{{ env('MAPBOX_ACCESS_TOKEN') }}';
-</script>
+
+{{-- JavaScript--}}
+@if(!$only_css)
+    <script src="{{ Manifest::asset('mapbox.js', $debug) }}"></script>
+    <script>
+        window.mapboxgl.accessToken = '{{ env('MAPBOX_ACCESS_TOKEN') }}';
+    </script>
+@endif

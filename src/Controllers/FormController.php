@@ -3,7 +3,7 @@
 namespace AndreaMarelli\ModularForms\Controllers;
 
 use AndreaMarelli\ModularForms\Helpers\File\File;
-use AndreaMarelli\ModularForms\Helpers\ModuleKey;
+use AndreaMarelli\ModularForms\View\Module\Container;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -123,7 +123,7 @@ abstract class FormController extends Controller
         return view(static::$form_view_prefix.'.print', [
             'controller' => static::class,
             'item' => $form,
-            'mode' => 'print'
+            'mode' => Container::MODE_PRINT
         ]);
     }
 
