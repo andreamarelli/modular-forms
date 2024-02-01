@@ -15,7 +15,7 @@ $show_scrollbar = $show_scrollbar ?? true;
 
     {{--  Heading --}}
     <div class="entity-heading">
-        @yield('header')
+        @yield('heading')
     </div>
 
     {{--  Steps menu --}}
