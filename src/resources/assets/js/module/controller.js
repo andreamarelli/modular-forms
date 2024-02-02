@@ -318,7 +318,9 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
             data['form_id'] = _this.form_id;
             data['module_key'] = _this.module_key;
             data['_token'] = form.querySelector('input[name="_token"]').value;
-            data['_method'] = form.querySelector('input[name="_method"]').value ?? null;
+            if(_this.form_id!==null){
+                data['_method'] = form.querySelector('input[name="_method"]');
+            }
             records = _this.parseRecordLocally(records);
             if (this.module_type === "GROUP_ACCORDION" || this.module_type === "GROUP_TABLE") {
                 data['records_json'] = payload.encode(_this.__arrange_back_records_by_group(records));
