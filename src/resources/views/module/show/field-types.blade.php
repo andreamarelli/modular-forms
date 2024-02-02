@@ -72,8 +72,6 @@ if($value!==null){
             <a target="_blank" href="{{ $value['download_link'] }}">
                 {!! \AndreaMarelli\ModularForms\Helpers\Template::icon('file') !!} {!! $value['original_filename'] !!}
             </a>
-        @else
-            &nbsp;
         @endif
     </div>
 @elseif(\Illuminate\Support\Str::contains($type, 'boolean-') || \Illuminate\Support\Str::contains($type, 'boolean_numeric-'))
@@ -108,21 +106,21 @@ if($value!==null){
         }
         ?>
     <div class="field-preview">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 
 @elseif($only_label)
-    {!! $value ?? '&nbsp;' !!}
+    {!! $value !!}
 
 @elseif($type==='numeric' || $type==='currency' || $type==='integer' || $type==='float' || $type==='code')
     <div class="field-preview field-numeric">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 @elseif(\Illuminate\Support\Str::contains($type, 'date') || \Illuminate\Support\Str::contains($type, 'year'))
     <div class="field-preview field-date">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 @elseif(\Illuminate\Support\Str::contains($type, 'blade-'))
@@ -138,14 +136,14 @@ if($value!==null){
         ])
     @else
         <div class="field-preview">
-            {!! $value ?? '&nbsp;' !!}
+            {!! $value !!}
         </div>
     @endif
 
 @else
 
     <div class="field-preview">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 @endif

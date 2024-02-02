@@ -12372,7 +12372,8 @@ nav.steps {
 .field-preview {
   min-width: 80px;
   max-width: 450px;
-  width: 100%; }
+  width: 100%;
+  min-height: 28px; }
   .field-edit.field-numeric,
   .field-preview.field-numeric {
     max-width: 180px;
@@ -19696,7 +19697,8 @@ body.flex-col {
 .field-preview {
   min-width: 80px;
   max-width: 450px;
-  width: 100%; }
+  width: 100%;
+  min-height: 28px; }
   .field-edit.field-numeric,
   .field-preview.field-numeric {
     max-width: 180px;
@@ -19789,6 +19791,7 @@ body.flex-col {
 .ck.ck-editor {
   min-width: 80px;
   width: 100%;
+  min-height: 28px;
   max-width: 800px; }
 
 .ck-editor__editable_inline p, .ck-editor__editable_inline h2 {
@@ -30351,7 +30354,8 @@ readers do not read off random characters that represent icons */
 .field-preview {
   min-width: 80px;
   max-width: 450px;
-  width: 100%; }
+  width: 100%;
+  min-height: 28px; }
   .field-edit.field-numeric,
   .field-preview.field-numeric {
     max-width: 180px;
@@ -30755,6 +30759,7 @@ readers do not read off random characters that represent icons */
   min-width: 80px;
   max-width: 450px;
   width: 100%;
+  min-height: 28px;
 }
   .v-select.vs--single .vs__dropdown-toggle .vs__selected-options .vs__selected {
     text-align: left; }
