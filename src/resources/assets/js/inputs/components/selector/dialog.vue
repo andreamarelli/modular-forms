@@ -1,6 +1,8 @@
 <template>
 
-    <floating_dialog>
+    <floating_dialog
+        :is-scrollable=false
+    >
 
         <!-- anchor -->
         <template v-slot:dialog-anchor>
@@ -120,6 +122,10 @@
             .spacer{
                 flex-grow: 1;
             }
+        }
+        .body{
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
     }

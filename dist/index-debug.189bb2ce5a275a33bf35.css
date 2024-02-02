@@ -2412,6 +2412,10 @@ a img[data-v-eff58c46] {
   .with_header_and_footer .footer .spacer[data-v-7af72690] {
     flex-grow: 1;
 }
+.with_header_and_footer .body[data-v-7af72690] {
+  max-height: 80vh;
+  overflow-y: auto;
+}
 .dialog_insert[data-v-7af72690] {
   padding: 10px;
   text-align: center;

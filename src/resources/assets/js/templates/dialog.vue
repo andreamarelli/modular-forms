@@ -82,12 +82,19 @@
 <script>
 export default {
 
+
+    props: {
+        isScrollable: {
+            type: Boolean,
+            default: true
+        },
+    },
+
     data (){
         return {
             anchorElem: null,
             dialogElem: null,
-            originalBodyOverflow: null,
-            isScrollable: true
+            originalBodyOverflow: null
         }
     },
 
