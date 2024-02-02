@@ -8,7 +8,7 @@
 
         </div>
         <div class="dialog-overlay">
-            <div class="floating_dialog dialog-content">
+            <div class="floating_dialog dialog-content" v-bind:class="{ 'scrollable': isScrollable }">
 
                 <!-- content -->
                 <slot name="dialog-content"></slot>
@@ -56,8 +56,11 @@
             top: 50vh;
             left: 50vw;
             transform: translate(-50%,-50%);
-            max-height: 80vh;
-            overflow-y: auto;
+
+            &.scrollable{
+                max-height: 80vh;
+                overflow-y: auto;
+            }
 
             &.visible {
                 display: block;
@@ -83,7 +86,8 @@ export default {
         return {
             anchorElem: null,
             dialogElem: null,
-            originalBodyOverflow: null
+            originalBodyOverflow: null,
+            isScrollable: true
         }
     },
 

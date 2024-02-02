@@ -391,11 +391,13 @@
       top: 50vh;
       left: 50vw;
       transform: translate(-50%, -50%);
-      max-height: 80vh;
-      overflow-y: auto;
       background: white;
       padding: 10px;
       border-radius: 4px;
+}
+[role=dialog] .dialog-overlay .dialog-content.scrollable[data-v-34626a4a] {
+        max-height: 80vh;
+        overflow-y: auto;
 }
 [role=dialog] .dialog-overlay .dialog-content.visible[data-v-34626a4a] {
         display: block;
