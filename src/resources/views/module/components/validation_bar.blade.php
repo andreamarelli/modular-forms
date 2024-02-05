@@ -72,7 +72,7 @@
                             'Content-Type': 'application/json',
                             "X-CSRF-Token": window.Laravel.csrfToken
                         },
-                        data: JSON.stringify({
+                        body: JSON.stringify({
                             module_key: '{{ $definitions['module_key'] }}',
                             validate: !_this.is_validated
                         }),

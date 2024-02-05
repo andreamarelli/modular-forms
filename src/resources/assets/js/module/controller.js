@@ -136,49 +136,53 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
         saveModule: function () {
             let _this = this;
             let form = this.container.querySelector('form');
+            let url = form.getAttribute('action');
+            let method = form.getAttribute('method');
+            let formData = _this.__parse_form(form);
 
-            $.ajax({
-                method: form.getAttribute('method'),
-                url: form.getAttribute('action'),
-                data: _this.__parse_form(form),
-                cache: false
+            fetch(url, {
+                method: method,
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-Token": window.Laravel.csrfToken,
+                },
+                body: JSON.stringify(formData),
             })
-                .done(function (response) {
-                    if (response.hasOwnProperty('status')) {
-                        if (response['status'] === 'success') {
+                .then((response) => response.json())
+                .then(function(data){
+                    if (data.hasOwnProperty('status')) {
+                        if (data['status'] === 'success') {
                             if (_this.action === 'store') {
-                                window.location.href = response['edit_url'];
+                                window.location.href = data['edit_url'];
                                 return;
                             }
-                            _this.records = _this.__no_reactive_copy(response['records']);
-                            if (response.hasOwnProperty('last_update')) {
-                                _this.last_update = _this.__no_reactive_copy(response['last_update']);
+                            _this.records = _this.__no_reactive_copy(data['records']);
+                            if (data.hasOwnProperty('last_update')) {
+                                _this.last_update = _this.__no_reactive_copy(data['last_update']);
                             }
                             _this.records_backup = _this.__no_reactive_copy(_this.records);
                             _this.__arrange_records_by_group();
-                            _this.saveModuleDoneCallback(response);
+                            _this.saveModuleDoneCallback(data);
                             window.vueBus.$emit('module_saved', _this.module_key);
                             window.vueBus.$emit('refresh_validation', _this.module_key);
                             window.vueBus.$emit('refresh_assessment');      // only for IMET
                             Vue.nextTick(function () {
                                 _this.status = 'saved';
                             });
-                        } else if (response['status'] === 'validation_error') {
-                            _this.setErrorStatus(response);
-                            _this.saveModuleFailCallback(response);
+                        } else if (data['status'] === 'validation_error') {
+                            _this.setErrorStatus(data);
+                            _this.saveModuleFailCallback(data);
                         }
                         return;
                     }
-                    _this.setErrorStatus(response);
-                    _this.saveModuleFailCallback(response);
+                    _this.setErrorStatus(data);
+                    _this.saveModuleAlwaysCallback(data);
                 })
-                .fail(function (response) {
-                    _this.setErrorStatus(response);
-                    _this.saveModuleFailCallback(response);
+                .catch(function (error) {
+                    _this.setErrorStatus(error);
+                    _this.saveModuleFailCallback(error);
+                    _this.saveModuleAlwaysCallback(error);
                 })
-                .always(function (response) {
-                    _this.saveModuleAlwaysCallback(response);
-                });
         },
 
         // Allows additional executions by child components
@@ -317,9 +321,9 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
             let data = {};
             data['form_id'] = _this.form_id;
             data['module_key'] = _this.module_key;
-            data['_token'] = form.querySelector('input[name="_token"]').value;
+            // data['_token'] = form.querySelector('input[name="_token"]').value;
             if(_this.form_id!==null){
-                data['_method'] = form.querySelector('input[name="_method"]');
+                data['_method'] = form.querySelector('input[name="_method"]').value;
             }
             records = _this.parseRecordLocally(records);
             if (this.module_type === "GROUP_ACCORDION" || this.module_type === "GROUP_TABLE") {

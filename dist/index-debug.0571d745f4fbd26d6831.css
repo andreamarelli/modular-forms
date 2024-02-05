@@ -11283,7 +11283,7 @@ nav.steps {
       .module-container .module-header .module-info.module-title {
         flex: 1; }
   .module-container .module-body {
-    padding: 5px 10px 5px 10px;
+    padding: 5px 15px 10px 15px;
     border-width: 1px;
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -12367,6 +12367,14 @@ nav.steps {
     border: 0;
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity)); }
+
+.accordion-item-body-content .field-edit.field-disabled, .accordion-item-body-content .field-edit:disabled, .accordion-item-body-content .field-edit.disabled,
+.accordion-item-body-content .field-preview.field-disabled,
+.accordion-item-body-content .field-preview:disabled,
+.accordion-item-body-content .field-preview.disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 
 .field-edit,
 .field-preview {
@@ -19692,6 +19700,14 @@ body.flex-col {
     border: 0;
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity)); }
+
+.accordion-item-body-content .field-edit.field-disabled, .accordion-item-body-content .field-edit:disabled, .accordion-item-body-content .field-edit.disabled,
+.accordion-item-body-content .field-preview.field-disabled,
+.accordion-item-body-content .field-preview:disabled,
+.accordion-item-body-content .field-preview.disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 
 .field-edit,
 .field-preview {
@@ -30349,6 +30365,14 @@ readers do not read off random characters that represent icons */
     border: 0;
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity)); }
+
+.accordion-item-body-content .field-edit.field-disabled, .accordion-item-body-content .field-edit:disabled, .accordion-item-body-content .field-edit.disabled,
+.accordion-item-body-content .field-preview.field-disabled,
+.accordion-item-body-content .field-preview:disabled,
+.accordion-item-body-content .field-preview.disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 
 .field-edit,
 .field-preview {

@@ -265,7 +265,7 @@ export default {
                 headers: {
                     "X-CSRF-Token": window.Laravel.csrfToken
                 },
-                data: data
+                body: data
             })
                 .then((response) => response.json())
                 .then(function(data){

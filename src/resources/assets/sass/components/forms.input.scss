@@ -30,6 +30,18 @@
     }
 }
 
+.accordion-item-body-content{
+    .field-edit,
+    .field-preview{
+        &.field-disabled,
+        &:disabled,
+        &.disabled {
+            @apply bg-white;
+        }
+    }
+}
+
+
 // Width & alignment
 .field-edit,
 .field-preview{
