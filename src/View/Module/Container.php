@@ -60,7 +60,7 @@ class Container extends Component
         $this->controller = Str::startsWith($controller, 'App\Http')
             ? '\\'.$controller
             : $controller;
-        $this->default_model_view_name = ModuleKey::KeyToView($this->definitions['module_key']);
+        $this->default_model_view_name = ModuleKey::KeyToView($this->definitions['module_key'], $this->mode);
 
         if($this->collection->isEmpty()){
             $this->noData = true;
