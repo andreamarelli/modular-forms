@@ -70,7 +70,7 @@ class Container extends Component
 
     public function render(): View
     {
-        if($this->mode === self::MODE_EDIT){
+        if($this->mode === static::MODE_EDIT){
             return view('modular-forms::module.edit.container');
         } else {
             return view('modular-forms::module.show.container');
