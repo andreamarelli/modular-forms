@@ -44,11 +44,12 @@ use Illuminate\Support\Facades\Blade;
                     :records="$records"
                     :mode="$mode"
                 ></x-modular-forms::module.components.body>
-                @include('modular-forms::module.show.script', compact(['definitions']))
             @else
                 {{-- custom view --}}
-                @include($default_model_view_name, compact(['collection', 'vueData', 'records']))
+                @include($default_model_view_name, compact(['collection', 'records', 'definitions', 'mode']))
             @endif
+
+            @include('modular-forms::module.show.script', compact(['definitions']))
 
         @endif
 
