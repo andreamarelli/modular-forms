@@ -230,15 +230,13 @@ nav.steps{
             font-size: 0.8em;
         }
 
-        .no-data {
-            font-weight: 600;
-            line-height: 1.2em;
-            @apply text-gray-400;
-            font-size: 1.4em;
+        .no-data,
+        .no_data {
+            @apply text-2xl text-gray-400 font-bold;
             text-align: center;
             margin: 40px 0 40px 0;
+            text-transform: uppercase;
         }
-
 
         .module-row {
             display: flex;

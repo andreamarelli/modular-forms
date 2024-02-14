@@ -48,7 +48,7 @@ if($definitions['module_type']==='GROUP_TABLE'){
         @endforeach
     @else
         <td colspan="{{ count($definitions['fields']) }}">
-            <div class="no_data">
+            <div class="no-data">
                 @lang('modular-forms::common.no_data')
             </div>
         </td>
