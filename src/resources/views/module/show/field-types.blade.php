@@ -44,8 +44,8 @@ if($value!==null){
     </div>
 
 @elseif(\Illuminate\Support\Str::contains($type, 'checkbox-boolean'))
-    <span class="checkbox" disabled="disabled">
-        <input type="checkbox" {{ $value ? 'checked="checked"' : '' }}>
+    <span class="checkbox">
+        <input type="checkbox"  disabled="disabled" {{ $value ? 'checked="checked"' : '' }}>
         <label></label>
     </span>
 @elseif(\Illuminate\Support\Str::contains($type, 'checkbox-'))
