@@ -1,8 +1,8 @@
 <template>
 
-    <div class="progress-bar" v-if="value!==null">
-        <div class="bar" :style=style></div>
-        <div class="label">
+    <div class="progress-bar" >
+        <div class="bar" :style=style v-if="value!==null"></div>
+        <div class="label" v-if="value!==null">
             {{ value }}% {{ additional_label }}
         </div>
     </div>
