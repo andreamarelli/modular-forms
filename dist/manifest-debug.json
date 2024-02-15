@@ -531,7 +531,5 @@
   "images/iucn_red_list.png": "images/iucn_red_list.png",
   "index.css": "index-debug.c2063ebca8b637a95e7e.css",
   "index.js": "index-debug.a7742209a513f5fffcc4.js",
-  "mapbox.css": "mapbox-debug.ba631fb091eb34fa390e.css",
-  "mapbox.js": "mapbox-debug.f8ff371537efdabf743e.js",
   "vendor.js": "vendor-debug.c1a508282f2dcb4a0066.js"
 }
