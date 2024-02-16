@@ -1,9 +1,11 @@
 <div {{ $attributes->merge(['class' => 'accordion-item']) }}>
 
     <div class="accordion-item-header">
-        <div class="accordion-item-header-title" @if($isCollapsible) onclick="window.ModularForms.Mixins.Accordion.toggle(event)" @endif>
-            {{ $title }}
-        </div>
+        @if($title!=='')
+            <div class="accordion-item-header-title" @if($isCollapsible) onclick="window.ModularForms.Mixins.Accordion.toggle(event)" @endif>
+                {{ $title }}
+            </div>
+        @endif
         <div>
             {{ $headerActions }}
         </div>
