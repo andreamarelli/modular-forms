@@ -6,7 +6,7 @@
 @push('scripts')
     <script>
         // ## Initialize Module controller ##
-        let module_{{ $definitions['module_key'] }} = new Vue({
+        new Vue({
             el: '#module_{{ $definitions['module_key'] }}'
         });
     </script>
