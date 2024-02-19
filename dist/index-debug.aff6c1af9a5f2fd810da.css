@@ -12671,7 +12671,8 @@ nav.steps {
 [v-cloak] {
   display: none; }
 
-.functional_buttons {
+.functional_buttons,
+.functional_selection_buttons {
   text-align: right;
   margin-bottom: 25px; }
 

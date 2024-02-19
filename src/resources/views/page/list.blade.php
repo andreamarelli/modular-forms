@@ -13,6 +13,13 @@ $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $l
 
     <div id="page-container">
 
+        {{-- Title --}}
+        @hasSection('page-title')
+            <div class="page-title">
+                @yield('page-title')
+            </div>
+        @endif
+
         {{-- Functional buttons --}}
         @hasSection('functional-buttons')
             <div class="functional_buttons">
@@ -29,6 +36,13 @@ $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $l
                 @yield('filters')
             @endslot
         @endcomponent
+
+        {{-- Selection buttons --}}
+        @hasSection('functional-selection-buttons')
+            <div class="functional_selection_buttons">
+                @yield('functional-selection-buttons')
+            </div>
+        @endif
 
         {{--  Pagination  --}}
         @include('modular-forms::page.components.pagination', ['list'=> $list])
