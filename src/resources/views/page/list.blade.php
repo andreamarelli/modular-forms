@@ -69,12 +69,21 @@ $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $l
 
     </div>
 
-    @push('scripts')
+@endsection
+
+@push('scripts')
+
+    {{-- custom scirpts --}}
+    @hasSection('scripts')
+        @yield('scripts')
+
+    {{-- standard scripts --}}
+    @else
         <script>
             new Vue({
                 el: '#page-container',
             });
         </script>
-    @endpush
+    @endif
 
-@endsection
+@endpush
