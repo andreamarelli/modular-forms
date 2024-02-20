@@ -298,7 +298,7 @@ nav.steps{
 
         &.info-bar{
             @apply bg-contextual-light-info;
-            @apply text-gray-800;
+            @apply text-contextual-primary;
             align-items: flex-start;
             .message{
                 font-weight: normal;
