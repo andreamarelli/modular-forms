@@ -296,11 +296,11 @@ nav.steps{
             font-weight: bold;
         }
 
-
-        &.save-bar,
         &.info-bar{
-            @apply bg-contextual-light-info;
-            @apply text-contextual-primary;
+            align-items: flex-start;
+            .message{
+                font-weight: normal;
+            }
         }
         &.info-black-bar{
             @apply bg-contextual-light-info;
@@ -308,6 +308,10 @@ nav.steps{
             .blue {
                 @apply text-contextual-primary;
             }
+        }
+        &.save-bar{
+            @apply bg-contextual-light-info;
+            @apply text-contextual-primary;
         }
         &.saved-bar{
             @apply bg-contextual-light-success;
