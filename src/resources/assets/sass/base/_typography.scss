@@ -8,6 +8,9 @@
 .highlight{
     @apply text-primary-800;
 }
+.strong{
+    @apply text-primary-800 font-bold;
+}
 .error{
   font-weight: bold;
   @apply text-red-600;

@@ -1514,6 +1514,10 @@ video {
 }.text-2xs{font-size:0.7rem;line-height:0.8em}.highlight{
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity));
+}.strong{
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
 }.error{font-weight:bold;--tw-text-opacity: 1;color: rgb(220 38 38 / var(--tw-text-opacity))}h1,h2,h3,h4,h5{
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
