@@ -1,7 +1,7 @@
 <?php
 /** @var \Illuminate\Database\Eloquent\Collection $collection */
 /** @var Mixed $definitions */
-/** @var Mixed $vue_data */
+/** @var Mixed $vueData */
 /** @var String $group_key (optional - only for GROUP_ACCORDION) */
 
 $group_key = $group_key ?? '';
@@ -34,7 +34,7 @@ if($definitions['module_type']==='GROUP_ACCORDION'){
             @endif
         </x-slot:header-actions>
 
-        @include('modular-forms::module.edit.type.simple', compact(['collection', 'vue_data', 'definitions']))
+        @include('modular-forms::module.edit.type.simple', compact(['collection', 'vueData', 'definitions']))
 
     </x-modular-forms::accordion.item>
 

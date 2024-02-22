@@ -3,6 +3,9 @@
 /** @var \AndreaMarelli\ModularForms\Models\Form $item */
 /** @var string $step */
 /** @var string $label_prefix */
+/** @var boolean $show_scrollbar [optional] */
+
+$show_scrollbar = $show_scrollbar ?? true;
 
 ?>
 
@@ -12,7 +15,7 @@
 
     {{--  Heading --}}
     <div class="entity-heading">
-        @yield('header')
+        @yield('heading')
     </div>
 
     {{--  Steps menu --}}
@@ -24,12 +27,16 @@
     ])
 
     {{--  Modules (by step) --}}
-    @foreach($item::modules()[$step] as $module)
-        @include('modular-forms::module.show.container', [
-            'controller' => $controller,
-            'module_class' => $module,
-            'form_id' => $item->getKey()
-        ])
-    @endforeach
+    @include('modular-forms::page.components.modules', [
+        'controller' => $controller,
+        'item' => $item,
+        'step' => $step,
+        'mode' => \AndreaMarelli\ModularForms\View\Module\Container::MODE_SHOW
+    ])
+
+    {{--  Scroll buttons  --}}
+    @if($show_scrollbar)
+        @include('modular-forms::module.scroll', ['item' => $item, 'step' => $step])
+    @endif
 
 @endsection

@@ -1,7 +1,7 @@
 <?php
 /** @var \Illuminate\Database\Eloquent\Collection $collection */
 /** @var Mixed $definitions */
-/** @var Mixed $vue_data */
+/** @var Mixed $vueData */
 
 ?>
 
@@ -11,7 +11,7 @@
     @include('modular-forms::module.edit.type.accordion', [
         'collection' => $collection,
         'definitions' => $definitions,
-        'vue_data' => $vue_data,
+        'vueData' => $vueData,
         'group_key' => $group_key
     ])
     <br />

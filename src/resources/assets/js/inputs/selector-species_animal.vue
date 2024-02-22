@@ -41,7 +41,7 @@
         <template v-slot:selector-api-search-result-item="{ item }">
             <td><span class="result_left" v-html="getSpeciesDescription(item)"></span></td>
             <td><redlist_category :category=item.iucn_redlist_category></redlist_category></td>
-            <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img style="display: inline-block" src="/assets/images/iucn_red_list.png" alt="IUCN RedList"/></a></td>
+            <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img style="display: inline-block" :src="assetPath + 'images/iucn_red_list.png'" alt="IUCN RedList"/></a></td>
         </template>
 
     </selectorDialog>
@@ -60,14 +60,19 @@
 </style>
 
 <script>
+
+import values from '../mixins-vue/values.mixin';
+import redlist_category from "../templates/redlist_category.vue";
+
+
 export default {
 
     components: {
-        'redlist_category': window.ModularForms.Template.redlist_category
+        'redlist_category': redlist_category
     },
 
     mixins: [
-        window.ModularForms.MixinsVue.values
+        values
     ],
 
     props: {
@@ -84,6 +89,7 @@ export default {
     data (){
         return {
             Locale: window.Locale,
+            assetPath: window.ModularForms.assetPath,
             searchComponent: null,
             inputValue: null,
             filterByClass: null,
@@ -142,9 +148,9 @@ export default {
             return (item.common_name_en !== null || item.common_name_fr !== null || item.common_name_sp !== null);
         },
 
-        afterSearch(response){
-            this.orders = response['data']['orders'];
-            this.classes = response['data']['classes'];
+        afterSearch(data){
+            this.orders = data['orders'];
+            this.classes = data['classes'];
             this.filterByOrder = null;
             this.filterByClass = null;
         },

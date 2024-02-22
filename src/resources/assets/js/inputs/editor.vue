@@ -20,7 +20,7 @@
           }
       }
       .text-editor-print{
-          @apply bg-white; /*@apply bg-white #{!important};*/
+          @apply bg-white #{!important};
           padding: 15px;
           @media screen {
               display: none;
@@ -31,12 +31,6 @@
 <script>
 
     export default {
-
-        name: "editor",
-
-        components: {
-            ckeditor: window.CKEditor.component
-        },
 
         props: {
             value: ''
@@ -53,7 +47,7 @@
 
         data() {
             return {
-                editor: window.ClassicEditor,
+                editor: window.ModularFormsVendor.ClassicEditor,
                 editorData: this.value,
                 editorConfig: {
                     toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList' ],

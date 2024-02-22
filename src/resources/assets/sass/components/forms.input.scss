@@ -1,7 +1,7 @@
 @import "../abstracts/all";
 
 @mixin field-base{
-    font-family: $input_font-family;
+    font-family: $secondary-font;
     @apply text-xs;
     @apply text-gray-800;
     @apply bg-white;
@@ -10,6 +10,7 @@
     min-width: 80px;
     max-width: 450px;
     width: 100%;
+    min-height: 28px;
 }
 
 
@@ -28,6 +29,18 @@
         @apply bg-gray-50;
     }
 }
+
+.accordion-item-body-content{
+    .field-edit,
+    .field-preview{
+        &.field-disabled,
+        &:disabled,
+        &.disabled {
+            @apply bg-white;
+        }
+    }
+}
+
 
 // Width & alignment
 .field-edit,

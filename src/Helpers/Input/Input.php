@@ -92,8 +92,8 @@ class Input{
         if(!$disableJavascript){
             $out .= '<script>
                         (function() {
-                            new window.AirDatepicker("#' . $name . '", {
-                                locale: window.AirDatepicker.locale["' . App::getLocale().'"],
+                            new window.ModularFormsVendor.AirDatepicker("#' . $name . '", {
+                                locale: window.ModularFormsVendor.AirDatepicker.locale["' . App::getLocale().'"],
                                 autoClose: true,
                                 toggleSelected: false,
                                 buttons: ["clear"],

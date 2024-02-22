@@ -1,18 +1,23 @@
-@import "../abstracts/all";
+//   ######  Font sizes (not included in tailwind)  ######
+.text-2xs{
+    font-size: 0.7rem;
+    line-height: 0.8em;
+}
 
 //  ######  Text & paragraphs  ######
 .highlight{
     @apply text-primary-800;
+}
+.strong{
+    @apply text-primary-800 font-bold;
 }
 .error{
   font-weight: bold;
   @apply text-red-600;
 }
 
-
 //   ######  Titles  ######
 h1, h2, h3, h4, h5 {
-  font-family: $fontFamily-2;
   @apply text-gray-800;
 }
 h1{

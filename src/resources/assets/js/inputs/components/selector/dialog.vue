@@ -1,6 +1,8 @@
 <template>
 
-    <floating_dialog>
+    <floating_dialog
+        :is-scrollable=false
+    >
 
         <!-- anchor -->
         <template v-slot:dialog-anchor>
@@ -121,6 +123,10 @@
                 flex-grow: 1;
             }
         }
+        .body{
+            max-height: 80vh;
+            overflow-y: auto;
+        }
 
     }
 
@@ -143,18 +149,19 @@
 </style>
 
 <script>
-
+    import values from '../../../mixins-vue/values.mixin';
+    import floating_dialog from "../../../templates/dialog.vue";
     import selectorApiSearch from "./api-search.vue"
 
     export default {
 
         components: {
-            'floating_dialog': window.ModularForms.Template.floating_dialog,
+            floating_dialog,
             selectorApiSearch
         },
 
         mixins: [
-            window.ModularForms.MixinsVue.values
+            values
         ],
 
         props: {

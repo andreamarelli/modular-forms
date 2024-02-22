@@ -20,10 +20,12 @@
 
 <script>
 
+    import values from '../mixins-vue/values.mixin';
+
     export default {
 
         mixins: [
-            window.ModularForms.MixinsVue.values
+            values
         ],
 
         props: {
@@ -82,7 +84,7 @@
             this.options.emptyInputBehavior = 'null';
         },
         mounted() {
-            this.inputElement = new window.AutoNumeric(this.$refs.autoNumericElement, this.options);
+            this.inputElement = new window.ModularFormsVendor.AutoNumeric(this.$refs.autoNumericElement, this.options);
             this.inputElement.set(this.value);
             this.update();
         },

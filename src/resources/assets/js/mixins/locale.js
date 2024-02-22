@@ -6,7 +6,7 @@ export default {
 
     getLabel: function(key, arg=null){
 
-        let translator = new window.I18n;
+        let translator = new window.ModularFormsVendor.I18n;
 
         let label = '';
         if(arg===null){
@@ -16,7 +16,7 @@ export default {
         } else if(typeof arg === "number"){
             label = translator.trans_choice(key, arg)
         }
-        return _.upperFirst(label);
+        return label.charAt(0).toUpperCase() + label.slice(1);
     },
 
 };

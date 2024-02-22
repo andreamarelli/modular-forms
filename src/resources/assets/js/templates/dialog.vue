@@ -8,7 +8,7 @@
 
         </div>
         <div class="dialog-overlay">
-            <div class="floating_dialog dialog-content">
+            <div class="floating_dialog dialog-content" v-bind:class="{ 'scrollable': isScrollable }">
 
                 <!-- content -->
                 <slot name="dialog-content"></slot>
@@ -56,8 +56,11 @@
             top: 50vh;
             left: 50vw;
             transform: translate(-50%,-50%);
-            max-height: 80vh;
-            overflow-y: auto;
+
+            &.scrollable{
+                max-height: 80vh;
+                overflow-y: auto;
+            }
 
             &.visible {
                 display: block;
@@ -79,6 +82,14 @@
 <script>
 export default {
 
+
+    props: {
+        isScrollable: {
+            type: Boolean,
+            default: true
+        },
+    },
+
     data (){
         return {
             anchorElem: null,
@@ -94,7 +105,7 @@ export default {
         this.anchorElem = this.$el.querySelector('.dialog-anchor');
         this.overlayElem = this.$el.querySelector('.dialog-overlay');
         this.dialogElem = this.$el.querySelector('.dialog-content');
-        this.originalBodyOverflow = this.overlayElem.style.display.overflow;
+        this.originalBodyOverflow = this.overlayElem.style.overflow;
 
         // open dialog on anchor click
         this.anchorElem.addEventListener('click',  function(evt){

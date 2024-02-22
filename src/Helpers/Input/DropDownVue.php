@@ -15,7 +15,7 @@ class DropDownVue
         $list = DropDown::prepare_list($list);
 
         return '<div id="dropdown_simple_' . $id . '">
-                    <dropdown v-model="selectedValue" 
+                    <dropdown v-model="selectedValue"
                         :data-values=options
                         ' . $tagAttributes .'
                     ></dropdown>
@@ -31,7 +31,7 @@ class DropDownVue
                         watch: {
                             selectedValue(value){
                                 document.querySelector("#' . $id . '").value = value;
-                                document.querySelector("#' . $id . '").dispatchEvent(new Event("change"));
+                                document.querySelector("#' . $id  . '").dispatchEvent(new Event("change"));
                             }
                         }
                     });
@@ -44,7 +44,7 @@ class DropDownVue
     public static function related($id, $value, $related_id, $structure, string $tagAttributes = ''): string
     {
         return '<div id="dropdown_related_' . $id . '">
-                   <dropdown-related 
+                   <dropdown-related
                         v-model=selectedValue
                         :input-value=selectedValue
                         :data-structure=options

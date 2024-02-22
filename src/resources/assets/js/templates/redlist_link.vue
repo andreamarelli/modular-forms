@@ -1,7 +1,7 @@
 <template>
     <div>
         <a target="_blank" :href="'http://www.iucnredlist.org/details/' + redlist_id + '/0'">
-            <img src="/assets/images/iucn_red_list.png"/>
+            <img :src="assetPath + 'images/iucn_red_list.png'" />
         </a>
     </div>
 </template>
@@ -16,12 +16,19 @@
 <script>
 
     export default {
+
         props: {
             redlist_id: {
                 type: [String, Number],
                 default: null
             }
         },
+
+        data (){
+            return {
+                assetPath: window.ModularForms.assetPath
+            }
+        }
     }
 
 </script>

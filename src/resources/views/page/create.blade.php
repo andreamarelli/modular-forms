@@ -9,10 +9,11 @@
 @section('content')
 
     {{-- Create module --}}
-    @include('modular-forms::module.edit.container', [
-        'controller' => $controller,
-        'module_class' => $module,
-        'form_id' => null
-    ])
+    <x-modular-forms::module.container
+        :controller="$controller"
+        :module="$module"
+        :formId="null"
+        :mode="\AndreaMarelli\ModularForms\View\Module\Container::MODE_EDIT"
+    ></x-modular-forms::module.container>
 
 @endsection

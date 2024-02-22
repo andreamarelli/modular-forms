@@ -45,13 +45,13 @@ if($value!==null){
 
 @elseif(\Illuminate\Support\Str::contains($type, 'checkbox-boolean'))
     <span class="checkbox">
-        <input type="checkbox" {{ $value ? 'checked="checked"' : '' }}>
+        <input type="checkbox"  disabled="disabled" {{ $value ? 'checked="checked"' : '' }}>
         <label></label>
     </span>
 @elseif(\Illuminate\Support\Str::contains($type, 'checkbox-'))
     @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $item)
         <input type="checkbox" disabled="disabled"
-                {{ in_array($item, $value) ? 'checked="checked"' : '' }}
+            {{ in_array($item, $value) ? 'checked="checked"' : '' }}
         /> {{ $item }}<br />
     @endforeach
 
@@ -72,8 +72,6 @@ if($value!==null){
             <a target="_blank" href="{{ $value['download_link'] }}">
                 {!! \AndreaMarelli\ModularForms\Helpers\Template::icon('file') !!} {!! $value['original_filename'] !!}
             </a>
-        @else
-            &nbsp;
         @endif
     </div>
 @elseif(\Illuminate\Support\Str::contains($type, 'boolean-') || \Illuminate\Support\Str::contains($type, 'boolean_numeric-'))
@@ -102,27 +100,27 @@ if($value!==null){
     </span>
 
 @elseif(\Illuminate\Support\Str::contains($type, 'selector-species_animal'))
-    <?php
-    if($value!==null && \Illuminate\Support\Str::contains($value, '|')){
-        $value = implode(' ', array_slice(explode('|', $value), 4, 2));
-    }
-    ?>
+        <?php
+        if($value!==null && \Illuminate\Support\Str::contains($value, '|')){
+            $value = implode(' ', array_slice(explode('|', $value), 4, 2));
+        }
+        ?>
     <div class="field-preview">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 
 @elseif($only_label)
-    {!! $value ?? '&nbsp;' !!}
+    {!! $value !!}
 
 @elseif($type==='numeric' || $type==='currency' || $type==='integer' || $type==='float' || $type==='code')
     <div class="field-preview field-numeric">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 @elseif(\Illuminate\Support\Str::contains($type, 'date') || \Illuminate\Support\Str::contains($type, 'year'))
     <div class="field-preview field-date">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 @elseif(\Illuminate\Support\Str::contains($type, 'blade-'))
@@ -138,14 +136,14 @@ if($value!==null){
         ])
     @else
         <div class="field-preview">
-            {!! $value ?? '&nbsp;' !!}
+            {!! $value !!}
         </div>
     @endif
 
 @else
 
     <div class="field-preview">
-        {!! $value ?? '&nbsp;' !!}
+        {!! $value !!}
     </div>
 
 @endif

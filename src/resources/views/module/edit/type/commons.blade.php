@@ -1,7 +1,7 @@
 <?php
 /** @var \Illuminate\Database\Eloquent\Collection $collection */
 /** @var Mixed $definitions */
-/** @var Mixed $vue_data */
+/** @var Mixed $vueData */
 
 $vue_record_index = '0';
 
@@ -15,7 +15,7 @@ if($definitions['module_type']=="GROUP_TABLE" || $definitions['module_type']=="G
 
     @foreach($definitions['common_fields'] as $field)
 
-        @component('modular-forms::module.field_container', [
+        @component('modular-forms::module.components.field_container', [
                 'name' => $field['name'],
                 'label' => $field['label'] ?? '',
                 'label_width' => $definitions['label_width']

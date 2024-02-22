@@ -37,9 +37,9 @@ export default {
             type: String,
             default: null
         },
-        onHover: {
+        onClick: {
             type: Boolean,
-            default: true
+            default: false
         },
     },
 
@@ -47,6 +47,7 @@ export default {
         return {
             tooltipElem: null,
             arrowElem: null,
+            isVisible: false,
         }
     },
 
@@ -60,8 +61,10 @@ export default {
         this.tooltipElem = this.$el;
         this.arrowElem = this.$el.querySelector('.tooltip-arrow');
 
-        // set event listener to toggle tooltip
-        if(this.onHover){
+        // set event listeners
+        if(this.onClick){
+            this.enableClickListeners();
+        } else {
             this.enableHoverListeners();
         }
 
@@ -83,28 +86,44 @@ export default {
             });
         },
 
+        enableClickListeners(){
+            let _this = this;
+            // toggle on anchor click
+            this.anchorElem.addEventListener('click', this.toggleTooltip);
+            // close on click outside tooltip
+            document.addEventListener('click', function(evt){
+                if(_this.isVisible) {
+                    let clickedElem = evt.target;
+                    if (clickedElem.closest('[role=tooltip]') == null
+                        && clickedElem.closest('#'+_this.anchorElemId) == null) {
+                        _this.hideTooltip();
+                    }
+                }
+            });
+        },
+
         /**
          * Initialize FloatingUI tooltip
          */
         setTooltipPosition(){
             let _this = this;
 
-            window.FloatingUI.autoUpdate(_this.anchorElem, _this.tooltipElem, () => {
+            window.ModularFormsVendor.FloatingUI.autoUpdate(_this.anchorElem, _this.tooltipElem, () => {
 
                 const arrowWidth = _this.arrowElem.offsetWidth;
                 const floatingOffset = Math.sqrt(2 * arrowWidth ** 2) / 2;
 
-                window.FloatingUI.computePosition(_this.anchorElem, _this.tooltipElem, {
+                window.ModularFormsVendor.FloatingUI.computePosition(_this.anchorElem, _this.tooltipElem, {
                     placement: 'top',
                     middleware: [
-                        window.FloatingUI.flip(),
-                        window.FloatingUI.shift({
+                        window.ModularFormsVendor.FloatingUI.flip(),
+                        window.ModularFormsVendor.FloatingUI.shift({
                             padding: 5
                         }),
-                        window.FloatingUI.offset({
+                        window.ModularFormsVendor.FloatingUI.offset({
                             mainAxis: floatingOffset,
                         }),
-                        window.FloatingUI.arrow({element: this.arrowElem})
+                        window.ModularFormsVendor.FloatingUI.arrow({element: this.arrowElem})
                     ],
                 })
                 .then(({x, y, placement, middlewareData}) => {
@@ -139,18 +158,31 @@ export default {
 
         },
 
+        toggleTooltip(){
+            if(this.isVisible){
+                this.hideTooltip();
+            } else{
+                this.showTooltip();
+            }
+        },
+
         /**
          * Show tooltip
          */
         showTooltip() {
-            let _this = this;
-            let content = this.tooltipElem.querySelector('.tooltip-content').textContent.trim();
-            if(content !== ''){
-                this.tooltipElem.style.display = 'block';
-                this.setTooltipPosition();
-                setTimeout(function(){
-                    _this.hideTooltip();
-                }, 10000);
+            if(!this.isVisible) {
+                let _this = this;
+                let content = this.tooltipElem.querySelector('.tooltip-content').textContent.trim();
+                if (content !== '') {
+                    this.tooltipElem.style.display = 'block';
+                    this.setTooltipPosition();
+                    this.isVisible = true;
+                    if(!this.onClick){
+                        setTimeout(function () {
+                            _this.hideTooltip();
+                        }, 10000);
+                    }
+                }
             }
         },
 
@@ -158,7 +190,10 @@ export default {
          * Hide tooltip
          */
         hideTooltip() {
-            this.tooltipElem.style.display = '';
+            if(this.isVisible){
+                this.tooltipElem.style.display = '';
+                this.isVisible = false;
+            }
         }
 
     }

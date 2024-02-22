@@ -8,8 +8,7 @@ module.exports = {
 
     entry: {
         index: ['./src/resources/assets/index.js', './src/resources/assets/index.scss'],
-        vendor: ['./src/resources/assets/vendor.js'],
-        mapbox: ['./src/resources/assets/mapbox.js', './src/resources/assets/mapbox.scss'],
+        vendor: ['./src/resources/assets/vendor.js']
     },
 
     output: {

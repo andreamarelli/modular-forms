@@ -18,4 +18,3 @@ $only_label = $only_label ?? false;
    'value' => $value,
    'only_label' => $only_label
 ])
-

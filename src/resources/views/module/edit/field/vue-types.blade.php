@@ -44,17 +44,17 @@ $other_attributes = $other ?? '';
         'module_key' => $module_key
     ])
 
-    {{--  ###### disabled ######  --}}
+{{--  ###### disabled ######  --}}
 @elseif($type=="disabled")
     <simple-textarea :disabled=true {!! $vue_attributes !!} {!! $rules !!} {!! $other !!}></simple-textarea>
 
 
-    {{--  ###### hidden ######  --}}
+{{--  ###### hidden ######  --}}
 @elseif($type=="hidden")
     <input type="hidden" {!! $vue_attributes !!} {!! $other_attributes !!} />
 
 
-    {{--  ###### textual simple inputs ######  --}}
+{{--  ###### textual simple inputs ######  --}}
 @elseif($type=="text")
     <simple-text {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-text>
 @elseif($type=="text-area")
@@ -69,7 +69,7 @@ $other_attributes = $other ?? '';
     <simple-date {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 
 
-    {{--  ###### numeric inputs ######  --}}
+{{--  ###### numeric inputs ######  --}}
 @elseif($type=="integer"
     || $type=='numeric'
     || $type=='float'
@@ -79,7 +79,7 @@ $other_attributes = $other ?? '';
         numeric-type="{!! $type !!}" {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-numeric>
 
 
-    {{--  ###### date ######  --}}
+{{--  ###### date ######  --}}
 @elseif($type==="date")
     <simple-date {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}></simple-date>
 @elseif($type==="year")
@@ -107,7 +107,7 @@ $other_attributes = $other ?? '';
             :enable-free-text=true
     ></selector-species_animal>
 
-    {{--  #######  LISTS #######  --}}
+{{--  #######  LISTS #######  --}}
 @elseif(substr_count($type, "dropdown")>0
     || substr_count($type, "suggestion")>0
     || substr_count($type, "toggle")>0
@@ -182,7 +182,7 @@ $other_attributes = $other ?? '';
     @endif
 
 
-    {{--  ###### rating ######  --}}
+{{--  ###### rating ######  --}}
 @elseif(substr_count($type, "rating-")>0)
     <rating
         rating-type="{{ str_replace('rating-', '', $type) }}"
@@ -190,13 +190,16 @@ $other_attributes = $other ?? '';
     ></rating>
 
 
-    {{--  ###### file upload ######  --}}
+{{--  ###### file upload ######  --}}
 @elseif($type=="upload")
     <upload
         :max-file-size=85000000
         {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
     ></upload>
 
+{{--  ###### text editor ######  --}}
+@elseif($type=="text-editor")
+    <editor v-model="{{ $v_value }}" v-on:update="{{ $v_value }} = $event"></editor>
 
 
 @else

@@ -15,7 +15,7 @@ $show_scrollbar = $show_scrollbar ?? true;
 
     {{--  Heading --}}
     <div class="entity-heading">
-       @yield('header')
+        @yield('heading')
     </div>
 
     {{--  Steps menu --}}
@@ -33,13 +33,12 @@ $show_scrollbar = $show_scrollbar ?? true;
     ])
 
     {{--  Modules (by step) --}}
-    @foreach($item::modules()[$step] as $module)
-        @include('modular-forms::module.edit.container', [
-            'controller' => $controller,
-            'module_class' => $module,
-            'form_id' => $item->getKey()
-        ])
-    @endforeach
+    @include('modular-forms::page.components.modules', [
+        'controller' => $controller,
+        'item' => $item,
+        'step' => $step,
+        'mode' => \AndreaMarelli\ModularForms\View\Module\Container::MODE_EDIT
+    ])
 
     {{--  Scroll buttons  --}}
     @if($show_scrollbar)
