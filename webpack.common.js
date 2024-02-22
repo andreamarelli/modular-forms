@@ -2,13 +2,13 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
 const CopyPlugin = require("copy-webpack-plugin");
+const tailwindcss = require('tailwindcss');
 
 module.exports = {
 
     entry: {
-        index: ['./src/assets/index.js', './src/assets/index.scss'],
-        vendor: ['./src/assets/vendor.js', './src/assets/vendor.scss'],
-        vendor_mapbox: ['./src/assets/vendor_mapping_mapbox.js', './src/assets/vendor_mapping_mapbox.scss'],
+        index: ['./src/resources/assets/index.js', './src/resources/assets/index.scss'],
+        vendor: ['./src/resources/assets/vendor.js']
     },
 
     output: {
@@ -18,10 +18,10 @@ module.exports = {
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '~$': path.resolve(__dirname, '../', 'node_modules/'),
-            'vendor': path.resolve(__dirname, 'vendor/'),
-            'assets': path.resolve(__dirname, 'src/', 'assets/'),
-            'fonts': path.resolve(__dirname, 'src/', 'assets/', 'fonts/'),
+            '~$': path.resolve(__dirname, '..', 'node_modules'),
+            'vendor': path.resolve(__dirname, 'vendor'),
+            'assets': path.resolve(__dirname, 'src', 'resources', 'assets'),
+            'fonts': path.resolve(__dirname, 'src', 'resources', 'assets', 'fonts'),
         }
     },
 
@@ -43,6 +43,7 @@ module.exports = {
                         },
                     },
                     'css-loader',
+                    'postcss-loader',
                     'sass-loader'
                 ],
             },
@@ -102,11 +103,12 @@ module.exports = {
     },
 
     plugins: [
+        tailwindcss,
         new VueLoaderPlugin(),
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'src', 'assets', 'images'),
+                    from: path.resolve(__dirname, 'src', 'resources', 'assets', 'images'),
                     to: path.resolve(__dirname, 'dist', 'images')
                 },
             ],

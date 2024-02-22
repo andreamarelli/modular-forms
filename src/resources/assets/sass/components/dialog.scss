@@ -1,0 +1,40 @@
+@import "../abstracts/colors";
+
+.floating_dialog{
+
+    .with_header_and_footer{
+        display: flex;
+        flex-direction: column;
+
+        min-width: 400px;
+        max-width: 800px;
+        width: 100vw;
+
+        .header{
+            @apply border-b border-gray-50;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
+        .body{
+            padding: 0 5px;
+        }
+        .footer{
+            display: flex;
+            flex-direction: row;
+            column-gap: 5px;
+            align-items: center;
+            justify-content: flex-end;
+
+            padding-top: 5px;
+            @apply border-t border-gray-50;
+        }
+
+        .header,
+        .footer{
+            display: flex;
+            flex-direction: row;
+        }
+
+    }
+
+}
