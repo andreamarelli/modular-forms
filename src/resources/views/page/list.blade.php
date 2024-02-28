@@ -28,20 +28,27 @@ $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $l
         @endif
 
        {{-- Filters --}}
-        @component('modular-forms::page.components.filters', [
-            'controller' => $controller,
-            'request' => $request
-        ])
-            @slot('content')
-                @yield('filters')
-            @endslot
-        @endcomponent
+        @hasSection('filters')
+            @component('modular-forms::page.components.filters', [
+                'controller' => $controller,
+                'request' => $request
+            ])
+                @slot('content')
+                    @yield('filters')
+                @endslot
+            @endcomponent
+        @endif
 
         {{-- Selection buttons --}}
         @hasSection('functional-selection-buttons')
             <div class="functional_selection_buttons">
                 @yield('functional-selection-buttons')
             </div>
+        @endif
+
+        {{-- custom section --}}
+        @hasSection('custom')
+            @yield('custom')
         @endif
 
         {{--  Pagination  --}}
