@@ -23,7 +23,7 @@ $show_scrollbar = $show_scrollbar ?? true;
         'url' => action([$controller, 'edit'], ['item' => $item->getKey()]),
         'current_step' => $step,
         'label_prefix' =>  $label_prefix.'.steps.',
-        'steps' => array_keys($item::modules())
+        'steps' => $steps ?? array_keys($item::modules())
     ])
 
     {{-- Global errors --}}
