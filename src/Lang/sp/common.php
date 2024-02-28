@@ -2,8 +2,6 @@
 
 return [
 
-    'admin_page'    =>  'panel de administración',
-
     'add_item'          => 'añadir elemento',
     'add_entity'        => 'añadir entidad',
     'add'               => 'añadir',

@@ -157,3 +157,19 @@
     }
   }
 }
+
+/*  #########  Buttons group  ########  */
+.btn-nav-group{
+    display: flex;
+    .btn-nav{
+        border-radius: 0;
+        &:first-of-type{
+            border-bottom-left-radius: 0.2rem;
+            border-top-left-radius: 0.2rem;
+        }
+        &:last-of-type{
+            border-bottom-right-radius: 0.2rem;
+            border-top-right-radius: 0.2rem;
+        }
+    }
+}

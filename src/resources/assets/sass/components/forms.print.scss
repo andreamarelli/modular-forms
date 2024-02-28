@@ -6,10 +6,6 @@
     transform: scale(0.7);
     transform-origin: 50% 0;
   }
-  section.header-ribbon {
-    @apply text-white #{!important};
-    @apply bg-primary-900 #{!important};
-  }
   .table td, .table th {
     background-color: transparent !important;
   }
