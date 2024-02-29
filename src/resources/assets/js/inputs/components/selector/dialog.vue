@@ -263,6 +263,12 @@
 
             confirmSelection(){
                 let value = null;
+                // custom confirm
+                if(typeof this.selectorComponent.confirmSelection === "function") {
+                    this.selectorComponent.confirmSelection(this.selectedValue);
+                    return;
+                }
+                // custom value parsing
                 if(typeof this.selectorComponent.getSelectedValue === "function"){
                     value = this.selectorComponent.getSelectedValue(this.selectedValue);
                 } else {
@@ -278,6 +284,7 @@
 
             confirmInsert(){
                 let value = null;
+                // custom value parsing
                 if(typeof this.selectorComponent.getInsertedValue === "function"){
                     value = this.selectorComponent.getInsertedValue(this.selectedValue);
                 } else {
