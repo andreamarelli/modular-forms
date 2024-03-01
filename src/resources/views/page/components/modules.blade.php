@@ -6,9 +6,8 @@
 
 ?>
 
-
 {{--  Modules (by step) --}}
-@foreach($item::modules()[$step] as $module)
+@foreach($item::modulesByStep($step) as $module)
 
     <x-modular-forms::module.container
         :controller="$controller"

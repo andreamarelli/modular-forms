@@ -3,8 +3,10 @@
 /** @var \AndreaMarelli\ModularForms\Models\Form $item */
 /** @var string $step */
 /** @var string $label_prefix */
+/** @var boolean $show_steps [optional] */
 /** @var boolean $show_scrollbar [optional] */
 
+$show_steps = $show_steps ?? true;
 $show_scrollbar = $show_scrollbar ?? true;
 
 ?>
@@ -19,12 +21,14 @@ $show_scrollbar = $show_scrollbar ?? true;
     </div>
 
     {{--  Steps menu --}}
-    @include('modular-forms::page.components.steps', [
-        'url' => action([$controller, 'edit'], ['item' => $item->getKey()]),
-        'current_step' => $step,
-        'label_prefix' =>  $label_prefix.'.steps.',
-        'steps' => $steps ?? array_keys($item::modules())
-    ])
+    @if($show_steps)
+        @include('modular-forms::page.components.steps', [
+            'url' => action([$controller, 'edit'], ['item' => $item->getKey()]),
+            'current_step' => $step,
+            'label_prefix' =>  $label_prefix.'.steps.',
+            'steps' => $steps ?? array_keys($item::modules())
+        ])
+    @endif
 
     {{-- Global errors --}}
     @include('modular-forms::page.components.errors', [

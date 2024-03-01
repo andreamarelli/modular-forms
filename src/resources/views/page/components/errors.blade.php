@@ -4,8 +4,6 @@
 
     $validationErrors = $item->validateFormRules();
 
-//    dd($validationErrors);
-
 ?>
 <div id="form_global_errors_bar" class="module-errors" v-show="has_errors">
     <div class="title">
