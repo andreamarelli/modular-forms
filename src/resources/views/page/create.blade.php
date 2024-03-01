@@ -8,6 +8,13 @@
 
 @section('content')
 
+    {{-- Title --}}
+    @hasSection('page-title')
+        <div class="page-title">
+            @yield('page-title')
+        </div>
+    @endif
+
     {{-- Create module --}}
     <x-modular-forms::module.container
         :controller="$controller"
