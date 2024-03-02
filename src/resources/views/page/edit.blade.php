@@ -8,6 +8,7 @@
 
 $show_steps = $show_steps ?? true;
 $show_scrollbar = $show_scrollbar ?? true;
+$step = $step ?? true;
 
 ?>
 
