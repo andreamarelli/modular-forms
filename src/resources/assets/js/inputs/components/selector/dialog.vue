@@ -76,7 +76,7 @@
                     <div class="spacer"></div>
 
                     <!-- error message -->
-                    <div v-html="errorLabel"></div>
+                    <div v-html="errorLabel" class="error text-sm"></div>
 
                     <!-- confirm insert -->
                     <button type="button"
