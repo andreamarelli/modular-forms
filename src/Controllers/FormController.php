@@ -3,14 +3,16 @@
 namespace AndreaMarelli\ModularForms\Controllers;
 
 use AndreaMarelli\ModularForms\Helpers\File\File;
+use AndreaMarelli\ModularForms\Helpers\HTTP;
 use AndreaMarelli\ModularForms\View\Module\Container;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use AndreaMarelli\ModularForms\Helpers\HTTP;
+use PhpOffice\PhpSpreadsheet;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 
@@ -18,6 +20,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
  * Class FormController
  *
  * @package AndreaMarelli\ModularForms\Controllers
+ *
  */
 abstract class FormController extends Controller
 {
@@ -34,8 +37,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "index" route
-     *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function index(Request $request): Application|View|Factory
     {
@@ -58,8 +60,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "create" route
-     *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function create(): Application|View|Factory
     {
@@ -71,8 +72,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "store" route
-     *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function store(Request $request)
     {
@@ -90,8 +90,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "show" route
-     *
-     *@throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function show($item, $step=null): Application|View|Factory
     {
@@ -110,8 +109,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "print" route
-     *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function print($item): Application|View|Factory
     {
@@ -129,7 +127,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "edit" route
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function edit($item, $step=null): Application|View|Factory
     {
@@ -148,8 +146,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "update" route
-     *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function update($item, Request $request): array
     {
@@ -161,10 +158,7 @@ abstract class FormController extends Controller
 
     /**
      * Manage "destroy" route
-     *
-     * @param $item
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function destroy($item): RedirectResponse
     {
@@ -193,7 +187,7 @@ abstract class FormController extends Controller
     /**
      * Export: Generate and download CSV file
      *
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return BinaryFileResponse
      */
     public function csv(): BinaryFileResponse
     {
@@ -203,10 +197,8 @@ abstract class FormController extends Controller
 
     /**
      * Export: Generate and download XLS file
-     *
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
-     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     * @throws PhpSpreadsheet\Exception
+     * @throws PhpSpreadsheet\Writer\Exception
      */
     public function xls(): BinaryFileResponse
     {
@@ -216,8 +208,6 @@ abstract class FormController extends Controller
 
     /**
      * API: model list
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
      */
     public function api_list(Request $request): JsonResponse
     {
@@ -227,8 +217,6 @@ abstract class FormController extends Controller
 
     /**
      * API: info for given id
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
      */
     public function api_info($id): JsonResponse
     {

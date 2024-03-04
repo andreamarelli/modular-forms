@@ -221,7 +221,7 @@
                 this.displayInsert = false;
                 this.displaySearch = true;
                 this.selectedValue = null;
-                document.getElementById('selector_item_insert_'+this.parentId).value = null;
+                this.resetInsert();
                 this.searchComponent.reset();
             },
 
@@ -291,6 +291,14 @@
                     value = document.getElementById('selector_item_insert_'+this.parentId).value;
                 }
                 this.applyValue(value);
+            },
+
+            resetInsert(){
+                if(typeof this.selectorComponent.resetInsert === "function"){
+                    this.selectorComponent.resetInsert();
+                } else {
+                    document.getElementById('selector_item_insert_'+this.parentId).value = null;
+                }
             },
 
             applyValue(value){
