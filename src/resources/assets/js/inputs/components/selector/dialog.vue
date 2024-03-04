@@ -75,6 +75,9 @@
 
                     <div class="spacer"></div>
 
+                    <!-- error message -->
+                    <div v-html="errorLabel"></div>
+
                     <!-- confirm insert -->
                     <button type="button"
                             class="btn-nav dark small"
