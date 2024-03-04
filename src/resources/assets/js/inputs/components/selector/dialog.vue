@@ -24,7 +24,7 @@
                 <div class="body">
 
                     <!-- API search -->
-                    <div v-show="displaySearch">
+                    <div v-show="displaySearch" class="dialog_select">
                         <selectorApiSearch
                             :parent-id=parentId
                             :search-url=searchUrl
@@ -124,8 +124,12 @@
             }
         }
         .body{
-            max-height: 80vh;
-            overflow-y: auto;
+            .dialog_select,
+            .dialog_insert{
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
         }
 
     }
@@ -286,7 +290,7 @@
                 let value = null;
                 // custom value parsing
                 if(typeof this.selectorComponent.getInsertedValue === "function"){
-                    value = this.selectorComponent.getInsertedValue(this.selectedValue);
+                    value = this.selectorComponent.getInsertedValue();
                 } else {
                     value = document.getElementById('selector_item_insert_'+this.parentId).value;
                 }
