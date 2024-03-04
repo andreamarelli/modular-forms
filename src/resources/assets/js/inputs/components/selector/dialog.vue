@@ -266,19 +266,18 @@
             },
 
             confirmSelection(){
-                let value = null;
                 // custom confirm
                 if(typeof this.selectorComponent.confirmSelection === "function") {
                     this.selectorComponent.confirmSelection(this.selectedValue);
-                    return;
                 }
                 // custom value parsing
-                if(typeof this.selectorComponent.getSelectedValue === "function"){
-                    value = this.selectorComponent.getSelectedValue(this.selectedValue);
-                } else {
-                    value = this.selectedValue;
+                else if(typeof this.selectorComponent.getSelectedValue === "function"){
+                    this.applyValue(this.selectorComponent.getSelectedValue(this.selectedValue));
                 }
-                this.applyValue(value);
+                // default
+                else {
+                    this.applyValue(this.selectedValue);
+                }
             },
 
             enableInsert(){
@@ -287,14 +286,19 @@
             },
 
             confirmInsert(){
-                let value = null;
-                // custom value parsing
-                if(typeof this.selectorComponent.getInsertedValue === "function"){
-                    value = this.selectorComponent.getInsertedValue();
-                } else {
-                    value = document.getElementById('selector_item_insert_'+this.parentId).value;
+                // custom confirm
+                if(typeof this.selectorComponent.confirmInsert === "function") {
+                    this.selectorComponent.confirmInsert();
                 }
-                this.applyValue(value);
+                // custom value parsing
+                else if(typeof this.selectorComponent.getInsertedValue === "function"){
+                    this.applyValue(this.selectorComponent.getInsertedValue());
+                }
+                // default
+                else {
+                    let value = document.getElementById('selector_item_insert_'+this.parentId).value
+                    this.applyValue(value);
+                }
             },
 
             resetInsert(){
