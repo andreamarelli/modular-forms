@@ -78,7 +78,7 @@
                     <!-- error message -->
                     <div v-html="errorLabel" class="error text-sm"></div>
 
-                    <!-- confirm insert -->
+                    <!-- cancel -->
                     <button type="button"
                             class="btn-nav dark small"
                             @click=closeSelectorDialog >
@@ -232,29 +232,12 @@
                 this.searchComponent.reset();
             },
 
-            openSelectorDialog: function(){
-                this.resetDialog();
-                this.dialogComponent.openDialog();
-                this.afterDialogOpen();
-            },
-
             closeSelectorDialog: function(){
-                this.beforeDialogClose();
-                this.dialogComponent.closeDialog();
-                this.resetDialog();
-            },
-
-            afterDialogOpen: function () {
-
-                if(typeof this.selectorComponent.afterDialogOpen === "function"){
-                    this.selectorComponent.afterDialogOpen();
-                }
-            },
-
-            beforeDialogClose: function(){
                 if(typeof this.selectorComponent.beforeDialogClose === "function"){
                     this.selectorComponent.beforeDialogClose();
                 }
+                this.dialogComponent.closeDialog();
+                this.resetDialog();
             },
 
             setError(label = null){
@@ -315,7 +298,7 @@
             applyValue(value){
                 this.selectorComponent.inputValue = value;
                 this.selectorComponent.emitValue(this.selectorComponent.inputValue);
-                this.dialogComponent.closeDialog();
+                this.closeSelectorDialog();
             }
 
         }
