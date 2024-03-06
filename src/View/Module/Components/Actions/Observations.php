@@ -8,7 +8,7 @@ use Illuminate\View\View;
 class Observations extends Component
 {
     public bool $has_observations;
-    public ?string $observation_field;
+    public ?array $observation_field;
 
     public function __construct(public array $definitions)
     {
@@ -23,10 +23,10 @@ class Observations extends Component
                 }
             }
         } else {
-            foreach($this->definitions['fields'] as $fields){
-                if($fields['name'] === 'observations'){
+            foreach($this->definitions['fields'] as $field){
+                if($field['name'] === 'observations'){
                     $this->has_observations = true;
-                    $this->observation_field = $fields;
+                    $this->observation_field = $field;
                 }
             }
         }

@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Blade;
                 {!! Blade::renderComponent(new $preload_data_view($definitions)) !!}
             </div>
 
-            {{-- kepp "observation" field even if not_applicable/not_available --}}
+            {{-- keep "observation" field even if not_applicable/not_available --}}
             {!! Blade::renderComponent(new $observations_view($definitions)) !!}
 
             <div v-show="!not_applicable && !not_available">
