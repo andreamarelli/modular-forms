@@ -101,7 +101,7 @@ $other_attributes = $other ?? '';
 @elseif(Str::contains($type, 'selector-species_animal'))
     <selector-species_animal
         {!! $vue_attributes !!}
-        search-url="/ajax/search/species"
+        search-url="{{ route('selector.animal.search') }}"
         :with-insert={{ Str::contains($type, 'withInsert') ? 'true' : 'false' }}
     ></selector-species_animal>
 
@@ -192,6 +192,7 @@ $other_attributes = $other ?? '';
 @elseif($type=="upload")
     <upload
         :max-file-size=85000000
+        :upload-url="{{ route('upload.file') }}"
         {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
     ></upload>
 
