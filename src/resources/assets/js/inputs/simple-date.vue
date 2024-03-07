@@ -4,7 +4,7 @@
            type="text"
            readonly
            v-model=inputValue
-           :id=id
+           :id=componentId
            :name=id
     />
 
@@ -49,6 +49,7 @@
         data(){
             return {
                 Locale: window.Locale,
+                componentId: null,
                 inputValue: this.value,
                 datePicker: null
             }
@@ -60,12 +61,13 @@
             }
         },
 
-        mounted(){
-
-            this.id = this.id!=='' && this.id!==null
+        beforeMount() {
+            this.componentId = this.id!=='' && this.id!==null
                 ? this.id
                 : 'simple_date_' + this._uid;
+        },
 
+        mounted(){
             let _this = this;
 
             let options = {
@@ -99,7 +101,7 @@
                 }
             }
 
-            this.datePicker = new window.ModularFormsVendor.AirDatepicker('#' + this.id, options);
+            this.datePicker = new window.ModularFormsVendor.AirDatepicker('#' + this.componentId, options);
         },
 
         methods: {
