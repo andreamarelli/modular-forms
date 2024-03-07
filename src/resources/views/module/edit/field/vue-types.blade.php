@@ -192,7 +192,7 @@ $other_attributes = $other ?? '';
 @elseif($type=="upload")
     <upload
         :max-file-size=85000000
-        :upload-url="{{ route('upload.file') }}"
+        upload-url="{{ route('upload.file') }}"
         {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
     ></upload>
 
