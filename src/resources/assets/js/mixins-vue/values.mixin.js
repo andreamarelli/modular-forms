@@ -1,10 +1,6 @@
 export default {
 
     props: {
-        id : {
-            type: String,
-            default: ''
-        },
         value : {
             type: [String, Number, Boolean, Array, Object],
             default: null
@@ -21,6 +17,7 @@ export default {
 
     data(){
         return {
+            id: null,
             inputValue: this.value,
         }
     },
