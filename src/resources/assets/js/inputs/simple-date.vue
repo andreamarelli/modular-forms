@@ -62,7 +62,9 @@
 
         mounted(){
 
-            this.id = this.id ?? this._uid;
+            this.id = this.id!=='' && this.id!==null
+                ? this.id
+                : this._uid;
 
             let _this = this;
 
