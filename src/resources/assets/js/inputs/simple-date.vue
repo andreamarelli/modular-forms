@@ -64,7 +64,7 @@
 
             this.id = this.id!=='' && this.id!==null
                 ? this.id
-                : this._uid;
+                : 'simple_date_' + this._uid;
 
             let _this = this;
 
