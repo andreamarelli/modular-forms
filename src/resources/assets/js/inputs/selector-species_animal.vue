@@ -3,7 +3,7 @@
     <selectorDialog
         :parent-id=id
         :search-url=searchUrl
-        :enable-free-text=enableFreeText
+        :with-insert=withInsert
     >
 
         <!-- dialog anchor -->
@@ -80,7 +80,7 @@ export default {
             type: String,
             default: null
         },
-        enableFreeText: {
+        withInsert: {
             type: Boolean,
             default: false,
         },

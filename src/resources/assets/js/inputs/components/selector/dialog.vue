@@ -68,7 +68,7 @@
                     <!-- insert toggle -->
                     <button type="button"
                             class="btn-nav dark small"
-                             v-show="enableFreeText && displaySearch"
+                             v-show="withInsert && displaySearch"
                              @click=enableInsert >
                          {{ Locale.getLabel('modular-forms::common.add_if_not_found') }}
                     </button>
@@ -180,7 +180,7 @@
                 type: String,
                 default: null
             },
-            enableFreeText: {
+            withInsert: {
                 type: Boolean,
                 default: false,
             },
