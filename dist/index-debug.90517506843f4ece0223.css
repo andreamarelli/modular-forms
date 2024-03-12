@@ -1647,8 +1647,15 @@ a img[data-v-eff58c46] {
   line-height: 1rem;
 }
 
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/selector/dialog.vue?vue&type=style&index=0&id=7af72690&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.selector-dialog > .dialog-anchor {
+  max-width: 450px;
+}
+
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/selector/dialog.vue?vue&type=style&index=0&id=7af72690&lang=scss&scoped=true ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/resources/assets/js/inputs/components/selector/dialog.vue?vue&type=style&index=1&id=7af72690&lang=scss&scoped=true ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .with_header_and_footer .header[data-v-7af72690],
 .with_header_and_footer .footer[data-v-7af72690] {
