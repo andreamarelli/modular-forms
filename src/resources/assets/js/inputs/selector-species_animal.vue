@@ -2,16 +2,10 @@
 
     <selectorDialog
         :parent-id=id
+        :value=value
         :search-url=searchUrl
-        :enable-free-text=enableFreeText
+        :with-insert=withInsert
     >
-
-        <!-- dialog anchor -->
-        <template v-slot:selector-anchor>
-            <div class="field-preview">
-                {{ anchorLabel }}
-            </div>
-        </template>
 
         <!-- api search - result search filters -->
         <template v-slot:selector-api-search-result-filters>
@@ -80,7 +74,7 @@ export default {
             type: String,
             default: null
         },
-        enableFreeText: {
+        withInsert: {
             type: Boolean,
             default: false,
         },
@@ -91,24 +85,11 @@ export default {
             Locale: window.Locale,
             assetPath: window.ModularForms.assetPath,
             searchComponent: null,
-            inputValue: null,
+            // inputValue: null,
             filterByClass: null,
             filterByOrder: null,
             orders: [],
             classes: []
-        }
-    },
-
-    computed:{
-        anchorLabel(){
-            if(this.inputValue!==null && typeof this.inputValue == "object"){
-                return this.getScientificName(this.inputValue);
-            } else if(this.value!==null && this.value.split("|").length>3){
-                let taxonomy = this.value.split("|");
-                return taxonomy[4] + ' ' + taxonomy[5]
-            } else {
-                return this.value;
-            }
         }
     },
 
@@ -117,6 +98,24 @@ export default {
     },
 
     methods: {
+
+        setLabel(value){
+            if(typeof value === "object"){
+                return this.getScientificName(value);
+            }
+            else if(value.split("|").length>3){
+                let taxonomy = value.split("|");
+                return taxonomy[4] + ' ' + taxonomy[5]
+            }
+            return value;
+        },
+
+        setValue(value){
+            if(typeof value == "object"){
+                return this.getFullTaxonomy(value);
+            }
+            return value;
+        },
 
         getScientificName(item) {
             return item.genus + ' ' + item.species;
@@ -173,10 +172,6 @@ export default {
             };
             this.searchComponent.filterShowList(filters);
         },
-
-        getSelectedValue(value){
-            return this.getFullTaxonomy(value);
-        }
 
     }
 

@@ -162,6 +162,10 @@ export default {
     ],
 
     props: {
+        uploadUrl: {
+            type: String,
+            default: null
+        },
         allowedFormats: {
             type: Array,
             default: function () {
@@ -260,7 +264,7 @@ export default {
             data.append('file_upload', this.selectedFile);
             this.uploading = true;
 
-            fetch(window.Laravel.baseUrl + 'ajax/upload', {
+            fetch(this.uploadUrl, {
                 method: 'post',
                 headers: {
                     "X-CSRF-Token": window.Laravel.csrfToken
