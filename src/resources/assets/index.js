@@ -61,6 +61,7 @@ window.ModularFormsVendor.Vue.component('tooltip', require('./js/templates/toolt
 
 // Load INPUT "abstract" component
 window.ModularFormsVendor.Vue.component('selectorDialog', require('./js/inputs/components/selector/dialog.vue').default);
+window.ModularForms.MixinsVue.selectorApiSearch = require('./js/inputs/components/selector/api-search.vue').default;
 
 // Load INPUT components
 window.ModularFormsVendor.Vue.component('checkbox-boolean', require('./js/inputs/checkbox-boolean.vue').default);
