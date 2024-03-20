@@ -11,6 +11,10 @@
         width: 100vw;
 
         .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
             @apply border-b border-gray-50;
             padding-bottom: 5px;
             font-weight: bold;
@@ -31,8 +35,9 @@
 
         .header,
         .footer{
-            display: flex;
-            flex-direction: row;
+            .spacer {
+                flex-grow: 1;
+            }
         }
 
     }
