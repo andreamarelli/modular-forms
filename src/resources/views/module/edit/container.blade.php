@@ -27,10 +27,10 @@ use Illuminate\Support\Facades\Blade;
             {{-- crsf --}}
             @csrf
 
-            {{--  not applicable / not available / preload --}}
-            <div class="text-right" style="margin: 0 0 10px;">
+            {{--  Actions: not applicable / not available / other (custom) --}}
+            <div class="flex justify-end">
                 {!! Blade::renderComponent(new $not_applicable_view($definitions)) !!}
-                {!! Blade::renderComponent(new $preload_data_view($definitions)) !!}
+                {!! Blade::renderComponent(new $custom_action_view($definitions)) !!}
             </div>
 
             {{-- keep "observation" field even if not_applicable/not_available --}}

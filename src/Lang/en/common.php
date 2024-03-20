@@ -59,11 +59,8 @@ return [
     'no'                => 'no',
 
     'form' => [
-        'preload'               => 'Load data from previous years',
-        'previous_years'        => 'Data from previous years',
 
         'not_available'         => 'Data not available',
-        'available_years'       => 'Available years',
         'available_tooltip'     => 'Check if data is not available',
 
         'applicable'            => 'Not applicable indicator',

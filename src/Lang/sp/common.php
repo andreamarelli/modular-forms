@@ -58,11 +58,8 @@ return [
     'no'                => 'no',
 
     'form' => [
-        'preload'               => 'Cargar datos de años anteriores',
-        'previous_years'        => 'Datos de años anteriores',
 
         'not_available'         => 'Informacion no disponible',
-        'available_years'       => 'Años disponibles',
         'available_tooltip'     => 'Marque la casilla si los datos no están disponibles',
 
         'applicable'            => 'Indicador no aplicable',

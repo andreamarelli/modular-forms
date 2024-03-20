@@ -3,9 +3,10 @@
 namespace AndreaMarelli\ModularForms\View\Module;
 
 use AndreaMarelli\ModularForms\Helpers\ModuleKey;
+use AndreaMarelli\ModularForms\Models\Module;
+use AndreaMarelli\ModularForms\View\Module\Components\Actions\Custom;
 use AndreaMarelli\ModularForms\View\Module\Components\Actions\NotApplicable;
 use AndreaMarelli\ModularForms\View\Module\Components\Actions\Observations;
-use AndreaMarelli\ModularForms\View\Module\Components\Actions\PreLoadData;
 use AndreaMarelli\ModularForms\View\Module\Components\Info;
 use AndreaMarelli\ModularForms\View\Module\Components\LastUpdate;
 use AndreaMarelli\ModularForms\View\Module\Components\Title;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use ReflectionException;
 
 class Container extends Component
 {
@@ -34,11 +36,11 @@ class Container extends Component
     public string $info_view = Info::class;
     public string $last_update_view = LastUpdate::class;
     public string $not_applicable_view = NotApplicable::class;
-    public string $preload_data_view = PreLoadData::class;
+    public string $custom_action_view = Custom::class;
     public string $observations_view = Observations::class;
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function __construct(
          public string $controller,
@@ -46,7 +48,7 @@ class Container extends Component
          public ?int $formId,
          public string $mode
     ) {
-        /** @var \AndreaMarelli\ModularForms\Models\Module $module */
+        /** @var Module $module */
 
         $this->collection = $module::getModule($formId);
         $this->records = $module::getModuleRecords($formId,  $this->collection);

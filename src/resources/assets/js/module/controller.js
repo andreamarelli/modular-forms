@@ -1,6 +1,5 @@
 import actions from './mixins/actions.mixin'
 import calc from './mixins/calc.mixin'
-import preload from './mixins/preload.mixin'
 import transitions from './mixins/transitions.mixin'
 import payload from "../mixins/payload";
 
@@ -9,7 +8,6 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
     mixins: [
         actions,
         calc,
-        preload,
         transitions
     ],
 

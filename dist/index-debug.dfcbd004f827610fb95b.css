@@ -2666,6 +2666,9 @@ video {
 .flex-col{
   flex-direction: column;
 }
+.justify-end{
+  justify-content: flex-end;
+}
 .rounded{
   border-radius: 0.25rem;
 }
