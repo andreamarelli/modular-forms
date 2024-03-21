@@ -54,7 +54,8 @@ $only_show = $only_show ?? false;
             </div>
         </div>
     @elseif(!$noData)
-        @include('modular-forms::module.validation_bar', [
+        @include('modular-forms::module.components.validation_bar', [
+            'formId' => $formId,
             'controller' => $controller,
             'definitions' => $definitions,
             'validation' => $module_records['validation']

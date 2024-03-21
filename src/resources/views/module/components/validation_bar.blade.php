@@ -66,7 +66,7 @@
                     this.validation.id = null;
                     this.validation.name = null;
 
-                    fetch('{{ action([$controller, 'validate_module'], ['item' => $item->getKey()]) }}', {
+                    fetch('{{ action([$controller, 'validate_module'], ['item' => $formId]) }}', {
                         method: 'post',
                         headers: {
                             'Content-Type': 'application/json',
