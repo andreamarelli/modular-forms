@@ -55,7 +55,7 @@ use Illuminate\Support\Facades\Blade;
                 {{-- ########################################################### --}}
                 {{--    If a custom view does not exists use the standard one    --}}
                 {{-- ########################################################### --}}
-                @if(!view()->exists($default_model_view_name))
+                @if(!view()->exists($custom_view_name))
                     <x-modular-forms::module.components.body
                         :collection="$collection"
                         :vueData="$vueData"
@@ -70,7 +70,7 @@ use Illuminate\Support\Facades\Blade;
                     ></x-modular-forms::module.components.script>
                 @else
                     {{-- custom view --}}
-                    @include($default_model_view_name, compact(['collection', 'vueData', 'definitions', 'mode']))
+                    @include($custom_view_name, compact(['collection', 'vueData', 'definitions', 'mode']))
                 @endif
 
             </div>

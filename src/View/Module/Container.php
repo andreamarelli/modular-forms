@@ -23,7 +23,7 @@ class Container extends Component
     public array $definitions;
     public array $vueData;
     public bool $noData = false;
-    public ?string $default_model_view_name;
+    public ?string $custom_view_name;
     public ?array $last_update;
     public ?array $validation;
 
@@ -62,7 +62,7 @@ class Container extends Component
         $this->controller = Str::startsWith($controller, 'App\Http')
             ? '\\'.$controller
             : $controller;
-        $this->default_model_view_name = ModuleKey::KeyToView($this->definitions['module_key'], $this->mode);
+        $this->custom_view_name = ModuleKey::KeyToView($this->definitions['module_key'], $this->mode);
 
         if($this->collection->isEmpty()){
             $this->noData = true;
