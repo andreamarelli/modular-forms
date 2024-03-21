@@ -33,6 +33,20 @@ use Illuminate\Support\Facades\Blade;
                 {!! Blade::renderComponent(new $custom_action_view($definitions)) !!}
             </div>
 
+            {{-- not applicable --}}
+            <div v-show="not_applicable">
+                <div class="no-data">
+                    @lang('modular-forms::common.form.not_applicable')
+                </div>
+            </div>
+
+            {{-- not available --}}
+            <div v-show="not_applicable">
+                <div class="no-data">
+                    @lang('modular-forms::common.form.not_available')
+                </div>
+            </div>
+
             {{-- keep "observation" field even if not_applicable/not_available --}}
             {!! Blade::renderComponent(new $observations_view($definitions)) !!}
 
