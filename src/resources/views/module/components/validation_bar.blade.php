@@ -40,6 +40,7 @@
 
 </div>
 
+@push('scripts')
     <script>
         new Vue({
             el: '#validation_{{ $definitions['module_key'] }}',
@@ -94,3 +95,4 @@
             }
         });
     </script>
+@endpush
