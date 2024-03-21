@@ -41,7 +41,7 @@ use Illuminate\Support\Facades\Blade;
             </div>
 
             {{-- not available --}}
-            <div v-show="not_applicable">
+            <div v-show="not_available">
                 <div class="no-data">
                     @lang('modular-forms::common.form.not_available')
                 </div>
