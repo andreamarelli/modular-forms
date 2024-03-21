@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Blade;
     {!! Blade::renderComponent(new $title_view($definitions)) !!}
 
     {{-- info --}}
-    {!! Blade::renderComponent(new $info_view($definitions)) !!}
+    {!! Blade::renderComponent(new $info_bar_view($definitions)) !!}
 
     <div class="module-body">
 
@@ -79,7 +79,6 @@ use Illuminate\Support\Facades\Blade;
 
     </div>
 
-    {{-- save bars --}}
-    @include('modular-forms::module.components.save_bar')
+    {!! Blade::renderComponent(new $action_bar_view($controller, $definitions, $vueData['records'], $mode)) !!}
 
 </div>

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Blade;
     {!! Blade::renderComponent(new $title_view($definitions)) !!}
 
     {{-- info --}}
-    {!! Blade::renderComponent(new $info_view($definitions)) !!}
+    {!! Blade::renderComponent(new $info_bar_view($definitions)) !!}
 
     <div class="module-body">
 
@@ -55,8 +55,6 @@ use Illuminate\Support\Facades\Blade;
 
     </div>
 
-    @if($mode===Container::MODE_VALIDATE)
-        @include('modular-forms::module.components.validation_bar', compact(['controller', 'definitions', 'validation']))
-    @endif
+    {!! Blade::renderComponent(new $action_bar_view($controller, $definitions, $records, $mode)) !!}
 
 </div>

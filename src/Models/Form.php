@@ -90,7 +90,6 @@ class Form extends BaseModel
         $form = new static();
         $form = $form->find($item);
         $form->updateProgress();
-        $form->updateValid();
         $form->touch(); // force timestamp update
 
         return $return;
@@ -255,14 +254,4 @@ class Form extends BaseModel
         return $errors;
     }
 
-    /**
-     * Update the "VALID" status
-     */
-    public function updateValid(): void
-    {
-        if ($this::VALID !== null) {
-            $errors = $this->validateFormRules();
-            $this->{$this::VALID} = empty($errors);
-        }
-    }
 }
