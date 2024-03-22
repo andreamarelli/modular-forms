@@ -9,7 +9,7 @@ use Illuminate\View\View;
 class Action extends Component{
 
     public function __construct(
-        public Controller $controller,
+        public string $controller,
         public array $definitions,
         public array $records,
         public string $mode
