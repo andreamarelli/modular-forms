@@ -55,6 +55,6 @@ use Illuminate\Support\Facades\Blade;
 
     </div>
 
-    {!! Blade::renderComponent(new $action_bar_view($controller, $definitions, $records, $mode)) !!}
+    {!! Blade::renderComponent(new $action_bar_view($controller, $definitions, $records, $formId, $mode)) !!}
 
 </div>

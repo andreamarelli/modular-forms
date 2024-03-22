@@ -12,6 +12,7 @@ class Action extends Component{
         public string $controller,
         public array $definitions,
         public array $records,
+        public ?int $formId,
         public string $mode
     ){}
 

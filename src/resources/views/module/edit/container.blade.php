@@ -77,6 +77,6 @@ use Illuminate\Support\Facades\Blade;
 
     </div>
 
-    {!! Blade::renderComponent(new $action_bar_view($controller, $definitions, $vueData['records'], $mode)) !!}
+    {!! Blade::renderComponent(new $action_bar_view($controller, $definitions, $vueData['records'], $formId, $mode)) !!}
 
 </div>
