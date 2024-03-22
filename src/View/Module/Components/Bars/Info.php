@@ -8,7 +8,7 @@ use Illuminate\View\View;
 class Info extends Component{
 
     public function __construct(
-        array $definitions
+        public array $definitions
     ){}
 
     public function render(): View
