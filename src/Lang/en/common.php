@@ -71,10 +71,6 @@ return [
         'error' => 'some information in this form are incorrect or lacking',
 
         'encoding'              => 'encoding',
-        'validation'            => 'validation',
-        'validated_by'          => 'validated by',
-        'nothing_to_validate'   => 'Nothing to validate',
-        'already_validated'     => 'Indicator already validated',
     ],
 
 

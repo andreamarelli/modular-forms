@@ -52,6 +52,7 @@ return [
     'no_data'           => 'aucune donnée',
     'no_differences'    => 'aucune différence',
     'data_not_available'=> 'données non disponibles',
+    'validation_error'  => 'erreur de validation',
 
     'page'              => 'page',
     'yes'               => 'oui',
@@ -70,10 +71,6 @@ return [
         'error' => 'ce formulaire contient des informations incorrectes ou manquantes',
 
         'encoding' => 'encodage',
-        'validation' => 'validation',
-        'validated_by'        => 'valider par',
-        'nothing_to_validate' => 'Rien à valider',
-        'already_validated' => 'Indicateur déjà validé.',
     ],
 
 

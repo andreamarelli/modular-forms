@@ -23,12 +23,10 @@ class Container extends Component
     public bool $noData = false;
     public ?string $custom_view_name;
     public ?array $last_update;
-    public ?array $validation;
 
     public const MODE_EDIT = 'edit';
     public const MODE_SHOW = 'show';
     public const MODE_PRINT = 'print';
-    public const MODE_VALIDATE = 'validate';
 
     public string $title_view = Title::class;
     public string $info_bar_view = Bars\Info::class;
@@ -55,7 +53,6 @@ class Container extends Component
         $this->vueData = $module::getVueData($formId, $this->records, $this->definitions);
 
         $this->last_update = $this->records['last_update'];
-        $this->validation = $this->records['validation'] ?? null;
 
         $this->records = $this->records['records'];
         $this->controller = Str::startsWith($controller, 'App\Http')

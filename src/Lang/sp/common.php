@@ -70,10 +70,6 @@ return [
         'error' => 'algunos datos de este formulario son incorrectos o insuficientes',
 
         'encoding' => 'codificacion',
-        'validation' => 'validación',
-        'validated_by'        => 'validar por',
-        'nothing_to_validate' => 'Nada que validar',
-        'already_validated' => 'Indicador ya validado.',
     ],
 
 

@@ -70,10 +70,6 @@ return [
         'error' => 'algumas informações contidas neste formulário estão incorrectas ou em falta',
 
         'encoding' => 'codificação',
-        'validation' => 'validação',
-        'validated_by'        => 'validar por',
-        'nothing_to_validate' => 'Nada para validar',
-        'already_validated' => 'Indicador já validado.',
     ],
 
     'upload' => [
