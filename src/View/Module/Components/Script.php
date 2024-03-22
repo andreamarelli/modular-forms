@@ -13,6 +13,7 @@ class Script extends Component{
         public Collection $collection,
         public array $vueData,
         public array $definitions,
+        public array $records,
         public string $mode
     ){}
 
