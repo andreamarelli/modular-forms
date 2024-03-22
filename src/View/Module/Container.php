@@ -5,7 +5,7 @@ namespace AndreaMarelli\ModularForms\View\Module;
 use AndreaMarelli\ModularForms\Helpers\ModuleKey;
 use AndreaMarelli\ModularForms\Models\Module;
 use AndreaMarelli\ModularForms\View\Module\Components\Actions;
-use AndreaMarelli\ModularForms\View\Module\Components\Bars\Info;
+use AndreaMarelli\ModularForms\View\Module\Components\Bars;
 use AndreaMarelli\ModularForms\View\Module\Components\LastUpdate;
 use AndreaMarelli\ModularForms\View\Module\Components\Title;
 use Illuminate\Database\Eloquent\Collection;
@@ -31,7 +31,8 @@ class Container extends Component
     public const MODE_VALIDATE = 'validate';
 
     public string $title_view = Title::class;
-    public string $info_bar_view = Info::class;
+    public string $info_bar_view = Bars\Info::class;
+    public string $action_bar_view = Bars\Action::class;
     public string $last_update_view = LastUpdate::class;
     public string $not_applicable_view = Actions\NotApplicable::class;
     public string $custom_action_view = Actions\Custom::class;
