@@ -64,7 +64,7 @@ use Illuminate\Support\Facades\Blade;
                         :mode="$mode"
                     ></x-modular-forms::module.components.body>
 
-                    {!! Blade::renderComponent(new $script_view($collection, $vueData, $definitions, $records, $mode)) !!}
+                    {!! Blade::renderComponent(new $script_view($collection, $vueData, $definitions, $records, $formId, $mode)) !!}
 
                 @else
                     {{-- custom view --}}

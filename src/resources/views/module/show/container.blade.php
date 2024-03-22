@@ -49,7 +49,7 @@ use Illuminate\Support\Facades\Blade;
                 @include($custom_view_name, compact(['collection', 'records', 'definitions', 'mode']))
             @endif
 
-            {!! Blade::renderComponent(new $script_view($collection, $vueData, $definitions, $records, $mode)) !!}
+            {!! Blade::renderComponent(new $script_view($collection, $vueData, $definitions, $records, $formId, $mode)) !!}
 
         @endif
 

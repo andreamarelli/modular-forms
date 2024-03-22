@@ -14,6 +14,7 @@ class Script extends Component{
         public array $vueData,
         public array $definitions,
         public array $records,
+        public ?int $formId,
         public string $mode
     ){}
 
