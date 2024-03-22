@@ -1,8 +1,3 @@
-<?php
-/** @var \Illuminate\Database\Eloquent\Collection $collection */
-
-?>
-
 @push('scripts')
     <script>
         // ## Initialize Module controller ##

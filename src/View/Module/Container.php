@@ -7,6 +7,7 @@ use AndreaMarelli\ModularForms\Models\Module;
 use AndreaMarelli\ModularForms\View\Module\Components\Actions;
 use AndreaMarelli\ModularForms\View\Module\Components\Bars;
 use AndreaMarelli\ModularForms\View\Module\Components\LastUpdate;
+use AndreaMarelli\ModularForms\View\Module\Components\Script;
 use AndreaMarelli\ModularForms\View\Module\Components\Title;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
@@ -35,6 +36,7 @@ class Container extends Component
     public string $not_applicable_view = Actions\NotApplicable::class;
     public string $custom_action_view = Actions\Custom::class;
     public string $observations_view = Actions\Observations::class;
+    public string $script_view = Script::class;
 
     /**
      * @throws ReflectionException

@@ -63,11 +63,9 @@ use Illuminate\Support\Facades\Blade;
                         :records="$records"
                         :mode="$mode"
                     ></x-modular-forms::module.components.body>
-                    <x-modular-forms::module.components.script
-                        :collection="$collection"
-                        :vueData="$vueData"
-                        :definitions="$definitions"
-                    ></x-modular-forms::module.components.script>
+
+                    {!! Blade::renderComponent(new $script_view($collection, $vueData, $definitions, $records, $mode)) !!}
+
                 @else
                     {{-- custom view --}}
                     @include($custom_view_name, compact(['collection', 'vueData', 'definitions', 'mode']))
