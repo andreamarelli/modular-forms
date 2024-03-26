@@ -22,7 +22,7 @@
             'controller' => $controller,
             'item' => $item,
             'step' => $step,
-            'mode' => \AndreaMarelli\ModularForms\View\Module\Container::MODE_PRINT
+            'mode' => \AndreaMarelli\ModularForms\Enums\ModuleViewModes::PRINT
         ])
 
     @endforeach

@@ -2,6 +2,7 @@
 
 namespace AndreaMarelli\ModularForms\View\Module;
 
+use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
 use AndreaMarelli\ModularForms\Helpers\ModuleKey;
 use AndreaMarelli\ModularForms\Models\Module;
 use AndreaMarelli\ModularForms\View\Module\Components\Actions;
@@ -25,10 +26,6 @@ class Container extends Component
     public bool $noData = false;
     public ?string $custom_view_name;
     public ?array $last_update;
-
-    public const MODE_EDIT = 'edit';
-    public const MODE_SHOW = 'show';
-    public const MODE_PRINT = 'print';
 
     public string $title_view = Title::class;
     public string $info_bar_view = Bars\Info::class;
@@ -71,7 +68,7 @@ class Container extends Component
 
     public function render(): View
     {
-        if($this->mode === static::MODE_EDIT){
+        if($this->mode === ModuleViewModes::EDIT){
             return view('modular-forms::module.edit.container');
         } else {
             return view('modular-forms::module.show.container');

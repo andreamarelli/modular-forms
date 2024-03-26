@@ -4,7 +4,10 @@
 /** @var string $step */
 /** @var string $label_prefix */
 /** @var boolean $show_steps [optional] */
+
 /** @var boolean $show_scrollbar [optional] */
+
+use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
 
 $show_steps = $show_steps ?? true;
 $show_scrollbar = $show_scrollbar ?? true;
@@ -24,7 +27,7 @@ $step = $step ?? true;
     {{--  Steps menu --}}
     @if($show_steps)
         @include('modular-forms::page.components.steps', [
-            'url' => action([$controller, 'edit'], ['item' => $item->getKey()]),
+            'url' => action([$controller, ModuleViewModes::EDIT], ['item' => $item->getKey()]),
             'current_step' => $step,
             'label_prefix' =>  $label_prefix.'.steps.',
             'steps' => $steps ?? array_keys($item::modules())
@@ -33,7 +36,7 @@ $step = $step ?? true;
 
     {{-- Global errors --}}
     @include('modular-forms::page.components.errors', [
-        'url' => action([$controller, 'edit'], ['item' => $item->getKey()]),
+        'url' => action([$controller, ModuleViewModes::EDIT], ['item' => $item->getKey()]),
         'item' => $item
     ])
 
@@ -42,7 +45,7 @@ $step = $step ?? true;
         'controller' => $controller,
         'item' => $item,
         'step' => $step,
-        'mode' => \AndreaMarelli\ModularForms\View\Module\Container::MODE_EDIT
+        'mode' => ModuleViewModes::EDIT
     ])
 
     {{--  Scroll buttons  --}}

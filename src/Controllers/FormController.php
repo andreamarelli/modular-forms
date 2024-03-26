@@ -2,6 +2,7 @@
 
 namespace AndreaMarelli\ModularForms\Controllers;
 
+use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
 use AndreaMarelli\ModularForms\Helpers\File\File;
 use AndreaMarelli\ModularForms\Helpers\HTTP;
 use AndreaMarelli\ModularForms\View\Module\Container;
@@ -83,7 +84,7 @@ abstract class FormController extends Controller
         $result = $form->store($request);
         if($result['status'] === 'success'){
             $result['entity_label'] = $form::find($result['entity_id'])->{$form::LABEL};
-            $result['edit_url'] = action([static::class, 'edit'], ['item' => $result['entity_id']]);
+            $result['edit_url'] = action([static::class, ModuleViewModes::EDIT], ['item' => $result['entity_id']]);
         }
         return $result;
     }
@@ -121,7 +122,7 @@ abstract class FormController extends Controller
         return view(static::$form_view_prefix.'.print', [
             'controller' => static::class,
             'item' => $form,
-            'mode' => Container::MODE_PRINT
+            'mode' => ModuleViewModes::PRINT
         ]);
     }
 

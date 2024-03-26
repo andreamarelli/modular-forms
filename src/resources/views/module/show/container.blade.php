@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Blade;
             <div class="no-data">
                 @lang('modular-forms::common.form.not_available')
             </div>
-        @elseif($mode===Container::MODE_PRINT && $noData)
+        @elseif($mode===\AndreaMarelli\ModularForms\Enums\ModuleViewModes::PRINT && $noData)
             <div class="no-data">
                 @lang('modular-forms::common.data_not_available')
             </div>
