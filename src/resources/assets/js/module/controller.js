@@ -243,7 +243,7 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
         __sync_common_fields: function () {
             let _this = this;
             _this.common_fields.forEach(function (field) {
-                if (_this.groups !== null && _this.groups.length > 0) {
+                if (_this.groups !== null && Object.keys(_this.groups).length > 0) {
                     let first_group = Object.keys(_this.groups)[0];
                     let value = _this.records[first_group][0][field['name']];
                     Object.keys(_this.records).forEach(function (group_key) {
