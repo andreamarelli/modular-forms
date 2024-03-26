@@ -344,9 +344,11 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
             if (this.module_type === 'GROUP_ACCORDION' || this.module_type === 'GROUP_TABLE') {
                 let _this = this;
                 let records_by_group = {};
+                // Add groups keys
                 Object.keys(_this.groups).forEach(function (key) {
                     records_by_group[key] = [];
                 });
+                // Sort existing records (from plain records array) into groups
                 _this.records.forEach(function (item) {
                     if (item[_this.group_key_field] !== null) {
                         let group_key = item[_this.group_key_field];
@@ -355,6 +357,7 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
                         }
                     }
                 });
+                // Add empty record for each group (if no records)
                 Object.keys(records_by_group).forEach(function (key) {
                     if (records_by_group[key].length === 0) {
                         records_by_group[key].push(_this.__no_reactive_copy(_this.empty_record));

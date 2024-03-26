@@ -29,42 +29,32 @@ export default {
         toggleNotApplicable: function () {
             this.not_applicable = !this.not_applicable;
             this.not_available = false;
-            let records = [];
-            records.push(this.__no_reactive_copy(this.empty_record));
-            this.__arrange_records_by_group();
-            if(this.module_type.includes('GROUP_')){
-                let first_group_key = Object.keys(this.groups)[0];
-                this.common_fields.forEach(function (field) {
-                    records[first_group_key][0][field['name']] = null;
-                });
-                records[first_group_key][0]['not_applicable'] = this.not_applicable === true ? true : null;
-            } else {
-                this.common_fields.forEach(function (field) {
-                    records[0][field['name']] = null;
-                });
-                records[0]['not_applicable'] = this.not_applicable === true ? true : null;
-            }
-            this.records = records;
+            this._toggleNotApplicableNotAvailable();
         },
 
         toggleNotAvailable: function () {
             this.not_available = !this.not_available;
-            let records = [];
-            records.push(this.__no_reactive_copy(this.empty_record));
-            this.__arrange_records_by_group();
+            this.not_applicable = false;
+            this._toggleNotApplicableNotAvailable();
+        },
+
+        _toggleNotApplicableNotAvailable(){
+            let _this = this;
+            this.records = [];
             if(this.module_type.includes('GROUP_')){
-                let first_group_key = Object.keys(this.groups)[0];
-                this.common_fields.forEach(function (field) {
-                    records[first_group_key][0][field['name']] = null;
-                });
-                records[first_group_key][0]['not_available'] = this.not_available === true ? true : null;
+                this.__arrange_records_by_group();
+                // let first_group_key = Object.keys(this.groups)[0];
+                // this.common_fields.forEach(function (field) {
+                //     _this.records[first_group_key][0][field['name']] = null;
+                // });
+                // this.records[first_group_key][0]['not_applicable'] = this.not_applicable === true ? true : null;
             } else {
-                this.common_fields.forEach(function (field) {
-                    records[0][field['name']] = null;
-                });
-                records[0]['not_available'] = this.not_available === true ? true : null;
+                this.records.push(this.__no_reactive_copy(this.empty_record));
+                // this.common_fields.forEach(function (field) {
+                //     _this.records[0][field['name']] = null;
+                // });
+                // this.records[0]['not_applicable'] = this.not_applicable === true ? true : null;
             }
-            this.records = records;
         }
 
     }
