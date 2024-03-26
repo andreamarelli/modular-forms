@@ -10,16 +10,18 @@ export default {
     methods:{
 
         __init_applicable: function(){
-            if(this.enable_not_applicable===true
-                && 'not_applicable' in this.records[0]
-            ){
-                if(this.module_type.includes('GROUP_')){
+            if(this.enable_not_applicable){
+                if(this.module_type.includes('GROUP_')) {
                     let first_group_key = Object.keys(this.groups)[0];
-                    this.not_applicable = this.records[first_group_key][0]['not_applicable']===true;
-                    this.not_available = this.records[first_group_key][0]['not_available']===true;
+                    if('not_applicable' in this.records[first_group_key][0]){
+                        this.not_applicable = this.records[first_group_key][0]['not_applicable']===true;
+                        this.not_available = this.records[first_group_key][0]['not_available']===true;
+                    }
                 } else {
-                    this.not_applicable = this.records[0]['not_applicable']===true;
-                    this.not_available = this.records[0]['not_available']===true;
+                    if('not_applicable' in this.records[0]){
+                        this.not_applicable = this.records[0]['not_applicable']===true;
+                        this.not_available = this.records[0]['not_available']===true;
+                    }
                 }
             }
         },
