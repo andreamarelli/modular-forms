@@ -32,7 +32,7 @@
                 let iso2 = this.iso2.toLowerCase();
                 iso2 = iso2==='en' ? 'gb' : iso2;
                 iso2 = iso2==='sp' ? 'es' : iso2;
-                return 'flag-icon flag-icon-'+iso2;
+                return 'fi fi-'+iso2;
             }
         }
     }

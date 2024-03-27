@@ -130,13 +130,13 @@ export default {
             if (this.hasCommonNames(item)) {
                 description += '<div class="common_names"><b><i>' + Locale.getLabel('modular-forms::entities.biodiversity.common_names') + ':</i></b><br />';
                 if (item.common_name_en !== null && item.common_name_en.toLowerCase() !== 'null') {
-                    description += '<div><span class="flag-icon flag-icon-gb"></span> ' + item.common_name_en.replace(/\,/g, ', ') + '</div>'
+                    description += '<div><span class="fi fi-gb"></span> ' + item.common_name_en.replace(/\,/g, ', ') + '</div>'
                 }
                 if (item.common_name_fr !== null && item.common_name_fr.toLowerCase() !== 'null') {
-                    description += '<div><span class="flag-icon flag-icon-fr"></span> ' + item.common_name_fr.replace(/\,/g, ', ') + '</div>'
+                    description += '<div><span class="fi fi-fr"></span> ' + item.common_name_fr.replace(/\,/g, ', ') + '</div>'
                 }
                 if (item.common_name_sp !== null && item.common_name_sp.toLowerCase() !== 'null') {
-                    description += '<div><span class="flag-icon flag-icon-es"></span> ' + item.common_name_sp.replace(/\,/g, ', ') + '</div>'
+                    description += '<div><span class="fi fi-es"></span> ' + item.common_name_sp.replace(/\,/g, ', ') + '</div>'
                 }
                 description += '</div>';
             }

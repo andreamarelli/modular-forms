@@ -27,7 +27,7 @@ class Template
     }
 
     /**
-     * Return a flag (lipis/flag-icon-css) tag
+     * Return a flag (lipis/flag-icons) tag
      *
      * @param $iso2
      * @param string $tooltip
@@ -39,7 +39,7 @@ class Template
         $iso2    = ($iso2 == 'en') ? 'gb' : $iso2;
         $iso2    = ($iso2 == 'sp') ? 'es' : $iso2;
         $tooltip = $tooltip != '' ? '<tooltip>'.$tooltip.'</tooltip>' : '';
-        return '<span  class="flag-icon flag-icon-' . $iso2 . '"></span>' . $tooltip;
+        return '<span  class="fi fi-' . $iso2 . '"></span>' . $tooltip;
     }
 
     /**
