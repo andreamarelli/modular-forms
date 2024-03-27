@@ -19,7 +19,7 @@ if (Session::has('lists')) {
     <body class="flex-col">
 
         <header>
-            @include('modular-forms::layouts.components.header', ['is_admin' => true])
+            @include('modular-forms::layouts.components.header')
         </header>
 
         <main>
