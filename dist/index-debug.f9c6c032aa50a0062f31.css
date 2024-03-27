@@ -10411,10 +10411,11 @@ nav.steps {
     display: inline-block;
     text-align: center;
     padding: 20px 5px;
-    border-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity));
-    border-right: none;
     overflow-wrap: anywhere;
     min-width: 90px;
     transition: background-color 0.36s cubic-bezier(0.4, 0, 1, 1);

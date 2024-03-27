@@ -55,8 +55,7 @@ nav.steps{
         display: inline-block;
         text-align: center;
         padding: 20px 5px;
-        @apply border border-gray-200;
-        border-right: none;
+        @apply border-y border-l border-gray-200;
         overflow-wrap: anywhere;
         min-width: 90px;
         &:last-child {
