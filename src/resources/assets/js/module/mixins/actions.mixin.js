@@ -29,16 +29,16 @@ export default {
         toggleNotApplicable: function () {
             this.not_applicable = !this.not_applicable;
             this.not_available = false;
-            this._toggleNotApplicableNotAvailable();
+            this._toggleNotApplicableNotAvailable('not_applicable', this.not_applicable);
         },
 
         toggleNotAvailable: function () {
             this.not_available = !this.not_available;
             this.not_applicable = false;
-            this._toggleNotApplicableNotAvailable();
+            this._toggleNotApplicableNotAvailable('not_available', this.not_available);
         },
 
-        _toggleNotApplicableNotAvailable(){
+        _toggleNotApplicableNotAvailable(toggle_name, toggle_value){
             let _this = this;
             this.records = [];
             if(this.module_type.includes('GROUP_')){
@@ -49,7 +49,7 @@ export default {
                         _this.records[first_group_key][0][field['name']] = null;
                     }
                 });
-                this.records[first_group_key][0]['not_applicable'] = this.not_applicable === true ? true : null;
+                this.records[first_group_key][0][toggle_name] = toggle_value === true ? true : null;
             } else {
                 this.records.push(this.__no_reactive_copy(this.empty_record));
                 this.common_fields.forEach(function (field) {
@@ -57,7 +57,7 @@ export default {
                         _this.records[0][field['name']] = null;
                     }
                 });
-                this.records[0]['not_applicable'] = this.not_applicable === true ? true : null;
+                this.records[0][toggle_name] = toggle_value === true ? true : null;
             }
         }
 
