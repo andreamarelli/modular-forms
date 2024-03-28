@@ -1,11 +1,13 @@
 <floating_dialog>
-    <template slot="dialog-anchor">
+
+    <template v-slot:dialog-anchor>
         <x-modular-forms::button.generic class="small red"
                                          :text="AndreaMarelli\ModularForms\Helpers\Template::icon('trash')"
                                          :tooltip="ucfirst(trans('modular-forms::common.delete'))"
         ></x-modular-forms::button.generic>
     </template>
-    <template slot="dialog-content">
+
+    <template v-slot:dialog-content>
 
         <div class="with_header_and_footer">
             <div class="header">
@@ -25,4 +27,5 @@
         </div>
 
     </template>
+
 </floating_dialog>
