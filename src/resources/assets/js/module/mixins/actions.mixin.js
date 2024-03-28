@@ -44,15 +44,19 @@ export default {
             if(this.module_type.includes('GROUP_')){
                 this.__arrange_records_by_group();
                 let first_group_key = Object.keys(this.groups)[0];
-                // this.common_fields.forEach(function (field) {
-                //     _this.records[first_group_key][0][field['name']] = null;
-                // });
+                this.common_fields.forEach(function (field) {
+                    if(field['name'] in _this.records[first_group_key][0]){
+                        _this.records[first_group_key][0][field['name']] = null;
+                    }
+                });
                 this.records[first_group_key][0]['not_applicable'] = this.not_applicable === true ? true : null;
             } else {
                 this.records.push(this.__no_reactive_copy(this.empty_record));
-                // this.common_fields.forEach(function (field) {
-                //     _this.records[0][field['name']] = null;
-                // });
+                this.common_fields.forEach(function (field) {
+                    if(field['name'] in _this.records[0]) {
+                        _this.records[0][field['name']] = null;
+                    }
+                });
                 this.records[0]['not_applicable'] = this.not_applicable === true ? true : null;
             }
         }
