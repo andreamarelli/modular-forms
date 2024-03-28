@@ -24,7 +24,7 @@ import vSelect from 'vue-select';
 window.ModularFormsVendor.vSelect = vSelect;
 
 // CKEditor
-import CKEditor from '@ckeditor/ckeditor5-vue2';
+import CKEditor from '@ckeditor/ckeditor5-vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 window.ModularFormsVendor.Vue.use(CKEditor); // make the component global
 window.ModularFormsVendor.ClassicEditor = ClassicEditor;

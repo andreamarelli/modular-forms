@@ -17,7 +17,7 @@ module.exports = {
 
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.esm.js',
+            vue: '@vue/compat',
             '~$': path.resolve(__dirname, '..', 'node_modules'),
             'vendor': path.resolve(__dirname, 'vendor'),
             'assets': path.resolve(__dirname, 'src', 'resources', 'assets'),
@@ -49,7 +49,14 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                options: {
+                    compilerOptions: {
+                        compatConfig: {
+                            MODE: 2
+                        }
+                    }
+                }
             },
             {
                 test: /\.(png|jpg|gif)$/i,
