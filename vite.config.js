@@ -9,14 +9,31 @@ export default defineConfig({
     define: {
         'process.env.NODE_ENV': '"development"'
     },
+    build:{
+        outDir: 'dist',
+        manifest: 'manifest.json',
+        rollupOptions: {
+            input: {
+                vendor: 'src/resources/assets/vendor.js',
+                index: 'src/resources/assets/index.js',
+                css: 'src/resources/assets/index.css'
+            },
+            output: {
+                assetFileNames: assetInfo => {
+                    if (/\.woff$/.test(assetInfo.name)
+                        || /\.woff2$/.test(assetInfo.name)
+                        || /\.ttf$/.test(assetInfo.name)) {
+                        return 'assets/fonts/[name][extname]'
+                    }
+                    return 'assets/[name]-[hash][extname]'
+                }
+            },
+        },
+    },
     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
-            // '~': path.resolve(__dirname, '..', 'node_modules'),
-            // '@': path.resolve(__dirname, 'src/resources/assets'),
-            '@common/vue': path.resolve(__dirname, 'resources/assets/js/common/vue'),
-            '@component/map': path.resolve(__dirname, 'resources/assets/js/map/vue/components'),
-            '@store/map': path.resolve(__dirname, 'resources/assets/js/map/vue/stores'),
+            '@assets': path.resolve(__dirname, 'src/resources/assets/'),
         },
     },
     plugins: [
@@ -28,15 +45,5 @@ export default defineConfig({
                 }
             },
         }),
-        laravel({
-            input: [
-                path.resolve(__dirname, 'src', 'resources', 'assets', 'vendor.js'),
-                path.resolve(__dirname, 'src', 'resources', 'assets', 'index.js'),
-                path.resolve(__dirname, 'src', 'resources', 'assets', 'index.css'),
-            ],
-            publicDirectory: 'dist',
-            refresh: true,
-        }),
-        // svgLoader(),
-    ],
+    ]
 });

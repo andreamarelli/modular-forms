@@ -1,35 +1,32 @@
 
-//$font_path: 'resources/assets/fonts/';
-//$font_path: '/vendor/modular-forms/fonts/';
+//$font_path: '@assets/fonts/';
+$font_path: '/vendor/modular-forms/assets/fonts/';
 
 $primary-font: 'Varela Round', sans-serif;
 $secondary-font: Montserrat, sans-serif;
 
 //   ######  Type-faces - web fonts  ######
 
-///* Varela Round - ALL */
-//@font-face {
-//    font-family: 'Varela Round';
-//    font-style: normal;
-//    font-weight: 400;
-//    src: url('#{$font_path}varela-round-v8-latin_latin-ext-regular.woff2') format('woff2'),
-//    url('#{$font_path}varela-round-v8-latin_latin-ext-regular.woff') format('woff'),
-//    url('#{$font_path}varela-round-v8-latin_latin-ext-regular.ttf') format('truetype');
-//}
+/* Varela Round - ALL */
+@font-face {
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    src: url('#{$font_path}varela-round-v8-latin_latin-ext-regular.woff2') format('woff2'),
+    url('#{$font_path}varela-round-v8-latin_latin-ext-regular.woff') format('woff');
+}
 
 ///* montserrat-regular*/
 //@font-face {
 //    font-family: 'Montserrat';
 //    font-weight: 400;
 //    src: url('#{$font_path}montserrat-v10-latin_latin-ext-regular.woff2') format('woff2'),
-//    url('#{$font_path}montserrat-v10-latin_latin-ext-regular.woff') format('woff'),
-//    url('#{$font_path}montserrat-v10-latin_latin-ext-regular.ttf') format('truetype');
+//    url('#{$font_path}montserrat-v10-latin_latin-ext-regular.woff') format('woff');
 //}
 ///* montserrat-700*/
 //@font-face {
 //    font-family: 'Montserrat';
 //    font-weight: 700;
 //    src: url('#{$font_path}montserrat-v10-latin_latin-ext-700.woff2') format('woff2'),
-//    url('#{$font_path}montserrat-v10-latin_latin-ext-700.woff') format('woff'),
-//    url('#{$font_path}montserrat-v10-latin_latin-ext-700.ttf') format('truetype');
+//    url('#{$font_path}montserrat-v10-latin_latin-ext-700.woff') format('woff');
 //}
