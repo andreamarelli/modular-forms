@@ -1,35 +1,38 @@
 <template>
 
-    <div role="tooltip">
+    <div ref="tooltipElem" role="tooltip">
         <div class="tooltip-content">
             <slot></slot>
         </div>
-        <div class="tooltip-arrow"></div>
+        <div ref="arrowElem" class="tooltip-arrow"></div>
     </div>
 
 </template>
 
 <style lang="scss" scoped>
 
-[role=tooltip] {
-    display: none;
-    width: max-content;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    .tooltip-arrow {
+    [role=tooltip] {
+        display: none;
+        width: max-content;
         position: absolute;
-        width: 8px;
-        height: 8px;
-        transform: rotate(45deg);
-    }
+        top: 0;
+        left: 0;
 
-}
+        .tooltip-arrow {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            transform: rotate(45deg);
+        }
+
+    }
 
 </style>
 
 <script>
+
+import {computePosition, autoUpdate, flip, shift, offset, arrow, size} from '@floating-ui/dom';
+
 export default {
 
     props: {
@@ -43,93 +46,91 @@ export default {
         },
     },
 
-    data (){
-        return {
-            tooltipElem: null,
-            arrowElem: null,
+
+    setup(props) {
+
+        const tooltipElem = window.ModularFormsVendor.Vue.ref(null);
+        const arrowElem = window.ModularFormsVendor.Vue.ref(null);
+        const anchorElem = window.ModularFormsVendor.Vue.ref(null);
+
+        const state = window.ModularFormsVendor.Vue.reactive({
             isVisible: false,
-        }
-    },
+        });
 
-    mounted(){
 
-        // retrieving elements
-        this.anchorElem = this.anchorElemId!==null
-            ? document.querySelector('#' + this.anchorElemId)
-            : this.$el.previousElementSibling; // if ID is not provided it assumes the anchor is the previous sibling element in DOM
+        window.ModularFormsVendor.Vue.onMounted(() => {
 
-        this.tooltipElem = this.$el;
-        this.arrowElem = this.$el.querySelector('.tooltip-arrow');
+            anchorElem.value =  props.anchorElemId!==null
+                ? document.querySelector('#' + props.anchorElemId)
+                : tooltipElem.value.previousElementSibling;
 
-        // set event listeners
-        if(this.onClick){
-            this.enableClickListeners();
-        } else {
-            this.enableHoverListeners();
-        }
+            // set event listeners
+            if(props.onClick){
+                enableClickListeners();
+            } else {
+                enableHoverListeners();
+            }
 
-    },
-
-    methods: {
-
+        });
         /**
          * set event listener to toggle tooltip
          */
-        enableHoverListeners(){
+        const enableHoverListeners = () => {
             [
-                ['mouseenter', this.showTooltip],
-                ['mouseleave', this.hideTooltip],
-                ['focus', this.hideTooltip],
-                ['blur', this.hideTooltip],
+                ['mouseenter', showTooltip],
+                ['mouseleave', hideTooltip],
+                ['focus', hideTooltip],
+                ['blur', hideTooltip],
             ].forEach(([event, listener]) => {
-                this.anchorElem.addEventListener(event, listener);
+                anchorElem.value.addEventListener(event, listener);
             });
-        },
+        };
 
-        enableClickListeners(){
-            let _this = this;
+        const enableClickListeners = () => {
+
             // toggle on anchor click
-            this.anchorElem.addEventListener('click', this.toggleTooltip);
+            anchorElem.value.addEventListener('click', toggleTooltip);
             // close on click outside tooltip
             document.addEventListener('click', function(evt){
-                if(_this.isVisible) {
+                if(state.isVisible) {
                     let clickedElem = evt.target;
                     if (clickedElem.closest('[role=tooltip]') == null
-                        && clickedElem.closest('#'+_this.anchorElemId) == null) {
-                        _this.hideTooltip();
+                        && clickedElem.closest('#'+props.anchorElemId) == null) {
+                        hideTooltip();
                     }
                 }
             });
-        },
+        };
+
 
         /**
          * Initialize FloatingUI tooltip
          */
-        setTooltipPosition(){
-            let _this = this;
+        const setTooltipPosition = () => {
 
-            window.ModularFormsVendor.FloatingUI.autoUpdate(_this.anchorElem, _this.tooltipElem, () => {
 
-                const arrowWidth = _this.arrowElem.offsetWidth;
+            autoUpdate(anchorElem.value, tooltipElem.value, () => {
+
+                const arrowWidth = arrowElem.value.offsetWidth;
                 const floatingOffset = Math.sqrt(2 * arrowWidth ** 2) / 2;
 
-                window.ModularFormsVendor.FloatingUI.computePosition(_this.anchorElem, _this.tooltipElem, {
+                computePosition(anchorElem.value, tooltipElem.value, {
                     placement: 'top',
                     middleware: [
-                        window.ModularFormsVendor.FloatingUI.flip(),
-                        window.ModularFormsVendor.FloatingUI.shift({
+                        flip(),
+                        shift({
                             padding: 5
                         }),
-                        window.ModularFormsVendor.FloatingUI.offset({
+                        offset({
                             mainAxis: floatingOffset,
                         }),
-                        window.ModularFormsVendor.FloatingUI.arrow({element: this.arrowElem})
+                        arrow({element: arrowElem.value})
                     ],
                 })
                 .then(({x, y, placement, middlewareData}) => {
 
                     // Assign position to tooltip
-                    Object.assign(_this.tooltipElem.style, {
+                    Object.assign(tooltipElem.value.style, {
                         left: `${x}px`,
                         top: `${y}px`,
                     });
@@ -143,12 +144,12 @@ export default {
                             bottom: 'top',
                             left: 'right',
                         }[placement.split('-')[0]];
-                        Object.assign(_this.arrowElem.style, {
+                        Object.assign(arrowElem.value.style, {
                             left: x != null ? `${x}px` : '',
                             top: y != null ? `${y}px` : '',
                             right: '',
                             bottom: '',
-                            [staticSide]: `${-_this.arrowElem.offsetWidth / 2}px`,
+                            [staticSide]: `${-arrowElem.value.offsetWidth / 2}px`,
                         });
                     }
 
@@ -156,47 +157,58 @@ export default {
 
             });
 
-        },
+        };
 
-        toggleTooltip(){
-            if(this.isVisible){
-                this.hideTooltip();
+        const toggleTooltip = () => {
+            if(state.isVisible){
+                hideTooltip();
             } else{
-                this.showTooltip();
+                showTooltip();
             }
-        },
+        };
 
         /**
          * Show tooltip
          */
-        showTooltip() {
-            if(!this.isVisible) {
-                let _this = this;
-                let content = this.tooltipElem.querySelector('.tooltip-content').textContent.trim();
+        const showTooltip = () => {
+            if(!state.isVisible) {
+                let content = tooltipElem.value.querySelector('.tooltip-content').textContent.trim();
                 if (content !== '') {
-                    this.tooltipElem.style.display = 'block';
-                    this.setTooltipPosition();
-                    this.isVisible = true;
-                    if(!this.onClick){
+                    tooltipElem.value.style.display = 'block';
+                    setTooltipPosition();
+                    state.isVisible = true;
+                    if(!props.onClick){
                         setTimeout(function () {
-                            _this.hideTooltip();
+                            hideTooltip();
                         }, 10000);
                     }
                 }
             }
-        },
+        };
 
         /**
          * Hide tooltip
          */
-        hideTooltip() {
-            if(this.isVisible){
-                this.tooltipElem.style.display = '';
-                this.isVisible = false;
+        const hideTooltip = () => {
+            if(state.isVisible){
+                tooltipElem.value.style.display = '';
+                state.isVisible = false;
             }
+        };
+
+
+
+        return {
+            tooltipElem,
+            arrowElem,
+            state
         }
 
-    }
+
+    },
+
+
+
 
 }
 </script>

@@ -1,0 +1,1 @@
+import{c as o,r,a as d,o as a}from"./vue.esm-bundler-B29BCyO5.js";window.ModularFormsVendor=window.ModularFormsVendor||{};window.ModularFormsVendor.Vue={createApp:o,ref:r,reactive:d,onMounted:a};window.ModularFormsVendor.Vue.app=o({});

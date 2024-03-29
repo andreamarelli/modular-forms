@@ -86,10 +86,9 @@ $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $l
 
     {{-- standard scripts --}}
     @else
-        <script>
-            new Vue({
-                el: '#page-container',
-            });
+        <script type="module">
+            window.ModularFormsVendor.Vue.app
+                .mount('#page-container');
         </script>
     @endif
 

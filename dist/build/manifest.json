@@ -1,0 +1,68 @@
+{
+  "_vue.esm-bundler-B29BCyO5.js": {
+    "file": "assets/vue.esm-bundler-B29BCyO5.js",
+    "name": "vue.esm-bundler"
+  },
+  "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.ttf": {
+    "file": "assets/montserrat-v10-latin_latin-ext-700-Cf41wBaE.ttf",
+    "src": "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.ttf"
+  },
+  "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.woff": {
+    "file": "assets/montserrat-v10-latin_latin-ext-700-Bu2O4j_G.woff",
+    "src": "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.woff"
+  },
+  "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.woff2": {
+    "file": "assets/montserrat-v10-latin_latin-ext-700-DzaJgkkf.woff2",
+    "src": "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.woff2"
+  },
+  "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.ttf": {
+    "file": "assets/montserrat-v10-latin_latin-ext-regular-BSOGfoCs.ttf",
+    "src": "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.ttf"
+  },
+  "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.woff": {
+    "file": "assets/montserrat-v10-latin_latin-ext-regular-rHSMJb-e.woff",
+    "src": "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.woff"
+  },
+  "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.woff2": {
+    "file": "assets/montserrat-v10-latin_latin-ext-regular-DwVgfaDR.woff2",
+    "src": "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.woff2"
+  },
+  "src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.ttf": {
+    "file": "assets/varela-round-v8-latin_latin-ext-regular-BMpY6PRu.ttf",
+    "src": "src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.ttf"
+  },
+  "src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.woff": {
+    "file": "assets/varela-round-v8-latin_latin-ext-regular-DIw3IMfV.woff",
+    "src": "src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.woff"
+  },
+  "src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.woff2": {
+    "file": "assets/varela-round-v8-latin_latin-ext-regular-DgCfNN4M.woff2",
+    "src": "src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.woff2"
+  },
+  "src/resources/assets/index.css": {
+    "file": "assets/index-2HCYrbnl.css",
+    "src": "src/resources/assets/index.css",
+    "isEntry": true
+  },
+  "src/resources/assets/index.js": {
+    "file": "assets/index-CEPCRB5Z.js",
+    "name": "index",
+    "src": "src/resources/assets/index.js",
+    "isEntry": true,
+    "imports": [
+      "_vue.esm-bundler-B29BCyO5.js"
+    ],
+    "css": [
+      "assets/index-DSPZg1VS.css"
+    ]
+  },
+  "src/resources/assets/vendor.js": {
+    "file": "assets/vendor-mslXtMz0.js",
+    "name": "vendor",
+    "src": "src/resources/assets/vendor.js",
+    "isEntry": true,
+    "imports": [
+      "_vue.esm-bundler-B29BCyO5.js"
+    ]
+  }
+}
