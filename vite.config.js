@@ -24,6 +24,8 @@ export default defineConfig({
                         || /\.woff2$/.test(assetInfo.name)
                         || /\.ttf$/.test(assetInfo.name)) {
                         return 'assets/fonts/[name][extname]'
+                    } else if(/\.svg$/.test(assetInfo.name)){
+                        return 'assets/svg/[name][extname]'
                     }
                     return 'assets/[name]-[hash][extname]'
                 }
@@ -34,6 +36,7 @@ export default defineConfig({
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
             '@assets': path.resolve(__dirname, 'src/resources/assets/'),
+            '~': path.resolve(__dirname, 'node_modules/'),
         },
     },
     plugins: [

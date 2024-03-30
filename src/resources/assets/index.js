@@ -85,6 +85,9 @@ window.ModularFormsVendor.Vue.app.component('tooltip', tooltip);
 // const ModularForms = window.ModularForms;
 // export { ModularForms };
 
-import.meta.glob([
-    './fonts/*'
-]);
+// Fonts
+import.meta.glob('./fonts/*');
+import.meta.glob('~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}');
+
+// Flags
+import 'flag-icons'
