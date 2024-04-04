@@ -36,6 +36,7 @@ return [
     'xls'               => 'generate XLS',
     'pdf'               => 'generate PDF',
     'export'            => 'export',
+    'export_no_attachments' => 'export without attachments',
     'import'            => 'import',
     'confirm_select'  => 'confirm the selection',
     'select_item'       => 'select an item',
