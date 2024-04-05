@@ -12,7 +12,6 @@ $window_js = [
     'baseUrl' => url('/') . '/',
     'locale' => App::getLocale()
 ];
-//dd(Vite::useBuildDirectory('vendor/modular-forms')->withEntryPoints(['src/resources/assets/index.css'])->toHtml());
 
 ?>
 
@@ -21,15 +20,10 @@ $window_js = [
     <script>
         window.Laravel = @json($window_js);
     </script>
-    {!! Vite::useBuildDirectory('vendor/modular-forms')->withEntryPoints([
-        'src/resources/assets/vendor.js',
-        'src/resources/assets/index.js',
-    ])->toHtml() !!}
+    {!! Vite::useBuildDirectory('vendor/modular-forms')->withEntryPoints(['src/resources/assets/index.js',])->toHtml() !!}
 @endif
 
 {{-- Stylesheets--}}
-{!! Vite::useBuildDirectory('vendor/modular-forms')->withEntryPoints([
- 'src/resources/assets/index.css'
-])->toHtml() !!}
+{!! Vite::useBuildDirectory('vendor/modular-forms')->withEntryPoints(['src/resources/assets/index.css'])->toHtml() !!}
 
 

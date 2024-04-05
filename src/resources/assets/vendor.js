@@ -1,4 +1,3 @@
-window.ModularFormsVendor = window.ModularFormsVendor || {}
 
 // Utilities & frameworks
 // window.ModularFormsVendor.jQuery = require('jquery');
@@ -10,10 +9,6 @@ window.ModularFormsVendor = window.ModularFormsVendor || {}
 // import I18n from 'vendor/conedevelopment/i18n/resources/js/I18n.js';
 // window.ModularFormsVendor.I18n = I18n;
 
-// Vue
-import { createApp, ref, reactive, onMounted } from 'vue';
-window.ModularFormsVendor.Vue = { createApp, ref, reactive, onMounted};
-window.ModularFormsVendor.Vue.app = createApp({});
 
 // window.ModularFormsVendor.Vue = require('vue').default;
 // window.Vue = window.ModularFormsVendor.Vue;     // Alias
@@ -47,17 +42,7 @@ window.ModularFormsVendor.Vue.app = createApp({});
 //     'pt': AirDatepicker_locale_pt,
 // }
 //
-// // Floating UI (former Popper.js)
-// import {computePosition, autoUpdate, flip, shift, offset, arrow, size} from '@floating-ui/dom';
-// window.ModularFormsVendor.FloatingUI = {
-//     'computePosition': computePosition,
-//     'autoUpdate': autoUpdate,
-//     'flip': flip,
-//     'shift': shift,
-//     'offset': offset,
-//     'arrow': arrow,
-//     'size': size
-// };
+
 //
 // const ModularFormsVendor = window.ModularFormsVendor;
 // export { ModularFormsVendor };

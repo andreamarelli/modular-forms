@@ -1,14 +1,34 @@
 
 // Global variables - make them accessible from modules and from blade views
-// window.Locale = require('./js/mixins/locale.js').default;
 window.Laravel = window.Laravel || {};
 window.ModularForms = {};
+window.ModularFormsVendor = window.ModularFormsVendor || {}
+// window.Locale = require('./js/mixins/locale.js').default;
+
+// ###########################################
+// ################  Vendors  ################
+// ###########################################
+
+// Vue
+import {createApp, ref, reactive, onMounted, inject} from 'vue';
+window.ModularFormsVendor.Vue = { createApp, ref, reactive, onMounted};
+window.ModularFormsVendor.Vue.app = createApp({});
+
+// ###########################################
+// ##############  Local assets  #############
+// ###########################################
+
+import Accordion from './js/composables/accordion.js';
+window.ModularForms.Accordion = Accordion;
+
+
+
 //
 // window.ModularForms.assetPath = '/vendor/modular-forms/';
 //
-// // mixins
+// mixins
 // window.ModularForms.Mixins = {
-//     Accordion: require('./js/mixins/accordion.js').default,
+//     Accordion: accordion,
 //     Animation: require('./js/mixins/animation.js').default,
 //     Cookies: require('./js/mixins/cookie.js').default,
 //     Locale: window.Locale, // Alias

@@ -14,7 +14,6 @@ export default defineConfig({
         manifest: 'manifest.json',
         rollupOptions: {
             input: {
-                vendor: 'src/resources/assets/vendor.js',
                 index: 'src/resources/assets/index.js',
                 css: 'src/resources/assets/index.css'
             },
