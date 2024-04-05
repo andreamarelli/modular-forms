@@ -9,10 +9,10 @@ window.ModularFormsVendor = window.ModularFormsVendor || {}
 // ##################  Apps  ##################
 // ############################################
 
-import App from './js/app.js';
-window.ModularForms.App = App;
+import BaseApp from './js/apps/base.js';
+window.ModularForms.BaseApp = BaseApp;
 
-import ErrorsApp from './js/errors.js';
+import ErrorsApp from './js/apps/errors.js';
 window.ModularForms.ErrorsApp = ErrorsApp;
 
 // ############################################

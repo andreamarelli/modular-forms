@@ -27,12 +27,12 @@ export default class ErrorsApp{
                 });
 
                 onBeforeMount(() => {
-                    let _this = this;
-                    registerInitialErrors();
-                    this.validation_errors = this.$store.state.validator.validation_errors;
-                    window.vueBus.$on('refresh_validation', function (module_key) {
-                        fixedError(module_key);
-                    });
+                    // let _this = this;
+                    // registerInitialErrors();
+                    // this.validation_errors = this.$store.state.validator.validation_errors;
+                    // window.vueBus.$on('refresh_validation', function (module_key) {
+                    //     fixedError(module_key);
+                    // });
                 });
 
                 /**
@@ -56,13 +56,13 @@ export default class ErrorsApp{
                 }
 
                 /**
-                 *
+                 * Register initial errors
                  */
                 function registerInitialErrors(){
-                    let _this = this;
-                    this.initial_errors.forEach(function (item) {
-                        _this.$store.commit('validator/registerInvalidModule', item);
-                    });
+                    // let _this = this;
+                    // this.initial_errors.forEach(function (item) {
+                    //     _this.$store.commit('validator/registerInvalidModule', item);
+                    // });
                 }
 
                 /**
@@ -70,10 +70,10 @@ export default class ErrorsApp{
                  * @param module_key
                  */
                 function fixedError(module_key){
-                    let invalid_modules = this.validation_errors.map(a => a.key);
-                    if(invalid_modules.includes(module_key)){
-                        this.$store.commit('validator/registerFixedModule', module_key);
-                    }
+                    // let invalid_modules = this.validation_errors.map(a => a.key);
+                    // if(invalid_modules.includes(module_key)){
+                    //     this.$store.commit('validator/registerFixedModule', module_key);
+                    // }
                 }
 
                 return {
