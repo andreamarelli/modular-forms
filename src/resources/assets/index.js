@@ -12,6 +12,9 @@ window.ModularFormsVendor = window.ModularFormsVendor || {}
 import App from './js/app.js';
 window.ModularForms.App = App;
 
+import ErrorsApp from './js/errors.js';
+window.ModularForms.ErrorsApp = ErrorsApp;
+
 // ############################################
 // ##############  Local assets  ##############
 // ############################################

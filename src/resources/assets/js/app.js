@@ -1,10 +1,10 @@
-import {createApp, ref, reactive, onMounted, inject} from 'vue';
+import {createApp} from 'vue';
 import tooltip from "./templates/tooltip.vue";
 
 export default class App{
 
-    constructor() {
-        const app = createApp({});
+    constructor(options) {
+        const app = createApp(options || {});
 
         // Register components
         app.component('tooltip', tooltip);

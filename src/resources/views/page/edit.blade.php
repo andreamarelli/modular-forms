@@ -40,17 +40,17 @@ $step = $step ?? true;
         'item' => $item
     ])
 
-    {{--  Modules (by step) --}}
-    @include('modular-forms::page.components.modules', [
-        'controller' => $controller,
-        'item' => $item,
-        'step' => $step,
-        'mode' => ModuleViewModes::EDIT
-    ])
+{{--    --}}{{--  Modules (by step) --}}
+{{--    @include('modular-forms::page.components.modules', [--}}
+{{--        'controller' => $controller,--}}
+{{--        'item' => $item,--}}
+{{--        'step' => $step,--}}
+{{--        'mode' => ModuleViewModes::EDIT--}}
+{{--    ])--}}
 
-    {{--  Scroll buttons  --}}
-    @if($show_scrollbar)
-        @include('modular-forms::module.scroll', ['item' => $item, 'step' => $step])
-    @endif
+{{--    --}}{{--  Scroll buttons  --}}
+{{--    @if($show_scrollbar)--}}
+{{--        @include('modular-forms::module.scroll', ['item' => $item, 'step' => $step])--}}
+{{--    @endif--}}
 
 @endsection
