@@ -5,21 +5,20 @@ window.ModularForms = {};
 window.ModularFormsVendor = window.ModularFormsVendor || {}
 // window.Locale = require('./js/mixins/locale.js').default;
 
-// ###########################################
-// ################  Vendors  ################
-// ###########################################
+// ############################################
+// ##################  Apps  ##################
+// ############################################
 
-// Vue
-import {createApp, ref, reactive, onMounted, inject} from 'vue';
-window.ModularFormsVendor.Vue = { createApp, ref, reactive, onMounted};
-window.ModularFormsVendor.Vue.app = createApp({});
+import App from './js/app.js';
+window.ModularForms.App = App;
 
-// ###########################################
-// ##############  Local assets  #############
-// ###########################################
+// ############################################
+// ##############  Local assets  ##############
+// ############################################
 
-import Accordion from './js/composables/accordion.js';
+import Accordion from './js/modules/accordion.js';
 window.ModularForms.Accordion = Accordion;
+
 
 
 
@@ -28,7 +27,6 @@ window.ModularForms.Accordion = Accordion;
 //
 // mixins
 // window.ModularForms.Mixins = {
-//     Accordion: accordion,
 //     Animation: require('./js/mixins/animation.js').default,
 //     Cookies: require('./js/mixins/cookie.js').default,
 //     Locale: window.Locale, // Alias
@@ -78,8 +76,8 @@ window.ModularForms.Accordion = Accordion;
 // window.ModularFormsVendor.Vue.component('redlist_category', require('./js/templates/redlist_category.vue').default);
 // window.ModularFormsVendor.Vue.component('redlist_link', require('./js/templates/redlist_link.vue').default);
 // window.ModularFormsVendor.Vue.component('user', require('./js/templates/user.vue').default);
-import tooltip from "./js/templates/tooltip.vue";
-window.ModularFormsVendor.Vue.app.component('tooltip', tooltip);
+// import tooltip from "./js/templates/tooltip.vue";
+// window.ModularFormsVendor.Vue.app.component('tooltip', tooltip);
 //
 // // Load INPUT "abstract" component
 // window.ModularFormsVendor.Vue.component('selectorDialog', require('./js/inputs/components/selector/dialog.vue').default);

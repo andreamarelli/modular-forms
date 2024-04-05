@@ -1,8 +1,7 @@
 @push('scripts')
-    <script>
+    <script type="module">
         // ## Initialize Module controller ##
-        new Vue({
-            el: '#module_{{ $definitions['module_key'] }}'
-        });
+       (new window.ModularForms.App())
+           .mount('#module_{{ $definitions['module_key'] }}');
     </script>
 @endpush

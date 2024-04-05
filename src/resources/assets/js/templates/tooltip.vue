@@ -31,7 +31,8 @@
 
 <script>
 
-import {computePosition, autoUpdate, flip, shift, offset, arrow, size} from '@floating-ui/dom';
+import {ref, reactive, onMounted} from 'vue';
+import {computePosition, autoUpdate, flip, shift, offset, arrow} from '@floating-ui/dom';
 
 export default {
 
@@ -49,16 +50,16 @@ export default {
 
     setup(props) {
 
-        const tooltipElem = window.ModularFormsVendor.Vue.ref(null);
-        const arrowElem = window.ModularFormsVendor.Vue.ref(null);
-        const anchorElem = window.ModularFormsVendor.Vue.ref(null);
+        const tooltipElem = ref(null);
+        const arrowElem = ref(null);
+        const anchorElem = ref(null);
 
-        const state = window.ModularFormsVendor.Vue.reactive({
+        const state = reactive({
             isVisible: false,
         });
 
 
-        window.ModularFormsVendor.Vue.onMounted(() => {
+        onMounted(() => {
 
             anchorElem.value =  props.anchorElemId!==null
                 ? document.querySelector('#' + props.anchorElemId)
