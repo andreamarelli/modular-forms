@@ -1,8 +1,8 @@
 import {createApp, ref, computed, watch, onBeforeMount} from 'vue';
 import {createPinia} from "pinia";
-import {useFormStore} from "../stores/form.store.js";
+import {useFormStore} from "../stores/FormStore.js";
 
-export default class ErrorsApp{
+export default class FormErrors {
 
     constructor(input_data = {}) {
 

@@ -3,9 +3,6 @@
 /** @var string $url */
 
     $validationErrors = $item->validateFormRules();
-    $validationErrors = [
-        ['step' => 'step1', 'title' => 'hello world']
-    ];
 
 ?>
 <div id="form_global_errors_bar">
@@ -31,7 +28,7 @@
 @push('scripts')
     <script type="module">
 
-        (new window.ModularForms.ErrorsApp(
+        (new window.ModularForms.Apps.FormErrors(
             {initial_errors: @json($validationErrors)}
         ))
             .mount('#form_global_errors_bar');

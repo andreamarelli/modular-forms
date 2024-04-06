@@ -8,12 +8,13 @@ window.ModularFormsVendor = window.ModularFormsVendor || {}
 // ############################################
 // ##################  Apps  ##################
 // ############################################
+window.ModularForms.Apps = window.ModularForms.Apps || {};
 
-import BaseApp from './js/apps/base.js';
-window.ModularForms.BaseApp = BaseApp;
+import Base from './js/apps/Base.js';
+window.ModularForms.Apps.Base = Base;
 
-import ErrorsApp from './js/apps/errors.js';
-window.ModularForms.ErrorsApp = ErrorsApp;
+import FormErrors from './js/apps/FormErrors.js';
+window.ModularForms.Apps.FormErrors = FormErrors;
 
 // ############################################
 // ##############  Local assets  ##############
