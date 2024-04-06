@@ -44,7 +44,7 @@
     "src": "node_modules/flag-icons/flags/1x1/arab.svg"
   },
   "node_modules/flag-icons/flags/1x1/as.svg": {
-    "file": "assets/svg/as2.svg",
+    "file": "assets/svg/as.svg",
     "src": "node_modules/flag-icons/flags/1x1/as.svg"
   },
   "node_modules/flag-icons/flags/1x1/aw.svg": {
@@ -52,7 +52,7 @@
     "src": "node_modules/flag-icons/flags/1x1/aw.svg"
   },
   "node_modules/flag-icons/flags/1x1/bm.svg": {
-    "file": "assets/svg/bm.svg",
+    "file": "assets/svg/bm2.svg",
     "src": "node_modules/flag-icons/flags/1x1/bm.svg"
   },
   "node_modules/flag-icons/flags/1x1/bn.svg": {
@@ -60,11 +60,11 @@
     "src": "node_modules/flag-icons/flags/1x1/bn.svg"
   },
   "node_modules/flag-icons/flags/1x1/bo.svg": {
-    "file": "assets/svg/bo.svg",
+    "file": "assets/svg/bo2.svg",
     "src": "node_modules/flag-icons/flags/1x1/bo.svg"
   },
   "node_modules/flag-icons/flags/1x1/br.svg": {
-    "file": "assets/svg/br2.svg",
+    "file": "assets/svg/br.svg",
     "src": "node_modules/flag-icons/flags/1x1/br.svg"
   },
   "node_modules/flag-icons/flags/1x1/bt.svg": {
@@ -80,11 +80,11 @@
     "src": "node_modules/flag-icons/flags/1x1/cy.svg"
   },
   "node_modules/flag-icons/flags/1x1/dg.svg": {
-    "file": "assets/svg/dg2.svg",
+    "file": "assets/svg/dg.svg",
     "src": "node_modules/flag-icons/flags/1x1/dg.svg"
   },
   "node_modules/flag-icons/flags/1x1/dm.svg": {
-    "file": "assets/svg/dm.svg",
+    "file": "assets/svg/dm2.svg",
     "src": "node_modules/flag-icons/flags/1x1/dm.svg"
   },
   "node_modules/flag-icons/flags/1x1/do.svg": {
@@ -96,7 +96,7 @@
     "src": "node_modules/flag-icons/flags/1x1/eac.svg"
   },
   "node_modules/flag-icons/flags/1x1/ec.svg": {
-    "file": "assets/svg/ec2.svg",
+    "file": "assets/svg/ec.svg",
     "src": "node_modules/flag-icons/flags/1x1/ec.svg"
   },
   "node_modules/flag-icons/flags/1x1/eg.svg": {
@@ -104,7 +104,7 @@
     "src": "node_modules/flag-icons/flags/1x1/eg.svg"
   },
   "node_modules/flag-icons/flags/1x1/es-ga.svg": {
-    "file": "assets/svg/es-ga.svg",
+    "file": "assets/svg/es-ga2.svg",
     "src": "node_modules/flag-icons/flags/1x1/es-ga.svg"
   },
   "node_modules/flag-icons/flags/1x1/es.svg": {
@@ -112,7 +112,7 @@
     "src": "node_modules/flag-icons/flags/1x1/es.svg"
   },
   "node_modules/flag-icons/flags/1x1/fj.svg": {
-    "file": "assets/svg/fj.svg",
+    "file": "assets/svg/fj2.svg",
     "src": "node_modules/flag-icons/flags/1x1/fj.svg"
   },
   "node_modules/flag-icons/flags/1x1/fk.svg": {
@@ -128,7 +128,7 @@
     "src": "node_modules/flag-icons/flags/1x1/gb-wls.svg"
   },
   "node_modules/flag-icons/flags/1x1/gq.svg": {
-    "file": "assets/svg/gq.svg",
+    "file": "assets/svg/gq2.svg",
     "src": "node_modules/flag-icons/flags/1x1/gq.svg"
   },
   "node_modules/flag-icons/flags/1x1/gs.svg": {
@@ -148,19 +148,19 @@
     "src": "node_modules/flag-icons/flags/1x1/hr.svg"
   },
   "node_modules/flag-icons/flags/1x1/ht.svg": {
-    "file": "assets/svg/ht2.svg",
+    "file": "assets/svg/ht.svg",
     "src": "node_modules/flag-icons/flags/1x1/ht.svg"
   },
   "node_modules/flag-icons/flags/1x1/im.svg": {
-    "file": "assets/svg/im2.svg",
+    "file": "assets/svg/im.svg",
     "src": "node_modules/flag-icons/flags/1x1/im.svg"
   },
   "node_modules/flag-icons/flags/1x1/io.svg": {
-    "file": "assets/svg/io2.svg",
+    "file": "assets/svg/io.svg",
     "src": "node_modules/flag-icons/flags/1x1/io.svg"
   },
   "node_modules/flag-icons/flags/1x1/ir.svg": {
-    "file": "assets/svg/ir2.svg",
+    "file": "assets/svg/ir.svg",
     "src": "node_modules/flag-icons/flags/1x1/ir.svg"
   },
   "node_modules/flag-icons/flags/1x1/je.svg": {
@@ -168,7 +168,7 @@
     "src": "node_modules/flag-icons/flags/1x1/je.svg"
   },
   "node_modules/flag-icons/flags/1x1/kh.svg": {
-    "file": "assets/svg/kh.svg",
+    "file": "assets/svg/kh2.svg",
     "src": "node_modules/flag-icons/flags/1x1/kh.svg"
   },
   "node_modules/flag-icons/flags/1x1/ki.svg": {
@@ -176,7 +176,7 @@
     "src": "node_modules/flag-icons/flags/1x1/ki.svg"
   },
   "node_modules/flag-icons/flags/1x1/ky.svg": {
-    "file": "assets/svg/ky.svg",
+    "file": "assets/svg/ky2.svg",
     "src": "node_modules/flag-icons/flags/1x1/ky.svg"
   },
   "node_modules/flag-icons/flags/1x1/kz.svg": {
@@ -184,7 +184,7 @@
     "src": "node_modules/flag-icons/flags/1x1/kz.svg"
   },
   "node_modules/flag-icons/flags/1x1/li.svg": {
-    "file": "assets/svg/li.svg",
+    "file": "assets/svg/li2.svg",
     "src": "node_modules/flag-icons/flags/1x1/li.svg"
   },
   "node_modules/flag-icons/flags/1x1/lk.svg": {
@@ -196,15 +196,15 @@
     "src": "node_modules/flag-icons/flags/1x1/md.svg"
   },
   "node_modules/flag-icons/flags/1x1/me.svg": {
-    "file": "assets/svg/me2.svg",
+    "file": "assets/svg/me.svg",
     "src": "node_modules/flag-icons/flags/1x1/me.svg"
   },
   "node_modules/flag-icons/flags/1x1/mp.svg": {
-    "file": "assets/svg/mp2.svg",
+    "file": "assets/svg/mp.svg",
     "src": "node_modules/flag-icons/flags/1x1/mp.svg"
   },
   "node_modules/flag-icons/flags/1x1/ms.svg": {
-    "file": "assets/svg/ms2.svg",
+    "file": "assets/svg/ms.svg",
     "src": "node_modules/flag-icons/flags/1x1/ms.svg"
   },
   "node_modules/flag-icons/flags/1x1/mt.svg": {
@@ -216,7 +216,7 @@
     "src": "node_modules/flag-icons/flags/1x1/mx.svg"
   },
   "node_modules/flag-icons/flags/1x1/nf.svg": {
-    "file": "assets/svg/nf2.svg",
+    "file": "assets/svg/nf.svg",
     "src": "node_modules/flag-icons/flags/1x1/nf.svg"
   },
   "node_modules/flag-icons/flags/1x1/ni.svg": {
@@ -232,7 +232,7 @@
     "src": "node_modules/flag-icons/flags/1x1/pf.svg"
   },
   "node_modules/flag-icons/flags/1x1/pn.svg": {
-    "file": "assets/svg/pn.svg",
+    "file": "assets/svg/pn2.svg",
     "src": "node_modules/flag-icons/flags/1x1/pn.svg"
   },
   "node_modules/flag-icons/flags/1x1/pt.svg": {
@@ -256,11 +256,11 @@
     "src": "node_modules/flag-icons/flags/1x1/sh-ac.svg"
   },
   "node_modules/flag-icons/flags/1x1/sh-hl.svg": {
-    "file": "assets/svg/sh-hl.svg",
+    "file": "assets/svg/sh-hl2.svg",
     "src": "node_modules/flag-icons/flags/1x1/sh-hl.svg"
   },
   "node_modules/flag-icons/flags/1x1/sh-ta.svg": {
-    "file": "assets/svg/sh-ta2.svg",
+    "file": "assets/svg/sh-ta.svg",
     "src": "node_modules/flag-icons/flags/1x1/sh-ta.svg"
   },
   "node_modules/flag-icons/flags/1x1/sm.svg": {
@@ -276,19 +276,19 @@
     "src": "node_modules/flag-icons/flags/1x1/sx.svg"
   },
   "node_modules/flag-icons/flags/1x1/sz.svg": {
-    "file": "assets/svg/sz2.svg",
+    "file": "assets/svg/sz.svg",
     "src": "node_modules/flag-icons/flags/1x1/sz.svg"
   },
   "node_modules/flag-icons/flags/1x1/tc.svg": {
-    "file": "assets/svg/tc.svg",
+    "file": "assets/svg/tc2.svg",
     "src": "node_modules/flag-icons/flags/1x1/tc.svg"
   },
   "node_modules/flag-icons/flags/1x1/tm.svg": {
-    "file": "assets/svg/tm2.svg",
+    "file": "assets/svg/tm.svg",
     "src": "node_modules/flag-icons/flags/1x1/tm.svg"
   },
   "node_modules/flag-icons/flags/1x1/un.svg": {
-    "file": "assets/svg/un2.svg",
+    "file": "assets/svg/un.svg",
     "src": "node_modules/flag-icons/flags/1x1/un.svg"
   },
   "node_modules/flag-icons/flags/1x1/va.svg": {
@@ -312,7 +312,7 @@
     "src": "node_modules/flag-icons/flags/1x1/zm.svg"
   },
   "node_modules/flag-icons/flags/1x1/zw.svg": {
-    "file": "assets/svg/zw2.svg",
+    "file": "assets/svg/zw.svg",
     "src": "node_modules/flag-icons/flags/1x1/zw.svg"
   },
   "node_modules/flag-icons/flags/4x3/ad.svg": {
@@ -328,7 +328,7 @@
     "src": "node_modules/flag-icons/flags/4x3/arab.svg"
   },
   "node_modules/flag-icons/flags/4x3/as.svg": {
-    "file": "assets/svg/as.svg",
+    "file": "assets/svg/as2.svg",
     "src": "node_modules/flag-icons/flags/4x3/as.svg"
   },
   "node_modules/flag-icons/flags/4x3/aw.svg": {
@@ -336,7 +336,7 @@
     "src": "node_modules/flag-icons/flags/4x3/aw.svg"
   },
   "node_modules/flag-icons/flags/4x3/bm.svg": {
-    "file": "assets/svg/bm2.svg",
+    "file": "assets/svg/bm.svg",
     "src": "node_modules/flag-icons/flags/4x3/bm.svg"
   },
   "node_modules/flag-icons/flags/4x3/bn.svg": {
@@ -344,11 +344,11 @@
     "src": "node_modules/flag-icons/flags/4x3/bn.svg"
   },
   "node_modules/flag-icons/flags/4x3/bo.svg": {
-    "file": "assets/svg/bo2.svg",
+    "file": "assets/svg/bo.svg",
     "src": "node_modules/flag-icons/flags/4x3/bo.svg"
   },
   "node_modules/flag-icons/flags/4x3/br.svg": {
-    "file": "assets/svg/br.svg",
+    "file": "assets/svg/br2.svg",
     "src": "node_modules/flag-icons/flags/4x3/br.svg"
   },
   "node_modules/flag-icons/flags/4x3/bt.svg": {
@@ -364,11 +364,11 @@
     "src": "node_modules/flag-icons/flags/4x3/cy.svg"
   },
   "node_modules/flag-icons/flags/4x3/dg.svg": {
-    "file": "assets/svg/dg.svg",
+    "file": "assets/svg/dg2.svg",
     "src": "node_modules/flag-icons/flags/4x3/dg.svg"
   },
   "node_modules/flag-icons/flags/4x3/dm.svg": {
-    "file": "assets/svg/dm2.svg",
+    "file": "assets/svg/dm.svg",
     "src": "node_modules/flag-icons/flags/4x3/dm.svg"
   },
   "node_modules/flag-icons/flags/4x3/do.svg": {
@@ -380,7 +380,7 @@
     "src": "node_modules/flag-icons/flags/4x3/eac.svg"
   },
   "node_modules/flag-icons/flags/4x3/ec.svg": {
-    "file": "assets/svg/ec.svg",
+    "file": "assets/svg/ec2.svg",
     "src": "node_modules/flag-icons/flags/4x3/ec.svg"
   },
   "node_modules/flag-icons/flags/4x3/eg.svg": {
@@ -388,7 +388,7 @@
     "src": "node_modules/flag-icons/flags/4x3/eg.svg"
   },
   "node_modules/flag-icons/flags/4x3/es-ga.svg": {
-    "file": "assets/svg/es-ga2.svg",
+    "file": "assets/svg/es-ga.svg",
     "src": "node_modules/flag-icons/flags/4x3/es-ga.svg"
   },
   "node_modules/flag-icons/flags/4x3/es.svg": {
@@ -396,7 +396,7 @@
     "src": "node_modules/flag-icons/flags/4x3/es.svg"
   },
   "node_modules/flag-icons/flags/4x3/fj.svg": {
-    "file": "assets/svg/fj2.svg",
+    "file": "assets/svg/fj.svg",
     "src": "node_modules/flag-icons/flags/4x3/fj.svg"
   },
   "node_modules/flag-icons/flags/4x3/fk.svg": {
@@ -412,7 +412,7 @@
     "src": "node_modules/flag-icons/flags/4x3/gb-wls.svg"
   },
   "node_modules/flag-icons/flags/4x3/gq.svg": {
-    "file": "assets/svg/gq2.svg",
+    "file": "assets/svg/gq.svg",
     "src": "node_modules/flag-icons/flags/4x3/gq.svg"
   },
   "node_modules/flag-icons/flags/4x3/gs.svg": {
@@ -432,19 +432,19 @@
     "src": "node_modules/flag-icons/flags/4x3/hr.svg"
   },
   "node_modules/flag-icons/flags/4x3/ht.svg": {
-    "file": "assets/svg/ht.svg",
+    "file": "assets/svg/ht2.svg",
     "src": "node_modules/flag-icons/flags/4x3/ht.svg"
   },
   "node_modules/flag-icons/flags/4x3/im.svg": {
-    "file": "assets/svg/im.svg",
+    "file": "assets/svg/im2.svg",
     "src": "node_modules/flag-icons/flags/4x3/im.svg"
   },
   "node_modules/flag-icons/flags/4x3/io.svg": {
-    "file": "assets/svg/io.svg",
+    "file": "assets/svg/io2.svg",
     "src": "node_modules/flag-icons/flags/4x3/io.svg"
   },
   "node_modules/flag-icons/flags/4x3/ir.svg": {
-    "file": "assets/svg/ir.svg",
+    "file": "assets/svg/ir2.svg",
     "src": "node_modules/flag-icons/flags/4x3/ir.svg"
   },
   "node_modules/flag-icons/flags/4x3/je.svg": {
@@ -452,7 +452,7 @@
     "src": "node_modules/flag-icons/flags/4x3/je.svg"
   },
   "node_modules/flag-icons/flags/4x3/kh.svg": {
-    "file": "assets/svg/kh2.svg",
+    "file": "assets/svg/kh.svg",
     "src": "node_modules/flag-icons/flags/4x3/kh.svg"
   },
   "node_modules/flag-icons/flags/4x3/ki.svg": {
@@ -460,7 +460,7 @@
     "src": "node_modules/flag-icons/flags/4x3/ki.svg"
   },
   "node_modules/flag-icons/flags/4x3/ky.svg": {
-    "file": "assets/svg/ky2.svg",
+    "file": "assets/svg/ky.svg",
     "src": "node_modules/flag-icons/flags/4x3/ky.svg"
   },
   "node_modules/flag-icons/flags/4x3/kz.svg": {
@@ -468,7 +468,7 @@
     "src": "node_modules/flag-icons/flags/4x3/kz.svg"
   },
   "node_modules/flag-icons/flags/4x3/li.svg": {
-    "file": "assets/svg/li2.svg",
+    "file": "assets/svg/li.svg",
     "src": "node_modules/flag-icons/flags/4x3/li.svg"
   },
   "node_modules/flag-icons/flags/4x3/lk.svg": {
@@ -480,15 +480,15 @@
     "src": "node_modules/flag-icons/flags/4x3/md.svg"
   },
   "node_modules/flag-icons/flags/4x3/me.svg": {
-    "file": "assets/svg/me.svg",
+    "file": "assets/svg/me2.svg",
     "src": "node_modules/flag-icons/flags/4x3/me.svg"
   },
   "node_modules/flag-icons/flags/4x3/mp.svg": {
-    "file": "assets/svg/mp.svg",
+    "file": "assets/svg/mp2.svg",
     "src": "node_modules/flag-icons/flags/4x3/mp.svg"
   },
   "node_modules/flag-icons/flags/4x3/ms.svg": {
-    "file": "assets/svg/ms.svg",
+    "file": "assets/svg/ms2.svg",
     "src": "node_modules/flag-icons/flags/4x3/ms.svg"
   },
   "node_modules/flag-icons/flags/4x3/mt.svg": {
@@ -500,7 +500,7 @@
     "src": "node_modules/flag-icons/flags/4x3/mx.svg"
   },
   "node_modules/flag-icons/flags/4x3/nf.svg": {
-    "file": "assets/svg/nf.svg",
+    "file": "assets/svg/nf2.svg",
     "src": "node_modules/flag-icons/flags/4x3/nf.svg"
   },
   "node_modules/flag-icons/flags/4x3/ni.svg": {
@@ -516,7 +516,7 @@
     "src": "node_modules/flag-icons/flags/4x3/pf.svg"
   },
   "node_modules/flag-icons/flags/4x3/pn.svg": {
-    "file": "assets/svg/pn2.svg",
+    "file": "assets/svg/pn.svg",
     "src": "node_modules/flag-icons/flags/4x3/pn.svg"
   },
   "node_modules/flag-icons/flags/4x3/pt.svg": {
@@ -540,11 +540,11 @@
     "src": "node_modules/flag-icons/flags/4x3/sh-ac.svg"
   },
   "node_modules/flag-icons/flags/4x3/sh-hl.svg": {
-    "file": "assets/svg/sh-hl2.svg",
+    "file": "assets/svg/sh-hl.svg",
     "src": "node_modules/flag-icons/flags/4x3/sh-hl.svg"
   },
   "node_modules/flag-icons/flags/4x3/sh-ta.svg": {
-    "file": "assets/svg/sh-ta.svg",
+    "file": "assets/svg/sh-ta2.svg",
     "src": "node_modules/flag-icons/flags/4x3/sh-ta.svg"
   },
   "node_modules/flag-icons/flags/4x3/sm.svg": {
@@ -560,19 +560,19 @@
     "src": "node_modules/flag-icons/flags/4x3/sx.svg"
   },
   "node_modules/flag-icons/flags/4x3/sz.svg": {
-    "file": "assets/svg/sz.svg",
+    "file": "assets/svg/sz2.svg",
     "src": "node_modules/flag-icons/flags/4x3/sz.svg"
   },
   "node_modules/flag-icons/flags/4x3/tc.svg": {
-    "file": "assets/svg/tc2.svg",
+    "file": "assets/svg/tc.svg",
     "src": "node_modules/flag-icons/flags/4x3/tc.svg"
   },
   "node_modules/flag-icons/flags/4x3/tm.svg": {
-    "file": "assets/svg/tm.svg",
+    "file": "assets/svg/tm2.svg",
     "src": "node_modules/flag-icons/flags/4x3/tm.svg"
   },
   "node_modules/flag-icons/flags/4x3/un.svg": {
-    "file": "assets/svg/un.svg",
+    "file": "assets/svg/un2.svg",
     "src": "node_modules/flag-icons/flags/4x3/un.svg"
   },
   "node_modules/flag-icons/flags/4x3/va.svg": {
@@ -596,7 +596,7 @@
     "src": "node_modules/flag-icons/flags/4x3/zm.svg"
   },
   "node_modules/flag-icons/flags/4x3/zw.svg": {
-    "file": "assets/svg/zw.svg",
+    "file": "assets/svg/zw2.svg",
     "src": "node_modules/flag-icons/flags/4x3/zw.svg"
   },
   "src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.ttf": {
@@ -641,52 +641,52 @@
     "isEntry": true
   },
   "src/resources/assets/index.js": {
-    "file": "assets/index-g0tTw-SM.js",
+    "file": "assets/index-BfVks5Xr.js",
     "name": "index",
     "src": "src/resources/assets/index.js",
     "isEntry": true,
     "css": [
-      "assets/index-D_v3NL1x.css"
+      "assets/index-Dwx16X5n.css"
     ],
     "assets": [
       "assets/svg/ad.svg",
       "assets/svg/ad2.svg",
       "assets/svg/af.svg",
       "assets/svg/af2.svg",
-      "assets/svg/as.svg",
       "assets/svg/as2.svg",
+      "assets/svg/as.svg",
       "assets/svg/aw.svg",
       "assets/svg/aw2.svg",
-      "assets/svg/bm2.svg",
       "assets/svg/bm.svg",
+      "assets/svg/bm2.svg",
       "assets/svg/bn.svg",
       "assets/svg/bn2.svg",
-      "assets/svg/bo2.svg",
       "assets/svg/bo.svg",
-      "assets/svg/br.svg",
+      "assets/svg/bo2.svg",
       "assets/svg/br2.svg",
+      "assets/svg/br.svg",
       "assets/svg/bt.svg",
       "assets/svg/bt2.svg",
       "assets/svg/bz2.svg",
       "assets/svg/bz.svg",
       "assets/svg/cy.svg",
       "assets/svg/cy2.svg",
-      "assets/svg/dm2.svg",
       "assets/svg/dm.svg",
+      "assets/svg/dm2.svg",
       "assets/svg/do.svg",
       "assets/svg/do2.svg",
-      "assets/svg/ec.svg",
       "assets/svg/ec2.svg",
+      "assets/svg/ec.svg",
       "assets/svg/eg.svg",
       "assets/svg/eg2.svg",
       "assets/svg/es.svg",
       "assets/svg/es2.svg",
-      "assets/svg/fj2.svg",
       "assets/svg/fj.svg",
+      "assets/svg/fj2.svg",
       "assets/svg/fk.svg",
       "assets/svg/fk2.svg",
-      "assets/svg/gq2.svg",
       "assets/svg/gq.svg",
+      "assets/svg/gq2.svg",
       "assets/svg/gs.svg",
       "assets/svg/gs2.svg",
       "assets/svg/gt2.svg",
@@ -695,50 +695,50 @@
       "assets/svg/gu2.svg",
       "assets/svg/hr.svg",
       "assets/svg/hr2.svg",
-      "assets/svg/ht.svg",
       "assets/svg/ht2.svg",
-      "assets/svg/im.svg",
+      "assets/svg/ht.svg",
       "assets/svg/im2.svg",
-      "assets/svg/io.svg",
+      "assets/svg/im.svg",
       "assets/svg/io2.svg",
-      "assets/svg/ir.svg",
+      "assets/svg/io.svg",
       "assets/svg/ir2.svg",
+      "assets/svg/ir.svg",
       "assets/svg/je2.svg",
       "assets/svg/je.svg",
-      "assets/svg/kh2.svg",
       "assets/svg/kh.svg",
+      "assets/svg/kh2.svg",
       "assets/svg/ki2.svg",
       "assets/svg/ki.svg",
-      "assets/svg/ky2.svg",
       "assets/svg/ky.svg",
+      "assets/svg/ky2.svg",
       "assets/svg/kz.svg",
       "assets/svg/kz2.svg",
-      "assets/svg/li2.svg",
       "assets/svg/li.svg",
+      "assets/svg/li2.svg",
       "assets/svg/lk2.svg",
       "assets/svg/lk.svg",
       "assets/svg/md.svg",
       "assets/svg/md2.svg",
-      "assets/svg/me.svg",
       "assets/svg/me2.svg",
-      "assets/svg/mp.svg",
+      "assets/svg/me.svg",
       "assets/svg/mp2.svg",
-      "assets/svg/ms.svg",
+      "assets/svg/mp.svg",
       "assets/svg/ms2.svg",
+      "assets/svg/ms.svg",
       "assets/svg/mt.svg",
       "assets/svg/mt2.svg",
       "assets/svg/mx.svg",
       "assets/svg/mx2.svg",
-      "assets/svg/nf.svg",
       "assets/svg/nf2.svg",
+      "assets/svg/nf.svg",
       "assets/svg/ni.svg",
       "assets/svg/ni2.svg",
       "assets/svg/om.svg",
       "assets/svg/om2.svg",
       "assets/svg/pf.svg",
       "assets/svg/pf2.svg",
-      "assets/svg/pn2.svg",
       "assets/svg/pn.svg",
+      "assets/svg/pn2.svg",
       "assets/svg/pt.svg",
       "assets/svg/pt2.svg",
       "assets/svg/py.svg",
@@ -753,12 +753,12 @@
       "assets/svg/sv2.svg",
       "assets/svg/sx.svg",
       "assets/svg/sx2.svg",
-      "assets/svg/sz.svg",
       "assets/svg/sz2.svg",
-      "assets/svg/tc2.svg",
+      "assets/svg/sz.svg",
       "assets/svg/tc.svg",
-      "assets/svg/tm.svg",
+      "assets/svg/tc2.svg",
       "assets/svg/tm2.svg",
+      "assets/svg/tm.svg",
       "assets/svg/va.svg",
       "assets/svg/va2.svg",
       "assets/svg/vg.svg",
@@ -767,28 +767,28 @@
       "assets/svg/vi2.svg",
       "assets/svg/zm.svg",
       "assets/svg/zm2.svg",
-      "assets/svg/zw.svg",
       "assets/svg/zw2.svg",
+      "assets/svg/zw.svg",
       "assets/svg/arab.svg",
       "assets/svg/arab2.svg",
-      "assets/svg/dg.svg",
       "assets/svg/dg2.svg",
+      "assets/svg/dg.svg",
       "assets/svg/eac.svg",
       "assets/svg/eac2.svg",
-      "assets/svg/es-ga2.svg",
       "assets/svg/es-ga.svg",
+      "assets/svg/es-ga2.svg",
       "assets/svg/gb-nir.svg",
       "assets/svg/gb-nir2.svg",
       "assets/svg/gb-wls.svg",
       "assets/svg/gb-wls2.svg",
       "assets/svg/sh-ac.svg",
       "assets/svg/sh-ac2.svg",
-      "assets/svg/sh-hl2.svg",
       "assets/svg/sh-hl.svg",
-      "assets/svg/sh-ta.svg",
+      "assets/svg/sh-hl2.svg",
       "assets/svg/sh-ta2.svg",
-      "assets/svg/un.svg",
+      "assets/svg/sh-ta.svg",
       "assets/svg/un2.svg",
+      "assets/svg/un.svg",
       "assets/svg/xk.svg",
       "assets/svg/xk2.svg"
     ]
