@@ -1,9 +1,12 @@
 import {createApp, ref, computed, watch, onBeforeMount} from 'vue';
+import {createPinia} from "pinia";
+import {useFormStore} from "../stores/form.store.js";
 
 export default class ErrorsApp{
 
     constructor(input_data = {}) {
-        return createApp({
+
+        const options = {
 
             props: {
                 initial_errors: {
@@ -27,16 +30,16 @@ export default class ErrorsApp{
                 });
 
                 onBeforeMount(() => {
-                    // let _this = this;
-                    // registerInitialErrors();
-                    // this.validation_errors = this.$store.state.validator.validation_errors;
+                    // Register initial errors in FormStore
+                    useFormStore().setInitialErrors(props.initial_errors);
+                    // TODO: replace listener (maybe making a store variable reactive)
                     // window.vueBus.$on('refresh_validation', function (module_key) {
                     //     fixedError(module_key);
                     // });
                 });
 
                 /**
-                 * Highlight module with errors
+                 * Display errors (non valid modules)
                  */
                 function displayNonValidModules(){
                     let error_class = 'validation-error';
@@ -56,24 +59,14 @@ export default class ErrorsApp{
                 }
 
                 /**
-                 * Register initial errors
-                 */
-                function registerInitialErrors(){
-                    // let _this = this;
-                    // this.initial_errors.forEach(function (item) {
-                    //     _this.$store.commit('validator/registerInvalidModule', item);
-                    // });
-                }
-
-                /**
-                 * Set a module as fixed
+                 * Mark module as fixed
                  * @param module_key
                  */
                 function fixedError(module_key){
-                    // let invalid_modules = this.validation_errors.map(a => a.key);
-                    // if(invalid_modules.includes(module_key)){
-                    //     this.$store.commit('validator/registerFixedModule', module_key);
-                    // }
+                    let invalid_modules = validation_errors.value.map(a => a.key);
+                    if(invalid_modules.includes(module_key)){
+                        useFormStore().registerFixedModule(module_key);
+                    }
                 }
 
                 return {
@@ -82,7 +75,10 @@ export default class ErrorsApp{
                 };
             }
 
-        }, input_data);
+        };
+
+        return createApp(options, input_data)
+            .use(createPinia());
     }
 
 }
