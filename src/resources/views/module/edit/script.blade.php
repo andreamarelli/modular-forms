@@ -5,12 +5,16 @@
 
 ?>
 
+<div id="module_{{ $definitions['module_key'] }}__TEST">
+
+</div>
+
+
 @push('scripts')
-    <script>
-        // ## Initialize Module controller ##
-        let module_{{ $definitions['module_key'] }} = new window.ModularForms.ModuleController({
-            el: '#module_{{ $definitions['module_key'] }}',
-            data: @json($vueData)
-        });
+    <script type="module">
+
+        (new window.ModularForms.Apps.Module(@json($vueData)))
+            .mount('#module_{{ $definitions['module_key'] }}__TEST');
+
     </script>
 @endpush

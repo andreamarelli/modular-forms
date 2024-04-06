@@ -16,6 +16,9 @@ window.ModularForms.Apps.Base = Base;
 import FormErrors from './js/apps/FormErrors.js';
 window.ModularForms.Apps.FormErrors = FormErrors;
 
+import Module from "./js/apps/Module.js";
+window.ModularForms.Apps.Module = Module;
+
 // ############################################
 // ##############  Local assets  ##############
 // ############################################
