@@ -197,19 +197,13 @@ export default {
             }
         };
 
-
-
         return {
             tooltipElem,
             arrowElem,
-            state
+            // state
         }
 
-
     },
-
-
-
 
 }
 </script>

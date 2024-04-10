@@ -6,15 +6,15 @@ import payload from "../mixins/payload";
 window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
 
     mixins: [
-        actions,
+        // actions,
         calc,
-        transitions
+        // transitions
     ],
 
     store: window.ModularForms.formStore,
 
     props: [
-        'status',
+        // 'status',
         'error_messages',
         'records_backup',
         'container'
@@ -22,18 +22,18 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
 
     data: function () {
         return {
-            module_key: null,
-            module_type: null,
-            common_fields: null,
-            groups: null,
-            group_key_field: null,
-            predefined_values: null,
-            accordion_title_field: null,
-            empty_record: null,
-            records: null,
-            last_update: null,
-            action: null,
-            form_id: null,
+            // module_key: null,
+            // module_type: null,
+            // common_fields: null,
+            // groups: null,
+            // group_key_field: null,
+            // predefined_values: null,
+            // accordion_title_field: null,
+            // empty_record: null,
+            // records: null,
+            // last_update: null,
+            // action: null,
+            // form_id: null,
             visible: null,
             warning_on_save: null,
             reset_status: 'idle'
@@ -41,13 +41,13 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
     },
 
     computed: {
-        common_fields_names() {
-            let names = [];
-            this.common_fields.forEach(function (field) {
-                names.push(field['name'])
-            });
-            return names
-        },
+        // common_fields_names() {
+        //     let names = [];
+        //     this.common_fields.forEach(function (field) {
+        //         names.push(field['name'])
+        //     });
+        //     return names
+        // },
         accordion_titles() {
             let _this = this;
             let accordion_titles = [];
@@ -75,10 +75,10 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
      *  Vue controller initialization
      */
     created: function () {
-        this.status = 'init'; // Avoid watch() on records during initialization
-        this.records_backup = this.__no_reactive_copy(this.records);
-        this.__init_empty_record();
-        this.__arrange_records_by_group();
+        // this.status = 'init'; // Avoid watch() on records during initialization
+        // this.records_backup = this.__no_reactive_copy(this.records);
+        // this.__ini""t_empty_record();
+        // this.__arrange_records_by_group();
         this.__init_applicable();
     },
 
@@ -293,20 +293,20 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
             return JSON.parse(JSON.stringify(data));
         },
 
-        /**
-         * Copy common fields values in empty records array
-         * @returns {null}
-         */
-        __init_empty_record: function () {
-            let _this = this;
-            let empty_record = _this.empty_record;
-            Object.keys(empty_record).forEach(function (key) {
-                if (_this.common_fields_names.includes(key)) {
-                    empty_record[key] = _this.records[0][key];
-                }
-            });
-            _this.empty_record = empty_record;
-        },
+        // /**
+        //  * Copy common fields values in empty records array
+        //  * @returns {null}
+        //  */
+        // __init_empty_record: function () {
+        //     let _this = this;
+        //     let empty_record = _this.empty_record;
+        //     Object.keys(empty_record).forEach(function (key) {
+        //         if (_this.common_fields_names.includes(key)) {
+        //             empty_record[key] = _this.records[0][key];
+        //         }
+        //     });
+        //     _this.empty_record = empty_record;
+        // },
 
         /**
          * Parse form data to be sent for saving
@@ -335,38 +335,38 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
             return records
         },
 
-        /**
-         * Re-organize records for groups (from array to set of arrays organized by group)
-         * Applied only for GROUP_ACCORDION and GROUP_TABLE
-         * @private
-         */
-        __arrange_records_by_group: function () {
-            if (this.module_type === 'GROUP_ACCORDION' || this.module_type === 'GROUP_TABLE') {
-                let _this = this;
-                let records_by_group = {};
-                // Add groups keys
-                Object.keys(_this.groups).forEach(function (key) {
-                    records_by_group[key] = [];
-                });
-                // Sort existing records (from plain records array) into groups
-                _this.records.forEach(function (item) {
-                    if (item[_this.group_key_field] !== null) {
-                        let group_key = item[_this.group_key_field];
-                        if(group_key in records_by_group){
-                            records_by_group[group_key].push(item);
-                        }
-                    }
-                });
-                // Add empty record for each group (if no records)
-                Object.keys(records_by_group).forEach(function (key) {
-                    if (records_by_group[key].length === 0) {
-                        records_by_group[key].push(_this.__no_reactive_copy(_this.empty_record));
-                        records_by_group[key][0][_this.group_key_field] = key;
-                    }
-                });
-                _this.records = records_by_group;
-            }
-        },
+        // /**
+        //  * Re-organize records for groups (from array to set of arrays organized by group)
+        //  * Applied only for GROUP_ACCORDION and GROUP_TABLE
+        //  * @private
+        //  */
+        // __arrange_records_by_group: function () {
+        //     if (this.module_type === 'GROUP_ACCORDION' || this.module_type === 'GROUP_TABLE') {
+        //         let _this = this;
+        //         let records_by_group = {};
+        //         // Add groups keys
+        //         Object.keys(_this.groups).forEach(function (key) {
+        //             records_by_group[key] = [];
+        //         });
+        //         // Sort existing records (from plain records array) into groups
+        //         _this.records.forEach(function (item) {
+        //             if (item[_this.group_key_field] !== null) {
+        //                 let group_key = item[_this.group_key_field];
+        //                 if(group_key in records_by_group){
+        //                     records_by_group[group_key].push(item);
+        //                 }
+        //             }
+        //         });
+        //         // Add empty record for each group (if no records)
+        //         Object.keys(records_by_group).forEach(function (key) {
+        //             if (records_by_group[key].length === 0) {
+        //                 records_by_group[key].push(_this.__no_reactive_copy(_this.empty_record));
+        //                 records_by_group[key][0][_this.group_key_field] = key;
+        //             }
+        //         });
+        //         _this.records = records_by_group;
+        //     }
+        // },
 
         /**
          * Re-organize records to simple array

@@ -5,7 +5,7 @@
 
 ?>
 
-<div id="module_{{ $definitions['module_key'] }}__TEST">
+<div id="module_{{ $definitions['module_key'] }}">
 
 </div>
 
@@ -14,7 +14,7 @@
     <script type="module">
 
         (new window.ModularForms.Apps.Module(@json($vueData)))
-            .mount('#module_{{ $definitions['module_key'] }}__TEST');
+            .mount('#module_{{ $definitions['module_key'] }}');
 
     </script>
 @endpush

@@ -5,8 +5,8 @@ use AndreaMarelli\ModularForms\View\Module\Container;
 
 @if($has_observations)
 
-    {{-- Keep "observation" field even if not_applicable/not_available --}}
-    <div class="module_body" v-if="not_applicable || not_available">
+    {{-- Keep "observation" field even if data status is set not applicable/available --}}
+    <div class="module_body" v-if="isNotApplicable() || isNotAvailable()">
 
         @foreach($observation_fields as $observation_field)
 
