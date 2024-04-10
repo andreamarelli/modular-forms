@@ -40,6 +40,7 @@ export default class Module {
                 // Local refs/variables
                 let status = ref('init'); // "init" state avoid watch() on records during initialization
                 const records_backup = Object.assign({}, records.value);
+                const container = ref(null);
 
                 // import Composables
                 const {common_fields_in_empty_record, arrange_by_group} = useArrangeRecords({

@@ -79,12 +79,12 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
         // this.records_backup = this.__no_reactive_copy(this.records);
         // this.__ini""t_empty_record();
         // this.__arrange_records_by_group();
-        this.__init_applicable();
+        // this.__init_applicable();
     },
 
     mounted: function () {
-        let _this = this;
-        this.container = this.$el;
+        // let _this = this;
+        // this.container = this.$el;
 
         this.__set_predefined_as_disabled();
         Vue.nextTick(function () {
