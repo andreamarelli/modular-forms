@@ -40,7 +40,7 @@ export default class Module {
 
                 // refs / reactives / local variables
                 let records = reactive(props.records);
-                const records_backup = JSON.parse(JSON.stringify(toRaw(records)));
+                let records_backup = JSON.parse(JSON.stringify(toRaw(records)));
                 const container = ref(null);
                 let status = ref('init'); // "init" state avoid watch() on records during initialization
                 let empty_record = props.empty_record;
@@ -67,8 +67,15 @@ export default class Module {
                     empty_record: empty_record,
                     records: records
                 });
+                const {reset: resetModule, save: saveModule} = useSave({
+                    module_type: props.module_type,
+                    groups: props.groups,
+                    empty_record: empty_record,
+                    records: records,
+                    records_backup: records_backup,
+                    status: status
+                });
                 const {beforeShowBar, showBar, hideBar} = useTransitions();
-                // const { reset: resetModule, save: saveModule} = useSave();
 
                 // Set initial status (formed "created" lifecycle hook)
                 arrange_by_group();
@@ -91,23 +98,6 @@ export default class Module {
                 // ##################   Methods   ##################
                 // #################################################
 
-                function resetModule(){
-                    // Cannot replace entire reactive object with backup
-                    // (https://vuejs.org/guide/essentials/reactivity-fundamentals.html#limitations-of-reactive)
-                    // thus, need to iterate over each record and each field
-
-                    // TODO: for GROUPS
-
-                    let new_records = JSON.parse(JSON.stringify(records));
-                    Object.entries(new_records).forEach(([index, record]) => {
-                        Object.entries(record).forEach(([key, value]) => {
-                            records[index][key] = records_backup[index][key];
-                        });
-                    });
-                    status.value = 'idle';
-                }
-                function saveModule(){}
-
                 function toggleNotApplicable(){
                     toggleDataStatus('not_applicable');
                 }
@@ -125,6 +115,7 @@ export default class Module {
                 return {
                     status,
                     records,
+                    records_backup,
 
                     // objects from or related to  composables
                     isNotApplicable,
