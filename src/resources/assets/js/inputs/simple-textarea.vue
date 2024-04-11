@@ -1,55 +1,31 @@
 <template>
 
     <span>
-        <span v-if="disabled" :id=id class="field-preview disabled" @input="onInput" v-text="originalValue"></span>
-        <span v-else :id=id class="field-preview" contenteditable @input="onInput" v-text="originalValue"></span>
+        <span v-if="disabled" :id=id class="field-preview disabled" @input="onInput" v-text="inputValue"></span>
+        <span v-else :id=id class="field-preview" contenteditable @input="onInput" v-text="inputValue"></span>
     </span>
 
 </template>
 
-<script>
+<script setup>
 
-    import values from '../mixins-vue/values.mixin';
+import {computed, onMounted} from "vue";
 
-    export default {
-
-        mixins: [
-            values
-        ],
-
-        props:{
-            disabled: {
-                type: Boolean,
-                default: false
-            }
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        }
+    });
 
-        data (){
-            return {
-                originalValue: null
-            }
-        },
+    const inputValue = defineModel();
 
-        mounted(){
-            this.container = this.$el;
-            this.originalValue = this.value;
-        },
-
-        watch: {
-            inputValue(value){
-                this.emitValue(value);
-                // apply value to text-area but onInput
-                if(document.activeElement.id!==this.id){
-                    this.container.querySelector('span').innerText = value;
-                }
-            }
-        },
-         methods:{
-             onInput(e) {
-                 this.inputValue = e.target.innerText;
-             },
-         }
-
+    function onInput(e) {
+        inputValue.value = e.target.innerText;
     }
 
 </script>

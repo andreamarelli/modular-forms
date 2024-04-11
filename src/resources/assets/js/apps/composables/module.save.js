@@ -12,10 +12,9 @@ export function useSave(component_data) {
 
     function reset(){
 
-        console.log('inside/before', component_data.status.value);
-
         if(module_type.includes('GROUP_')) {
 
+            // TODO
 
         } else {
             records.forEach(function (record, index) {
@@ -29,7 +28,6 @@ export function useSave(component_data) {
 
         nextTick().then(() => {
             component_data.status.value = 'idle';
-            console.log('inside/after', component_data.status.value);
         });
 
     }

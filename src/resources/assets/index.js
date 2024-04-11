@@ -100,7 +100,6 @@ window.ModularForms.Accordion = Accordion;
 // window.ModularFormsVendor.Vue.component('simple-email', require('./js/inputs/simple-email.vue').default);
 // window.ModularFormsVendor.Vue.component('simple-numeric', require('./js/inputs/simple-numeric.vue').default);
 // window.ModularFormsVendor.Vue.component('simple-password', require('./js/inputs/simple-password.vue').default);
-// window.ModularFormsVendor.Vue.component('simple-text', require('./js/inputs/simple-text.vue').default);
 // window.ModularFormsVendor.Vue.component('simple-textarea', require('./js/inputs/simple-textarea.vue').default);
 // window.ModularFormsVendor.Vue.component('simple-url', require('./js/inputs/simple-url.vue').default);
 // window.ModularFormsVendor.Vue.component('selector-species_animal', require('./js/inputs/selector-species_animal.vue').default);

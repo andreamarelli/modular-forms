@@ -4,6 +4,9 @@ import {createPinia} from "pinia";
 // Components
 import tooltip from "../templates/tooltip.vue";
 import simpleText from "../inputs/simple-text.vue";
+import simpleTextarea from "../inputs/simple-textarea.vue";
+import simpleUrl from "../inputs/simple-url.vue";
+import simpleEmail from "../inputs/simple-email.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -141,6 +144,9 @@ export default class Module {
             // register components
             .component('tooltip', tooltip)
             .component('simpleText', simpleText)
+            .component('simpleTextarea', simpleTextarea)
+            .component('simpleUrl', simpleUrl)
+            .component('simpleEmail', simpleEmail)
             // use Pinia
             .use(createPinia());
     }

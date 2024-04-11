@@ -9,28 +9,19 @@
 
 </template>
 
-<script>
+<script setup>
 
-    import values from '../mixins-vue/values.mixin';
-    import simple_text from './simple-text.vue';
-
-    export default {
-
-        components: {
-            simple_text
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
         },
+        dataRules: {
+            type: String,
+            default: ''
+        },
+    });
 
-        mixins: [
-            values
-        ],
+    const inputValue = defineModel();
 
-        watch: {
-            inputValue(value){
-                this.emitValue(value);
-            }
-        }
-
-
-
-    }
 </script>
