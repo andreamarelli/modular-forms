@@ -7,6 +7,7 @@ import simpleText from "../inputs/simple-text.vue";
 import simpleTextarea from "../inputs/simple-textarea.vue";
 import simpleUrl from "../inputs/simple-url.vue";
 import simpleEmail from "../inputs/simple-email.vue";
+import rating from "../inputs/rating.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -147,6 +148,7 @@ export default class Module {
             .component('simpleTextarea', simpleTextarea)
             .component('simpleUrl', simpleUrl)
             .component('simpleEmail', simpleEmail)
+            .component('rating', rating)
             // use Pinia
             .use(createPinia());
     }
