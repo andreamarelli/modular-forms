@@ -66,7 +66,7 @@ export default class Module {
                     empty_record: empty_record,
                     records: records
                 });
-                const {reset, save: saveModule} = useSave({
+                const {reset: resetModule, save: saveModule} = useSave({
                     module_type: props.module_type,
                     groups: props.groups,
                     empty_record: empty_record,
@@ -96,13 +96,6 @@ export default class Module {
                 // #################################################
                 // ##################   Methods   ##################
                 // #################################################
-
-                function resetModule(){
-                    console.log('outside/before', status.value);
-                    reset();
-                    console.log('outside/after', status.value);
-                    console.log('end', status.value);
-                }
 
                 function toggleNotApplicable(){
                     toggleDataStatus('not_applicable');
