@@ -8,7 +8,6 @@ import simpleText from "../inputs/simple-text.vue";
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
 import {useDataStatus} from "./composables/module.data_status.js";
-import {useTransitions} from "./composables/module.transitions.js";
 import {useArrangeRecords} from "./composables/module.arrange_records.js";
 import {useSave} from "./composables/module.save.js";
 
@@ -67,7 +66,7 @@ export default class Module {
                     empty_record: empty_record,
                     records: records
                 });
-                const {reset: resetModule, save: saveModule} = useSave({
+                const {reset, save: saveModule} = useSave({
                     module_type: props.module_type,
                     groups: props.groups,
                     empty_record: empty_record,
@@ -75,7 +74,6 @@ export default class Module {
                     records_backup: records_backup,
                     status: status
                 });
-                const {beforeShowBar, showBar, hideBar} = useTransitions();
 
                 // Set initial status (formed "created" lifecycle hook)
                 arrange_by_group();
@@ -83,6 +81,7 @@ export default class Module {
 
                 // Watch for changes in records
                 watch(records, (value) => {
+                    console.log('records changed');
                     if (status.value !== 'init') {
                         status.value = status.value !== 'changed' ? 'changed' : status.value;
                     }
@@ -97,6 +96,13 @@ export default class Module {
                 // #################################################
                 // ##################   Methods   ##################
                 // #################################################
+
+                function resetModule(){
+                    console.log('outside/before', status.value);
+                    reset();
+                    console.log('outside/after', status.value);
+                    console.log('end', status.value);
+                }
 
                 function toggleNotApplicable(){
                     toggleDataStatus('not_applicable');
@@ -125,9 +131,9 @@ export default class Module {
                     saveModule,
                     resetModule,
 
-                    beforeShowBar,
-                    showBar,
-                    hideBar,
+                    // beforeShowBar,
+                    // showBar,
+                    // hideBar,
 
 
                     addItem,

@@ -1,4 +1,4 @@
-import {readonly, unref} from "vue";
+import {nextTick, readonly, unref} from "vue";
 
 export function useSave(component_data) {
 
@@ -8,9 +8,11 @@ export function useSave(component_data) {
     const records = unref(component_data.records);
     const empty_record = unref(component_data.empty_record);
     const records_backup = readonly(component_data.records_backup);
-    let status = unref(component_data.status);
+    const status = component_data.status;
 
     function reset(){
+
+        console.log('inside/before', component_data.status.value);
 
         if(module_type.includes('GROUP_')) {
 
@@ -25,7 +27,10 @@ export function useSave(component_data) {
             })
         }
 
-        // status = 'idle';
+        nextTick().then(() => {
+            component_data.status.value = 'idle';
+            console.log('inside/after', component_data.status.value);
+        });
 
     }
 
