@@ -75,6 +75,10 @@ use Illuminate\Support\Facades\Blade;
 
         </form>
 
+        <div class="text-sm" v-for="item in Object.entries(records)">
+            <div><b>@{{ item[0] }}</b>: @{{ item[1] }}</div>
+        </div>
+
     </div>
 
     {!! Blade::renderComponent(new $action_bar_view($controller, $definitions, $vueData['records'], $formId, $noData, $mode)) !!}

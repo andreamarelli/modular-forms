@@ -1,6 +1,7 @@
 <template>
 
     <span>
+
         <input type="text"
                :id=id
                :name=id
@@ -18,32 +19,19 @@
 
 </template>
 
-<script>
+<script setup>
 
-    import values from '../mixins-vue/values.mixin';
-
-    export default {
-
-        mixins: [
-            values
-        ],
-
-        data() {
-            return {
-                tooltipEnabled: true,
-            }
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
         },
-
-        mounted() {
-            this.container = this.$el;
-        },
-
-        watch: {
-            inputValue(value) {
-                this.emitValue(value);
-            }
+        tooltipEnabled: {
+            type: Boolean,
+            default: true
         }
+    });
 
-    }
+    const inputValue = defineModel();
 
 </script>

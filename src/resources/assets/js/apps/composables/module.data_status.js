@@ -12,17 +12,16 @@ export function useDataStatus(component_data) {
     // variables from component
     const enable_not_applicable = unref(component_data.enable_not_applicable);
     const module_type = unref(component_data.module_type);
-    const common_fields = unref(component_data.common_fields);
     const groups = unref(component_data.groups);
-    const records = ref(component_data.records);
+    const records = unref(component_data.records);
     const empty_record = unref(component_data.empty_record);
 
     function initialize(){
         if(enable_not_applicable){
 
             let record = module_type.includes('GROUP_')
-                ? records.value[Object.keys(groups)[0]][0]
-                : records.value[0];
+                ? records[Object.keys(groups)[0]][0]
+                : records[0];
             record = Object.assign({}, record);
 
             if(NOT_APPLICABLE_KEY in record){
@@ -52,35 +51,23 @@ export function useDataStatus(component_data) {
 
     function updateRecords(toggle_key, toggle_value){
 
-        let new_records = [];
-
-        if(module_type.includes('GROUP_')){
-            // generate empty structure
-            new_records = component_data.arrange_by_group(new_records);
-            // inject common fields
-            let first_group_key = Object.keys(groups)[0];
-            common_fields.forEach(function (field) {
-                if(field['name'] in records.value[first_group_key][0]){
-                    new_records[first_group_key][0][field['name']] = records.value[first_group_key][0][field['name']];
-                }
+        if(module_type.includes('GROUP_')) {
+            Object.keys(groups).forEach(function (group_key) {
+                records[group_key].splice(1);
+                records[group_key][0] = Object.assign({}, empty_record);
+                records[group_key][0][toggle_key] = toggle_value === true ? true : null;
             });
-            // set toggle value
-            new_records[first_group_key][0][toggle_key] = toggle_value === true ? true : null;
 
         } else {
-            // generate empty structure
-            new_records.push(Object.assign({}, empty_record));
-            // inject common fields
-            common_fields.forEach(function (field) {
-                if(field['name'] in records.value[0]){
-                    new_records[0][field['name']] = records.value[0][field['name']];
+            records.forEach(function (item, index) {
+                if(index === 0){
+                    records[index] = Object.assign({}, empty_record);
+                    records[index][toggle_key] = toggle_value === true ? true : null;
+                } else {
+                    delete records[index];
                 }
             });
-            // set toggle value
-            new_records[0][toggle_key] = toggle_value === true ? true : null;
         }
-
-        return new_records;
     }
 
 

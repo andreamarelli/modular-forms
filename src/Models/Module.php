@@ -283,7 +283,8 @@ class Module extends BaseModel
             'last_update' => $records['last_update'],
             'action' => $form_id !== null ? 'update' : 'store',
             'form_id' => $form_id,
-            'enable_not_applicable' => $definitions['enable_not_applicable']
+            'enable_not_applicable' => $definitions['enable_not_applicable'],
+            'warning_on_save' => null
         ];
     }
 
