@@ -1,144 +1,123 @@
 <template>
 
     <v-select
-        v-model=selectedItem
         :options=list
         :taggable=taggable
         :multiple=multiple
+        ref="selectElem"
         :create-option="newOption => ({ label: newOption, code: newOption })"
-        v-on:input="sendToEmitter"
-        ref="select" @search:blur="clearSearch"
+        @search:blur="clearSearch"
+        @update:modelValue="changeSelected"
+        v-model=selectedItem
     ></v-select>
+
+    <input type="hidden"
+           :id=id
+           v-model="inputValue"
+    />
 
 </template>
 
-
-<style lang="scss" scoped>
-
-</style>
-
 <script>
-
-    import values from '../mixins-vue/values.mixin';
-    import sorter from '../mixins-vue/sorter.mixin';
-    window.ModularFormsVendor.Vue.component('v-select', window.ModularFormsVendor.vSelect);
+    import vSelect from 'vue-select';
 
     export default {
-
-        mixins: [
-            sorter,
-            values
-        ],
-
-        props: {
-            dataValues: {
-                type: String,
-                default: '{}',
-            },
-            taggable: {
-                type: Boolean,
-                default: false
-            },
-            multiple: {
-                type: Boolean,
-                default: false
-            }
-        },
-
-        data (){
-            return {
-                list: [],
-                selectedItem: null,
-                sortBy: 'label',
-            }
-        },
-
-        beforeMount(){
-            this.buildOptions();
-            this.selectedItem = this.getSelectedItem();
-        },
-
-        computed: {
-            option_list(){
-                return JSON.parse(this.dataValues);
-            }
-        },
-
-        watch:{
-            dataValues: function () {
-                this.buildOptions();
-            },
-            value: function (value) {
-                this.selectedItem = this.getSelectedItem();
-            },
-        },
-
-        methods: {
-
-            _getPair(item){
-              return  {
-                  label: this.option_list[item] ?? item,
-                  code: item
-              };
-            },
-
-            /**
-             * Clear typed string as new option if user change focus without hitting enter to confirm (only for suggestion)
-             */
-            clearSearch(){
-                if(this.taggable){
-                    this.$refs.select.search = ''
-                }
-            },
-
-            getSelectedItem(){
-                let _this = this;
-                let value = this.value;
-
-                if(value!==null){
-                    if(this.multiple){
-                        try {
-                            value = JSON.parse(value);
-                        } catch (e) {
-                            value = value.split(',');
-                        }
-                        return value.map(function(item){
-                            return _this._getPair(item);
-                        });
-                    }
-                    else {
-                        return _this._getPair(value);
-                    }
-                }
-                return null;
-            },
-
-            buildOptions() {
-                this.list = [];
-                for(let key in this.option_list) {
-                    if((key !== '' && key !== 'null')
-                        && this.option_list.hasOwnProperty(key)) {
-                        this.list.push(this._getPair(key));
-                    }
-                }
-                // ensure initial selected value is in option list (if added by user)
-                if(this.value!==null && !(this.value in this.option_list) && !this.multiple){
-                    this.list.push(this._getPair(this.value));
-                }
-                this.list = this.sortList(this.list);
-            },
-
-            sendToEmitter(option){
-                if(option===null){
-                    this.emitValue(null);
-                } else if(this.multiple){
-                    this.emitValue(JSON.stringify(option.map(item => item.code)));
-                } else {
-                    this.emitValue(option.code)
-                }
-            }
-
+        components: {
+            'v-select': vSelect
         }
-
     }
+</script>
+
+<script setup>
+
+
+import {computed, onBeforeMount, ref, watch} from "vue";
+    import {useList} from "./composables/list.js";
+
+    const {sortList} = useList({});
+
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
+        },
+        dataValues: {
+            type: String,
+            default: '{}',
+        },
+        taggable: {
+            type: Boolean,
+            default: false
+        },
+        multiple: {
+            type: Boolean,
+            default: false
+        }
+    });
+
+    const inputValue = defineModel();
+    let selectedItem = computed(() => getSelectedItem());
+    const selectElem = ref(null);
+    let list = ref([]);
+
+    onBeforeMount(() => {
+        list = buildOptions();
+    });
+
+    function changeSelected(value){
+        inputValue.value = value.code;
+    }
+
+    function buildOptions() {
+        let option_list = JSON.parse(props.dataValues);
+        let list = [];
+        for(let key in option_list) {
+            if((key !== '' && key !== 'null')
+                && option_list.hasOwnProperty(key)) {
+                list.push(getPair(key));
+            }
+        }
+        // ensure initial selected value is in option list (if added by user)
+        if(inputValue!==null && !(inputValue.value in option_list) && !props.multiple){
+            list.push(getPair(inputValue.value));
+        }
+        list = sortList(list);
+        return list;
+    }
+
+    function getSelectedItem(){
+        let value = inputValue.value;
+        if(value!==null){
+            if(props.multiple){
+                try {
+                    value = JSON.parse(value);
+                } catch (e) {
+                    value = value.split(',');
+                }
+                return value.map(function(item){
+                    return getPair(item);
+                });
+            }
+            else {
+                return getPair(value);
+            }
+        }
+        return null;
+    }
+
+    function getPair(item){
+        let option_list = JSON.parse(props.dataValues);
+        return  {
+            label: option_list[item] ?? item,
+            code: item
+        };
+    }
+
+    function clearSearch(){
+        console.log('clearSearch');
+        if(props.taggable){
+            selectElem.value.search = '';
+        }
+    }
+
 </script>

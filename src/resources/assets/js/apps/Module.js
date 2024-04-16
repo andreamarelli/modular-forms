@@ -8,6 +8,7 @@ import simpleTextarea from "../inputs/simple-textarea.vue";
 import simpleUrl from "../inputs/simple-url.vue";
 import simpleEmail from "../inputs/simple-email.vue";
 import rating from "../inputs/rating.vue";
+import dropdown from "../inputs/dropdown.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -125,14 +126,10 @@ export default class Module {
                     isNotAvailable,
                     toggleNotAvailable,
                     toggleNotApplicable,
-                    saveModule,
                     resetModule,
 
-                    // beforeShowBar,
-                    // showBar,
-                    // hideBar,
-
-
+                    // TODO
+                    saveModule,
                     addItem,
                     deleteItem,
                 }
@@ -149,6 +146,7 @@ export default class Module {
             .component('simpleUrl', simpleUrl)
             .component('simpleEmail', simpleEmail)
             .component('rating', rating)
+            .component('dropdown', dropdown)
             // use Pinia
             .use(createPinia());
     }
