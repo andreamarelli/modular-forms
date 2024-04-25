@@ -19,10 +19,15 @@ export function useArrangeRecords(component_data) {
                 // Add groups key if not exists
                 records[item[group_key_field]] = records[item[group_key_field]] || [];
                 // Add item to group
-                records[item[group_key_field]].push(item);
+                let group_index = records[item[group_key_field]].length;
+                records[item[group_key_field]][group_index] = records[item[group_key_field]][group_index] || {};
+                Object.keys(item).forEach(function(key){
+                    records[item[group_key_field]][group_index][key] = JSON.parse(JSON.stringify(item[key]));
+                });
                 // Remove original item
                 delete records[index];
             });
+
 
             // Add empty record for each group (if no records)
             Object.keys(groups).forEach(function (key) {
