@@ -75,6 +75,7 @@ use Illuminate\Support\Facades\Blade;
 
         </form>
 
+        <!-- TODO: to be removed -->
         <div class="text-sm" v-for="item in Object.entries(records)">
             <div><b>@{{ item[0] }}</b>: @{{ item[1] }}</div>
         </div>

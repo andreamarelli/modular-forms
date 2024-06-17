@@ -9,6 +9,7 @@ import simpleUrl from "../inputs/simple-url.vue";
 import simpleEmail from "../inputs/simple-email.vue";
 import rating from "../inputs/rating.vue";
 import dropdown from "../inputs/dropdown.vue";
+import simpleDate from "../inputs/simple-date.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -147,6 +148,7 @@ export default class Module {
             .component('simpleEmail', simpleEmail)
             .component('rating', rating)
             .component('dropdown', dropdown)
+            .component('simpleDate', simpleDate)
             // use Pinia
             .use(createPinia());
     }

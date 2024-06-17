@@ -1,16 +1,16 @@
 <template>
 
-    <input class="field-edit field-date"
-           type="text"
-           readonly
-           v-model=inputValue
-           :id=componentId
+    <input type="text"
+           :id=id
            :name=id
+           v-model=inputValue
+           class="field-edit field-date"
+           readonly
     />
 
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 
     .field-date{
         width: 120px;
@@ -21,92 +21,83 @@
 
 </style>
 
-<script>
+<script setup>
 
-    import values from '../mixins-vue/values.mixin';
+    import {onMounted, reactive} from "vue";
 
-    export default {
+    import AirDatepicker from "air-datepicker";
+    import AirDatepicker_locale_en from 'air-datepicker/locale/en';
+    import AirDatepicker_locale_fr from 'air-datepicker/locale/fr';
+    import AirDatepicker_locale_sp from 'air-datepicker/locale/es';
+    import AirDatepicker_locale_pt from 'air-datepicker/locale/pt';
 
-        mixins: [
-            values
-        ],
+    const AirDatepicker_locale = {
+        'en': AirDatepicker_locale_en,
+        'fr': AirDatepicker_locale_fr,
+        'sp': AirDatepicker_locale_sp,
+        'pt': AirDatepicker_locale_pt
+    };
 
-        props: {
-            dateType: {
-                type: String,
-                default: 'day'
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
+        },
+        dateType: {
+            type: String,
+            default: 'day'
+        },
+        startDate: {
+            type: String,
+            default: null
+        },
+        endDate: {
+            type: String,
+            default: null
+        }
+    });
+
+    const inputValue = defineModel();
+
+    const state = reactive({
+        datPicker: null,
+    });
+
+
+    onMounted(() => {
+
+        let options = {
+            locale: AirDatepicker_locale[window.ModularForms.Mixins.Locale.getLocale()],
+            autoClose: true,
+            toggleSelected: false,
+            onSelect({date, formattedDate, datepicker}){
+                inputValue.value = formattedDate
             },
-            startDate: {
-                type: String,
-                default: null
-            },
-            endDate: {
-                type: String,
-                default: null
-            }
-        },
+            buttons: ['clear']
+        };
 
-        data(){
-            return {
-                Locale: window.Locale,
-                componentId: null,
-                inputValue: this.value,
-                datePicker: null
-            }
-        },
-
-        watch: {
-            inputValue(value){
-                this.emitValue(value);
-            }
-        },
-
-        beforeMount() {
-            this.componentId = this.id!=='' && this.id!==null
-                ? this.id
-                : 'simple_date_' + this._uid;
-        },
-
-        mounted(){
-            let _this = this;
-
-            let options = {
-                locale: window.ModularFormsVendor.AirDatepicker.locale[window.Locale.getLocale()],
-                autoClose: true,
-                toggleSelected: false,
-                onSelect({date, formattedDate, datepicker}){
-                    _this.inputValue = formattedDate
-                },
-                buttons: ['clear']
-            };
-
-            if(this.startDate!==null){
-                options.minDate = this.startDate;
-            }
-            if(this.endDate!==null){
-                options.maxDate = this.endDate;
-            }
-
-            if(this.dateType === 'day'){
-                options.dateFormat = "yyyy-MM-dd";
-                if(this.value !== null){
-                    options.selectedDates = [this.value];
-                }
-            } else if(this.dateType === 'year'){
-                options.dateFormat = "yyyy";
-                options.view = "years";
-                options.minView = "years";
-                if(this.value !== null) {
-                    options.selectedDates = [this.value + '-01-01'];
-                }
-            }
-
-            this.datePicker = new window.ModularFormsVendor.AirDatepicker('#' + this.componentId, options);
-        },
-
-        methods: {
-
+        if(props.startDate!==null){
+            options.minDate = props.startDate;
+        }
+        if(props.endDate!==null){
+            options.maxDate = props.endDate;
         }
 
-    }
+        if(props.dateType === 'day'){
+            options.dateFormat = "yyyy-MM-dd";
+            if(inputValue.value !== null){
+                options.selectedDates = [inputValue.value];
+            }
+        } else if(props.dateType === 'year'){
+            options.dateFormat = "yyyy";
+            options.view = "years";
+            options.minView = "years";
+            if(inputValue.value !== null) {
+                options.selectedDates = [inputValue.value + '-01-01'];
+            }
+        }
+
+        state.datePicker = new AirDatepicker('#' + props.id, options);
+    })
+
 </script>

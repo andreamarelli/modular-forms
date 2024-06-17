@@ -2,8 +2,15 @@
 // Global variables - make them accessible from modules and from blade views
 window.Laravel = window.Laravel || {};
 window.ModularForms = {};
-window.ModularFormsVendor = window.ModularFormsVendor || {}
-// window.Locale = require('./js/mixins/locale.js').default;
+window.ModularFormsVendor = window.ModularFormsVendor || {};
+
+// ############################################
+// #################  Mixins  #################
+// ############################################
+window.ModularForms.Mixins = window.ModularForms.Mixins || {};
+
+import Locale from "./js/mixins/locale.js";
+window.ModularForms.Mixins.Locale = Locale;
 
 // ############################################
 // ##################  Apps  ##################

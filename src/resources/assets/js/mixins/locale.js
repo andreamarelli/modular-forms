@@ -1,12 +1,14 @@
-export default {
+import I18n from '../../../../../vendor/conedevelopment/i18n/resources/js/I18n.js';
 
-    getLocale: function(){
+export default{
+
+    getLocale(){
         return window.Laravel.locale;
     },
 
-    getLabel: function(key, arg=null){
+    getLabel(key, arg=null){
 
-        let translator = new window.ModularFormsVendor.I18n;
+        let translator = new I18n;
 
         let label = '';
         if(arg===null){
@@ -17,6 +19,6 @@ export default {
             label = translator.trans_choice(key, arg)
         }
         return label.charAt(0).toUpperCase() + label.slice(1);
-    },
+    }
 
-};
+}
