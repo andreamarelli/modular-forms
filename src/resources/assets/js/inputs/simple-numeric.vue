@@ -1,11 +1,15 @@
 <template>
 
-    <div>
-        <input type="text" class="field-edit" v-bind:class="[{ 'field-numeric': numericType!=='code'}, dataClass ]"
-               ref="autoNumericElement"
-               v-on:autoNumeric:rawValueModified="update"
-        />
-    </div>
+    <input type="text"
+           :id=id
+           :name=id
+           v-model="formattedValue"
+           class="field-edit"
+           :class="{ 'field-numeric':  numericType!=='code' }"
+           autocomplete="off"
+           ref="inputElem"
+           v-on:autoNumeric:rawValueModified="update"
+    />
 
 </template>
 
@@ -18,86 +22,71 @@
     }
 </style>
 
-<script>
+<script setup>
 
-    import values from '../mixins-vue/values.mixin';
+import {defineProps, defineModel, onMounted, ref, computed, onBeforeMount, watch, reactive} from 'vue';
+    import AutoNumeric from "autonumeric";
 
-    export default {
-
-        mixins: [
-            values
-        ],
-
-        props: {
-            value: {
-                required: false,
-                validator(val) {
-                    return typeof val === 'number' || typeof val === 'string' || val === '' || val === null;
-                },
-            },
-            numericType: {
-                type: String,
-                default: 'float'
-            },
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
         },
-
-        data() {
-            return {
-                inputElement: null,
-                options: {},
-            };
+        numericType: {
+            type: String,
+            default: 'float'
         },
+    });
 
-        watch: {
-            value(newValue, oldValue){
-                if (newValue !== void(0)
-                    && newValue !== oldValue
-                    // Make sure this is only called when the value is set by an external script, and not from a user input
-                    && this.inputElement.getNumber() !== newValue) {
-                    this.inputElement.set(newValue);
-                }
-            },
-        },
+    const inputValue = defineModel();
+    const formattedValue = defineModel('formattedValue');
+    const inputElem = ref(null);
+    const autoNumericObject = ref(null);
+    const autoNumericOptions = computed(() => {
 
-        created() {
+        let options = {
+            maximumValue: '100000000000000000',
+            emptyInputBehavior: 'null',
+        };
 
-            if(this.numericType==='integer'){
-                this.options.minimumValue = '0';
-                this.options.decimalPlaces = 0;
-                this.options.decimalCharacter = ',';
-                this.options.digitGroupSeparator = ' ';
-            }
-            else if(this.numericType==='code'){
-                this.options.minimumValue = '0';
-                this.options.decimalPlaces = 0;
-                this.options.digitGroupSeparator = '';
-            }
-            else if(this.numericType==='float' || this.numericType==='numeric'){
-                this.options.decimalCharacter = ',';
-                this.options.digitGroupSeparator = ' ';
-            }
-            else if(this.numericType==='currency'){
-                this.options.decimalCharacter = ',';
-                this.options.digitGroupSeparator = ' ';
-            }
-            this.options.maximumValue = '100000000000000000';
-            this.options.emptyInputBehavior = 'null';
-        },
-        mounted() {
-            this.inputElement = new window.ModularFormsVendor.AutoNumeric(this.$refs.autoNumericElement, this.options);
-            this.inputElement.set(this.value);
-            this.update();
-        },
-        methods: {
-            update(event) {
-                if (this.inputElement !== null) {
-                    this.$emit('input', this.inputElement.getNumber(), event);
-                    this.$emit('change');
-                }
-            },
-        },
+        if(props.numericType==='integer'){
+            options.minimumValue = '0';
+            options.decimalPlaces = 0;
+            options.decimalCharacter = ',';
+            options.digitGroupSeparator = ' ';
+        }
+        else if(props.numericType==='code'){
+            options.minimumValue = '0';
+            options.decimalPlaces = 0;
+            options.digitGroupSeparator = '';
+        }
+        else if(props.numericType==='float' || props.numericType==='numeric'){
+            options.decimalCharacter = ',';
+            options.digitGroupSeparator = ' ';
+        }
+        else if(props.numericType==='currency'){
+            options.decimalCharacter = ',';
+            options.digitGroupSeparator = ' ';
+        }
 
+        return options;
+    });
 
-    };
+    onBeforeMount(() => {
+        formattedValue.value = JSON.parse(JSON.stringify(inputValue.value));
+    });
+
+    onMounted(() => {
+        autoNumericObject.value = new AutoNumeric(inputElem.value, autoNumericOptions.value);
+    });
+
+    watch(formattedValue, async (newValue, oldValue) => {
+        if(typeof oldValue !== 'undefined'
+            && newValue !== oldValue){
+            inputValue.value = JSON.parse(JSON.stringify(
+                autoNumericObject.value.getNumber()
+            ));
+        }
+    });
 
 </script>

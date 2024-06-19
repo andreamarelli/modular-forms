@@ -59,11 +59,6 @@
 
     const inputValue = defineModel();
 
-    const state = reactive({
-        datPicker: null,
-    });
-
-
     onMounted(() => {
 
         let options = {
@@ -97,7 +92,7 @@
             }
         }
 
-        state.datePicker = new AirDatepicker('#' + props.id, options);
+        new AirDatepicker('#' + props.id, options);
     })
 
 </script>

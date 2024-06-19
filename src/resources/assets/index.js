@@ -35,7 +35,6 @@ window.ModularForms.Accordion = Accordion;
 
 
 
-
 //
 // window.ModularForms.assetPath = '/vendor/modular-forms/';
 //
@@ -43,7 +42,6 @@ window.ModularForms.Accordion = Accordion;
 // window.ModularForms.Mixins = {
 //     Animation: require('./js/mixins/animation.js').default,
 //     Cookies: require('./js/mixins/cookie.js').default,
-//     Locale: window.Locale, // Alias
 //     Payload: require('./js/mixins/payload.js').default
 // };
 //
