@@ -1,14 +1,13 @@
 <template>
 
     <v-select
-        :options=list
         :taggable=taggable
+        :push-tags=taggable
         :multiple=multiple
         ref="selectElem"
-        :create-option="newOption => ({ label: newOption, code: newOption })"
-        @search:blur="clearSearch"
-        @update:modelValue="changeSelected"
-        v-model=selectedItem
+        v-model=selectedValue
+        @update:modelValue="onUpdateSelected"
+        :options=list
     ></v-select>
 
     <input type="hidden"
@@ -30,7 +29,7 @@
 
 <script setup>
 
-    import {computed, onBeforeMount, ref} from "vue";
+    import {onBeforeMount, onMounted, ref} from "vue";
     import {useList} from "./composables/list.js";
 
     const {sortList} = useList({});
@@ -55,19 +54,32 @@
     });
 
     const inputValue = defineModel();
-    let selectedItem = computed(() => getSelectedItem());
+    let selectedValue = defineModel('selectedValue', );
     const selectElem = ref(null);
     let list = ref([]);
 
     onBeforeMount(() => {
-        list = buildOptions();
+        list = initializeOptions();
+        selectedValue.value = initializeSelectedValue();
     });
 
-    function changeSelected(value){
-        inputValue.value = value.code;
-    }
+    onMounted(() => {
+        selectElem.value.onSearchBlurOriginal = selectElem.value.onSearchBlur;
+        selectElem.value.onSearchBlur = () => {
+            // if taggable, ensure that typed value is selected
+            if(props.taggable && selectElem.value.search !== ''){
+                let searchValue = {
+                    label:  selectElem.value.search,
+                    code:  selectElem.value.search
+                };
+                selectElem.value.select(searchValue);
+            }
+            // else, apply the standard behaviour
+            selectElem.value.onSearchBlurOriginal();
+        };
+    });
 
-    function buildOptions() {
+    function initializeOptions() {
         let option_list = JSON.parse(props.dataValues);
         let list = [];
         for(let key in option_list) {
@@ -84,7 +96,7 @@
         return list;
     }
 
-    function getSelectedItem(){
+    function initializeSelectedValue(){
         let value = inputValue.value;
         if(value!==null){
             if(props.multiple){
@@ -112,10 +124,16 @@
         };
     }
 
-    function clearSearch(){
-        console.log('clearSearch');
-        if(props.taggable){
-            selectElem.value.search = '';
+    function onUpdateSelected(){
+        if(props.multiple){
+            inputValue.value = JSON.stringify(selectedValue.value.map(function(item){
+                return item.code;
+            }));
+        }
+        else {
+            inputValue.value = selectedValue.value!==null
+                ? selectedValue.value.code
+                : null;
         }
     }
 
