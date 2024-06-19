@@ -30,8 +30,7 @@
 
 <script setup>
 
-
-import {computed, onBeforeMount, ref, watch} from "vue";
+    import {computed, onBeforeMount, ref} from "vue";
     import {useList} from "./composables/list.js";
 
     const {sortList} = useList({});

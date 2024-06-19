@@ -23,7 +23,7 @@
 
 <script setup>
 
-    import {onMounted, reactive} from "vue";
+    import {onMounted} from "vue";
 
     import AirDatepicker from "air-datepicker";
     import AirDatepicker_locale_en from 'air-datepicker/locale/en';

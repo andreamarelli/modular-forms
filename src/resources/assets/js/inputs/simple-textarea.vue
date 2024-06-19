@@ -9,7 +9,7 @@
 
 <script setup>
 
-import {computed, onMounted} from "vue";
+    import {defineProps, defineModel} from "vue";
 
     const props = defineProps({
         id: {
