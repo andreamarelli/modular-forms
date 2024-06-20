@@ -18,7 +18,6 @@
 
 <script setup>
 
-
     import {onBeforeMount, onMounted, ref} from "vue";
     import {useList} from "./composables/list.js";
 
@@ -68,55 +67,4 @@
         inputValue.value = inputValue.value===value ? null : value;
     }
 
-
-</script>
-
-
-
-<script>
-/*
-    import values from '../mixins-vue/values.mixin';
-
-    export default {
-
-        mixins: [
-            values
-        ],
-
-        props: {
-            dataValues: {
-                type: String,
-                default: '{}',
-            }
-        },
-
-        data (){
-            return {
-                listOptions: this.buildOptionList(),
-            }
-        },
-
-        mounted: function () {
-            this.buildOptionList();
-        },
-
-        methods: {
-
-
-            isSelected: function(value){
-                return value!==null
-                    && inputValue.value!==null
-                    && value.toString() === inputValue.value.toString();
-            },
-
-            setOption: function (value) {
-                inputValue.value = inputValue.value===value ? null : value;
-                this.emitValue(inputValue.value);
-            }
-
-        }
-
-    }
-
- */
 </script>
