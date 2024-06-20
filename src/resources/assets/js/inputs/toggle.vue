@@ -1,21 +1,80 @@
 <template>
 
-    <span class="toggle">
+    <div class="toggle">
 
-        <input type="hidden" value="value" :id="id" :name="id" v-bind:value="value" class="toggle" />
-
-        <div v-for="option in listOptions"
-                :class="isSelected(option.value) ? 'active' : ''"
-                v-on:click="setOption(option.value)"
+        <div v-for="option in list"
+             :class="isSelected(option.value) ? 'active' : ''"
+             @click="setOption(option.value)"
         >{{ option.label }}</div>
 
-    </span>
+        <input type="hidden"
+               :id=id
+               v-model="inputValue"
+        />
 
+    </div>
 
 </template>
 
-<script>
+<script setup>
 
+
+    import {onBeforeMount, onMounted, ref} from "vue";
+    import {useList} from "./composables/list.js";
+
+    const {sortList} = useList({});
+
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
+        },
+        dataValues: {
+            type: String,
+            default: '{}',
+        }
+    });
+
+    const inputValue = defineModel();
+    let list = ref([]);
+
+    onBeforeMount(() => {
+        list = initializeOptions();
+    });
+
+    onMounted(() => {
+        console.log('mounted');
+    });
+
+    function initializeOptions() {
+        let option_list = JSON.parse(props.dataValues);
+        let list = [];
+        for(let key in option_list) {
+            if(key !== '_'&& key !== 'null' && option_list.hasOwnProperty(key)) {
+                list.push({'label': option_list[key], 'value': key});
+            }
+        }
+        list = sortList(list);
+        return list;
+    }
+
+    function isSelected(value){
+        return value!==null
+            && inputValue.value!==null
+            && value.toString() === inputValue.value.toString();
+    }
+
+    function setOption(value) {
+        inputValue.value = inputValue.value===value ? null : value;
+    }
+
+
+</script>
+
+
+
+<script>
+/*
     import values from '../mixins-vue/values.mixin';
 
     export default {
@@ -43,29 +102,21 @@
 
         methods: {
 
-            buildOptionList: function (){
-                let dataValues = JSON.parse(this.dataValues);
-                let data = [];
-                for(let index in dataValues) {
-                    if(index!=='_' && dataValues.hasOwnProperty(index)){
-                        data.push({'label': dataValues[index], 'value': index});
-                    }
-                }
-                this.listOptions = data;
-            },
 
             isSelected: function(value){
                 return value!==null
-                    && this.inputValue!==null
-                    && value.toString() === this.inputValue.toString();
+                    && inputValue.value!==null
+                    && value.toString() === inputValue.value.toString();
             },
 
             setOption: function (value) {
-                this.inputValue = this.inputValue===value ? null : value;
-                this.emitValue(this.inputValue);
+                inputValue.value = inputValue.value===value ? null : value;
+                this.emitValue(inputValue.value);
             }
 
         }
 
     }
+
+ */
 </script>

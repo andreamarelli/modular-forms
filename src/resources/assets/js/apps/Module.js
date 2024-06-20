@@ -11,6 +11,7 @@ import rating from "../inputs/rating.vue";
 import dropdown from "../inputs/dropdown.vue";
 import simpleDate from "../inputs/simple-date.vue";
 import simpleNumeric from "../inputs/simple-numeric.vue";
+import toggle from "../inputs/toggle.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -151,6 +152,7 @@ export default class Module {
             .component('dropdown', dropdown)
             .component('simpleDate', simpleDate)
             .component('simpleNumeric', simpleNumeric)
+            .component('toggle', toggle)
             // use Pinia
             .use(createPinia());
     }
