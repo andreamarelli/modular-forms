@@ -153,30 +153,16 @@ $other_attributes = $other ?? '';
 
         {{-- ## checkbox ## --}}
     @elseif(substr_count($type, "checkbox-")>0)
-        @if($type=="checkbox-boolean")
-            <checkbox-boolean
-                {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
-            ></checkbox-boolean>
-        @elseif($type=="checkbox-boolean_numeric")
-            <checkbox-boolean
-                :data-numeric=true
-                {!! $vue_attributes !!} data-{!! $class_attribute !!} {!! $rules_attribute !!} {!! $other_attributes !!}
-            ></checkbox-boolean>
-        @else
-            @php
-                preg_match('/records\[(.*)\]\./', $v_value, $matches);
-                $vue_record_index = $matches[1] ?? 'index';
-            @endphp
-            @foreach($cached_list as $checkbox_value => $checkbox_label)
-                <input
-                    type="checkbox"
-                    v-model="{{ $v_value }}"
-                    :id="{{ $vue_record_index }}+'_{{ AndreaMarelli\ModularForms\Helpers\Type\Chars::clean($checkbox_value) }}'"
-                    value="{{ $checkbox_value }}"
-                    {!! $other_attributes !!}
-                /><span class="checkbox_label">{{ $checkbox_label }}</span><br/>
-            @endforeach
-        @endif
+        <checkbox
+            @if($type==="checkbox-boolean")
+                :boolean=true
+            @elseif($type==="checkbox-boolean_numeric")
+                :boolean-numeric=true
+            @else
+                data-values='@json($cached_list)'
+            @endif
+            {!! $vue_attributes !!} {!! $rules_attribute !!} {!! $other_attributes !!}
+        ></checkbox>
     @endif
 
 

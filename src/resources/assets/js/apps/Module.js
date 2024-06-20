@@ -12,6 +12,7 @@ import dropdown from "../inputs/dropdown.vue";
 import simpleDate from "../inputs/simple-date.vue";
 import simpleNumeric from "../inputs/simple-numeric.vue";
 import toggle from "../inputs/toggle.vue";
+import checkbox from "../inputs/checkbox.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -153,6 +154,7 @@ export default class Module {
             .component('simpleDate', simpleDate)
             .component('simpleNumeric', simpleNumeric)
             .component('toggle', toggle)
+            .component('checkbox', checkbox)
             // use Pinia
             .use(createPinia());
     }

@@ -41,10 +41,6 @@
         list = initializeOptions();
     });
 
-    onMounted(() => {
-        console.log('mounted');
-    });
-
     function initializeOptions() {
         let option_list = JSON.parse(props.dataValues);
         let list = [];
