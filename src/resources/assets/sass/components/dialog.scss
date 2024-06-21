@@ -1,43 +1,92 @@
 @import "../abstracts/colors";
 
-.floating_dialog{
+[role=dialog] {
 
-    .with_header_and_footer{
-        display: flex;
-        flex-direction: column;
+    display: inline-block;
 
-        min-width: 400px;
-        max-width: 800px;
+    .dialog-anchor{
+        cursor: pointer;
+
+        .dontOpenDialog{
+            cursor: default;
+        }
+    }
+
+    .dialog-overlay{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100vw;
+        height: 100vh;
+        @apply bg-gray-800/75;
+        backdrop-filter: blur(2px);
+        z-index: 1;
 
-        .header{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            @apply border-b border-gray-50;
-            padding-bottom: 5px;
-            font-weight: bold;
-        }
-        .body{
-            padding: 0 5px;
-        }
-        .footer{
-            display: flex;
-            flex-direction: row;
-            column-gap: 5px;
-            align-items: center;
-            justify-content: flex-end;
-
-            padding-top: 5px;
-            @apply border-t border-gray-50;
+        &.visible {
+            display: block;
         }
 
-        .header,
-        .footer{
-            .spacer {
-                flex-grow: 1;
+        .dialog-content{
+            display: none;
+            position: fixed;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%,-50%);
+
+            &.scrollable{
+                max-height: 80vh;
+                overflow-y: auto;
             }
+
+            &.visible {
+                display: block;
+            }
+
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+
+            .with_header_and_footer{
+                display: flex;
+                flex-direction: column;
+
+                min-width: 400px;
+                max-width: 800px;
+                width: 100vw;
+
+                .header{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    @apply border-b border-gray-50;
+                    padding-bottom: 5px;
+                    font-weight: bold;
+                }
+                .body{
+                    padding: 0 5px;
+                }
+                .footer{
+                    display: flex;
+                    flex-direction: row;
+                    column-gap: 5px;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    padding-top: 5px;
+                    @apply border-t border-gray-50;
+                }
+
+                .header,
+                .footer{
+                    .spacer {
+                        flex-grow: 1;
+                    }
+                }
+
+            }
+
         }
 
     }
