@@ -41,24 +41,24 @@
         <!-- Search Result -->
         <table class="striped dialog_search_results" v-if="searchExecuted">
             <thead>
-                <tr>
-                    <th></th>
-                    <slot name="resultHeader"></slot>
-                </tr>
+            <tr>
+                <th></th>
+                <slot name="resultHeader"></slot>
+            </tr>
             </thead>
             <tbody>
-                <tr v-for="(item, index) in showList">
-                    <td>
+            <tr v-for="(item, index) in showList">
+                <td>
                         <span class="radio">
                             <input type="radio"
                                    :name="parentId + '_radio'" :id="parentId + '_radio' + index"
-                                   v-on:click="selectResultItem(item, $event)"
+                                   v-on:click="selectResultItem(item)"
                             />
                             <label :for="parentId + '_radio' + index" ></label>
                         </span>
-                    </td>
-                    <slot name="resultItem" v-bind:item="item"></slot>
-                </tr>
+                </td>
+                <slot name="resultItem" :item=item></slot>
+            </tr>
             </tbody>
         </table>
 
@@ -104,19 +104,15 @@
 
 </style>
 
-<script>
+<script setup>
 
-import filter from '../../../mixins-vue/filter.mixin';
-import values from '../../../mixins-vue/values.mixin';
+    import {computed, getCurrentInstance, inject, ref, defineExpose} from 'vue';
+    const Locale = window.ModularForms.Mixins.Locale;
+    import {useList} from "../../composables/list.js";
 
-export default {
+    const {filterByAttribute} = useList({});
 
-    mixins: [
-        filter,
-        values
-    ],
-
-    props: {
+    const props = defineProps({
         searchUrl: {
             type: String,
             default: null
@@ -133,123 +129,123 @@ export default {
             type: Boolean,
             default: false
         }
-    },
+    });
 
-    data (){
-        return {
-            Locale: window.Locale,
-            selectorComponent: null,
-            searchKey: '',
-            searchExecuted: false,
-            isSearching: false,
-            searchResults: {},
-            showList: {},
-            totalCount: null,
-            selectedValue: null
-        }
-    },
+    // components, injections & expose
+    const selectorComponent = getCurrentInstance().parent.parent.parent;
+    const selectorDialogComponent = getCurrentInstance().parent.parent;
+    const parentAfterSearch = inject('afterSearch', null);
+    const parentSelectedItem = inject('selectItem', null);
+    defineExpose({
+        filterShowList,
+        reset
+    })
 
-    mounted(){
-        this.selectorComponent = this.$parent.$parent.$parent;  /// the selector (component) which extends this component
-        this.selectorDialogComponent = this.$parent.$parent;
-    },
+    // reactive variables
+    const searchKey = ref('');
+    const isSearching = ref(false);
+    const searchResults = ref({});
+    const showList = ref({});
+    const totalCount = ref(null);
+    const searchExecuted = ref(false);
+    const selectedValue = ref(null);
 
-    computed: {
-        keyLengthErrorMessage(){
-            return Locale.getLabel('modular-forms::common.type_at_least', {'num_chars': this.keyMinLength} );
-        },
-        recordFoundLabel(){
-            return Locale.getLabel('modular-forms::common.record_found', this.totalCount);
-        },
-        isSearchable(){
-            return this.parentSearchParamsValid
-                || this.searchKey.length >= this.keyMinLength;
-        },
-    },
+    // computed
+    const isSearchable = computed(() => {
+        return props.parentSearchParamsValid
+            || searchKey.value.length >= props.keyMinLength;
+    });
+    const keyLengthErrorMessage = computed(() => {
+        return Locale.getLabel('modular-forms::common.search_key_min_length', {num_chars: props.keyMinLength});
+    });
+    const recordFoundLabel = computed(() => {
+        return Locale.getLabel('modular-forms::common.record_found', totalCount.value);
+    });
 
-    methods: {
-
-        reset(){
-            this.searchKey = '';
-            this.isSearching = false;
-            this.reset_search_result();
-        },
-
-        reset_search_result(){
-            this.searchResults = {};
-            this.showList = {};
-            this.totalCount = null;
-            this.searchExecuted = false;
-            this.selectedValue = null;
-        },
-
-        searchParams(){
-            let _this = this;
-            let params = {
-                'search_key': _this.searchKey
-            };
-            if(typeof this.selectorComponent.searchParams === "function"){
-                Object.entries(_this.selectorComponent.searchParams()).forEach(([key, value]) => {
-                    params[key] = value;
-                });
-            }
-            return params;
-        },
-
-        preventDefault(event){
-            event.preventDefault();
-            event.stopPropagation();
-            return false
-        },
-
-        applySearch(event) {
-            let _this = this;
-            if (_this.isSearchable) {
-
-                _this.reset_search_result();
-                this.isSearching = true;
-
-                fetch(_this.searchUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        "X-CSRF-Token": window.Laravel.csrfToken
-                    },
-                    body: JSON.stringify(_this.searchParams())
-                })
-                    .then((response) => response.json())
-                    .then(function(data){
-                        _this.searchResults = data['records'];
-                        _this.showList = _this.searchResults;
-                        _this.totalCount = Object.keys(_this.searchResults).length;
-                        _this.searchExecuted = true;
-                        _this.isSearching = false;
-                        if(typeof _this.selectorComponent.afterSearch === "function"){
-                            _this.selectorComponent.afterSearch(data);
-                        }
-                    })
-                    .catch(function () {
-                        // _this.setErrors();
-                    })
-            }
-        },
-
-        filterShowList(filters){
-            let _this = this;
-            _this.selectedValue = _this.selectorDialogComponent.selectedValue = null;
-            let filteredList = _this.searchResults;
-            filteredList = Object.values(filteredList)
-            Object.keys(filters).forEach(function (key) {
-                filteredList = _this.filterByAttribute(filteredList, filters[key], key);
-            });
-            _this.showList = filteredList;
-        },
-
-        selectResultItem(item, event){
-            this.selectedValue = item;
-            this.selectorDialogComponent.selectedValue = this.selectedValue;
-        },
-
+    function reset(){
+        searchKey.value = '';
+        isSearching.value = false;
+        reset_search_result();
     }
-}
+
+    function reset_search_result(){
+        searchExecuted.value = false;
+        totalCount.value = null;
+        selectedValue.value = null;
+        searchResults.value = {};
+        showList.value = {};
+    }
+
+    function searchParams(){
+        let params = {
+            'search_key': searchKey.value
+        };
+        // Check if a custom "searchParams" is defined in parent component
+        if(selectorComponent.props.searchParams){
+            selectorComponent.props.searchParams();
+            Object.entries(selectorComponent.props.searchParams()).forEach(([key, value]) => {
+                params[key] = value;
+            });
+        }
+        return params;
+    }
+
+    function preventDefault(event){
+        event.preventDefault();
+        event.stopPropagation();
+        return false
+    }
+
+    function applySearch(event) {
+        if (isSearchable) {
+
+            reset_search_result();
+            isSearching.value = true;
+
+            fetch(props.searchUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "X-CSRF-Token": window.Laravel.csrfToken
+                },
+                body: JSON.stringify(searchParams())
+            })
+                .then((response) => response.json())
+                .then(function(data){
+                    searchResults.value = data['records'];
+                    showList.value = data['records'];
+                    totalCount.value = Object.keys(searchResults.value).length;
+                    searchExecuted.value = true;
+                    isSearching.value = false;
+                    // Check if a custom "afterSearch" is defined in parent component
+                    if(typeof parentAfterSearch === "function"){
+                        parentAfterSearch(data);
+                    }
+                })
+                .catch(function () {
+                    // setErrors();
+                })
+        }
+    }
+
+    function filterShowList(filters){
+        selectedValue.value = null;
+        if(typeof parentSelectedItem === "function"){
+            parentSelectedItem(null);
+        }
+        let filteredList = searchResults.value;
+        filteredList = Object.values(filteredList)
+        Object.keys(filters).forEach(function (key) {
+            filteredList = filterByAttribute(filteredList, filters[key], key);
+        });
+        showList.value = filteredList;
+    }
+
+    function selectResultItem(item){
+        selectedValue.value = item;
+        if(typeof parentSelectedItem === "function"){
+            parentSelectedItem(item);
+        }
+    }
+
 </script>

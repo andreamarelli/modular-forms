@@ -43,7 +43,7 @@ return [
 
     'search'            => "search",
     'search_item'       => "search item",
-    'type_at_least'     => 'Type at least :num_chars characters in order to get the list of corresponding results',
+    'search_key_min_length'     => 'Type at least :num_chars characters in order to get the list of corresponding results',
     'initial'     => 'initial',
     'filters'           => 'filters',
     'filter_results'    => 'filter results',

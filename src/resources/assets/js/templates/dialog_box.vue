@@ -3,14 +3,15 @@
     <div role="dialog">
 
         <!-- Anchor -->
-        <button ref="anchorElem" class="dialog-anchor">
+        <div ref="anchorElem" class="dialog-anchor">
             <slot name="dialog-anchor"></slot>
-        </button>
+        </div>
 
         <!-- Dialog -->
         <div ref="dialogOverlayElem"  class="dialog-overlay"
         >
-            <div ref="dialogContentElem" class="dialog-content">
+            <div ref="dialogContentElem"
+                 class="dialog-content">
                 <slot name="dialog-content"></slot>
             </div>
         </div>
@@ -21,12 +22,15 @@
 
 <script setup>
 
-    import {onMounted, ref} from 'vue';
+    import {onMounted, ref, defineExpose} from 'vue';
 
     const anchorElem = ref(null);
     const dialogOverlayElem = ref(null);
     const dialogContentElem = ref(null);
     const originalBodyOverflow = ref(null);
+    defineExpose({
+        closeDialog
+    })
 
     onMounted(() => {
 

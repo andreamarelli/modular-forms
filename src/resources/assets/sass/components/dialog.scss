@@ -34,11 +34,6 @@
             left: 50vw;
             transform: translate(-50%,-50%);
 
-            &.scrollable{
-                max-height: 80vh;
-                overflow-y: auto;
-            }
-
             &.visible {
                 display: block;
             }
@@ -55,35 +50,36 @@
                 max-width: 800px;
                 width: 100vw;
 
-                .header{
+                .header,
+                .footer{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    .dialog-title {
+                        font-weight: bold;
+                    }
+                    .spacer {
+                        flex-grow: 1;
+                    }
+                }
 
+                .header{
                     @apply border-b border-gray-50;
                     padding-bottom: 5px;
                     font-weight: bold;
                 }
                 .body{
                     padding: 0 5px;
+                    max-height: 80vh;
+                    overflow-y: auto;
                 }
                 .footer{
-                    display: flex;
-                    flex-direction: row;
                     column-gap: 5px;
                     align-items: center;
-                    justify-content: flex-end;
-
                     padding-top: 5px;
                     @apply border-t border-gray-50;
                 }
 
-                .header,
-                .footer{
-                    .spacer {
-                        flex-grow: 1;
-                    }
-                }
 
             }
 

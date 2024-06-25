@@ -1,0 +1,181 @@
+<template>
+
+    <selectorDialog
+        :parent-id=id
+        :value=value
+        :search-url=searchUrl
+        :with-insert=withInsert
+    >
+
+        <!-- api search - result search filters -->
+        <template v-slot:selector-api-search-result-filters>
+            <i>{{ Locale.getLabel('modular-forms::common.filter_results') }}: </i>&nbsp;&nbsp;
+            {{ Locale.getLabel('modular-forms::entities.biodiversity.taxonomy.class') }}
+            <select v-model=filterByClass @change="filterList(true)" class="field-edit filterByClass">
+                <option v-for="option in classes">
+                    {{ option }}
+                </option>
+            </select>
+            {{ Locale.getLabel('modular-forms::entities.biodiversity.taxonomy.order') }}
+            <select v-model=filterByOrder @change="filterList(false)" class="field-edit filterByOrder">
+                <option v-for="option in orderByClass()">
+                    {{ option }}
+                </option>
+            </select>
+        </template>
+
+        <!-- api search - result header -->
+        <template v-slot:selector-api-search-result-header>
+            <th>{{ Locale.getLabel('modular-forms::entities.biodiversity.species', 1) }}</th>
+            <th>{{ Locale.getLabel('modular-forms::entities.biodiversity.red_list_category') }}</th>
+            <th>{{ Locale.getLabel('modular-forms::entities.biodiversity.red_list') }}</th>
+        </template>
+
+        <!-- api search - result items -->
+        <template v-slot:selector-api-search-result-item="{ item }">
+            <td><span class="result_left" v-html="getSpeciesDescription(item)"></span></td>
+            <td><redlist_category :category=item.iucn_redlist_category></redlist_category></td>
+            <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img style="display: inline-block" :src="assetPath + 'images/iucn_red_list.png'" alt="IUCN RedList"/></a></td>
+        </template>
+
+    </selectorDialog>
+
+</template>
+
+<style lang="scss" scoped>
+    .result_left{
+        text-align: left;
+    }
+    .field-edit.filterByClass,
+    .field-edit.filterByOrder{
+        width: 200px;
+        margin: 0 5px;
+    }
+</style>
+
+<script>
+
+import values from '../mixins-vue/values.mixin';
+import redlist_category from "../templates/redlist_category.vue";
+
+
+export default {
+
+    components: {
+        'redlist_category': redlist_category
+    },
+
+    mixins: [
+        values
+    ],
+
+    props: {
+        searchUrl: {
+            type: String,
+            default: null
+        },
+        withInsert: {
+            type: Boolean,
+            default: false,
+        },
+    },
+
+    data (){
+        return {
+            Locale: window.Locale,
+            assetPath: window.ModularForms.assetPath,
+            searchComponent: null,
+            // inputValue: null,
+            filterByClass: null,
+            filterByOrder: null,
+            orders: [],
+            classes: []
+        }
+    },
+
+    mounted (){
+        this.searchComponent = this.$children[0].$children[0].$children[0];
+    },
+
+    methods: {
+
+        setLabel(value){
+            if(typeof value === "object"){
+                return this.getScientificName(value);
+            }
+            else if(value.split("|").length>3){
+                let taxonomy = value.split("|");
+                return taxonomy[4] + ' ' + taxonomy[5]
+            }
+            return value;
+        },
+
+        setValue(value){
+            if(typeof value == "object"){
+                return this.getFullTaxonomy(value);
+            }
+            return value;
+        },
+
+        getScientificName(item) {
+            return item.genus + ' ' + item.species;
+        },
+
+        getFullTaxonomy(item) {
+            return item.phylum + '|' + item.class + '|' + item.order + '|' + item.family + '|' + item.genus + '|' + item.species
+        },
+
+        getSpeciesDescription(item) {
+            let description = '<div>' + item.class + ' ' + item.order + ' ' + item.family + ' <b>' + item.genus + ' ' + item.species + '</b>' + '</div>';
+            if (this.hasCommonNames(item)) {
+                description += '<div class="common_names"><b><i>' + Locale.getLabel('modular-forms::entities.biodiversity.common_names') + ':</i></b><br />';
+                if (item.common_name_en !== null && item.common_name_en.toLowerCase() !== 'null') {
+                    description += '<div><span class="fi fi-gb"></span> ' + item.common_name_en.replace(/\,/g, ', ') + '</div>'
+                }
+                if (item.common_name_fr !== null && item.common_name_fr.toLowerCase() !== 'null') {
+                    description += '<div><span class="fi fi-fr"></span> ' + item.common_name_fr.replace(/\,/g, ', ') + '</div>'
+                }
+                if (item.common_name_sp !== null && item.common_name_sp.toLowerCase() !== 'null') {
+                    description += '<div><span class="fi fi-es"></span> ' + item.common_name_sp.replace(/\,/g, ', ') + '</div>'
+                }
+                description += '</div>';
+            }
+            return description;
+        },
+
+        hasCommonNames(item) {
+            return (item.common_name_en !== null || item.common_name_fr !== null || item.common_name_sp !== null);
+        },
+
+        afterSearch(data){
+            this.orders = data['orders'];
+            this.classes = data['classes'];
+            this.filterByOrder = null;
+            this.filterByClass = null;
+        },
+
+        orderByClass(){
+            return this.filterByClass!=null
+                ? this.orders[this.filterByClass]
+                : [];
+        },
+
+        filterList(alsoResetOrder){
+            if(alsoResetOrder){
+                this.filterByOrder = null;
+            }
+            this.filterByOrder = typeof this.filterByOrder === "undefined" ? null : this.filterByOrder;
+
+            let filters = {
+                'class': this.filterByClass,
+                'order': this.filterByOrder,
+            };
+            this.searchComponent.filterShowList(filters);
+        },
+
+    }
+
+
+
+}
+</script>

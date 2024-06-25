@@ -3,6 +3,9 @@ import {createPinia} from "pinia";
 
 // Components
 import tooltip from "../templates/tooltip.vue";
+import dialogBox from "../templates/dialog_box.vue";
+
+// Input Components
 import simpleText from "../inputs/simple-text.vue";
 import simpleTextarea from "../inputs/simple-textarea.vue";
 import simpleUrl from "../inputs/simple-url.vue";
@@ -13,6 +16,7 @@ import simpleDate from "../inputs/simple-date.vue";
 import simpleNumeric from "../inputs/simple-numeric.vue";
 import toggle from "../inputs/toggle.vue";
 import checkbox from "../inputs/checkbox.vue";
+import selectorSpeciesAnimal from "../inputs/selector-species_animal.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -143,8 +147,10 @@ export default class Module {
 
         // Create the app
         return createApp(options, input_data)
-            // register components
+            // register common components
             .component('tooltip', tooltip)
+            .component('dialogBox', dialogBox)
+            // register input components
             .component('simpleText', simpleText)
             .component('simpleTextarea', simpleTextarea)
             .component('simpleUrl', simpleUrl)
@@ -155,6 +161,7 @@ export default class Module {
             .component('simpleNumeric', simpleNumeric)
             .component('toggle', toggle)
             .component('checkbox', checkbox)
+            .component('selector-species_animal', selectorSpeciesAnimal)
             // use Pinia
             .use(createPinia());
     }

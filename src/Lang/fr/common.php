@@ -43,7 +43,7 @@ return [
 
     'search'            => "rechercher",
     'search_item'       => "rechercher un élément",
-    'type_at_least'   => 'Entrer un mot clé d\'au moins :num_chars lettres pour obtenir la liste des résultats correspondants',
+    'search_key_min_length'   => 'Entrer un mot clé d\'au moins :num_chars lettres pour obtenir la liste des résultats correspondants',
     'initial'     => 'initiale',
     'filters'           => 'Critères de recherche',
     'filter_results'    => 'filtrer les résultats',

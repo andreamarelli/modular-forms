@@ -12,6 +12,7 @@ export default defineConfig({
     build:{
         outDir: 'dist',
         manifest: 'manifest.json',
+        minify: false,  // only for DEVELOPMENT
         rollupOptions: {
             input: {
                 index: 'src/resources/assets/index.js',

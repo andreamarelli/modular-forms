@@ -30,6 +30,8 @@ window.ModularForms.Apps.Module = Module;
 // ##############  Local assets  ##############
 // ############################################
 
+window.ModularForms.assetPath = '/vendor/modular-forms/';
+
 import Accordion from './js/modules/accordion.js';
 window.ModularForms.Accordion = Accordion;
 

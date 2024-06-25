@@ -1,10 +1,10 @@
 <template>
 
-    <selectorDialog
+    <selector-dialog
+        v-model="inputValue"
         :parent-id=id
-        :value=value
         :search-url=searchUrl
-        :with-insert=withInsert
+        ref="selectorDialogComponent"
     >
 
         <!-- api search - result search filters -->
@@ -32,13 +32,14 @@
         </template>
 
         <!-- api search - result items -->
-        <template v-slot:selector-api-search-result-item="{ item }">
+        <template #selector-api-search-result-item="{ item }">
             <td><span class="result_left" v-html="getSpeciesDescription(item)"></span></td>
             <td><redlist_category :category=item.iucn_redlist_category></redlist_category></td>
             <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img style="display: inline-block" :src="assetPath + 'images/iucn_red_list.png'" alt="IUCN RedList"/></a></td>
         </template>
 
-    </selectorDialog>
+    </selector-dialog>
+
 
 </template>
 
@@ -53,23 +54,19 @@
     }
 </style>
 
-<script>
 
-import values from '../mixins-vue/values.mixin';
-import redlist_category from "../templates/redlist_category.vue";
+<script setup>
 
+import {defineProps, defineModel, ref, provide, onMounted} from 'vue';
+    import selectorDialog from './components/selector/dialog.vue';
+    import redlist_category from "../templates/redlist_category.vue";
+    const Locale = window.ModularForms.Mixins.Locale;
 
-export default {
-
-    components: {
-        'redlist_category': redlist_category
-    },
-
-    mixins: [
-        values
-    ],
-
-    props: {
+    const props = defineProps({
+        id: {
+            type: String,
+            default: null
+        },
         searchUrl: {
             type: String,
             default: null
@@ -77,105 +74,99 @@ export default {
         withInsert: {
             type: Boolean,
             default: false,
-        },
-    },
-
-    data (){
-        return {
-            Locale: window.Locale,
-            assetPath: window.ModularForms.assetPath,
-            searchComponent: null,
-            // inputValue: null,
-            filterByClass: null,
-            filterByOrder: null,
-            orders: [],
-            classes: []
         }
-    },
+    });
 
-    mounted (){
-        this.searchComponent = this.$children[0].$children[0].$children[0];
-    },
+    // components, injections & expose
+    const selectorDialogComponent = ref(null);
+    provide('setLabel', setLabel);
+    provide('setValue', setValue);
+    provide('afterSearch', afterSearch);
+    let apiSearchComponent = null;
 
-    methods: {
+    onMounted(() => {
+        apiSearchComponent = selectorDialogComponent.value.$refs.apiSearchComponent;
+    });
 
-        setLabel(value){
-            if(typeof value === "object"){
-                return this.getScientificName(value);
+    // values
+    const inputValue = defineModel();
+    const filterByClass = ref(null);
+    const filterByOrder = ref(null);
+    const orders = ref([]);
+    const classes = ref([]);
+    const assetPath = window.ModularForms.assetPath;
+
+    function setLabel(value){
+        if(typeof value === "object"){
+            // return scientific name
+            return value.genus + ' ' + value.species;
+        }
+        else if(value.split("|").length>3){
+            let taxonomy = value.split("|");
+            return taxonomy[4] + ' ' + taxonomy[5]
+        }
+        return value;
+    }
+
+    function setValue(value){
+        if (typeof value == "object") {
+            // return full taxonomy
+            return item.phylum
+                + '|' + value.class
+                + '|' + value.order
+                + '|' + value.family
+                + '|' + value.genus
+                + '|' + value.species
+        }
+        return value;
+    }
+
+    function getSpeciesDescription(item) {
+        let description = '<div>' + item.class + ' ' + item.order + ' ' + item.family + ' <b>' + item.genus + ' ' + item.species + '</b>' + '</div>';
+        if (hasCommonNames(item)) {
+            description += '<div class="common_names"><b><i>' + Locale.getLabel('modular-forms::entities.biodiversity.common_names') + ':</i></b><br />';
+            if (item.common_name_en !== null && item.common_name_en.toLowerCase() !== 'null') {
+                description += '<div><span class="fi fi-gb"></span> ' + item.common_name_en.replace(/\,/g, ', ') + '</div>'
             }
-            else if(value.split("|").length>3){
-                let taxonomy = value.split("|");
-                return taxonomy[4] + ' ' + taxonomy[5]
+            if (item.common_name_fr !== null && item.common_name_fr.toLowerCase() !== 'null') {
+                description += '<div><span class="fi fi-fr"></span> ' + item.common_name_fr.replace(/\,/g, ', ') + '</div>'
             }
-            return value;
-        },
-
-        setValue(value){
-            if(typeof value == "object"){
-                return this.getFullTaxonomy(value);
+            if (item.common_name_sp !== null && item.common_name_sp.toLowerCase() !== 'null') {
+                description += '<div><span class="fi fi-es"></span> ' + item.common_name_sp.replace(/\,/g, ', ') + '</div>'
             }
-            return value;
-        },
+            description += '</div>';
+        }
+        return description;
+    }
 
-        getScientificName(item) {
-            return item.genus + ' ' + item.species;
-        },
+    function hasCommonNames(item) {
+        return (item.common_name_en !== null || item.common_name_fr !== null || item.common_name_sp !== null);
+    }
 
-        getFullTaxonomy(item) {
-            return item.phylum + '|' + item.class + '|' + item.order + '|' + item.family + '|' + item.genus + '|' + item.species
-        },
+    function afterSearch(data){
+        orders.value = data['orders'];
+        classes.value = data['classes'];
+        filterByOrder.value = null;
+        filterByClass.value = null;
+    }
 
-        getSpeciesDescription(item) {
-            let description = '<div>' + item.class + ' ' + item.order + ' ' + item.family + ' <b>' + item.genus + ' ' + item.species + '</b>' + '</div>';
-            if (this.hasCommonNames(item)) {
-                description += '<div class="common_names"><b><i>' + Locale.getLabel('modular-forms::entities.biodiversity.common_names') + ':</i></b><br />';
-                if (item.common_name_en !== null && item.common_name_en.toLowerCase() !== 'null') {
-                    description += '<div><span class="fi fi-gb"></span> ' + item.common_name_en.replace(/\,/g, ', ') + '</div>'
-                }
-                if (item.common_name_fr !== null && item.common_name_fr.toLowerCase() !== 'null') {
-                    description += '<div><span class="fi fi-fr"></span> ' + item.common_name_fr.replace(/\,/g, ', ') + '</div>'
-                }
-                if (item.common_name_sp !== null && item.common_name_sp.toLowerCase() !== 'null') {
-                    description += '<div><span class="fi fi-es"></span> ' + item.common_name_sp.replace(/\,/g, ', ') + '</div>'
-                }
-                description += '</div>';
-            }
-            return description;
-        },
+    function orderByClass(){
+        return filterByClass.value!=null
+            ? orders.value[filterByClass.value]
+            : [];
+    }
 
-        hasCommonNames(item) {
-            return (item.common_name_en !== null || item.common_name_fr !== null || item.common_name_sp !== null);
-        },
-
-        afterSearch(data){
-            this.orders = data['orders'];
-            this.classes = data['classes'];
-            this.filterByOrder = null;
-            this.filterByClass = null;
-        },
-
-        orderByClass(){
-            return this.filterByClass!=null
-                ? this.orders[this.filterByClass]
-                : [];
-        },
-
-        filterList(alsoResetOrder){
-            if(alsoResetOrder){
-                this.filterByOrder = null;
-            }
-            this.filterByOrder = typeof this.filterByOrder === "undefined" ? null : this.filterByOrder;
-
-            let filters = {
-                'class': this.filterByClass,
-                'order': this.filterByOrder,
-            };
-            this.searchComponent.filterShowList(filters);
-        },
-
+    function filterList(alsoResetOrder){
+        if(alsoResetOrder){
+            filterByOrder.value = null;
+        }
+        filterByOrder.value = typeof filterByOrder.value === "undefined" ? null : filterByOrder.value;
+        selectorDialogComponent.value.$refs.apiSearchComponent.filterShowList({
+            'class': filterByClass.value,
+            'order': filterByOrder.value,
+        });
     }
 
 
 
-}
 </script>

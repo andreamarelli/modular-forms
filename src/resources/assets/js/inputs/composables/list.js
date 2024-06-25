@@ -24,6 +24,36 @@ export function useList(component_data) {
         });
     }
 
+    function filterList(items){
+        items = filterByInitial(items);
+        return items;
+    }
+
+    function filterByInitial(items) {
+        if(initial.value!==null){
+            items = items.filter((item) => {
+                if(item.name.charAt(0).toLowerCase() === initial.value.toLowerCase()){
+                    return true;
+                }
+            });
+        }
+        return items;
+    }
+
+    function filterByAttribute(items, filter_value, filter_on){
+        let _this = this;
+        filter_value = filter_value==="" || filter_value==='null' ? null : filter_value;
+        if(filter_value!==null){
+            items = items.filter((item) => {
+                let value = getAttribute(item, filter_on);
+                if(value.toString().toLowerCase() === filter_value.toString().toLowerCase()){
+                    return true;
+                }
+            });
+        }
+        return items;
+    }
+
     function getAttribute (item, attribute){
 
         let value = null;
@@ -46,6 +76,9 @@ export function useList(component_data) {
         return value;
     }
 
-    return {sortList}
+    return {
+        sortList,
+        filterByAttribute
+    }
 
 }

@@ -43,7 +43,7 @@ return [
 
     'search'            => "pesquisa",
     'search_item'       => "item de pesquisa",
-    'type_at_least'     => 'Escreva pelo menos :num_chars caracteres para obter a lista dos resultados correspondentes',
+    'search_key_min_length'     => 'Escreva pelo menos :num_chars caracteres para obter a lista dos resultados correspondentes',
     'initial'     => 'inicial',
     'filters'           => 'filtros',
     'filter_results'    => 'resultados do filtro',

@@ -123,26 +123,11 @@
     .with_header_and_footer{
         min-width: 200px;
         max-width: 500px;
-
-        .header,
-        .footer{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            .dialog-title{
-                font-weight: bold;
-            }
-            .spacer{
-                flex-grow: 1;
-            }
-        }
         .body{
             margin: 20px 0 10px 0;
             text-align: center;
         }
     }
-
-
 
 </style>
 
