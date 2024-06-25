@@ -4,6 +4,7 @@
         v-model="inputValue"
         :parent-id=id
         :search-url=searchUrl
+        :with-insert=withInsert
         ref="selectorDialogComponent"
     >
 

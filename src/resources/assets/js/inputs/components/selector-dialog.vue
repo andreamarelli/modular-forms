@@ -25,11 +25,11 @@
                 <div class="body">
 
                     <!--  ###############  API search   ############### -->
-                    <div v-if="displaySearch" class="dialog_search">
+                    <div v-show="displaySearch" class="dialog_search">
 
                         <!-- Search by key -->
                         <i>{{ Locale.getLabel('modular-forms::common.search_item') }}: </i>
-                        <input type="text" class="field-edit dialog_search_by_key" ref="searchByKey" autofocus
+                        <input type="text" class="field-edit dialog_search_by_key" autofocus
                                v-model="searchKey"
                                v-on:keydown.enter.prevent="applySearch"
                         />
@@ -91,7 +91,7 @@
                     <!--  ###############  INSERT   ############### -->
 
                     <!-- INSERT item (text) -->
-                    <div v-if="displayInsertText" class="dialog_insert">
+                    <div v-show="displayInsertText" class="dialog_insert">
                         <input type="text" class="field-edit dialog_insert_freetext" v-model=insertedItem />
                         <div class="dialog_insert_msg">
                             <i>{{ Locale.getLabel('modular-forms::common.be_specific_as_possible') }}</i>
@@ -99,7 +99,7 @@
                     </div>
 
                     <!-- INSERT item (object) -->
-                    <div v-if="displayInsertObject" class="dialog_insert">
+                    <div v-show="displayInsertObject" class="dialog_insert">
                         <slot name="selector-insert"></slot>
                     </div>
 
@@ -112,7 +112,7 @@
                     <!-- insert toggle -->
                     <button type="button"
                             class="btn-nav dark small"
-                            v-if="withInsert && displaySearch"
+                            v-show="withInsert && displaySearch"
                             @click=enableInsert >
                         {{ Locale.getLabel('modular-forms::common.add_if_not_found') }}
                     </button>
@@ -132,7 +132,7 @@
                     <!-- confirm insert -->
                     <button type="button"
                             class="btn-nav dark small"
-                            v-if="displayInsertText || displayInsertObject"
+                            v-show="displayInsertText || displayInsertObject"
                             @click=confirmInsert >
                         {{ Locale.getLabel('modular-forms::common.add') }}
                     </button>
@@ -141,7 +141,7 @@
                     <button type="button"
                             class="btn-nav dark small"
                             :disabled="selectedValue===null"
-                            v-if=displaySearch
+                            v-show=displaySearch
                             @click=confirmSelection >
                         {{ Locale.getLabel('modular-forms::common.confirm_select') }}
                     </button>
@@ -156,39 +156,50 @@
 </template>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 
-    @import "../../../sass/abstracts/colors";
+    .with_header_and_footer{
 
-    .dialog_search{
+        .body {
 
-        padding: 10px;
-        text-align: center;
-
-        .dialog_search_by_key{
-            width: 200px;
-            margin: 0 10px;
-        }
-
-        .dialog_search_error{
-            @apply text-red-700;
-        }
-        .dialog_search_error,
-        .dialog_search_count{
-            @apply text-xs;
-            margin: 5px 0;
-        }
-
-        .dialog_search_results_filters{
-            margin: 10px 0;
-        }
-
-        .dialog_search_results{
-            th, td{
-                @apply text-xs;
+            .dialog_search,
+            .dialog_insert {
+                max-height: 80vh;
+                overflow-y: auto;
             }
-        }
 
+            .dialog_search{
+                padding: 10px;
+                text-align: center;
+
+                .dialog_search_by_key{
+                    width: 200px;
+                    margin: 0 10px;
+                }
+
+                .dialog_search_error{
+                    @apply text-red-700;
+                }
+                .dialog_search_error,
+                .dialog_search_count{
+                    @apply text-xs;
+                    margin: 5px 0;
+                }
+
+                .dialog_search_results_filters{
+                    margin: 10px 0;
+                }
+
+                .dialog_search_results{
+                    th, td{
+                        @apply text-xs;
+                    }
+                }
+
+
+            }
+
+        }
 
     }
 
@@ -242,9 +253,8 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
     const selectorComponent_beforeDialogClose = inject('beforeDialogClose', null);
     const selectorComponent_getSearchParams = inject('getSearchParams', null);
     const selectorComponent_confirmSelection = inject('confirmSelection', null);
-    defineExpose({
-        filterShowList
-    })
+    const selectorComponent_validateInsert = inject('validateInsert', null);
+
 
     // values/labels
     const inputValue = defineModel();
@@ -278,6 +288,11 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
     const displaySearch = ref(true);
     const displayInsertText = ref(false);
     const displayInsertObject = ref(false);
+
+defineExpose({
+    filterShowList,
+    displaySearch
+})
 
     // ###################################################
     // ###############  Methods - GENERAL  ###############
@@ -338,13 +353,9 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
      * Apply new item and close
      */
     function applyAndClose(){
-
-        console.log('confirmedItem', confirmedItem.value);
-
         inputValue.value = typeof selectorComponent_SetValue === "function"
             ? selectorComponent_SetValue(confirmedItem.value)
             : confirmedItem.value
-
         closeSelectorDialog();
     }
 
@@ -404,7 +415,7 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
                     }
                 })
                 .catch(function () {
-                    // setErrors();
+                    setError();
                 })
         }
     }
@@ -425,11 +436,11 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
 
     function confirmSelection(){
         confirmedItem.value = selectedValue.value;
-        // if(typeof selectorComponent_confirmSelection === "function"){
-        //     selectorComponent_confirmSelection();
-        // } else {
+        if(typeof selectorComponent_confirmSelection === "function"){
+            selectorComponent_confirmSelection();
+        } else {
             applyAndClose();
-        // }
+        }
     }
 
 
@@ -438,15 +449,59 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
     // ####################################################
 
     function enableInsert(){
-        displaySearch.value = false;
         displayInsertText.value = !props.withId;
         displayInsertObject.value = props.withId;
+        displaySearch.value = false;
     }
 
-    function confirmInsert(){} // TODO
-    function saveNewItem(){} // TODO
+    function confirmInsert(){
+        resetError();
 
+        // this.confirmedItem = this.withId && typeof this.selectorComponent.insertedItem !== "undefined" // custom insertedItem
+        //     ? this.selectorComponent.insertedItem
+        //     : this.insertedItem;
+        confirmedItem.value = insertedItem.value
 
+        // Validate inserted item
+        let valid = false;
+        if(typeof selectorComponent_validateInsert === "function"){
+            valid = selectorComponent_validateInsert(confirmedItem.value);
+        } else {
+            valid = props.withId
+                ? confirmedItem.value!=={}
+                : confirmedItem.value!==null;
+        }
+
+        if(valid){
+            if(props.withId) {
+                saveNewItem();
+            } else {
+                applyAndClose();
+            }
+        } else {
+            setError(Locale.getLabel('common.validation_error'))
+        }
+
+    }
+
+    function saveNewItem(){
+        fetch(props.createUrl, {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": window.Laravel.csrfToken,
+            },
+            body: JSON.stringify(_this.confirmedItem),
+        })
+            .then((response) => response.json())
+            .then(function(data) {
+                confirmedItem.value = data.records;
+                applyAndClose();
+            })
+            .catch(function () {
+                setError();
+            });
+    }
 
 
 </script>

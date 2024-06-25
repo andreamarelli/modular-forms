@@ -167,7 +167,7 @@
 <script>
     import values from '../../../mixins-vue/values.mixin';
     import floating_dialog from "../../../templates/dialog_box.vue";
-    import selectorApiSearch from "./api-search.vue"
+    import selectorApiSearch from "./api-search_olf.vue"
 
     export default {
 
