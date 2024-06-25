@@ -5,7 +5,7 @@
             {{ category }}
         </span>
         <tooltip>
-            {{ category_plain}}
+            {{ category_plain }}
         </tooltip>
     </div>
 

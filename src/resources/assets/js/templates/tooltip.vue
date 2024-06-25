@@ -109,52 +109,55 @@ export default {
          */
         const setTooltipPosition = () => {
 
-
             autoUpdate(anchorElem.value, tooltipElem.value, () => {
 
-                const arrowWidth = arrowElem.value.offsetWidth;
-                const floatingOffset = Math.sqrt(2 * arrowWidth ** 2) / 2;
+                if(anchorElem.value !== null && arrowElem.value !==null){
 
-                computePosition(anchorElem.value, tooltipElem.value, {
-                    placement: 'top',
-                    middleware: [
-                        flip(),
-                        shift({
-                            padding: 5
-                        }),
-                        offset({
-                            mainAxis: floatingOffset,
-                        }),
-                        arrow({element: arrowElem.value})
-                    ],
-                })
-                .then(({x, y, placement, middlewareData}) => {
+                    const arrowWidth = arrowElem.value.offsetWidth;
+                    const floatingOffset = Math.sqrt(2 * arrowWidth ** 2) / 2;
 
-                    // Assign position to tooltip
-                    Object.assign(tooltipElem.value.style, {
-                        left: `${x}px`,
-                        top: `${y}px`,
+                    computePosition(anchorElem.value, tooltipElem.value, {
+                        placement: 'top',
+                        middleware: [
+                            flip(),
+                            shift({
+                                padding: 5
+                            }),
+                            offset({
+                                mainAxis: floatingOffset,
+                            }),
+                            arrow({element: arrowElem.value})
+                        ],
+                    })
+                    .then(({x, y, placement, middlewareData}) => {
+
+                        // Assign position to tooltip
+                        Object.assign(tooltipElem.value.style, {
+                            left: `${x}px`,
+                            top: `${y}px`,
+                        });
+
+                        // Assign position to arrow
+                        if (middlewareData.arrow) {
+                            const { x, y } = middlewareData.arrow;
+                            const staticSide = {
+                                top: 'bottom',
+                                right: 'left',
+                                bottom: 'top',
+                                left: 'right',
+                            }[placement.split('-')[0]];
+                            Object.assign(arrowElem.value.style, {
+                                left: x != null ? `${x}px` : '',
+                                top: y != null ? `${y}px` : '',
+                                right: '',
+                                bottom: '',
+                                [staticSide]: `${-arrowElem.value.offsetWidth / 2}px`,
+                            });
+                        }
+
                     });
 
-                    // Assign position to arrow
-                    if (middlewareData.arrow) {
-                        const { x, y } = middlewareData.arrow;
-                        const staticSide = {
-                            top: 'bottom',
-                            right: 'left',
-                            bottom: 'top',
-                            left: 'right',
-                        }[placement.split('-')[0]];
-                        Object.assign(arrowElem.value.style, {
-                            left: x != null ? `${x}px` : '',
-                            top: y != null ? `${y}px` : '',
-                            right: '',
-                            bottom: '',
-                            [staticSide]: `${-arrowElem.value.offsetWidth / 2}px`,
-                        });
-                    }
-
-                });
+                }
 
             });
 

@@ -8,7 +8,7 @@
     >
 
         <!-- api search - result search filters -->
-        <template v-slot:selector-api-search-result-filters>
+        <template v-slot:searchResultFilters>
             <i>{{ Locale.getLabel('modular-forms::common.filter_results') }}: </i>&nbsp;&nbsp;
             {{ Locale.getLabel('modular-forms::entities.biodiversity.taxonomy.class') }}
             <select v-model=filterByClass @change="filterList(true)" class="field-edit filterByClass">
@@ -25,14 +25,14 @@
         </template>
 
         <!-- api search - result header -->
-        <template v-slot:selector-api-search-result-header>
+        <template v-slot:searchResultHeader>
             <th>{{ Locale.getLabel('modular-forms::entities.biodiversity.species', 1) }}</th>
             <th>{{ Locale.getLabel('modular-forms::entities.biodiversity.red_list_category') }}</th>
             <th>{{ Locale.getLabel('modular-forms::entities.biodiversity.red_list') }}</th>
         </template>
 
         <!-- api search - result items -->
-        <template #selector-api-search-result-item="{ item }">
+        <template #searchResultItem="{ item }">
             <td><span class="result_left" v-html="getSpeciesDescription(item)"></span></td>
             <td><redlist_category :category=item.iucn_redlist_category></redlist_category></td>
             <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img style="display: inline-block" :src="assetPath + 'images/iucn_red_list.png'" alt="IUCN RedList"/></a></td>
@@ -58,7 +58,7 @@
 <script setup>
 
 import {defineProps, defineModel, ref, provide, onMounted} from 'vue';
-    import selectorDialog from './components/selector/dialog.vue';
+    import selectorDialog from './components/selector-dialog.vue';
     import redlist_category from "../templates/redlist_category.vue";
     const Locale = window.ModularForms.Mixins.Locale;
 
@@ -82,11 +82,6 @@ import {defineProps, defineModel, ref, provide, onMounted} from 'vue';
     provide('setLabel', setLabel);
     provide('setValue', setValue);
     provide('afterSearch', afterSearch);
-    let apiSearchComponent = null;
-
-    onMounted(() => {
-        apiSearchComponent = selectorDialogComponent.value.$refs.apiSearchComponent;
-    });
 
     // values
     const inputValue = defineModel();
@@ -96,29 +91,29 @@ import {defineProps, defineModel, ref, provide, onMounted} from 'vue';
     const classes = ref([]);
     const assetPath = window.ModularForms.assetPath;
 
-    function setLabel(value){
-        if(typeof value === "object"){
+    function setLabel(item){
+        if(typeof item === "object"){
             // return scientific name
-            return value.genus + ' ' + value.species;
+            return item.genus + ' ' + item.species;
         }
-        else if(value.split("|").length>3){
-            let taxonomy = value.split("|");
+        else if(item.split("|").length>3){
+            let taxonomy = item.split("|");
             return taxonomy[4] + ' ' + taxonomy[5]
         }
-        return value;
+        return item;
     }
 
-    function setValue(value){
-        if (typeof value == "object") {
+    function setValue(item){
+        if (typeof item == "object") {
             // return full taxonomy
             return item.phylum
-                + '|' + value.class
-                + '|' + value.order
-                + '|' + value.family
-                + '|' + value.genus
-                + '|' + value.species
+                + '|' + item.class
+                + '|' + item.order
+                + '|' + item.family
+                + '|' + item.genus
+                + '|' + item.species
         }
-        return value;
+        return item;
     }
 
     function getSpeciesDescription(item) {
@@ -161,7 +156,7 @@ import {defineProps, defineModel, ref, provide, onMounted} from 'vue';
             filterByOrder.value = null;
         }
         filterByOrder.value = typeof filterByOrder.value === "undefined" ? null : filterByOrder.value;
-        selectorDialogComponent.value.$refs.apiSearchComponent.filterShowList({
+        selectorDialogComponent.value.filterShowList({
             'class': filterByClass.value,
             'order': filterByOrder.value,
         });
