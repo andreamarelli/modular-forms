@@ -15,15 +15,10 @@ $window_js = [
 
 ?>
 
-{{-- JavaScript--}}
 @if(!$only_css)
     <script>
         window.Laravel = @json($window_js);
     </script>
-    {!! Vite::useBuildDirectory('vendor/modular-forms')->withEntryPoints(['src/resources/assets/index.js',])->toHtml() !!}
 @endif
-
-{{-- Stylesheets--}}
-{!! Vite::useBuildDirectory('vendor/modular-forms')->withEntryPoints(['src/resources/assets/index.css'])->toHtml() !!}
 
 

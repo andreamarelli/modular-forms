@@ -144,12 +144,24 @@ export default class Module {
             }
         };
 
-
         // Create the app
+        return this.createApp(options, input_data);
+    }
+
+    /**
+     * Create the app
+     * @param options
+     * @param input_data
+     * @returns {*}
+     */
+    createApp(options, input_data) {
+
         return createApp(options, input_data)
+
             // register common components
             .component('tooltip', tooltip)
             .component('dialogBox', dialogBox)
+
             // register input components
             .component('simpleText', simpleText)
             .component('simpleTextarea', simpleTextarea)
@@ -162,8 +174,10 @@ export default class Module {
             .component('toggle', toggle)
             .component('checkbox', checkbox)
             .component('selector-species_animal', selectorSpeciesAnimal)
+
             // use Pinia
             .use(createPinia());
     }
+
 
 }

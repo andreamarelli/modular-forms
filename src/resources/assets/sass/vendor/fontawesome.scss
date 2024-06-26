@@ -1,6 +1,8 @@
 
-$fa-font-path: '/vendor/modular-forms/assets/fonts/';
+//$fa-font-path: '/public/modular-forms/fonts';
+//$fa-font-path: '/assets';
 
-@import "~/@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~/@fortawesome/fontawesome-free/scss/solid.scss";
-@import "~/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~/@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "~/@fortawesome/fontawesome-free/css/regular.css";
+@import "~/@fortawesome/fontawesome-free/css/solid.css";
+@import "~/@fortawesome/fontawesome-free/css/brands.css";

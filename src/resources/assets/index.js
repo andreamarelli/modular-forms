@@ -94,8 +94,10 @@ window.ModularForms.Accordion = Accordion;
 // export { ModularForms };
 
 // Fonts
-import.meta.glob('./fonts/*');
-import.meta.glob('~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}');
+import.meta.glob([
+    './fonts/*.{woff,woff2,ttf}',
+    '~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}'
+]);
 
 // Flags
 import 'flag-icons'
