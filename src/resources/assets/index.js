@@ -4,13 +4,17 @@ window.Laravel = window.Laravel || {};
 window.ModularForms = {};
 window.ModularFormsVendor = window.ModularFormsVendor || {};
 
-// ############################################
-// #################  Mixins  #################
-// ############################################
+// #############################################
+// ###########  Mixins & Components  ###########
+// #############################################
 window.ModularForms.Mixins = window.ModularForms.Mixins || {};
+window.ModularForms.Components = window.ModularForms.Components || {};
 
 import Locale from "./js/mixins/locale.js";
 window.ModularForms.Mixins.Locale = Locale;
+
+import selectorDialog from "./js/inputs/components/selector-dialog.vue";
+window.ModularForms.Components.selectorDialog = selectorDialog;
 
 // ############################################
 // ##################  Apps  ##################

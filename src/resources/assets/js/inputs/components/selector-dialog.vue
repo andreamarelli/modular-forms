@@ -100,7 +100,7 @@
 
                     <!-- INSERT item (object) -->
                     <div v-show="displayInsertObject" class="dialog_insert">
-                        <slot name="selector-insert"></slot>
+                        <slot name="insertObject"></slot>
                     </div>
 
 
