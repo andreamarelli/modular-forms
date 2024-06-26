@@ -3,10 +3,6 @@
     "type": "module",
     "name": "modular-forms",
     "version": "1.0.0",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
     "devDependencies": {
         "@shufo/prettier-plugin-blade": "^1.13.4",
         "@vitejs/plugin-vue": "^5.0.3",

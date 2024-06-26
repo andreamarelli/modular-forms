@@ -23,3 +23,14 @@ services:
       - ./:/var/www/html
     entrypoint: [ 'composer' ]
     # docker-compose run --rm composer ______
+
+  npm:
+      build:
+          context: .
+          dockerfile: docker/node/Dockerfile
+          args:
+              - UID=${UID-}
+      volumes:
+          - ./:/var/www/html
+      entrypoint: [ 'npm' ]
+      # docker-compose run --rm npm ______
