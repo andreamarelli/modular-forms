@@ -17,6 +17,7 @@ import simpleNumeric from "../inputs/simple-numeric.vue";
 import toggle from "../inputs/toggle.vue";
 import checkbox from "../inputs/checkbox.vue";
 import selectorSpeciesAnimal from "../inputs/selector-species_animal.vue";
+import uploadFile from "../inputs/upload.vue";
 
 // Composables and Stores
 import {useFormStore} from "../stores/FormStore.js";
@@ -174,6 +175,7 @@ export default class Module {
             .component('toggle', toggle)
             .component('checkbox', checkbox)
             .component('selector-species_animal', selectorSpeciesAnimal)
+            .component('upload', uploadFile)
 
             // use Pinia
             .use(createPinia());

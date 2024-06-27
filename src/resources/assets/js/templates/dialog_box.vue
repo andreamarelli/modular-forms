@@ -36,6 +36,7 @@
     const dialogContentElem = ref(null);
     const originalBodyOverflow = ref(null);
     defineExpose({
+        openDialog,
         closeDialog
     })
 
