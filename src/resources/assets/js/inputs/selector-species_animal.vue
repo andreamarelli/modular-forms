@@ -61,7 +61,7 @@
 import {defineProps, defineModel, ref, provide, onMounted} from 'vue';
     import selectorDialog from './components/selector-dialog.vue';
     import redlist_category from "../templates/redlist_category.vue";
-    const Locale = window.ModularForms.Mixins.Locale;
+    const Locale = window.ModularForms.Helpers.Locale;
 
     const props = defineProps({
         id: {

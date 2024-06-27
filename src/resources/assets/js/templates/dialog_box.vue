@@ -20,6 +20,13 @@
 
 </template>
 
+<style scoped>
+    .dialog-anchor{
+        display: inline-block;
+        width: 100%;
+    }
+</style>
+
 <script setup>
 
     import {onMounted, ref, defineExpose} from 'vue';

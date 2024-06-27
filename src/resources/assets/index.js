@@ -5,14 +5,21 @@ window.ModularForms = {};
 window.ModularFormsVendor = window.ModularFormsVendor || {};
 
 // #############################################
-// ###########  Mixins & Components  ###########
+// ###########  Helpers & Components  ###########
 // #############################################
-window.ModularForms.Mixins = window.ModularForms.Mixins || {};
+window.ModularForms.Helpers = window.ModularForms.Helpers || {};
 window.ModularForms.Components = window.ModularForms.Components || {};
 
-import Locale from "./js/mixins/locale.js";
-window.ModularForms.Mixins.Locale = Locale;
+import Locale from "./js/helpers/locale.js";
+window.ModularForms.Helpers.Locale = Locale;
 
+import Animation from "./js/helpers/animation.js";
+window.ModularForms.Helpers.Animation = Animation;
+
+import Common from "./js/helpers/common.js";
+window.ModularForms.Helpers.Common = Common;
+
+// make selectorDialog component available for project custom selectors
 import selectorDialog from "./js/inputs/components/selector-dialog.vue";
 window.ModularForms.Components.selectorDialog = selectorDialog;
 
@@ -39,6 +46,20 @@ window.ModularForms.assetPath = '/vendor/modular-forms/';
 import Accordion from './js/modules/accordion.js';
 window.ModularForms.Accordion = Accordion;
 
+
+// #############################################
+// ##############  Images / SVGs  ##############
+// #############################################
+
+// Fonts
+import.meta.glob([
+    './images/*.{png,jpg,jpeg,gif,svg}',
+    './fonts/*.{woff,woff2,ttf}',
+    '~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}'
+]);
+
+// Flags
+import 'flag-icons'
 
 
 //
@@ -96,12 +117,3 @@ window.ModularForms.Accordion = Accordion;
 
 // const ModularForms = window.ModularForms;
 // export { ModularForms };
-
-// Fonts
-import.meta.glob([
-    './fonts/*.{woff,woff2,ttf}',
-    '~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}'
-]);
-
-// Flags
-import 'flag-icons'

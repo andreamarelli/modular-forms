@@ -16,7 +16,7 @@
 
     import {defineProps} from "vue";
 
-    const Locale = window.ModularForms.Mixins.Locale;
+    const Locale = window.ModularForms.Helpers.Locale;
 
     const props = defineProps({
         category: {

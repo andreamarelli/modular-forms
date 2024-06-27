@@ -62,7 +62,7 @@
     onMounted(() => {
 
         let options = {
-            locale: AirDatepicker_locale[window.ModularForms.Mixins.Locale.getLocale()],
+            locale: AirDatepicker_locale[window.ModularForms.Helpers.Locale.getLocale()],
             autoClose: true,
             toggleSelected: false,
             onSelect({date, formattedDate, datepicker}){

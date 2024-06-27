@@ -99,8 +99,8 @@
                     </div>
 
                     <!-- INSERT item (object) -->
-                    <div v-show="displayInsertObject" class="dialog_insert">
-                        <slot name="insertObject"></slot>
+                    <div v-if="withId" v-show="displayInsertObject" class="dialog_insert">
+                        <slot name="insertObject" :item=insertedItem></slot>
                     </div>
 
 
@@ -140,7 +140,7 @@
                     <!-- confirm select -->
                     <button type="button"
                             class="btn-nav dark small"
-                            :disabled="selectedValue===null"
+                            :disabled="selectedItem===null"
                             v-show=displaySearch
                             @click=confirmSelection >
                         {{ Locale.getLabel('modular-forms::common.confirm_select') }}
@@ -207,8 +207,16 @@
 
 <script setup>
 
-import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineExpose, onMounted} from 'vue';
-    const Locale = window.ModularForms.Mixins.Locale;
+    import {
+        computed,
+        ref,
+        defineModel,
+        inject,
+        defineExpose,
+        onBeforeMount
+    } from 'vue';
+
+    const Locale = window.ModularForms.Helpers.Locale;
 
     const props = defineProps({
         parentId:  {
@@ -258,7 +266,9 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
 
     // values/labels
     const inputValue = defineModel();
-    const selectedValue = ref(null);
+    const selectedItem = ref(null);
+    const insertedItem = ref(null);
+    const confirmedItem = ref(null);
     let anchorLabel = computed(() => {
         return setLabel();
     });
@@ -268,8 +278,6 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
     const showList = ref({});
     const totalCount = ref(null);
     const searchExecuted = ref(false);
-    const confirmedItem = ref(null);
-    const insertedItem = ref(null);
     const errorLabel = ref(null);
 
     // computed
@@ -289,37 +297,59 @@ import {computed, ref, defineModel, getCurrentInstance, inject, provide, defineE
     const displayInsertText = ref(false);
     const displayInsertObject = ref(false);
 
-defineExpose({
-    filterShowList,
-    displaySearch
-})
+    onBeforeMount(() => {
+        if (window.ModularForms.Helpers.Common.isNumeric(inputValue.value) && props.withId){
+            retrieveItemFromId(inputValue.value)
+        } else {
+            confirmedItem.value = inputValue.value;
+        }
+        insertedItem.value = props.withId ? {} : null;
+    })
+
+    defineExpose({
+        filterShowList,
+        retrieveItemFromId
+    })
 
     // ###################################################
     // ###############  Methods - GENERAL  ###############
     // ###################################################
 
-    function initializeValue(value){} // TODO
+    function retrieveItemFromId(value){
+        fetch(props.labelUrl, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": window.Laravel.csrfToken,
+            },
+            body: JSON.stringify({
+                id: value
+            }),
+        })
+            .then((response) => response.json())
+            .then(function(data){
+                confirmedItem.value = data.records;
+            })
+            .catch(function (error) {});
+    }
 
     function setLabel(){
-        // Retrieve value
-        let value = confirmedItem.value!==null && Object.keys(confirmedItem.value).length !==0
-            ? confirmedItem.value
-            : inputValue.value;
         // Check if a custom "setLabel" is defined in parent component
         if(typeof selectorComponent_SetLabel === "function"){
-            return selectorComponent_SetLabel(value);
+            return selectorComponent_SetLabel(confirmedItem.value);
         }
-        return value;
+        return confirmedItem.value;
     }
 
     function resetSelectorDialog(){
         resetSearchResult();
+        resetError();
         searchKey.value = '';
         errorLabel.value = null;
         displayInsertText.value = false;
         displayInsertObject.value = false;
         displaySearch.value = true;
-        selectedValue.value = null;
+        selectedItem.value = null;
         insertedItem.value = props.withId ? {} : null;
         // if(typeof this.selectorComponent.insertedItem !== "undefined"){
         //     this.selectorComponent.insertedItem = this.insertedItem;
@@ -330,9 +360,13 @@ defineExpose({
         isSearching.value = false;
         searchExecuted.value = false;
         totalCount.value = null;
-        selectedValue.value = null;
+        selectedItem.value = null;
         searchResults.value = {};
         showList.value = {};
+    }
+
+    function resetError(){
+        errorLabel.value = null;
     }
 
     /**
@@ -364,10 +398,6 @@ defineExpose({
             ? Locale.getLabel('modular-forms::common.saved_error')
             : label;
        errorLabel.value = Locale.getLabel(label);
-    }
-
-    function resetError(){
-        errorLabel.value = null;
     }
 
 
@@ -421,7 +451,7 @@ defineExpose({
     }
 
     function filterShowList(filters){
-        selectedValue.value = null;
+        selectedItem.value = null;
         let filteredList = searchResults.value;
         filteredList = Object.values(filteredList)
         Object.keys(filters).forEach(function (key) {
@@ -431,11 +461,11 @@ defineExpose({
     }
 
     function selectResultItem(item){
-        selectedValue.value = item;
+        selectedItem.value = item;
     }
 
     function confirmSelection(){
-        confirmedItem.value = selectedValue.value;
+        confirmedItem.value = selectedItem.value;
         if(typeof selectorComponent_confirmSelection === "function"){
             selectorComponent_confirmSelection();
         } else {
@@ -455,24 +485,21 @@ defineExpose({
     }
 
     function confirmInsert(){
-        resetError();
-
-        // this.confirmedItem = this.withId && typeof this.selectorComponent.insertedItem !== "undefined" // custom insertedItem
-        //     ? this.selectorComponent.insertedItem
-        //     : this.insertedItem;
-        confirmedItem.value = insertedItem.value
-
         // Validate inserted item
         let valid = false;
         if(typeof selectorComponent_validateInsert === "function"){
-            valid = selectorComponent_validateInsert(confirmedItem.value);
+            // Custom validation
+            valid = selectorComponent_validateInsert(insertedItem.value);
         } else {
+            // Standard validation: just check if not empty
             valid = props.withId
-                ? confirmedItem.value!=={}
-                : confirmedItem.value!==null;
+                ? insertedItem.value!=={}
+                : insertedItem.value!==null;
         }
-
+        // Save/apply
         if(valid){
+            resetError();
+            confirmedItem.value = insertedItem.value
             if(props.withId) {
                 saveNewItem();
             } else {
@@ -491,7 +518,7 @@ defineExpose({
                 "Content-Type": "application/json",
                 "X-CSRF-Token": window.Laravel.csrfToken,
             },
-            body: JSON.stringify(_this.confirmedItem),
+            body: JSON.stringify(confirmedItem.value),
         })
             .then((response) => response.json())
             .then(function(data) {

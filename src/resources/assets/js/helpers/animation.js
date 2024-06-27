@@ -1,17 +1,14 @@
 export default {
 
-    scrollPageTo: function(scrollTo){
-        $('html ,body').animate({scrollTop: scrollTo}, 250, 'swing');
-        // IMET PhpDesktop's chrome version does not support window.scroll()
-
-        // window.scroll({
-        //     top: scrollTo,
-        //     left: 0,
-        //     behavior: 'smooth'
-        // });
+    scrollPageTo(scrollTo){
+        window.scroll({
+            top: scrollTo,
+            left: 0,
+            behavior: 'smooth'
+        });
     },
 
-    scrollPageToAnchor: function (anchor) {
+    scrollPageToAnchor(anchor) {
         this.scrollPageTo(document.querySelector('#'+anchor).offsetTop);
     },
 
@@ -37,4 +34,4 @@ export default {
         });
     }
 
-};
+}
