@@ -1,6 +1,6 @@
 <template>
 
-    <dialog-box ref="dialogComponent">
+    <dialog-box ref="dialogComponent" class="selector-dialog">
 
         <!-- ###################################################### -->
         <!-- ######################  anchor  ###################### -->
@@ -157,6 +157,16 @@
 
 
 <style lang="scss">
+
+    .selector-dialog {
+        .dialog-anchor{
+            max-width: 450px;
+        }
+    }
+
+</style>
+
+<style lang="scss" scoped>
 
     .with_header_and_footer{
 
