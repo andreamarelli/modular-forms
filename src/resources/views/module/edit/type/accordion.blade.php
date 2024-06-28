@@ -6,7 +6,7 @@
 
 $group_key = $group_key ?? '';
 
-if($definitions['module_type']==='GROUP_ACCORDION'){
+if(\Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')){
     $accordion_id = 'group_accordion_'.$definitions['module_key'].'_'.$group_key;
     $accordion_item_record = 'records[\''.$group_key.'\']';
     $accordion_titles = '{{ typeof accordion_titles[\''.$group_key.'\'] !== "undefined"  && typeof accordion_titles[\''.$group_key.'\'][index]!=="undefined" ? accordion_titles[\''.$group_key.'\'][index] : "" }}';

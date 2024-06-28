@@ -58,6 +58,25 @@ export default class Module {
                 const container = ref(null);
                 let status = ref('init'); // "init" state avoid watch() on records during initialization
                 let empty_record = props.empty_record;
+                const accordion_titles = computed(() => {
+                    let accordion_titles = [];
+                    if(props.module_type === 'ACCORDION') {
+                        records.forEach((item, index) => {
+                            let input_value = item[props.accordion_title_field] || '';
+                            accordion_titles.push(input_value);
+                        });
+                    } else if(props.module_type === 'GROUP_ACCORDION') {
+                        Object.keys(records).forEach(function (key) {
+                            let group_title = [];
+                            records[key].forEach(function (item, index) {
+                                let input_value = item[props.accordion_title_field] || '';
+                                group_title.push(input_value);
+                            });
+                            accordion_titles[key] = group_title;
+                        });
+                    }
+                    return accordion_titles;
+                });
 
                 // Inject common fields values into empty record
                 Object.keys(empty_record).forEach(function (key) {
