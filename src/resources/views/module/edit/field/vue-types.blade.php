@@ -184,7 +184,8 @@ $other_attributes = $other ?? '';
 
     {{--  ###### text editor ######  --}}
 @elseif($type=="text-editor")
-    <editor v-model="{{ $v_value }}" v-on:update="{{ $v_value }} = $event"></editor>
+{{--    <editor v-model="{{ $v_value }}" v-on:update="{{ $v_value }} = $event"></editor>--}}
+    <text-editor {!! $vue_attributes !!}></text-editor>
 
 @else
     <b class="error">Type "{{ $type }}" has not been implemented yet.</b>
