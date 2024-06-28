@@ -1,4 +1,4 @@
-import {createApp, ref, toRef, computed, onMounted, toRefs, toRaw, watch, reactive, nextTick} from "vue";
+import {createApp, ref, computed, onMounted, toRaw, watch, reactive} from "vue";
 import {createPinia} from "pinia";
 
 // Components
@@ -149,6 +149,7 @@ export default class Module {
                     status,
                     records,
                     records_backup,
+                    accordion_titles,
 
                     // objects from or related to  composables
                     isNotApplicable,

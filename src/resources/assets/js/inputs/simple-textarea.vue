@@ -9,8 +9,6 @@
 
 <script setup>
 
-    import {defineProps, defineModel} from "vue";
-
     const props = defineProps({
         id: {
             type: String,

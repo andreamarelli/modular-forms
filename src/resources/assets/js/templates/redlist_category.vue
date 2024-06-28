@@ -14,8 +14,6 @@
 
 <script setup>
 
-    import {defineProps} from "vue";
-
     const Locale = window.ModularForms.Helpers.Locale;
 
     const props = defineProps({

@@ -148,7 +148,7 @@
 
 <script setup>
 
-    import {defineProps, defineModel, ref, provide, onMounted} from 'vue';
+    import {ref, provide, onMounted} from 'vue';
     const Locale = window.ModularForms.Helpers.Locale;
 
     const props = defineProps({
