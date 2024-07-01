@@ -18,9 +18,7 @@ export function useDataStatus(component_data) {
     function initialize(){
         if(enable_not_applicable){
 
-            let record = module_type.includes('GROUP_')
-                ? records[Object.keys(groups)[0]][0]
-                : records[0];
+            let record = records[0];
             record = Object.assign({}, record);
 
             if(NOT_APPLICABLE_KEY in record){
@@ -49,24 +47,14 @@ export function useDataStatus(component_data) {
     }
 
     function updateRecords(toggle_key, toggle_value){
-
-        if(module_type.includes('GROUP_')) {
-            Object.keys(groups).forEach(function (group_key) {
-                records[group_key].splice(1);
-                records[group_key][0] = Object.assign({}, empty_record);
-                records[group_key][0][toggle_key] = toggle_value === true ? true : null;
-            });
-
-        } else {
-            records.forEach(function (item, index) {
-                if(index === 0){
-                    records[index] = Object.assign({}, empty_record);
-                    records[index][toggle_key] = toggle_value === true ? true : null;
-                } else {
-                    delete records[index];
-                }
-            });
-        }
+        records.forEach(function (item, index) {
+            if(index === 0){
+                records[index] = Object.assign({}, empty_record);
+                records[index][toggle_key] = toggle_value === true ? true : null;
+            } else {
+                delete records[index];
+            }
+        });
     }
 
 

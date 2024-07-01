@@ -12,19 +12,13 @@ export function useSave(component_data) {
 
     function reset(){
 
-        if(module_type.includes('GROUP_')) {
-
-            // TODO
-
-        } else {
-            records.forEach(function (record, index) {
-                if(records_backup[index]){
-                    records[index] = JSON.parse(JSON.stringify(records_backup[index]));
-                } else {
-                    delete records[index];
-                }
-            })
-        }
+        records.forEach(function (record, index) {
+            if(records_backup[index]){
+                records[index] = JSON.parse(JSON.stringify(records_backup[index]));
+            } else {
+                delete records[index];
+            }
+        })
 
         nextTick().then(() => {
             component_data.status.value = 'idle';

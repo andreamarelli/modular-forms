@@ -1,4 +1,4 @@
-import {unref} from "vue";
+import {toRaw, unref} from "vue";
 
 export function useArrangeRecords(component_data) {
 
@@ -7,22 +7,11 @@ export function useArrangeRecords(component_data) {
     const accordion_title_field = component_data.accordion_title_field;
     const records = unref(component_data.records);
 
-    function accordionTitles(){
-        let accordion_titles = [];
-        if(module_type === 'ACCORDION') {
-            records.forEach((record, index) => {
-                let title = record[accordion_title_field] || '';
-                accordion_titles.push(title);
-            });
-        } else if(module_type === 'GROUP_ACCORDION') {
-            records.forEach((record, index) => {
-                let group_key = record[group_key_field];
-                let title = record[accordion_title_field] || '';
-                accordion_titles[group_key] = accordion_titles[group_key] || [];
-                accordion_titles[group_key].push(title);
-            });
-        }
-        return accordion_titles;
+    function accordionTitle(index){
+        let group_key = records[index][group_key_field];
+        let title = toRaw(records[index][accordion_title_field]);
+        let title_index = indexInGroup(index, group_key) + 1;
+        return title_index + ' - ' + title;
     }
 
     function recordIsInGroup(record, group_key) {
@@ -41,25 +30,20 @@ export function useArrangeRecords(component_data) {
 
     function indexInGroup(index, group_key){
         if(module_type.includes('GROUP_')){
-
             let group_index = 0;
             records.forEach((record, i) => {
-
                 if(record[group_key_field] === group_key && i <= index){
                     group_index++;
                 }
-
             });
-
             return group_index - 1;
         }
-        return index + 1;
+        return index;
     }
 
     return {
-        accordionTitles,
+        accordionTitle,
         recordIsInGroup,
-        numRecordsInGroup,
-        indexInGroup
+        numRecordsInGroup
     }
 }
