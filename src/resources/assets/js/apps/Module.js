@@ -58,9 +58,6 @@ export default class Module {
                 const container = ref(null);
                 let status = ref('init'); // "init" state avoid watch() on records during initialization
                 let empty_record = props.empty_record;
-                const accordion_titles = computed(() => {
-                    return accordionTitles();
-                });
 
                 // Inject common fields values into empty record
                 Object.keys(empty_record).forEach(function (key) {
@@ -70,7 +67,7 @@ export default class Module {
                 });
 
                 // import Composables
-                const {accordionTitles, recordIsInGroup, numRecordsInGroup, indexInGroup} = useArrangeRecords({
+                const {accordionTitle, recordIsInGroup, numRecordsInGroup} = useArrangeRecords({
                     module_type: unref(props.module_type),
                     group_key_field: unref(props.group_key_field),
                     accordion_title_field: unref(props.accordion_title_field),
@@ -131,7 +128,6 @@ export default class Module {
                     status,
                     records,
                     records_backup,
-                    accordion_titles,
 
                     // objects from or related to composables
                     isNotApplicable,
@@ -141,7 +137,7 @@ export default class Module {
                     resetModule,
                     recordIsInGroup,
                     numRecordsInGroup,
-                    indexInGroup,
+                    accordionTitle,
 
 
                     // TODO
