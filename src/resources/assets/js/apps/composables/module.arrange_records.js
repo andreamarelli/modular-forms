@@ -1,44 +1,65 @@
-import {computed, toRaw, unref} from "vue";
+import {unref} from "vue";
 
 export function useArrangeRecords(component_data) {
 
-    const module_type = unref(component_data.module_type);
-    const groups = unref(component_data.groups);
-    const group_key_field = unref(component_data.group_key_field);
+    const module_type = component_data.module_type;
+    const group_key_field = component_data.group_key_field;
+    const accordion_title_field = component_data.accordion_title_field;
     const records = unref(component_data.records);
-    const empty_record = unref(component_data.empty_record);
 
-    /**
-     * Re-organize records for groups (from array to set of arrays organized by group)
-     * Applied only for GROUP_ACCORDION and GROUP_TABLE
-     */
-    function arrange_by_group() {
-        if(module_type.includes('GROUP_')){
-
-            records.forEach(function (item, index) {
-                // Add groups key if not exists
-                records[item[group_key_field]] = records[item[group_key_field]] || [];
-                // Add item to group
-                let group_index = records[item[group_key_field]].length;
-                records[item[group_key_field]][group_index] = records[item[group_key_field]][group_index] || {};
-                Object.keys(item).forEach(function(key){
-                    records[item[group_key_field]][group_index][key] = JSON.parse(JSON.stringify(item[key]));
-                });
-                // Remove original item
-                delete records[index];
+    function accordionTitles(){
+        let accordion_titles = [];
+        if(module_type === 'ACCORDION') {
+            records.forEach((record, index) => {
+                let title = record[accordion_title_field] || '';
+                accordion_titles.push(title);
             });
-
-
-            // Add empty record for each group (if no records)
-            Object.keys(groups).forEach(function (key) {
-              if(!records[key]){
-                records[key] = [Object.assign({}, empty_record)];
-                records[key][0][group_key_field] = key;
-              }
-            })
-
+        } else if(module_type === 'GROUP_ACCORDION') {
+            records.forEach((record, index) => {
+                let group_key = record[group_key_field];
+                let title = record[accordion_title_field] || '';
+                accordion_titles[group_key] = accordion_titles[group_key] || [];
+                accordion_titles[group_key].push(title);
+            });
         }
+        return accordion_titles;
     }
 
-    return {arrange_by_group}
+    function recordIsInGroup(record, group_key) {
+        if(module_type.includes('GROUP_')){
+            return record[group_key_field] === group_key;
+        }
+        return true;
+    }
+
+    function numRecordsInGroup(group_key) {
+        if(module_type.includes('GROUP_')){
+            return records.filter(record => record[group_key_field] === group_key).length;
+        }
+        return records.length;
+    }
+
+    function indexInGroup(index, group_key){
+        if(module_type.includes('GROUP_')){
+
+            let group_index = 0;
+            records.forEach((record, i) => {
+
+                if(record[group_key_field] === group_key && i <= index){
+                    group_index++;
+                }
+
+            });
+
+            return group_index - 1;
+        }
+        return index + 1;
+    }
+
+    return {
+        accordionTitles,
+        recordIsInGroup,
+        numRecordsInGroup,
+        indexInGroup
+    }
 }

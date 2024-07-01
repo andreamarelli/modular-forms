@@ -1,4 +1,4 @@
-import {createApp, ref, computed, onMounted, toRaw, watch, reactive} from "vue";
+import {createApp, ref, unref, computed, onMounted, toRaw, watch, reactive, onBeforeMount} from "vue";
 import {createPinia} from "pinia";
 
 // Components
@@ -59,23 +59,7 @@ export default class Module {
                 let status = ref('init'); // "init" state avoid watch() on records during initialization
                 let empty_record = props.empty_record;
                 const accordion_titles = computed(() => {
-                    let accordion_titles = [];
-                    if(props.module_type === 'ACCORDION') {
-                        records.forEach((item, index) => {
-                            let input_value = item[props.accordion_title_field] || '';
-                            accordion_titles.push(input_value);
-                        });
-                    } else if(props.module_type === 'GROUP_ACCORDION') {
-                        Object.keys(records).forEach(function (key) {
-                            let group_title = [];
-                            records[key].forEach(function (item, index) {
-                                let input_value = item[props.accordion_title_field] || '';
-                                group_title.push(input_value);
-                            });
-                            accordion_titles[key] = group_title;
-                        });
-                    }
-                    return accordion_titles;
+                    return accordionTitles();
                 });
 
                 // Inject common fields values into empty record
@@ -86,12 +70,11 @@ export default class Module {
                 });
 
                 // import Composables
-                const {arrange_by_group} = useArrangeRecords({
-                    module_type: props.module_type,
-                    groups: props.groups,
-                    group_key_field: props.group_key_field,
-                    empty_record: empty_record,
-                    records: records,
+                const {accordionTitles, recordIsInGroup, numRecordsInGroup, indexInGroup} = useArrangeRecords({
+                    module_type: unref(props.module_type),
+                    group_key_field: unref(props.group_key_field),
+                    accordion_title_field: unref(props.accordion_title_field),
+                    records: unref(records)
                 });
                 const {initialize: initializeDataStatus, isNotApplicable, isNotAvailable, toggle: toggleDataStatus } = useDataStatus({
                     enable_not_applicable: props.enable_not_applicable,
@@ -109,8 +92,7 @@ export default class Module {
                     status: status
                 });
 
-                // Set initial status (formed "created" lifecycle hook)
-                arrange_by_group();
+                // Set initial status (former vue2 "created" lifecycle hook)
                 initializeDataStatus();
 
                 // Watch for changes in records
@@ -151,12 +133,16 @@ export default class Module {
                     records_backup,
                     accordion_titles,
 
-                    // objects from or related to  composables
+                    // objects from or related to composables
                     isNotApplicable,
                     isNotAvailable,
                     toggleNotAvailable,
                     toggleNotApplicable,
                     resetModule,
+                    recordIsInGroup,
+                    numRecordsInGroup,
+                    indexInGroup,
+
 
                     // TODO
                     saveModule,

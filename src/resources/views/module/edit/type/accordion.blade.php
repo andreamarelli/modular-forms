@@ -8,22 +8,23 @@ $group_key = $group_key ?? '';
 
 if(\Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')){
     $accordion_id = 'group_accordion_'.$definitions['module_key'].'_'.$group_key;
-    $accordion_item_record = 'records[\''.$group_key.'\']';
-    $accordion_titles = '{{ typeof accordion_titles[\''.$group_key.'\'] !== "undefined"  && typeof accordion_titles[\''.$group_key.'\'][index]!=="undefined" ? accordion_titles[\''.$group_key.'\'][index] : "" }}';
+    $accordion_titles = '{{ accordion_titles[\''.$group_key.'\'][indexInGroup(index, \''.$group_key.'\')] }}';
 } else {
     $accordion_id = 'accordion_'.$definitions['module_key'];
-    $accordion_item_record = 'records';
     $accordion_titles = '{{  accordion_titles[index] }}';
 }
 
 ?>
 
+
 <x-modular-forms::accordion.container id="{{ $accordion_id }}">
 
-    <x-modular-forms::accordion.item v-for="(item, index) in {{ $accordion_item_record }}">
+    <template v-for="(item, index) in records">
+
+    <x-modular-forms::accordion.item v-if="recordIsInGroup(item, '{{ $group_key }}')">
 
         <x-slot:title>
-            <span>@{{ parseInt(index) + 1 }} - </span><span>{{ $accordion_titles }}</span>
+            <span v-html="(indexInGroup(index, '{{ $group_key }}') + 1) + ' - '"></span><span>{!! $accordion_titles !!}</span>
         </x-slot:title>
 
         <x-slot:header-actions>
@@ -38,11 +39,14 @@ if(\Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')){
 
     </x-modular-forms::accordion.item>
 
+    </template>
+
     @if(!$definitions['fixed_rows'])
-        <div v-if="max_rows==null || {{ $accordion_item_record }}.length < max_rows">
+        <div v-if="max_rows==null || numRecordsInGroup('{{ $group_key }}') < max_rows">
             @include('modular-forms::buttons.add_item')
         </div>
     @endif
+
 
 </x-modular-forms::accordion.container>
 

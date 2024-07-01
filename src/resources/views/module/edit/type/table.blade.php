@@ -10,10 +10,6 @@ $table_id = $definitions['module_type']==='GROUP_TABLE'
     ? 'group_table_'.$definitions['module_key'].'_'.$group_key
     : 'table_'.$definitions['module_key'];
 
-$tr_record = $definitions['module_type']==='GROUP_TABLE'
-    ? 'records[\''.$group_key.'\']'
-    : 'records';
-
 ?>
 
     <table id="{{ $table_id }}" class="table module-table">
@@ -34,7 +30,8 @@ $tr_record = $definitions['module_type']==='GROUP_TABLE'
 
         {{-- inputs --}}
         <tbody class="{{ $group_key }}">
-            <tr class="module-table-item" v-for="(item, index) in {{ $tr_record }}">
+            <template v-for="(item, index) in records">
+            <tr class="module-table-item" v-if="recordIsInGroup(item, '{{ $group_key }}')">
                 {{--  fields  --}}
                 @foreach($definitions['fields'] as $field)
                     <td>
@@ -42,7 +39,6 @@ $tr_record = $definitions['module_type']==='GROUP_TABLE'
                             'definitions' => $definitions,
                             'field' => $field,
                             'vue_record_index' => 'index',
-                            'group_key' => $group_key
                         ])
                     </td>
                 @endforeach
@@ -59,11 +55,12 @@ $tr_record = $definitions['module_type']==='GROUP_TABLE'
                     @endif
                 </td>
             </tr>
+            </template>
         </tbody>
 
         @if(!$definitions['fixed_rows'])
-            <tfoot v-if="max_rows==null ||  {{ $tr_record }}.length < max_rows">
-                {{-- add button --}}
+            <tfoot v-if="max_rows==null || numRecordsInGroup('{{ $group_key }}') < max_rows">
+                {{-- add button--}}
                 <tr>
                     <td colspan="{{ count($definitions['fields']) + 1 }}">
                         @include('modular-forms::buttons.add_item')

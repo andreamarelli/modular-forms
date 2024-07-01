@@ -48,39 +48,39 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
         //     });
         //     return names
         // },
-        accordion_titles() {
-            let _this = this;
-            let accordion_titles = [];
-            if (_this.module_type === "ACCORDION") {
-                _this.records.forEach(function (item, index) {
-                    let input_value = item[_this.accordion_title_field] || '';
-                    accordion_titles.push(input_value);
-                });
-            } else if (_this.module_type === "GROUP_ACCORDION") {
-                Object.keys(_this.records).forEach(function (key) {
-                    let group_title = [];
-                    _this.records[key].forEach(function (item, index) {
-                        let input_value = item[_this.accordion_title_field] || '';
-                        group_title.push(input_value);
-                    });
-                    accordion_titles[key] = group_title;
-                });
-            }
-            return accordion_titles;
-        }
+        // accordion_titles() {
+        //     let _this = this;
+        //     let accordion_titles = [];
+        //     if (_this.module_type === "ACCORDION") {
+        //         _this.records.forEach(function (item, index) {
+        //             let input_value = item[_this.accordion_title_field] || '';
+        //             accordion_titles.push(input_value);
+        //         });
+        //     } else if (_this.module_type === "GROUP_ACCORDION") {
+        //         Object.keys(_this.records).forEach(function (key) {
+        //             let group_title = [];
+        //             _this.records[key].forEach(function (item, index) {
+        //                 let input_value = item[_this.accordion_title_field] || '';
+        //                 group_title.push(input_value);
+        //             });
+        //             accordion_titles[key] = group_title;
+        //         });
+        //     }
+        //     return accordion_titles;
+        // }
 
     },
 
     /**
      *  Vue controller initialization
      */
-    created: function () {
+    // created: function () {
         // this.status = 'init'; // Avoid watch() on records during initialization
         // this.records_backup = this.__no_reactive_copy(this.records);
         // this.__ini""t_empty_record();
         // this.__arrange_records_by_group();
         // this.__init_applicable();
-    },
+    // },
 
     mounted: function () {
         // let _this = this;
