@@ -134,21 +134,21 @@ class Module
         return $count > 0 ? round($sum / $count , 2) : 0;
     }
 
-    /**
-     * @param array $records
-     * @return array
-     */
-    public static function createRecordsArrayByGroup(array $records){
-        $new_records = [];
-        foreach ($records as $i => $record) {
-            $group_key = $record['group_key'];
-
-            if (!isset($new_records[$group_key])) {
-                $new_records[$group_key] = [];
-            }
-            $new_records[$group_key][] = $record;
-        }
-        return $new_records;
-    }
+//    /**
+//     * @param array $records
+//     * @return array
+//     */
+//    public static function createRecordsArrayByGroup(array $records){
+//        $new_records = [];
+//        foreach ($records as $i => $record) {
+//            $group_key = $record['group_key'];
+//
+//            if (!isset($new_records[$group_key])) {
+//                $new_records[$group_key] = [];
+//            }
+//            $new_records[$group_key][] = $record;
+//        }
+//        return $new_records;
+//    }
 
 }

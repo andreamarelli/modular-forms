@@ -6,13 +6,9 @@
 
 $group_key = $group_key ?? '';
 
-$table_id = $definitions['module_type']==='GROUP_TABLE'
-    ? 'group_table_'.$definitions['module_key'].'_'.$group_key
-    : 'table_'.$definitions['module_key'];
-
 ?>
 
-    <table id="{{ $table_id }}" class="table module-table">
+    <table class="table module-table">
 
         {{-- labels  --}}
         <thead>

@@ -6,30 +6,22 @@
 $group_key = $group_key ?? null;
 
 if($definitions['module_type']==='GROUP_ACCORDION'){
-    $accordion_id = 'group_accordion_'.$definitions['module_key'].'_'.$group_key;
     $records = array_filter($records, function($item) use ($group_key, $definitions){
         return $item[$definitions['group_key_field']] === $group_key;
     });
-} else {
-    $accordion_id = 'accordion_'.$definitions['module_key'];
 }
 
 ?>
 
 
-<x-modular-forms::accordion.container id="{{ $accordion_id }}">
+<x-modular-forms::accordion.container>
 
     @foreach($records as $index=>$record)
         <x-modular-forms::accordion.item class="show" :is-collapsible=false>
 
             <x-slot:title>
-                <span>{{ $index+1 }} - </span>
                 <span>
-                    @include('modular-forms::module.show.field', [
-                        'type' => $definitions['fields'][0]['type'],
-                        'value' => $record[$definitions['fields'][0]['name']],
-                        'only_label' => true
-                    ])
+                    {{ $index+1 }} - {{ $record[$definitions['fields'][0]['name']] }}
                 </span>
             </x-slot:title>
 
