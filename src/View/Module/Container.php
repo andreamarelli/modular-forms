@@ -59,6 +59,8 @@ class Container extends Component
             ? '\\'.$controller
             : $controller;
         $this->custom_view_name = ModuleKey::KeyToView($this->definitions['module_key'], $this->mode);
+        $this->vueData['action_url'] = action([$controller, $formId!==null ? 'update' : 'store'], [$formId]);
+        $this->vueData['action_method'] = $formId!==null ? 'PATCH' : 'POST';
 
         if($this->collection->isEmpty()){
             $this->noData = true;

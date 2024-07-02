@@ -47,7 +47,9 @@ export default class Module {
                 action: String,
                 form_id: Number,
                 enable_not_applicable: Boolean,
-                warning_on_save: String
+                warning_on_save: String,
+                action_url: String,
+                action_method: String,
             },
 
             setup(props) {
@@ -81,7 +83,9 @@ export default class Module {
                 const {reset: resetModule, save: saveModule} = useSave({
                     records: records,
                     records_backup: records_backup,
-                    status: status
+                    status: status,
+                    action_url: props.action_url,
+                    action_method: props.action_method
                 });
 
                 // Set initial status (former vue2 "created" lifecycle hook)
