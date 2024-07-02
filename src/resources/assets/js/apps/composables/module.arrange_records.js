@@ -9,8 +9,8 @@ export function useArrangeRecords(component_data) {
     const empty_record = unref(component_data.empty_record);
 
     function accordionTitle(index){
-        let group_key = records[index][group_key_field];
-        let title = toRaw(records[index][accordion_title_field]);
+        let group_key = records[index][group_key_field] || null
+        let title = toRaw(records[index][accordion_title_field]) || '';
         let title_index = indexInGroup(index, group_key) + 1;
         return title_index + ' - ' + title;
     }

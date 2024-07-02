@@ -204,7 +204,7 @@ class Module extends BaseModel
             'enable_not_applicable' => $model->enable_not_applicable,
             'fixed_rows' => $model->fixed_rows,
             'max_rows' => $model->max_rows,
-            'accordion_title_field' => Str::contains($model->module_type, 'GROUP_')
+            'accordion_title_field' => Str::contains($model->module_type, 'ACCORDION')
                 ? $model->module_fields[0]['name'] : null,
             'label_width' => $model->label_width,
             'primary_key' => $model->getKeyName(),
