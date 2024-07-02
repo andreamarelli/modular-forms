@@ -367,93 +367,93 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
         //         _this.records = records_by_group;
         //     }
         // },
+        //
+        // /**
+        //  * Re-organize records to simple array
+        //  * Applied only for GROUP_ACCORDION and GROUP_TABLE
+        //  * @param records_by_group
+        //  * @returns {Array}
+        //  * @private
+        //  */
+        // __arrange_back_records_by_group(records_by_group) {
+        //     let records = [];
+        //     if (this.module_type === "GROUP_ACCORDION" || this.module_type === "GROUP_TABLE") {
+        //         Object.keys(records_by_group).forEach(function (key) {
+        //             records_by_group[key].forEach(function (item) {
+        //                 records.push(item);
+        //             })
+        //         });
+        //         return records;
+        //     }
+        //     return records_by_group;
+        // },
 
-        /**
-         * Re-organize records to simple array
-         * Applied only for GROUP_ACCORDION and GROUP_TABLE
-         * @param records_by_group
-         * @returns {Array}
-         * @private
-         */
-        __arrange_back_records_by_group(records_by_group) {
-            let records = [];
-            if (this.module_type === "GROUP_ACCORDION" || this.module_type === "GROUP_TABLE") {
-                Object.keys(records_by_group).forEach(function (key) {
-                    records_by_group[key].forEach(function (item) {
-                        records.push(item);
-                    })
-                });
-                return records;
-            }
-            return records_by_group;
-        },
-
-        /**
-         * Add new item (row) at TABLE or ACCORDION module
-         */
-        addItem: function () {
-            let key = null;
-
-            if (this.module_type === "GROUP_TABLE") {
-                let table = event.currentTarget.closest('table');
-                key = table.getAttribute('id').replace('group_table_' + this.module_key + '_', '');
-            } else if (this.module_type === "GROUP_ACCORDION") {
-                let accordion = event.currentTarget.closest('[id^=\'group_accordion_\']')
-                key = accordion.getAttribute('id').replace('group_accordion_' + this.module_key + '_', '');
-            }
-
-            if (key === null) {
-                this.records.push(this.__no_reactive_copy(this.empty_record));
-            } else {
-                this.records[key].push(this.__no_reactive_copy(this.empty_record));
-                this.records[key][this.records[key].length - 1][this.group_key_field] = key;
-            }
-        },
-
-        /**
-         * Remove item (row) from TABLE module
-         * @param event
-         */
-        deleteItem: function (event) {
-            let _this = this;
-            // It's important to read empty record and keep it in a temp variable before deleting rows
-            let $empty_record = _this.empty_record;
-
-            let row_index = null;
-            let group_key = null;
-            if (_this.module_type === "TABLE") {
-                row_index = event.currentTarget.closest('tr').rowIndex - 1; // start from 1 (because of header)
-            } else if (_this.module_type === "ACCORDION") {
-                let accordion = event.currentTarget.closest('.accordion');
-                let accordion_item = event.currentTarget.closest('.accordion-item');
-                row_index = Array.from(accordion.children).indexOf(accordion_item);
-            } else if (_this.module_type === "GROUP_TABLE") {
-                row_index = event.currentTarget.closest('tr').rowIndex - 1;
-                group_key = event.currentTarget.closest('table')
-                    .getAttribute('id')
-                    .replace('group_table_' + this.module_key + '_', '')
-            } else if (_this.module_type === "GROUP_ACCORDION") {
-                let accordion = event.currentTarget.closest('.accordion');
-                let accordion_item = event.currentTarget.closest('.accordion-item');
-
-                row_index = Array.from(accordion.children).indexOf(accordion_item);
-                group_key = event.currentTarget.closest('[id^=\'group_accordion_\']')
-                    .getAttribute('id')
-                    .replace('group_accordion_' + this.module_key + '_', '');
-            }
-
-            if (group_key === null) {
-                _this.records.splice(row_index, 1);
-                if (_this.records.length === 0) {
-                    _this.records[0] = _this.__no_reactive_copy($empty_record);
-                }
-            } else {
-                _this.records[group_key].splice(row_index, 1);
-                if (_this.records[group_key].length === 0) {
-                    _this.records[group_key][0] = _this.__no_reactive_copy($empty_record);
-                }
-            }
-        }
+        // /**
+        //  * Add new item (row) at TABLE or ACCORDION module
+        //  */
+        // addItem: function () {
+        //     let key = null;
+        //
+        //     if (this.module_type === "GROUP_TABLE") {
+        //         let table = event.currentTarget.closest('table');
+        //         key = table.getAttribute('id').replace('group_table_' + this.module_key + '_', '');
+        //     } else if (this.module_type === "GROUP_ACCORDION") {
+        //         let accordion = event.currentTarget.closest('[id^=\'group_accordion_\']')
+        //         key = accordion.getAttribute('id').replace('group_accordion_' + this.module_key + '_', '');
+        //     }
+        //
+        //     if (key === null) {
+        //         this.records.push(this.__no_reactive_copy(this.empty_record));
+        //     } else {
+        //         this.records[key].push(this.__no_reactive_copy(this.empty_record));
+        //         this.records[key][this.records[key].length - 1][this.group_key_field] = key;
+        //     }
+        // },
+        //
+        // /**
+        //  * Remove item (row) from TABLE module
+        //  * @param event
+        //  */
+        // deleteItem: function (event) {
+        //     let _this = this;
+        //     // It's important to read empty record and keep it in a temp variable before deleting rows
+        //     let $empty_record = _this.empty_record;
+        //
+        //     let row_index = null;
+        //     let group_key = null;
+        //     if (_this.module_type === "TABLE") {
+        //         row_index = event.currentTarget.closest('tr').rowIndex - 1; // start from 1 (because of header)
+        //     } else if (_this.module_type === "ACCORDION") {
+        //         let accordion = event.currentTarget.closest('.accordion');
+        //         let accordion_item = event.currentTarget.closest('.accordion-item');
+        //         row_index = Array.from(accordion.children).indexOf(accordion_item);
+        //     } else if (_this.module_type === "GROUP_TABLE") {
+        //         row_index = event.currentTarget.closest('tr').rowIndex - 1;
+        //         group_key = event.currentTarget.closest('table')
+        //             .getAttribute('id')
+        //             .replace('group_table_' + this.module_key + '_', '')
+        //     } else if (_this.module_type === "GROUP_ACCORDION") {
+        //         let accordion = event.currentTarget.closest('.accordion');
+        //         let accordion_item = event.currentTarget.closest('.accordion-item');
+        //
+        //         row_index = Array.from(accordion.children).indexOf(accordion_item);
+        //         group_key = event.currentTarget.closest('[id^=\'group_accordion_\']')
+        //             .getAttribute('id')
+        //             .replace('group_accordion_' + this.module_key + '_', '');
+        //     }
+        //
+        //     if (group_key === null) {
+        //         _this.records.splice(row_index, 1);
+        //         if (_this.records.length === 0) {
+        //             _this.records[0] = _this.__no_reactive_copy($empty_record);
+        //         }
+        //     } else {
+        //         _this.records[group_key].splice(row_index, 1);
+        //         if (_this.records[group_key].length === 0) {
+        //             _this.records[group_key][0] = _this.__no_reactive_copy($empty_record);
+        //         }
+        //     }
+        // }
 
     }
 });

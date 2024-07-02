@@ -29,7 +29,7 @@
 
 <script setup>
 
-    import {onBeforeMount, onMounted, ref} from "vue";
+import {onBeforeMount, onMounted, ref, watch} from "vue";
     import {useList} from "./composables/list.js";
 
     const {sortList} = useList({});
@@ -58,9 +58,13 @@
     const selectElem = ref(null);
     let list = ref([]);
 
+    watch(inputValue, (value) => {
+        onUpdateInput();
+    });
+
     onBeforeMount(() => {
         list = initializeOptions();
-        selectedValue.value = initializeSelectedValue();
+        selectedValue.value = refreshSelectValue();
     });
 
     onMounted(() => {
@@ -79,6 +83,9 @@
         };
     });
 
+    /**
+     * Initialize the options list
+     */
     function initializeOptions() {
         let option_list = JSON.parse(props.dataValues);
         let list = [];
@@ -96,7 +103,7 @@
         return list;
     }
 
-    function initializeSelectedValue(){
+    function refreshSelectValue(){
         let value = inputValue.value;
         if(value!==null){
             if(props.multiple){
@@ -135,6 +142,10 @@
                 ? selectedValue.value.code
                 : null;
         }
+    }
+
+    function onUpdateInput(){
+        selectedValue.value = refreshSelectValue();
     }
 
 </script>

@@ -24,7 +24,11 @@ export function useSave(component_data) {
 
     }
 
-    function save(){}
+    function save(){
+
+        console.log('Save records');
+
+    }
 
 
     return{reset, save}
