@@ -13,29 +13,29 @@ $group_key = $group_key ?? '';
 
     <template v-for="(item, index) in records">
 
-    <x-modular-forms::accordion.item v-if="recordIsInGroup(item, '{{ $group_key }}')">
+        <x-modular-forms::accordion.item v-if="recordIsInGroup(item, '{{ $group_key }}')">
 
-        <x-slot:title>
-            <span>@{{ accordionTitle(index) }}</span>
-        </x-slot:title>
+            <x-slot:title>
+                <span>@{{ accordionTitle(index) }}</span>
+            </x-slot:title>
 
-        <x-slot:header-actions>
-            @if(!$definitions['fixed_rows'])
-                <span v-if="typeof item.__predefined === 'undefined'">
-                        @include('modular-forms::buttons.delete_item')
+            <x-slot:header-actions>
+                @if(!$definitions['fixed_rows'])
+                    <span v-if="typeof item.__predefined === 'undefined'">
+                        <x-modular-forms::module.components.buttons.delete-item />
                     </span>
-            @endif
-        </x-slot:header-actions>
+                @endif
+            </x-slot:header-actions>
 
-        @include('modular-forms::module.edit.type.simple', compact(['collection', 'vueData', 'definitions']))
+            @include('modular-forms::module.edit.type.simple', compact(['collection', 'vueData', 'definitions']))
 
-    </x-modular-forms::accordion.item>
+        </x-modular-forms::accordion.item>
 
     </template>
 
     @if(!$definitions['fixed_rows'])
         <div v-if="max_rows==null || numRecordsInGroup('{{ $group_key }}') < max_rows">
-            @include('modular-forms::buttons.add_item')
+            <x-modular-forms::module.components.buttons.add-item :group-key="$group_key" />
         </div>
     @endif
 

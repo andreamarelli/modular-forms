@@ -10,8 +10,6 @@ export function useDataStatus(component_data) {
 
     // variables from component
     const enable_not_applicable = unref(component_data.enable_not_applicable);
-    const module_type = unref(component_data.module_type);
-    const groups = unref(component_data.groups);
     const records = unref(component_data.records);
     const empty_record = unref(component_data.empty_record);
 

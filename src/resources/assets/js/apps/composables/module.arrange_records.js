@@ -6,6 +6,7 @@ export function useArrangeRecords(component_data) {
     const group_key_field = component_data.group_key_field;
     const accordion_title_field = component_data.accordion_title_field;
     const records = unref(component_data.records);
+    const empty_record = unref(component_data.empty_record);
 
     function accordionTitle(index){
         let group_key = records[index][group_key_field];
@@ -41,9 +42,42 @@ export function useArrangeRecords(component_data) {
         return index;
     }
 
+    /**
+     * Add a new item to the records list (inject group_key if necessary)
+     */
+    function addItem(group_key = null){
+        let new_empty_record = JSON.parse(JSON.stringify(toRaw(empty_record)));
+        if(module_type.includes('GROUP_')){
+            new_empty_record[group_key_field] = group_key;
+        }
+        records.push(new_empty_record);
+    }
+
+    /**
+     * Remove an item from the records list
+     */
+    function deleteItem(index, event){
+        let num_records= module_type.includes('GROUP_')
+            ? numRecordsInGroup(records[index][group_key_field])
+            : records.length;
+        if(num_records > 1){
+            records.splice(index, 1);
+        } else {
+            let new_empty_record = JSON.parse(JSON.stringify(empty_record));
+            if(module_type.includes('GROUP_')){
+                new_empty_record[group_key_field] = records[index][group_key_field];
+            }
+            records[index] = new_empty_record;
+        }
+    }
+
+
+
     return {
         accordionTitle,
         recordIsInGroup,
-        numRecordsInGroup
+        numRecordsInGroup,
+        addItem,
+        deleteItem
     }
 }

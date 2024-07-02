@@ -52,10 +52,9 @@ export default class Module {
 
             setup(props) {
 
-                // refs / reactives / local variables
+                // Define ref/reactive and local variables
                 let records = reactive(props.records);
                 let records_backup = JSON.parse(JSON.stringify(toRaw(records)));
-                const container = ref(null);
                 let status = ref('init'); // "init" state avoid watch() on records during initialization
                 let empty_record = props.empty_record;
 
@@ -67,23 +66,19 @@ export default class Module {
                 });
 
                 // import Composables
-                const {accordionTitle, recordIsInGroup, numRecordsInGroup} = useArrangeRecords({
+                const {accordionTitle, recordIsInGroup, numRecordsInGroup, addItem, deleteItem} = useArrangeRecords({
                     module_type: unref(props.module_type),
                     group_key_field: unref(props.group_key_field),
                     accordion_title_field: unref(props.accordion_title_field),
-                    records: unref(records)
+                    records: unref(records),
+                    empty_record: unref(empty_record)
                 });
                 const {initialize: initializeDataStatus, isNotApplicable, isNotAvailable, toggle: toggleDataStatus } = useDataStatus({
                     enable_not_applicable: props.enable_not_applicable,
-                    module_type: props.module_type,
-                    groups: props.groups,
                     empty_record: empty_record,
                     records: records
                 });
                 const {reset: resetModule, save: saveModule} = useSave({
-                    module_type: props.module_type,
-                    groups: props.groups,
-                    empty_record: empty_record,
                     records: records,
                     records_backup: records_backup,
                     status: status
@@ -101,7 +96,6 @@ export default class Module {
                 });
 
                 onMounted(() => {
-
                     // await nextTick();
                     status.value = 'idle';
                 });
@@ -118,16 +112,10 @@ export default class Module {
                     toggleDataStatus('not_available');
                 }
 
-                function addItem(){}
-                function deleteItem(){}
-
-
-
 
                 return {
                     status,
                     records,
-                    records_backup,
 
                     // objects from or related to composables
                     isNotApplicable,
@@ -138,12 +126,12 @@ export default class Module {
                     recordIsInGroup,
                     numRecordsInGroup,
                     accordionTitle,
+                    addItem,
+                    deleteItem,
 
 
                     // TODO
                     saveModule,
-                    addItem,
-                    deleteItem,
                 }
             }
         };

@@ -3,25 +3,23 @@ import {nextTick, readonly, unref} from "vue";
 export function useSave(component_data) {
 
     // variables from component
-    const module_type = unref(component_data.module_type);
-    const groups = unref(component_data.groups);
     const records = unref(component_data.records);
-    const empty_record = unref(component_data.empty_record);
     const records_backup = readonly(component_data.records_backup);
     const status = component_data.status;
 
     function reset(){
 
+        // remove everything from records
         records.forEach(function (record, index) {
-            if(records_backup[index]){
-                records[index] = JSON.parse(JSON.stringify(records_backup[index]));
-            } else {
-                delete records[index];
-            }
-        })
+            delete records[index];
+        });
+        // add back from records_backup
+        records_backup.forEach(function (record, index) {
+            records[index] = JSON.parse(JSON.stringify(records_backup[index]));
+        });
 
         nextTick().then(() => {
-            component_data.status.value = 'idle';
+            status.value = 'idle';
         });
 
     }

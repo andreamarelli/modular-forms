@@ -61,7 +61,7 @@ class Module extends BaseModel
         }
 
         // Add hidden field for group (only for GROUP_TABLE and GROUP_ACCORDION)
-        if ($this->module_type == 'GROUP_TABLE' || $this->module_type == 'GROUP_ACCORDION') {
+        if (Str::contains($this->module_type, 'GROUP_')) {
             $this->module_fields[] = ['name' => static::$group_key_field, 'type' => 'hidden'];
         }
 
@@ -204,7 +204,7 @@ class Module extends BaseModel
             'enable_not_applicable' => $model->enable_not_applicable,
             'fixed_rows' => $model->fixed_rows,
             'max_rows' => $model->max_rows,
-            'accordion_title_field' => ($model->module_type === 'ACCORDION' || $model->module_type === 'GROUP_ACCORDION')
+            'accordion_title_field' => Str::contains($model->module_type, 'GROUP_')
                 ? $model->module_fields[0]['name'] : null,
             'label_width' => $model->label_width,
             'primary_key' => $model->getKeyName(),
