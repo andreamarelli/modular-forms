@@ -108,6 +108,7 @@ nav.steps{
         cursor: pointer;
         padding: 3px 8px;
         font-size: 0.9rem;
+        @include selector_border-radius-vertical(5px);
         &.standalone{
             font-size: 1.1rem;
             padding: 8px 12px;
@@ -125,7 +126,6 @@ nav.steps{
         &.scrollToTop, &.scrollToBottom{
             font-size: 1.2rem;
         }
-        @include selector_border-radius-vertical(5px);
         &:hover {
             @apply bg-primary-500;
             @apply text-black;
