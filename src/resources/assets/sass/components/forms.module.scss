@@ -58,10 +58,10 @@ nav.steps{
         @apply border-y border-l border-gray-200;
         overflow-wrap: anywhere;
         min-width: 90px;
+        @include transition(background-color);
         &:last-child {
             @apply border-r border-gray-200;
         }
-        @include transition(background-color);
         &:hover{
             text-decoration: none;
             @apply bg-gray-300;
