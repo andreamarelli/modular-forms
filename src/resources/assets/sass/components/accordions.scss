@@ -91,14 +91,14 @@
             margin-bottom: 8px;
 
             &-header {
-                @apply bg-gray-50;
-                &:hover{
-                  @apply bg-gray-100;
-                }
                 padding: 5px 10px 5px 15px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                @apply bg-gray-50;
+                &:hover{
+                  @apply bg-gray-100;
+                }
                 &-title {
                     flex-grow: 1;
                     font-weight: bold;

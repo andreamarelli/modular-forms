@@ -33,14 +33,13 @@
             top: 50vh;
             left: 50vw;
             transform: translate(-50%,-50%);
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
 
             &.visible {
                 display: block;
             }
-
-            background: white;
-            padding: 10px;
-            border-radius: 4px;
 
             .with_header_and_footer{
                 display: flex;
