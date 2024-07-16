@@ -19,6 +19,9 @@ window.ModularForms.Helpers.Animation = Animation;
 import Common from "./js/helpers/common.js";
 window.ModularForms.Helpers.Common = Common;
 
+import Payload from "./js/helpers/payload.js";
+window.ModularForms.Helpers.Payload = Payload;
+
 // make selectorDialog component available for project custom selectors
 import selectorDialog from "./js/inputs/components/selector-dialog.vue";
 window.ModularForms.Components.selectorDialog = selectorDialog;

@@ -1,7 +1,7 @@
 import actions from './mixins/actions.mixin'
 import calc from './mixins/calc.mixin'
 import transitions from './mixins/transitions.mixin'
-import payload from "../mixins/payload";
+import payload from "../helpers/payload.js";
 
 window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
 
@@ -116,80 +116,80 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
         /**
          * Reset module to initial state (reset all inputs)
          */
-        resetModule: function () {
-            let _this = this;
-            _this.records = _this.__no_reactive_copy(_this.records_backup);
-            _this.__arrange_records_by_group();
-            _this.__init_applicable();
-            window.vueBus.$emit('module_reset', _this.module_key);
-            _this.resetModuleCallback();
-            Vue.nextTick(function () {
-                _this.status = _this.reset_status;
-            });
-        },
+        // resetModule: function () {
+        //     let _this = this;
+        //     _this.records = _this.__no_reactive_copy(_this.records_backup);
+        //     _this.__arrange_records_by_group();
+        //     _this.__init_applicable();
+        //     window.vueBus.$emit('module_reset', _this.module_key);
+        //     _this.resetModuleCallback();
+        //     Vue.nextTick(function () {
+        //         _this.status = _this.reset_status;
+        //     });
+        // },
 
         /**
          *  Save module
          */
-        saveModule: function () {
-            let _this = this;
-            let form = this.container.querySelector('form');
-            let url = form.getAttribute('action');
-            let method = form.getAttribute('method');
-            let formData = _this.__parse_form(form);
+        // saveModule: function () {
+        //     let _this = this;
+        //     let form = this.container.querySelector('form');
+        //     let url = form.getAttribute('action');
+        //     let method = form.getAttribute('method');
+        //     let formData = _this.__parse_form(form);
+        //
+        //     fetch(url, {
+        //         method: method,
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //             "X-CSRF-Token": window.Laravel.csrfToken,
+        //         },
+        //         body: JSON.stringify(formData),
+        //     })
+        //         .then((response) => response.json())
+        //         .then(function(data){
+        //             if (data.hasOwnProperty('status')) {
+        //                 if (data['status'] === 'success') {
+        //                     if (_this.action === 'store') {
+        //                         window.location.href = data['edit_url'];
+        //                         return;
+        //                     }
+        //                     _this.records = _this.__no_reactive_copy(data['records']);
+        //                     if (data.hasOwnProperty('last_update')) {
+        //                         _this.last_update = _this.__no_reactive_copy(data['last_update']);
+        //                     }
+        //                     _this.records_backup = _this.__no_reactive_copy(_this.records);
+        //                     _this.__arrange_records_by_group();
+        //                     _this.saveModuleDoneCallback(data);
+        //                     window.vueBus.$emit('module_saved', _this.module_key);
+        //                     window.vueBus.$emit('refresh_validation', _this.module_key);
+        //                     window.vueBus.$emit('refresh_assessment');      // only for IMET
+        //                     Vue.nextTick(function () {
+        //                         _this.status = 'saved';
+        //                     });
+        //                 } else if (data['status'] === 'validation_error') {
+        //                     _this.setErrorStatus(data);
+        //                     _this.saveModuleFailCallback(data);
+        //                 }
+        //                 return;
+        //             }
+        //             _this.setErrorStatus(data);
+        //             _this.saveModuleAlwaysCallback(data);
+        //         })
+        //         .catch(function (error) {
+        //             _this.setErrorStatus(error);
+        //             _this.saveModuleFailCallback(error);
+        //             _this.saveModuleAlwaysCallback(error);
+        //         })
+        // },
 
-            fetch(url, {
-                method: method,
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-Token": window.Laravel.csrfToken,
-                },
-                body: JSON.stringify(formData),
-            })
-                .then((response) => response.json())
-                .then(function(data){
-                    if (data.hasOwnProperty('status')) {
-                        if (data['status'] === 'success') {
-                            if (_this.action === 'store') {
-                                window.location.href = data['edit_url'];
-                                return;
-                            }
-                            _this.records = _this.__no_reactive_copy(data['records']);
-                            if (data.hasOwnProperty('last_update')) {
-                                _this.last_update = _this.__no_reactive_copy(data['last_update']);
-                            }
-                            _this.records_backup = _this.__no_reactive_copy(_this.records);
-                            _this.__arrange_records_by_group();
-                            _this.saveModuleDoneCallback(data);
-                            window.vueBus.$emit('module_saved', _this.module_key);
-                            window.vueBus.$emit('refresh_validation', _this.module_key);
-                            window.vueBus.$emit('refresh_assessment');      // only for IMET
-                            Vue.nextTick(function () {
-                                _this.status = 'saved';
-                            });
-                        } else if (data['status'] === 'validation_error') {
-                            _this.setErrorStatus(data);
-                            _this.saveModuleFailCallback(data);
-                        }
-                        return;
-                    }
-                    _this.setErrorStatus(data);
-                    _this.saveModuleAlwaysCallback(data);
-                })
-                .catch(function (error) {
-                    _this.setErrorStatus(error);
-                    _this.saveModuleFailCallback(error);
-                    _this.saveModuleAlwaysCallback(error);
-                })
-        },
-
-        // Allows additional executions by child components
-        recordChangedCallback(){},
-        mountedCallback: function(){},
-        resetModuleCallback: function () {},
-        saveModuleDoneCallback: function (response) {},
-        saveModuleFailCallback: function (response) {},
-        saveModuleAlwaysCallback: function (response) {},
+        // // Allows additional executions by child components
+        // recordChangedCallback(){},
+        // mountedCallback: function(){},
+        // resetModuleCallback: function () {},
+        // saveModuleDoneCallback: function (response) {},
+        // saveModuleFailCallback: function (response) {},
+        // saveModuleAlwaysCallback: function (response) {},
 
         /**
          * Clean (empty) all fields
@@ -220,22 +220,22 @@ window.ModularForms.ModuleController = window.ModularFormsVendor.Vue.extend({
 
         },
 
-        /**
-         *
-         * @param response
-         */
-        setErrorStatus: function (response) {
-            let _this = this;
-            _this.status = 'error';
-            _this.error_messages = [];
-            if (response.hasOwnProperty('errors')) {
-                Object.keys(response['errors']).forEach(function (field) {
-                    response['errors'][field].forEach(function (message) {
-                        _this.error_messages.push(message);
-                    });
-                });
-            }
-        },
+        // /**
+        //  *
+        //  * @param response
+        //  */
+        // setErrorStatus: function (response) {
+        //     let _this = this;
+        //     _this.status = 'error';
+        //     _this.error_messages = [];
+        //     if (response.hasOwnProperty('errors')) {
+        //         Object.keys(response['errors']).forEach(function (field) {
+        //             response['errors'][field].forEach(function (message) {
+        //                 _this.error_messages.push(message);
+        //             });
+        //         });
+        //     }
+        // },
 
         /**
          * Synchronize common fields values to all records (when changed)

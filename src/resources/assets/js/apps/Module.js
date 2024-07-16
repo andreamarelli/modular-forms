@@ -48,8 +48,7 @@ export default class Module {
                 form_id: Number,
                 enable_not_applicable: Boolean,
                 warning_on_save: String,
-                action_url: String,
-                action_method: String,
+                action_url: String
             },
 
             setup(props) {
@@ -59,6 +58,7 @@ export default class Module {
                 let records_backup = JSON.parse(JSON.stringify(toRaw(records)));
                 let status = ref('init'); // "init" state avoid watch() on records during initialization
                 let empty_record = props.empty_record;
+                let last_update = props.last_update;
 
                 // Inject common fields values into empty record
                 Object.keys(empty_record).forEach(function (key) {
@@ -80,12 +80,24 @@ export default class Module {
                     empty_record: empty_record,
                     records: records
                 });
-                const {reset: resetModule, save: saveModule} = useSave({
+                const {
+                    reset: resetModule,
+                    save: saveModule,
+                    error_messages,
+                    recordChangedCallback,
+                    mountedCallback,
+                    resetModuleCallback,
+                    saveModuleDoneCallback,
+                    saveModuleFailCallback,
+                    saveModuleAlwaysCallback
+                } = useSave({
                     records: records,
                     records_backup: records_backup,
                     status: status,
+                    last_update: last_update,
+                    form_id: unref(props.form_id),
+                    module_key: unref(props.module_key),
                     action_url: props.action_url,
-                    action_method: props.action_method
                 });
 
                 // Set initial status (former vue2 "created" lifecycle hook)
@@ -120,6 +132,8 @@ export default class Module {
                 return {
                     status,
                     records,
+                    last_update,
+                    error_messages,
 
                     // objects from or related to composables
                     isNotApplicable,
@@ -133,9 +147,19 @@ export default class Module {
                     addItem,
                     deleteItem,
 
+                    recordChangedCallback,
+                    mountedCallback,
+                    resetModuleCallback,
+                    saveModuleDoneCallback,
+                    saveModuleFailCallback,
+                    saveModuleAlwaysCallback,
+
 
                     // TODO
                     saveModule,
+
+                    // TODO: remove
+                    records_backup,
                 }
             }
         };

@@ -1,3 +1,5 @@
+import { Base64 } from 'js-base64';
+
 export default {
 
     /**
@@ -6,7 +8,7 @@ export default {
      * @returns {string}
      */
     encode(obj){
-        return window.ModularFormsVendor.Base64.encode(JSON.stringify(obj));
+        return Base64.encode(JSON.stringify(obj));
     },
 
     /**
@@ -16,7 +18,7 @@ export default {
      * @returns {any}
      */
     decode(encoded_obj){
-        return JSON.parse(window.ModularFormsVendor.Base64.decode(encoded_obj));
+        return JSON.parse(Base64.decode(encoded_obj));
     }
 
 };
