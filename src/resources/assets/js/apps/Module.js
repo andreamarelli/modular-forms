@@ -37,6 +37,7 @@ import {useFormStore} from "../stores/FormStore.js";
 import {useDataStatus} from "./composables/module.data_status.js";
 import {useArrangeRecords} from "./composables/module.arrange_records.js";
 import {useSave} from "./composables/module.save.js";
+import {useCalc} from "./composables/module.calc.js";
 
 export default class Module {
 
@@ -65,7 +66,7 @@ export default class Module {
 
             setup(props, context) {
 
-                let container = null;
+                const moduleContainer = document.querySelector('#module_' + props.module_key);
 
                 // Define ref/reactive and local variables
                 let records = reactive(props.records);
@@ -98,8 +99,6 @@ export default class Module {
                     reset: resetModule,
                     save: saveModule,
                     error_messages,
-                    recordChangedCallback,
-                    mountedCallback,
                     resetModuleCallback,
                     saveModuleDoneCallback,
                     saveModuleFailCallback,
@@ -114,40 +113,57 @@ export default class Module {
                     action_url: props.action_url,
                 });
 
+                const {calculateAverage, sumColumn, sumColumnFloat} = useCalc({
+                    records: records,
+                    group_key_field: unref(props.group_key_field)
+                });
+
                 // Set initial status (former vue2 "created" lifecycle hook)
                 initializeDataStatus();
 
                 // Watch for changes in records
                 watch(records, (value) => {
-                    console.log('records changed');
+                    recordChangedCallback();
+                    syncCommonFields(value);
                     if (status.value !== 'init') {
                         status.value = status.value !== 'changed' ? 'changed' : status.value;
                     }
                 });
 
                 onMounted(() => {
-
+                    setPredefinedAsDisabled();
+                    mountedCallback();
                     status.value = 'idle';
-
-                    const instance = getCurrentInstance();
-                    nextTick().then(() => {
-                        container = instance.appContext.app._container;
-                        console.log(instance);
-                        console.log(instance.appContext.app);
-                        console.log(container);
-                        console.log(container.querySelector('.module-body'));
-
-                        console.log('-- context --');
-                        console.log(context);
-                        console.log(context.slots);
-                        console.log('--------------');
-                    });
-
                 });
 
                 // #################################################
                 // ##################   Methods   ##################
                 // #################################################
+
+                /**
+                 * Set predefined fields as disabled
+                 */
+                function setPredefinedAsDisabled(){
+                    records.forEach((record, i) => {
+                        if (typeof record.__predefined !== 'undefined' && record.__predefined === true) {
+                            let input = moduleContainer.querySelector("[id$=_" + i + "_" + props.predefined_values['field'] + "]");
+                            input.setAttribute('readonly', 'readonly');
+                            input.classList.add('field-disabled');
+                        }
+                    });
+                }
+
+                /**
+                 * Synchronize common fields on record change
+                 */
+                function syncCommonFields(){
+                    props.common_fields.forEach((field) => {
+                        let value = records[0][field['name']];
+                        records.forEach(function (item, index) {
+                            records[index][field['name']] = value;
+                        });
+                    });
+                }
 
                 function toggleNotApplicable(){
                     toggleDataStatus('not_applicable');
@@ -156,6 +172,10 @@ export default class Module {
                 function toggleNotAvailable(){
                     toggleDataStatus('not_available');
                 }
+
+                // Allows additional executions by child components
+                function recordChangedCallback(){}
+                function mountedCallback(){}
 
 
                 return {
@@ -167,8 +187,6 @@ export default class Module {
                     // objects from or related to composables
                     isNotApplicable,
                     isNotAvailable,
-                    toggleNotAvailable,
-                    toggleNotApplicable,
                     saveModule,
                     resetModule,
                     recordIsInGroup,
@@ -176,8 +194,13 @@ export default class Module {
                     accordionTitle,
                     addItem,
                     deleteItem,
+                    calculateAverage,
+                    sumColumn,
+                    sumColumnFloat,
 
                     // TODO: review
+                    toggleNotAvailable,
+                    toggleNotApplicable,
                     recordChangedCallback,
                     mountedCallback,
                     resetModuleCallback,

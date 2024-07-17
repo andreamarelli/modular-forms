@@ -114,8 +114,6 @@ export function useSave(component_data) {
 
 
     // Allows additional executions by child components
-    function recordChangedCallback(){}
-    function mountedCallback(){}
     function resetModuleCallback(){}
     function saveModuleDoneCallback(response){}
     function saveModuleFailCallback(response){}
@@ -126,8 +124,6 @@ export function useSave(component_data) {
         reset,
         save,
         error_messages,
-        recordChangedCallback,
-        mountedCallback,
         resetModuleCallback,
         saveModuleDoneCallback,
         saveModuleFailCallback,

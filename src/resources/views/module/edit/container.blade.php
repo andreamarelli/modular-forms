@@ -18,62 +18,52 @@ use Illuminate\Support\Facades\Blade;
         {{-- last update --}}
         {!! Blade::renderComponent(new $last_update_view($mode, $records)) !!}
 
-        <form method="post" action="{{ action([$controller, $formId!==null ? 'update' : 'store'], [$formId]) }}">
+        {{--  Actions: not applicable / not available / other (custom) --}}
+        <div class="flex justify-end">
+            {!! Blade::renderComponent(new $not_applicable_view($definitions)) !!}
+            {!! Blade::renderComponent(new $custom_action_view($definitions)) !!}
+        </div>
 
-            @if($formId!==null)
-                @method('PATCH')
+        {{-- not applicable --}}
+        <div v-show="isNotApplicable()">
+            <div class="no-data">
+                @lang('modular-forms::common.form.not_applicable')
+            </div>
+        </div>
+
+        {{-- not available --}}
+        <div v-show="isNotAvailable()">
+            <div class="no-data">
+                @lang('modular-forms::common.form.not_available')
+            </div>
+        </div>
+
+        {{-- keep "observation" field even if not_applicable/not_available --}}
+        {!! Blade::renderComponent(new $observations_view($definitions)) !!}
+
+        <div v-show="!isNotApplicable() && !isNotAvailable()">
+
+            {{-- ########################################################### --}}
+            {{--    If a custom view does not exists use the standard one    --}}
+            {{-- ########################################################### --}}
+            @if(!view()->exists($custom_view_name))
+                <x-modular-forms::module.components.body
+                    :collection="$collection"
+                    :vueData="$vueData"
+                    :definitions="$definitions"
+                    :records="$records"
+                    :mode="$mode"
+                ></x-modular-forms::module.components.body>
+
+                {!! Blade::renderComponent(new $script_view($collection, $vueData, $definitions, $records, $formId, $mode)) !!}
+
+            @else
+                {{-- custom view --}}
+                @include($custom_view_name, compact(['collection', 'vueData', 'definitions', 'mode']))
             @endif
 
-            {{-- crsf --}}
-            @csrf
+        </div>
 
-            {{--  Actions: not applicable / not available / other (custom) --}}
-            <div class="flex justify-end">
-                {!! Blade::renderComponent(new $not_applicable_view($definitions)) !!}
-                {!! Blade::renderComponent(new $custom_action_view($definitions)) !!}
-            </div>
-
-            {{-- not applicable --}}
-            <div v-show="isNotApplicable()">
-                <div class="no-data">
-                    @lang('modular-forms::common.form.not_applicable')
-                </div>
-            </div>
-
-            {{-- not available --}}
-            <div v-show="isNotAvailable()">
-                <div class="no-data">
-                    @lang('modular-forms::common.form.not_available')
-                </div>
-            </div>
-
-            {{-- keep "observation" field even if not_applicable/not_available --}}
-            {!! Blade::renderComponent(new $observations_view($definitions)) !!}
-
-            <div v-show="!isNotApplicable() && !isNotAvailable()">
-
-                {{-- ########################################################### --}}
-                {{--    If a custom view does not exists use the standard one    --}}
-                {{-- ########################################################### --}}
-                @if(!view()->exists($custom_view_name))
-                    <x-modular-forms::module.components.body
-                        :collection="$collection"
-                        :vueData="$vueData"
-                        :definitions="$definitions"
-                        :records="$records"
-                        :mode="$mode"
-                    ></x-modular-forms::module.components.body>
-
-                    {!! Blade::renderComponent(new $script_view($collection, $vueData, $definitions, $records, $formId, $mode)) !!}
-
-                @else
-                    {{-- custom view --}}
-                    @include($custom_view_name, compact(['collection', 'vueData', 'definitions', 'mode']))
-                @endif
-
-            </div>
-
-        </form>
 
         <!-- TODO: to be removed -->
         <b>RECORDS</b>
