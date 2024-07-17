@@ -13,7 +13,7 @@ export function useDataStatus(component_data) {
     const records = unref(component_data.records);
     const empty_record = unref(component_data.empty_record);
 
-    function initialize(){
+    function initializeDataStatus(){
         if(enable_not_applicable){
 
             let record = records[0];
@@ -34,7 +34,7 @@ export function useDataStatus(component_data) {
         return not_available.value;
     }
 
-    function toggle(toggle_key){
+    function toggleDataStatus(toggle_key){
         if(toggle_key === NOT_APPLICABLE_KEY){
             not_applicable.value = !not_applicable.value;
             return updateRecords(NOT_APPLICABLE_KEY, not_applicable.value);
@@ -56,5 +56,5 @@ export function useDataStatus(component_data) {
     }
 
 
-    return {initialize, isNotApplicable, isNotAvailable, toggle}
+    return {initializeDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus}
  }

@@ -90,14 +90,14 @@ export default class Module {
                     records: unref(records),
                     empty_record: unref(empty_record)
                 });
-                const {initialize: initializeDataStatus, isNotApplicable, isNotAvailable, toggle: toggleDataStatus } = useDataStatus({
+                const {initializeDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus} = useDataStatus({
                     enable_not_applicable: props.enable_not_applicable,
                     empty_record: empty_record,
                     records: records
                 });
                 const {
-                    reset: resetModule,
-                    save: saveModule,
+                    resetModule,
+                    saveModule,
                     error_messages,
                     resetModuleCallback,
                     saveModuleDoneCallback,

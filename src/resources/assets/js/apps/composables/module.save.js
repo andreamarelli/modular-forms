@@ -40,14 +40,14 @@ export function useSave(component_data) {
     }
 
 
-    function reset(){
+    function resetModule(){
         replaceRecords(component_data.records_backup);
         nextTick().then(() => {
             status.value = 'idle';
         });
     }
 
-    function save(){
+    function saveModule(){
 
         let data = {
             records_json: window.ModularForms.Helpers.Payload.encode(records),
@@ -121,8 +121,8 @@ export function useSave(component_data) {
 
 
     return{
-        reset,
-        save,
+        resetModule,
+        saveModule,
         error_messages,
         resetModuleCallback,
         saveModuleDoneCallback,
