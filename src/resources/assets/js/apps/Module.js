@@ -1,4 +1,16 @@
-import {createApp, ref, unref, computed, onMounted, toRaw, watch, reactive, onBeforeMount} from "vue";
+import {
+    createApp,
+    ref,
+    unref,
+    computed,
+    onMounted,
+    toRaw,
+    watch,
+    reactive,
+    onBeforeMount,
+    getCurrentInstance,
+    nextTick
+} from "vue";
 import {createPinia} from "pinia";
 
 // Components
@@ -51,7 +63,9 @@ export default class Module {
                 action_url: String
             },
 
-            setup(props) {
+            setup(props, context) {
+
+                let container = null;
 
                 // Define ref/reactive and local variables
                 let records = reactive(props.records);
@@ -112,8 +126,23 @@ export default class Module {
                 });
 
                 onMounted(() => {
-                    // await nextTick();
+
                     status.value = 'idle';
+
+                    const instance = getCurrentInstance();
+                    nextTick().then(() => {
+                        container = instance.appContext.app._container;
+                        console.log(instance);
+                        console.log(instance.appContext.app);
+                        console.log(container);
+                        console.log(container.querySelector('.module-body'));
+
+                        console.log('-- context --');
+                        console.log(context);
+                        console.log(context.slots);
+                        console.log('--------------');
+                    });
+
                 });
 
                 // #################################################
@@ -140,6 +169,7 @@ export default class Module {
                     isNotAvailable,
                     toggleNotAvailable,
                     toggleNotApplicable,
+                    saveModule,
                     resetModule,
                     recordIsInGroup,
                     numRecordsInGroup,
@@ -147,6 +177,7 @@ export default class Module {
                     addItem,
                     deleteItem,
 
+                    // TODO: review
                     recordChangedCallback,
                     mountedCallback,
                     resetModuleCallback,
@@ -154,12 +185,8 @@ export default class Module {
                     saveModuleFailCallback,
                     saveModuleAlwaysCallback,
 
-
-                    // TODO
-                    saveModule,
-
                     // TODO: remove
-                    records_backup,
+                    records_backup
                 }
             }
         };

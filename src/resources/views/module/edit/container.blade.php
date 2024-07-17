@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Blade;
         {{-- last update --}}
         {!! Blade::renderComponent(new $last_update_view($mode, $records)) !!}
 
-        <form ref="container" method="post" action="{{ action([$controller, $formId!==null ? 'update' : 'store'], [$formId]) }}">
+        <form method="post" action="{{ action([$controller, $formId!==null ? 'update' : 'store'], [$formId]) }}">
 
             @if($formId!==null)
                 @method('PATCH')
