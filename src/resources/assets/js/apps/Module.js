@@ -125,9 +125,9 @@ export default class Module {
                 watch(records, (value) => {
                     recordChangedCallback();
                     syncCommonFields(value);
-                    if (status.value !== 'init') {
+                    // if (status.value !== 'init') { // TODO: review
                         status.value = status.value !== 'changed' ? 'changed' : status.value;
-                    }
+                    // }
                 });
 
                 onMounted(() => {
