@@ -1,3 +1,5 @@
+// Import stylesheets
+import '@modular-forms/index.css';
 
 // Global variables - make them accessible from modules and from blade views
 window.Laravel = window.Laravel || {};
