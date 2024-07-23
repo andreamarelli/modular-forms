@@ -78,8 +78,13 @@ export function useSave(component_data) {
                         replaceRecords(data.records);
                         replaceRecordsBackup(data.records);
                         component_data.last_update.date = data.last_update.date;
+                        console.log(window.Laravel.FormErrors);
+                        window.Laravel.FormErrors.refreshErrors(data.form_errors);
 
                         // TODO
+                        // window.vueBus.$emit('module_saved', _this.module_key);
+                        // window.vueBus.$emit('refresh_validation', _this.module_key);
+                        // window.vueBus.$emit('refresh_assessment');      // only for IMET
 
 
                         nextTick().then(() => {

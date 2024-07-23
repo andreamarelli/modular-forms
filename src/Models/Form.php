@@ -92,6 +92,8 @@ class Form extends BaseModel
         $form->updateProgress();
         $form->touch(); // force timestamp update
 
+        $return['form_errors'] = $form->validateFormRules();
+
         return $return;
     }
 

@@ -33,7 +33,6 @@ import uploadFile from "../inputs/upload.vue";
 import textEditor from "../inputs/text-editor.vue";
 
 // Composables and Stores
-import {useFormStore} from "../stores/FormStore.js";
 import {useDataStatus} from "./composables/module.data_status.js";
 import {useArrangeRecords} from "./composables/module.arrange_records.js";
 import {useSave} from "./composables/module.save.js";
@@ -44,6 +43,8 @@ export default class Module {
     constructor(input_data = {}) {
 
         const options = {
+
+            name: input_data.module_key,
 
             props: {
                 module_key: String,

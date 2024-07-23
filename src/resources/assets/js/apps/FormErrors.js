@@ -1,6 +1,5 @@
-import {createApp, ref, computed, watch, onBeforeMount} from 'vue';
+import {createApp, ref, computed, watch, onBeforeMount, reactive, onMounted} from 'vue';
 import {createPinia} from "pinia";
-import {useFormStore} from "../stores/FormStore.js";
 
 export default class FormErrors {
 
@@ -8,34 +7,30 @@ export default class FormErrors {
 
         const options = {
 
+            name: 'FormErrors',
+
             props: {
                 initial_errors: {
-                    type: Object,
-                    default: () => {}
+                    type: Array,
+                    default: () => []
                 }
             },
 
             setup(props){
 
-                // store: window.ModularForms.formStore
-
-                const validation_errors = ref(props.initial_errors);
+                const validation_errors = reactive(props.initial_errors);
 
                 let has_errors = computed(() => {
-                    return Object.entries(validation_errors.value).length >= 1;
+                    return Object.entries(validation_errors).length >= 1
+                        && typeof validation_errors[0] !== 'undefined'
+                        && validation_errors[0] !== null;
                 })
 
-                watch(validation_errors, () => {
+                onMounted(() => {
                     displayNonValidModules();
                 });
-
-                onBeforeMount(() => {
-                    // Register initial errors in FormStore
-                    useFormStore().setInitialErrors(props.initial_errors);
-                    // TODO: replace listener (maybe making a store variable reactive)
-                    // window.vueBus.$on('refresh_validation', function (module_key) {
-                    //     fixedError(module_key);
-                    // });
+                watch(validation_errors, () => {
+                    displayNonValidModules();
                 });
 
                 /**
@@ -43,7 +38,7 @@ export default class FormErrors {
                  */
                 function displayNonValidModules(){
                     let error_class = 'validation-error';
-                    let invalid_modules = validation_errors.value.map(a => 'module_'+a.key);
+                    let invalid_modules = validation_errors.map(a => 'module_'+a.key);
                     let containers = document.querySelectorAll('.module-container');
                     containers.forEach(function (container) {
                         if(invalid_modules.includes(container.id)){
@@ -59,19 +54,24 @@ export default class FormErrors {
                 }
 
                 /**
-                 * Mark module as fixed
-                 * @param module_key
+                 * Refresh errors
+                 * @param errors
                  */
-                function fixedError(module_key){
-                    let invalid_modules = validation_errors.value.map(a => a.key);
-                    if(invalid_modules.includes(module_key)){
-                        useFormStore().registerFixedModule(module_key);
-                    }
+                function refreshErrors(errors){
+                    // remove everything from records
+                    validation_errors.forEach(function (error, index) {
+                        delete validation_errors[index];
+                    });
+                    // add back new records
+                    errors.forEach(function (error, index) {
+                        validation_errors[index] = JSON.parse(JSON.stringify(error));
+                    })
                 }
 
                 return {
                     validation_errors,
-                    has_errors
+                    has_errors,
+                    refreshErrors
                 };
             }
 

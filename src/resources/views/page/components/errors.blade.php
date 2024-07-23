@@ -2,12 +2,12 @@
 /** @var \AndreaMarelli\ModularForms\Models\Form $item */
 /** @var string $url */
 
-    $validationErrors = $item->validateFormRules();
+    $formErrors = $item->validateFormRules();
 
 ?>
 <div id="form_global_errors_bar">
 
-     <div class="module-errors" v-show="has_errors">
+     <div class="module-errors" v-if="has_errors">
         <div class="title">
             <div>
                 <i class="fas fa-2x fa-exclamation-triangle"></i>
@@ -28,8 +28,8 @@
 @push('scripts')
     <script type="module">
 
-        (new window.ModularForms.Apps.FormErrors(
-            {initial_errors: @json($validationErrors)}
+        window.Laravel.FormErrors = (new window.ModularForms.Apps.FormErrors(
+            {initial_errors: @json($formErrors)}
         ))
             .mount('#form_global_errors_bar');
 
