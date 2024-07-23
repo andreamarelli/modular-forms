@@ -1,4 +1,4 @@
- import {readonly, ref, toRaw, unref} from 'vue';
+ import {computed, readonly, ref, toRaw, unref} from 'vue';
 
 export function useDataStatus(component_data) {
 
@@ -13,7 +13,14 @@ export function useDataStatus(component_data) {
     const records = unref(component_data.records);
     const empty_record = unref(component_data.empty_record);
 
-    function initializeDataStatus(){
+    const isNotApplicable= computed(() => {
+        return not_applicable.value;
+    });
+    const isNotAvailable= computed(() => {
+        return not_available.value;
+    });
+
+    function refreshDataStatus(){
         if(enable_not_applicable){
 
             let record = records[0];
@@ -24,14 +31,6 @@ export function useDataStatus(component_data) {
                 not_available.value = record[NOT_AVAILABLE_KEY]===true;
             }
         }
-    }
-
-    function isNotApplicable(){
-        return not_applicable.value;
-    }
-
-    function isNotAvailable(){
-        return not_available.value;
     }
 
     function toggleDataStatus(toggle_key){
@@ -56,5 +55,5 @@ export function useDataStatus(component_data) {
     }
 
 
-    return {initializeDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus}
+    return {refreshDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus}
  }

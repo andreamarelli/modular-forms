@@ -10,6 +10,7 @@ export function useSave(component_data) {
     const module_key = component_data.module_key;
     const action_url = component_data.action_url;
     let error_messages = ref([]);
+    const refreshDataStatus =component_data.refreshDataStatus;
 
     /**
      * Replace records iteratively with given records
@@ -42,6 +43,8 @@ export function useSave(component_data) {
 
     function resetModule(){
         replaceRecords(component_data.records_backup);
+        refreshDataStatus();
+        resetModuleCallback();
         nextTick().then(() => {
             status.value = 'idle';
         });
@@ -81,12 +84,11 @@ export function useSave(component_data) {
                         console.log(window.Laravel.FormErrors);
                         window.Laravel.FormErrors.refreshErrors(data.form_errors);
 
-                        // TODO
+                        // TODO: check if yet needed
                         // window.vueBus.$emit('module_saved', _this.module_key);
-                        // window.vueBus.$emit('refresh_validation', _this.module_key);
                         // window.vueBus.$emit('refresh_assessment');      // only for IMET
 
-
+                        saveModuleDoneCallback(data);
                         nextTick().then(() => {
                             status.value = 'saved';
                         });

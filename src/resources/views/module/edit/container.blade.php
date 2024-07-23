@@ -25,14 +25,14 @@ use Illuminate\Support\Facades\Blade;
         </div>
 
         {{-- not applicable --}}
-        <div v-show="isNotApplicable()">
+        <div v-show="isNotApplicable">
             <div class="no-data">
                 @lang('modular-forms::common.form.not_applicable')
             </div>
         </div>
 
         {{-- not available --}}
-        <div v-show="isNotAvailable()">
+        <div v-show="isNotAvailable">
             <div class="no-data">
                 @lang('modular-forms::common.form.not_available')
             </div>
@@ -41,7 +41,7 @@ use Illuminate\Support\Facades\Blade;
         {{-- keep "observation" field even if not_applicable/not_available --}}
         {!! Blade::renderComponent(new $observations_view($definitions)) !!}
 
-        <div v-show="!isNotApplicable() && !isNotAvailable()">
+        <div v-show="!isNotApplicable && !isNotAvailable">
 
             {{-- ########################################################### --}}
             {{--    If a custom view does not exists use the standard one    --}}

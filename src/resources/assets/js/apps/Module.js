@@ -91,7 +91,7 @@ export default class Module {
                     records: unref(records),
                     empty_record: unref(empty_record)
                 });
-                const {initializeDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus} = useDataStatus({
+                const {refreshDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus} = useDataStatus({
                     enable_not_applicable: props.enable_not_applicable,
                     empty_record: empty_record,
                     records: records
@@ -112,6 +112,7 @@ export default class Module {
                     form_id: unref(props.form_id),
                     module_key: unref(props.module_key),
                     action_url: props.action_url,
+                    refreshDataStatus: refreshDataStatus
                 });
 
                 const {calculateAverage, sumColumn, sumColumnFloat} = useCalc({
@@ -119,16 +120,16 @@ export default class Module {
                     group_key_field: unref(props.group_key_field)
                 });
 
-                // Set initial status (former vue2 "created" lifecycle hook)
-                initializeDataStatus();
+                // Set initial status
+                refreshDataStatus();
 
                 // Watch for changes in records
                 watch(records, (value) => {
                     recordChangedCallback();
                     syncCommonFields(value);
-                    // if (status.value !== 'init') { // TODO: review
+                    if (status.value !== 'init') {
                         status.value = status.value !== 'changed' ? 'changed' : status.value;
-                    // }
+                    }
                 });
 
                 onMounted(() => {
@@ -188,6 +189,8 @@ export default class Module {
                     // objects from or related to composables
                     isNotApplicable,
                     isNotAvailable,
+                    toggleNotAvailable,
+                    toggleNotApplicable,
                     saveModule,
                     resetModule,
                     recordIsInGroup,
@@ -200,8 +203,6 @@ export default class Module {
                     sumColumnFloat,
 
                     // TODO: review
-                    toggleNotAvailable,
-                    toggleNotApplicable,
                     recordChangedCallback,
                     mountedCallback,
                     resetModuleCallback,
