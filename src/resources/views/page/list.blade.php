@@ -87,7 +87,7 @@ $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $l
     {{-- standard scripts --}}
     @else
         <script type="module">
-            (new window.ModularForms.Apps.Base())
+            (new window.ModularForms.Apps.FormList())
                 .mount('#page-container');
         </script>
     @endif

@@ -13,6 +13,7 @@ abstract class _Button extends Component
     public string $tooltip;
     public bool $newPage = false;
     public string $role = 'button';
+    public ?string $additional_class = null;
 
     public function __construct(
         public String $controller,
@@ -36,7 +37,10 @@ abstract class _Button extends Component
     {
         return function (array $data)
         {
-            $merged_attributes = $data['attributes']->merge(['class' => 'small']);
+            $merged_attributes = $data['attributes']->merge([
+                'class' => 'small ' . $this->additional_class
+            ]);
+
             $this->attributes->setAttributes([
                 'class' => $merged_attributes['class']
             ]);

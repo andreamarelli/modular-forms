@@ -39,6 +39,9 @@ window.ModularForms.Apps = window.ModularForms.Apps || {};
 import Base from './js/apps/Base.js';
 window.ModularForms.Apps.Base = Base;
 
+import FormList from './js/apps/FormList.js';
+window.ModularForms.Apps.FormList = FormList;
+
 import FormErrors from './js/apps/FormErrors.js';
 window.ModularForms.Apps.FormErrors = FormErrors;
 
