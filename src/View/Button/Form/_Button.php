@@ -18,10 +18,7 @@ abstract class _Button extends Component
     public function __construct(
         public String $controller,
         public Model|String $item
-    ) {
-        $this->controller = $controller;
-        $this->item = $item;
-    }
+    ) {}
 
     public function href(): string
     {

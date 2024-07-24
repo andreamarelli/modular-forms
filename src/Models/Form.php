@@ -163,11 +163,9 @@ class Form extends BaseModel
     public function delete(): void
     {
         foreach (static::allModules() as $module_class) {
-            $this->load($module_class);
-            $relation = $this->{$module_class}();
-            if ($relation instanceof HasMany) {
-                $this->{$module_class}()->delete();
-            }
+            $module_class
+                ::where($module_class::$foreign_key, $this->getKey())
+                ->delete();
         }
         parent::delete();
     }
