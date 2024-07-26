@@ -80,7 +80,7 @@ $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $l
 
 @push('scripts')
 
-    {{-- custom scirpts --}}
+    {{-- custom scripts --}}
     @hasSection('scripts')
         @yield('scripts')
 

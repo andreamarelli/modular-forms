@@ -5,11 +5,6 @@
 
 ?>
 
-<div id="module_{{ $definitions['module_key'] }}">
-
-</div>
-
-
 @push('scripts')
     <script type="module">
 
