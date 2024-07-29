@@ -49,6 +49,9 @@ if($value!==null){
         <label></label>
     </span>
 @elseif(\Illuminate\Support\Str::contains($type, 'checkbox-'))
+    @php
+        $value = gettype($value) === 'string' ? json_decode($value) : $value;
+    @endphp
     @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $item)
         <input type="checkbox" disabled="disabled"
             {{ in_array($item, $value) ? 'checked="checked"' : '' }}
@@ -113,7 +116,7 @@ if($value!==null){
 @elseif($only_label)
     {!! $value !!}
 
-@elseif($type==='numeric' || $type==='currency' || $type==='integer' || $type==='float' || $type==='code')
+@elseif($type==='numeric' || $type==='currency' || $type==='integer' || $type==='float')
     <div class="field-preview field-numeric">
         {!! $value !!}
     </div>
