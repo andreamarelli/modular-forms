@@ -264,13 +264,17 @@
     // components, injections & expose
     const dialogComponent = ref(null);
     const selectorComponent_AfterSearch = inject('afterSearch', null);
+    const selectorComponent_AfterLabelRetrieve = inject('AfterLabelRetrieve', null);
     const selectorComponent_SetLabel = inject('setLabel', null);
     const selectorComponent_SetValue = inject('setValue', null);
     const selectorComponent_beforeDialogClose = inject('beforeDialogClose', null);
     const selectorComponent_getSearchParams = inject('getSearchParams', null);
     const selectorComponent_confirmSelection = inject('confirmSelection', null);
     const selectorComponent_validateInsert = inject('validateInsert', null);
-
+    defineExpose({
+        filterShowList,
+        retrieveItemFromId
+    })
 
     // values/labels
     const inputValue = defineModel();
@@ -314,10 +318,6 @@
         insertedItem.value = props.withId ? {} : null;
     })
 
-    defineExpose({
-        filterShowList,
-        retrieveItemFromId
-    })
 
     // ###################################################
     // ###############  Methods - GENERAL  ###############
@@ -336,6 +336,10 @@
         })
             .then((response) => response.json())
             .then(function(data){
+                // Check if a custom "afterSearch" is defined in parent component
+                if(typeof selectorComponent_AfterLabelRetrieve === "function"){
+                    confirmedItem.value = selectorComponent_AfterLabelRetrieve(data.records);
+                }
                 confirmedItem.value = data.records;
             })
             .catch(function (error) {});
