@@ -1,4 +1,4 @@
 
-<div {{ $attributes->merge(['class' => 'accordion']) }} {{ $id ? 'id="' . $id . '"' : '' }}>
+<div {{ $attributes->merge(['class' => 'accordion']) }} {{ isset($id) ? 'id="' . $id . '"' : '' }}>
     {{ $slot }}
 </div>
