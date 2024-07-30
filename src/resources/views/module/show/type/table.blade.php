@@ -6,7 +6,7 @@
 $group_key = $group_key ?? null;
 
 if(\Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')){
-    $table_id = 'group_table_'.$definitions['module_key'].'_'.$group_key
+    $table_id = 'group_table_'.$definitions['module_key'].'_'.$group_key;
     $records = array_filter($records, function($item) use ($group_key, $definitions){
         return $item[$definitions['group_key_field']] === $group_key;
     });
