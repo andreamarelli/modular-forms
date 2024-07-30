@@ -7,7 +7,7 @@
 $group_key = $group_key ?? '';
 
 $accordion_id = \Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')
-    ? 'group_accordion_'.$definitions['module_key'].'_'.$group_key;
+    ? 'group_accordion_'.$definitions['module_key'].'_'.$group_key
     : 'accordion_'.$definitions['module_key'];
 
 ?>
