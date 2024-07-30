@@ -17,7 +17,7 @@ if(\Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')){
 ?>
 
 
-<x-modular-forms::accordion.container>
+<x-modular-forms::accordion.container :id="$accordion_id">
 
     @foreach($records as $index=>$record)
         <x-modular-forms::accordion.item class="show" :is-collapsible=false>
