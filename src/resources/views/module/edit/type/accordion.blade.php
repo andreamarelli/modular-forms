@@ -6,10 +6,14 @@
 
 $group_key = $group_key ?? '';
 
+$table_id = \Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')
+    ? 'group_accordion_'.$definitions['module_key'].'_'.$group_key;
+    : 'accordion_'.$definitions['module_key'];
+
 ?>
 
 
-<x-modular-forms::accordion.container>
+<x-modular-forms::accordion.container :id-key="$accordion_id">
 
     <template v-for="(item, index) in records">
 

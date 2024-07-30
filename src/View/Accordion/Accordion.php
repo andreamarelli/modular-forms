@@ -11,6 +11,7 @@ class Accordion extends Component
      * Create the component instance.
      */
     public function __construct(
+        public String|null $id = null,
     ){}
 
     /**

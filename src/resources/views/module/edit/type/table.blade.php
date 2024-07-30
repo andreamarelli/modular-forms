@@ -6,9 +6,13 @@
 
 $group_key = $group_key ?? 'hello';
 
+$table_id = \Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')
+    ? 'group_table_'.$definitions['module_key'].'_'.$group_key
+    : 'table_'.$definitions['module_key'];
+
 ?>
 
-<table class="table module-table">
+<table class="table module-table" id="{{ $table_id }}">
 
     {{-- labels  --}}
     <thead>
