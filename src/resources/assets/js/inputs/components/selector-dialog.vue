@@ -310,7 +310,7 @@
     const displayInsertObject = ref(false);
 
     onBeforeMount(() => {
-        if (window.ModularForms.Helpers.Common.isNumeric(inputValue.value) && props.withId){
+        if (!window.ModularForms.Helpers.Common.isEmpty(inputValue.value) && inputValue!==false && props.withId){
             retrieveItemFromId(inputValue.value)
         } else {
             confirmedItem.value = inputValue.value;

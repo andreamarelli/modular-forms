@@ -1,13 +1,21 @@
 export default {
 
+    isEmpty(value){
+        return value === ''
+           || value === '{}'
+           || value === {}
+            || value === '[]'
+           || value === []
+           || value === null;
+    },
+
     isNumeric(value) {
         if(typeof value === 'string'){
             value = value.replace(' ', '');
         }
-        return !(value === ''
-            && value === false
-            && value === null
-            && isNaN(value));
+        return !(this.isEmpty(value)
+            || value === false
+            || isNaN(value));
     },
 
     pretty_number(value, precision = 0){
