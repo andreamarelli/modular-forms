@@ -1,3 +1,4 @@
+@import "./sass/vendor/tailwind.scss";
 
 /* stylesheets */
 @import "./sass/abstracts/_all.scss";

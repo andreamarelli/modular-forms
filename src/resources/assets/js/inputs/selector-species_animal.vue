@@ -81,7 +81,7 @@
     // components, injections & expose
     const selectorDialogComponent = ref(null);
     provide('setLabel', setLabel);
-    provide('setValue', setValue);
+    provide('setSelectedValue', setSelectedValue);
     provide('afterSearch', afterSearch);
 
     // values
@@ -104,7 +104,7 @@
         return item;
     }
 
-    function setValue(item){
+    function setSelectedValue(item){
         if (typeof item == "object") {
             // return full taxonomy
             return item.phylum

@@ -271,9 +271,9 @@
     const selectorComponent_AfterLabelRetrieve = inject('AfterLabelRetrieve', null);
     const selectorComponent_SetLabel = inject('setLabel', null);
     const selectorComponent_SetValue = inject('setValue', null);
+    // const selectorComponent_setSelectedValue = inject('setSelectedValue', null);
     const selectorComponent_beforeDialogClose = inject('beforeDialogClose', null);
     const selectorComponent_getSearchParams = inject('getSearchParams', null);
-    const selectorComponent_confirmSelection = inject('confirmSelection', null);
     const selectorComponent_validateInsert = inject('validateInsert', null);
     defineExpose({
         filterShowList,
@@ -351,12 +351,42 @@
 
     function setLabel(){
         // Check if a custom "setLabel" is defined in parent component
-        if(typeof selectorComponent_SetLabel === "function"){
-            return selectorComponent_SetLabel(confirmedItem.value);
+        if(typeof selectorComponent_SetLabel === "function" && confirmedItem.value!==null){
+            if(props.multiple){
+                let labels = '';
+                (confirmedItem.value).forEach(function (item) {
+                    labels += '<span class="multiple">' + selectorComponent_SetLabel(item) + '</span>';
+                });
+                return labels;
+            } else {
+                return selectorComponent_SetLabel(confirmedItem.value);
+            }
         }
         return confirmedItem.value;
     }
 
+    /*
+        function setValue(){
+            console.log('setValue in parent', confirmedItem.value, inputValue.value);
+            // Check if a custom "setValue" is defined in parent component
+            if(typeof selectorComponent_SetValue === "function"){
+                if(props.multiple){
+                    let added_value = selectorComponent_SetValue(confirmedItem.value).toString();
+                    let values = JSON.parse(inputValue.value || []);
+                    values.push(added_value);
+                    values = JSON.stringify(values);
+                    inputValue.value = 'hello';
+                    console.log('json', values);
+                    console.log('inputValue.value',  inputValue.value);
+                } else {
+                    inputValue.value = selectorComponent_SetValue(confirmedItem.value);
+                }
+            } else {
+                inputValue.value = confirmedItem.value
+            }
+            console.log('value:', inputValue.value);
+        }
+    */
     function resetSelectorDialog(){
         resetSearchResult();
         resetError();
@@ -403,9 +433,22 @@
      * Apply new item and close
      */
     function applyAndClose(){
-        inputValue.value = typeof selectorComponent_SetValue === "function"
-            ? selectorComponent_SetValue(confirmedItem.value)
-            : confirmedItem.value
+
+        if(typeof selectorComponent_SetValue === "function"){
+            if(props.multiple){
+                let values = [];
+                (confirmedItem.value).forEach(function (item) {
+                    values.push(selectorComponent_SetValue(item).toString());
+                });
+                inputValue.value = JSON.stringify(values);
+
+            } else {
+                inputValue.value = selectorComponent_SetValue(confirmedItem.value);
+            }
+        } else {
+            inputValue.value = confirmedItem.value;
+        }
+
         closeSelectorDialog();
     }
 
@@ -481,12 +524,13 @@
     }
 
     function confirmSelection(){
-        confirmedItem.value = selectedItem.value;
-        if(typeof selectorComponent_confirmSelection === "function"){
-            selectorComponent_confirmSelection();
+        if(props.multiple){
+            confirmedItem.value = confirmedItem.value || [];
+            confirmedItem.value.push(selectedItem.value);
         } else {
-            applyAndClose();
+            confirmedItem.value = selectedItem.value;
         }
+        applyAndClose();
     }
 
 
