@@ -331,7 +331,7 @@
                 "X-CSRF-Token": window.Laravel.csrfToken,
             },
             body: JSON.stringify({
-                ids: value
+                id: value
             }),
         })
             .then((response) => response.json())
