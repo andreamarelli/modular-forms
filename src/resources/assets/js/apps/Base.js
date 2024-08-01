@@ -1,4 +1,4 @@
-import {createApp} from 'vue';
+import {createApp} from "vue";
 import tooltip from "../templates/tooltip.vue";
 import dialogBox from "../templates/dialog_box.vue";
 

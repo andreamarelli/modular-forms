@@ -1,4 +1,4 @@
-import I18n from '@vendor/conedevelopment/i18n/resources/js/I18n.js';
+import I18n from "@vendor/conedevelopment/i18n/resources/js/I18n.js";
 
 export default{
 

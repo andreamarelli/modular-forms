@@ -1,5 +1,5 @@
 // Import stylesheets
-import '@modular-forms/index.css';
+import "@modular-forms/index.css";
 
 // Global variables - make them accessible from modules and from blade views
 window.Laravel = window.Laravel || {};
@@ -36,13 +36,13 @@ window.ModularForms.Components.selectorDialog = selectorDialog;
 // ############################################
 window.ModularForms.Apps = window.ModularForms.Apps || {};
 
-import Base from './js/apps/Base.js';
+import Base from "./js/apps/Base.js";
 window.ModularForms.Apps.Base = Base;
 
-import FormList from './js/apps/FormList.js';
+import FormList from "./js/apps/FormList.js";
 window.ModularForms.Apps.FormList = FormList;
 
-import FormErrors from './js/apps/FormErrors.js';
+import FormErrors from "./js/apps/FormErrors.js";
 window.ModularForms.Apps.FormErrors = FormErrors;
 
 import Module from "./js/apps/Module.js";
@@ -52,9 +52,9 @@ window.ModularForms.Apps.Module = Module;
 // ##############  Local assets  ##############
 // ############################################
 
-window.ModularForms.assetPath = '/vendor/modular-forms/';
+window.ModularForms.assetPath = "/vendor/modular-forms/";
 
-import Accordion from './js/components/accordion.js';
+import Accordion from "./js/components/accordion.js";
 window.ModularForms.Accordion = Accordion;
 
 
@@ -64,10 +64,10 @@ window.ModularForms.Accordion = Accordion;
 
 // Fonts
 import.meta.glob([
-    './images/*.{png,jpg,jpeg,gif,svg}',
-    './fonts/*.{woff,woff2,ttf}',
-    '~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}'
+    "./images/*.{png,jpg,jpeg,gif,svg}",
+    "./fonts/*.{woff,woff2,ttf}",
+    "~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}"
 ]);
 
 // Flags
-import 'flag-icons'
+import "~/flag-icons"

@@ -11,7 +11,7 @@ import {
     getCurrentInstance,
     nextTick
 } from "vue";
-import {createPinia} from "pinia";
+import {createPinia} from "~/pinia";
 
 // Components
 import tooltip from "../templates/tooltip.vue";

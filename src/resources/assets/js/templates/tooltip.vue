@@ -31,8 +31,8 @@
 
 <script>
 
-import {ref, reactive, onMounted} from 'vue';
-import {computePosition, autoUpdate, flip, shift, offset, arrow} from '@floating-ui/dom';
+import {ref, reactive, onMounted} from "vue";
+import {computePosition, autoUpdate, flip, shift, offset, arrow} from "~/@floating-ui/dom";
 
 export default {
 

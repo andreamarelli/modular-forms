@@ -222,7 +222,7 @@
         ref,
         inject,
         onBeforeMount
-    } from 'vue';
+    } from "vue";
 
     const Locale = window.ModularForms.Helpers.Locale;
 
@@ -248,6 +248,10 @@
             default: false,
         },
         withId: {
+            type: Boolean,
+            default: false,
+        },
+        multiple: {
             type: Boolean,
             default: false,
         },
@@ -338,7 +342,7 @@
             .then(function(data){
                 // Check if a custom "afterSearch" is defined in parent component
                 if(typeof selectorComponent_AfterLabelRetrieve === "function"){
-                    confirmedItem.value = selectorComponent_AfterLabelRetrieve(data.records);
+                    selectorComponent_AfterLabelRetrieve(data.records);
                 }
                 confirmedItem.value = data.records;
             })

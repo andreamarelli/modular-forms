@@ -1,5 +1,5 @@
-import {createApp, ref, computed, watch, onBeforeMount, reactive, onMounted} from 'vue';
-import {createPinia} from "pinia";
+import {createApp, ref, computed, watch, onBeforeMount, reactive, onMounted} from "vue";
+import {createPinia} from "~/pinia";
 
 export default class FormErrors {
 

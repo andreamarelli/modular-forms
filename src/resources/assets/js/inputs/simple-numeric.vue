@@ -25,7 +25,7 @@
 <script setup>
 
     import {onMounted, ref, computed, onBeforeMount, watch} from "vue";
-    import AutoNumeric from "autonumeric";
+    import AutoNumeric from "~/autonumeric";
 
     const props = defineProps({
         id: {

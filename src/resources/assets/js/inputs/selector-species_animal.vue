@@ -58,8 +58,8 @@
 
 <script setup>
 
-    import {ref, provide} from 'vue';
-    import selectorDialog from './components/selector-dialog.vue';
+    import {ref, provide} from "vue";
+    import selectorDialog from "./components/selector-dialog.vue";
     import redlist_category from "../templates/redlist_category.vue";
     const Locale = window.ModularForms.Helpers.Locale;
 

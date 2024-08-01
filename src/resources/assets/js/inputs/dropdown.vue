@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import vSelect from 'vue-select';
+    import vSelect from "~/vue-select";
 
     export default {
         components: {
