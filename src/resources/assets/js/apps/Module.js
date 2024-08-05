@@ -57,7 +57,15 @@ export default class Module {
                 accordion_title_field: String,
                 empty_record: Object,
                 records: Object,
-                last_update: Object,
+                last_update: {
+                    type: Object,
+                    default: () => {
+                        return {
+                            user: null,
+                            date: null
+                        }
+                    }
+                },
                 action: String,
                 form_id: Number,
                 enable_not_applicable: Boolean,

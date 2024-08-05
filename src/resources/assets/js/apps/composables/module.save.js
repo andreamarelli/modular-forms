@@ -71,23 +71,23 @@ export function useSave(component_data) {
         })
             .then((response) => response.json())
             .then(function(data){
-
                 if (data.status === 'success') {
+
                     // On create redirect to edit view
                     if(form_id == null){
                         window.location.href = data.edit_url;
                     } else {
-
                         replaceRecords(data.records);
                         replaceRecordsBackup(data.records);
+                        component_data.last_update = component_data.last_update || {'date': null};
                         component_data.last_update.date = data.last_update.date;
-                        console.log(window.Laravel.FormErrors);
-                        window.Laravel.FormErrors.refreshErrors(data.form_errors);
-
+                        if(window.Laravel.FormErrors){
+                            console.log(window.Laravel.FormErrors);
+                            window.Laravel.FormErrors.refreshErrors(data.form_errors);
+                        }
                         // TODO: check if yet needed
                         // window.vueBus.$emit('module_saved', _this.module_key);
                         // window.vueBus.$emit('refresh_assessment');      // only for IMET
-
                         saveModuleDoneCallback(data);
                         nextTick().then(() => {
                             status.value = 'saved';
