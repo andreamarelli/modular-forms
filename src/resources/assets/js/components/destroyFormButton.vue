@@ -54,7 +54,6 @@ const props = defineProps({
 const destroyDialog = ref(null);
 
 function closeDestroyDialog() {
-    console.log('closeDestroyDialog');
     destroyDialog.value.closeDialog();
 }
 

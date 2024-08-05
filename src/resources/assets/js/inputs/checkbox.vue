@@ -57,7 +57,7 @@
     let list = ref([]);
 
     onBeforeMount(() => {
-        list = initializeOptions();
+        initializeOptions();
     });
 
     const isChecked = computed(() => {
@@ -65,17 +65,17 @@
     });
 
     function initializeOptions() {
-        let list = [];
-        if(!props.boolean || props.booleanNumeric) {
+        if(!props.boolean && !props.booleanNumeric) {
             let option_list = JSON.parse(props.dataValues);
             for(let key in option_list) {
                 if(key !== '_'&& key !== 'null' && option_list.hasOwnProperty(key)) {
-                    list.push({'label': option_list[key], 'value': key});
+                    list.value.push({
+                        'label': option_list[key],
+                        'value': key
+                    });
                 }
             }
-            list = sortList(list);
         }
-        return list;
     }
 
     function checkChange(optionValue){
@@ -84,7 +84,9 @@
         } else if(props.booleanNumeric){
             inputValue.value = inputValue.value===1 ? 0 : 1;
         } else {
-            let selected_list =  JSON.parse(inputValue.value)
+            let selected_list = window.ModularForms.Helpers.Common.isValidJSON(inputValue.value)
+                ? JSON.parse(inputValue.value)
+                : [];
             if(selected_list.includes(optionValue)){
                 selected_list = selected_list.filter(item => item !== optionValue);
             } else {
@@ -103,7 +105,9 @@
     }
 
     function isOptionChecked (value){
-        return JSON.parse(inputValue.value).includes(value);
+        return window.ModularForms.Helpers.Common.isValidJSON(inputValue.value)
+            ? JSON.parse(inputValue.value).includes(value)
+            : false;
     }
 
 </script>

@@ -23,6 +23,15 @@ export default {
         return isNaN(value)
             ? '-'
             : value.toLocaleString('fr-FR');  // french notation
+    },
+
+    isValidJSON(value){
+        try {
+            JSON.parse(value);
+        } catch (e) {
+            return false;
+        }
+        return true;
     }
 
 }

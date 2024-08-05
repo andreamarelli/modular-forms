@@ -82,7 +82,6 @@ export function useSave(component_data) {
                         component_data.last_update = component_data.last_update || {'date': null};
                         component_data.last_update.date = data.last_update.date;
                         if(window.Laravel.FormErrors){
-                            console.log(window.Laravel.FormErrors);
                             window.Laravel.FormErrors.refreshErrors(data.form_errors);
                         }
                         // TODO: check if yet needed
