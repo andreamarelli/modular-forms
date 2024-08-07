@@ -73,7 +73,7 @@
     });
 
     onBeforeMount(() => {
-        formattedValue.value = JSON.parse(JSON.stringify(inputValue.value));
+        format(inputValue.value);
     });
 
     onMounted(() => {
@@ -88,5 +88,17 @@
             ));
         }
     });
+
+    watch(inputValue, async (newValue, oldValue) => {
+        autoNumericObject.value.set(newValue);
+        format(newValue);
+    });
+
+    function format(value){
+        formattedValue.value = value
+            ? JSON.parse(JSON.stringify(value))
+            : null;
+    }
+
 
 </script>

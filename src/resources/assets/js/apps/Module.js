@@ -128,7 +128,8 @@ export default class Module {
                     form_id: unref(props.form_id),
                     module_key: unref(props.module_key),
                     action_url: props.action_url,
-                    refreshDataStatus: refreshDataStatus
+                    refreshDataStatus: refreshDataStatus,
+                    ensureAteLeastOneRecordPerGroup: ensureAteLeastOneRecordPerGroup
                 });
 
                 const {calculateAverage, sumColumn, sumColumnFloat} = useCalc({

@@ -47,12 +47,9 @@ export function useArrangeRecords(component_data) {
         if(module_type.includes('GROUP_')) {
             let used_groups = records.map(record => record[group_key_field]);
             let missing_groups = Object.keys(groups).filter(n => !used_groups.includes(n));
-
             missing_groups.forEach(group_key => {
                 addItem(group_key);
             });
-
-            console.log('ensureAteLeastOneRecordInGroup', Object.keys(groups), used_groups, missing_groups);
         }
     }
 

@@ -8,7 +8,7 @@
         <template v-slot:dialog-anchor>
             <div v-if="!multiple" class="field-preview" v-html="anchorLabel()"></div>
             <div v-else class="field-preview">
-                <span v-if="confirmedItem!=null"
+                <span v-if="!Common.isEmpty(confirmedItem)"
                       v-for="item in confirmedItem" class="multiple dontOpenDialog">
                     <span v-html="anchorMultipleLabel(item)"></span>
                     <i class="remove_item fa-solid fa-xmark" @click=removeItem(item)></i>
@@ -228,10 +228,12 @@
         computed,
         ref,
         inject,
-        onBeforeMount
+        onBeforeMount,
+        watch
     } from "vue";
 
     const Locale = window.ModularForms.Helpers.Locale;
+    const Common = window.ModularForms.Helpers.Common;
 
     const props = defineProps({
         parentId:  {
@@ -317,18 +319,27 @@
     const displayInsertObject = ref(false);
 
     onBeforeMount(() => {
-        if (!window.ModularForms.Helpers.Common.isEmpty(inputValue.value) && inputValue!==false && props.withId){
-            retrieveItemFromId(inputValue.value)
-        } else {
-            confirmedItem.value = inputValue.value;
-        }
+        setConfirmedItem(inputValue.value);
         insertedItem.value = props.withId ? {} : null;
     })
 
+    watch(inputValue, (newValue, oldValue) => {
+        if(oldValue!==newValue){
+            setConfirmedItem(newValue);
+        }
+    });
 
     // ###################################################
     // ###############  Methods - GENERAL  ###############
     // ###################################################
+
+    function setConfirmedItem(value){
+        if (!window.ModularForms.Helpers.Common.isEmpty(value) && value!==false && props.withId){
+            retrieveItemFromId(value)
+        } else {
+            confirmedItem.value = value;
+        }
+    }
 
     function retrieveItemFromId(value){
         fetch(props.labelUrl, {
@@ -402,9 +413,7 @@
         if(typeof selectorComponent_beforeDialogClose === "function"){
             selectorComponent_beforeDialogClose();
         }
-        // reset state
         resetSelectorDialog();
-        // close
         dialogComponent.value.closeDialog();
     }
 
