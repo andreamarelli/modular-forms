@@ -1,19 +1,24 @@
 <template>
 
-    <v-select
-        :taggable=taggable
-        :push-tags=taggable
-        :multiple=multiple
-        ref="selectElem"
-        v-model=selectedValue
-        @update:modelValue="onUpdateSelected"
-        :options=list
-    ></v-select>
+    <span>
 
-    <input type="hidden"
-           :id=id
-           v-model="inputValue"
-    />
+        <v-select
+            :taggable=taggable
+            :push-tags=taggable
+            :multiple=multiple
+            ref="selectElem"
+            v-model=selectedValue
+            @update:modelValue="onUpdateSelected"
+            :options=list
+        ></v-select>
+
+        <input type="hidden"
+               :id=id
+               v-model="inputValue"
+        />
+
+    </span>
+
 
 </template>
 
