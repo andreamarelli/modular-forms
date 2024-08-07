@@ -291,12 +291,6 @@
     const selectedItem = ref(null);
     const insertedItem = ref(null);
     const confirmedItem = ref(null);
-    let anchorLabel = computed(() => {
-        return setLabel();
-    });
-    // let anchorMultipleLabel = computed((item) => {
-    //     return setMultipleLabel(item);
-    // });
     const searchKey = ref('');
     const isSearching = ref(false);
     const searchResults = ref({});
@@ -358,7 +352,7 @@
             .catch(function (error) {});
     }
 
-    function setLabel(){
+    function anchorLabel(){
         // Check if a custom "SetLabel" is defined in parent component
         if(typeof selectorComponent_SetLabel === "function" && confirmedItem.value!==null){
             return props.withId
