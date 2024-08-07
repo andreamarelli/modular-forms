@@ -3,6 +3,7 @@ import {toRaw, unref} from "vue";
 export function useArrangeRecords(component_data) {
 
     const module_type = component_data.module_type;
+    const groups = component_data.groups;
     const group_key_field = component_data.group_key_field;
     const accordion_title_field = component_data.accordion_title_field;
     const records = unref(component_data.records);
@@ -42,6 +43,19 @@ export function useArrangeRecords(component_data) {
         return index;
     }
 
+    function ensureAteLeastOneRecordPerGroup(){
+        if(module_type.includes('GROUP_')) {
+            let used_groups = records.map(record => record[group_key_field]);
+            let missing_groups = Object.keys(groups).filter(n => !used_groups.includes(n));
+
+            missing_groups.forEach(group_key => {
+                addItem(group_key);
+            });
+
+            console.log('ensureAteLeastOneRecordInGroup', Object.keys(groups), used_groups, missing_groups);
+        }
+    }
+
     /**
      * Add a new item to the records list (inject group_key if necessary)
      */
@@ -77,6 +91,7 @@ export function useArrangeRecords(component_data) {
         accordionTitle,
         recordIsInGroup,
         numRecordsInGroup,
+        ensureAteLeastOneRecordPerGroup,
         addItem,
         deleteItem
     }

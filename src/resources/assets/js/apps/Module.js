@@ -92,8 +92,16 @@ export default class Module {
                 });
 
                 // import Composables
-                const {accordionTitle, recordIsInGroup, numRecordsInGroup, addItem, deleteItem} = useArrangeRecords({
+                const {
+                    accordionTitle,
+                    recordIsInGroup,
+                    numRecordsInGroup,
+                    ensureAteLeastOneRecordPerGroup,
+                    addItem,
+                    deleteItem
+                } = useArrangeRecords({
                     module_type: unref(props.module_type),
+                    groups: unref(props.groups),
                     group_key_field: unref(props.group_key_field),
                     accordion_title_field: unref(props.accordion_title_field),
                     records: unref(records),
@@ -130,6 +138,7 @@ export default class Module {
 
                 // Set initial status
                 refreshDataStatus();
+                ensureAteLeastOneRecordPerGroup();
 
                 // Watch for changes in records
                 watch(records, (value) => {
