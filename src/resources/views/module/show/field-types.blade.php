@@ -129,7 +129,7 @@ if($value!==null){
 @elseif(\Illuminate\Support\Str::contains($type, 'blade-'))
     @php
         /** @var string $type */
-        $view = str_replace('.fields.', '.fields_show.', $type);
+        $view = str_replace('.fields.', '.show.fields.', $type);
         $view = str_replace('blade-', '', $view);
     @endphp
 

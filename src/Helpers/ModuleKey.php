@@ -69,13 +69,9 @@ class ModuleKey
      */
     public static function KeyToView($module_key, $view_mode = null): ?string
     {
-        $path = $view_mode == ModuleViewModes::EDIT
-            ? 'modules'
-            : 'modules_show';
-
         // Standard view location
         $view = 'admin.' . $module_key;
-        $view = Str::replaceLast(self::separator, '.' . $path . '.', $view);
+        $view = Str::replaceLast(self::separator, '.' . $view_mode . '.modules.', $view);
         $view = str_replace(self::separator, '.', $view);
         if(view()->exists($view)){
             return $view;
