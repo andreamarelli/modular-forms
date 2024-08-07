@@ -30,14 +30,17 @@
     }
 
     .multiple{
-        background-color: #e5e7eb;
-        border: 1px solid rgba(60, 60, 60, 0.26);
+        @apply bg-gray-100 border border-gray-300 text-gray-800;
         border-radius: 4px;
-        color: #333;
         line-height: 1.4;
         padding: 1px 4px;
         margin: 0 5px 3px 0;
         display: inline-block;
+        .remove_item{
+            cursor: pointer;
+            margin-left: 5px;
+            @apply text-gray-500 font-bold text-red-500;
+        }
     }
 }
 

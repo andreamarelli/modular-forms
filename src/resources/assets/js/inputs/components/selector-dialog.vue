@@ -6,7 +6,14 @@
         <!-- ######################  anchor  ###################### -->
         <!-- ###################################################### -->
         <template v-slot:dialog-anchor>
-            <div class="field-preview" v-html="anchorLabel"></div>
+            <div v-if="!multiple" class="field-preview" v-html="anchorLabel"></div>
+            <div v-else class="field-preview">
+                <span v-if="confirmedItem!=null"
+                      v-for="item in confirmedItem" class="multiple dontOpenDialog">
+                    <span v-html="anchorMultipleLabel(item)"></span>
+                    <i class="remove_item fa-solid fa-xmark" @click=removeItem(item)></i>
+                </span>
+            </div>
         </template>
 
         <!-- ###################################################### -->
@@ -287,6 +294,9 @@
     let anchorLabel = computed(() => {
         return setLabel();
     });
+    // let anchorMultipleLabel = computed((item) => {
+    //     return setMultipleLabel(item);
+    // });
     const searchKey = ref('');
     const isSearching = ref(false);
     const searchResults = ref({});
@@ -349,22 +359,20 @@
     }
 
     function setLabel(){
-        // Check if a custom "setLabel" is defined in parent component
+        // Check if a custom "SetLabel" is defined in parent component
         if(typeof selectorComponent_SetLabel === "function" && confirmedItem.value!==null){
-            if(props.multiple) {
-                let labels = '';
-                (confirmedItem.value).forEach(function (item) {
-                    if(item!==null){}
-                    labels += '<span class="multiple">' + selectorComponent_SetLabel(item) + '</span>';
-                });
-                return labels;
-            } else if(props.withId){
-                return selectorComponent_SetLabel(confirmedItem.value[0]);
-            } else {
-                return selectorComponent_SetLabel(confirmedItem.value);
-            }
+            return props.withId
+                ? selectorComponent_SetLabel(confirmedItem.value[0])
+                : selectorComponent_SetLabel(confirmedItem.value);
         }
         return confirmedItem.value;
+    }
+
+    function anchorMultipleLabel(item) {
+        // Check if a custom "SetLabel" is defined in parent component
+        return typeof selectorComponent_SetLabel === "function"
+            ? selectorComponent_SetLabel(item)
+            : item;
     }
 
     function resetSelectorDialog(){
@@ -377,9 +385,6 @@
         displaySearch.value = true;
         selectedItem.value = null;
         insertedItem.value = props.withId ? {} : null;
-        // if(typeof this.selectorComponent.insertedItem !== "undefined"){
-        //     this.selectorComponent.insertedItem = this.insertedItem;
-        // }
     }
 
     function resetSearchResult(){
@@ -515,6 +520,13 @@
         applyAndClose();
     }
 
+    function removeItem(item){
+        let idx = confirmedItem.value.indexOf(item);
+        if(idx > -1){
+            confirmedItem.value.splice(idx, 1);
+        }
+        applyAndClose();
+    }
 
     // ####################################################
     // ################  Methods - insert  ################
