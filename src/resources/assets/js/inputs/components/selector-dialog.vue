@@ -6,7 +6,7 @@
         <!-- ######################  anchor  ###################### -->
         <!-- ###################################################### -->
         <template v-slot:dialog-anchor>
-            <div v-if="!multiple" class="field-preview" v-html="anchorLabel"></div>
+            <div v-if="!multiple" class="field-preview" v-html="anchorLabel()"></div>
             <div v-else class="field-preview">
                 <span v-if="confirmedItem!=null"
                       v-for="item in confirmedItem" class="multiple dontOpenDialog">

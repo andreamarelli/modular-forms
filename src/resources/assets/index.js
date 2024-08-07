@@ -52,22 +52,13 @@ window.ModularForms.Apps.Module = Module;
 // ##############  Local assets  ##############
 // ############################################
 
-window.ModularForms.assetPath = "/vendor/modular-forms/";
-
 import Accordion from "./js/components/accordion.js";
 window.ModularForms.Accordion = Accordion;
 
 
 // #############################################
-// ##############  Images / SVGs  ##############
+// ##############  Static assets  ##############
 // #############################################
-
-// Fonts
-import.meta.glob([
-    "./images/*.{png,jpg,jpeg,gif,svg}",
-    "./fonts/*.{woff,woff2,ttf}",
-    "~/@fortawesome/fontawesome-free/webfonts/*.{woff2,ttf}"
-]);
 
 // Flags
 import "~/flag-icons"
