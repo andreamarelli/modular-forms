@@ -40,7 +40,9 @@ import {useCalc} from "./composables/module.calc.js";
 
 export default class Module {
 
-    constructor(input_data = {}) {
+    constructor(input_data = {}, custom_props = {}) {
+
+        let _this = this;
 
         const options = {
 
@@ -70,167 +72,12 @@ export default class Module {
                 form_id: Number,
                 enable_not_applicable: Boolean,
                 warning_on_save: String,
-                action_url: String
+                action_url: String,
+                ...custom_props
             },
 
-            setup(props, context) {
-
-                const moduleContainer = document.querySelector('#module_' + props.module_key);
-
-                // Define ref/reactive and local variables
-                let records = reactive(props.records);
-                let records_backup = JSON.parse(JSON.stringify(toRaw(records)));
-                let status = ref('init'); // "init" state avoid watch() on records during initialization
-                let empty_record = props.empty_record;
-                let last_update = props.last_update;
-
-                // Inject common fields values into empty record
-                Object.keys(empty_record).forEach(function (key) {
-                    if(props.common_fields.map((f => f['name'])).includes(key)) {
-                        empty_record[key] = records[0][key];
-                    }
-                });
-
-                // import Composables
-                const {
-                    accordionTitle,
-                    recordIsInGroup,
-                    numRecordsInGroup,
-                    ensureAteLeastOneRecordPerGroup,
-                    addItem,
-                    deleteItem
-                } = useArrangeRecords({
-                    module_type: unref(props.module_type),
-                    groups: unref(props.groups),
-                    group_key_field: unref(props.group_key_field),
-                    accordion_title_field: unref(props.accordion_title_field),
-                    records: unref(records),
-                    empty_record: unref(empty_record)
-                });
-                const {refreshDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus} = useDataStatus({
-                    enable_not_applicable: props.enable_not_applicable,
-                    empty_record: empty_record,
-                    records: records
-                });
-                const {
-                    resetModule,
-                    saveModule,
-                    error_messages,
-                    resetModuleCallback,
-                    saveModuleDoneCallback,
-                    saveModuleFailCallback,
-                    saveModuleAlwaysCallback
-                } = useSave({
-                    records: records,
-                    records_backup: records_backup,
-                    status: status,
-                    last_update: last_update,
-                    form_id: unref(props.form_id),
-                    module_key: unref(props.module_key),
-                    action_url: props.action_url,
-                    refreshDataStatus: refreshDataStatus,
-                    ensureAteLeastOneRecordPerGroup: ensureAteLeastOneRecordPerGroup
-                });
-
-                const {calculateAverage, sumColumn, sumColumnFloat} = useCalc({
-                    records: records,
-                    group_key_field: unref(props.group_key_field)
-                });
-
-                // Set initial status
-                refreshDataStatus();
-                ensureAteLeastOneRecordPerGroup();
-
-                // Watch for changes in records
-                watch(records, (value) => {
-                    recordChangedCallback();
-                    syncCommonFields(value);
-                    if (status.value !== 'init') {
-                        status.value = status.value !== 'changed' ? 'changed' : status.value;
-                    }
-                });
-
-                onMounted(() => {
-                    setPredefinedAsDisabled();
-                    mountedCallback();
-                    status.value = 'idle';
-                });
-
-                // #################################################
-                // ##################   Methods   ##################
-                // #################################################
-
-                /**
-                 * Set predefined fields as disabled
-                 */
-                function setPredefinedAsDisabled(){
-                    records.forEach((record, i) => {
-                        if (typeof record.__predefined !== 'undefined' && record.__predefined === true) {
-                            let input = moduleContainer.querySelector("[id$=_" + i + "_" + props.predefined_values['field'] + "]");
-                            input.setAttribute('readonly', 'readonly');
-                            input.classList.add('field-disabled');
-                        }
-                    });
-                }
-
-                /**
-                 * Synchronize common fields on record change
-                 */
-                function syncCommonFields(){
-                    props.common_fields.forEach((field) => {
-                        let value = records[0][field['name']];
-                        records.forEach(function (item, index) {
-                            records[index][field['name']] = value;
-                        });
-                    });
-                }
-
-                function toggleNotApplicable(){
-                    toggleDataStatus('not_applicable');
-                }
-
-                function toggleNotAvailable(){
-                    toggleDataStatus('not_available');
-                }
-
-                // Allows additional executions by child components
-                function recordChangedCallback(){}
-                function mountedCallback(){}
-
-
-                return {
-                    status,
-                    records,
-                    last_update,
-                    error_messages,
-
-                    // objects from or related to composables
-                    isNotApplicable,
-                    isNotAvailable,
-                    toggleNotAvailable,
-                    toggleNotApplicable,
-                    saveModule,
-                    resetModule,
-                    recordIsInGroup,
-                    numRecordsInGroup,
-                    accordionTitle,
-                    addItem,
-                    deleteItem,
-                    calculateAverage,
-                    sumColumn,
-                    sumColumnFloat,
-
-                    // TODO: review
-                    recordChangedCallback,
-                    mountedCallback,
-                    resetModuleCallback,
-                    saveModuleDoneCallback,
-                    saveModuleFailCallback,
-                    saveModuleAlwaysCallback,
-
-                    // TODO: remove
-                    records_backup
-                }
+            setup(props, context){
+                return _this.setupApp(props, input_data);
             }
         };
 
@@ -238,12 +85,169 @@ export default class Module {
         return this.createApp(options, input_data);
     }
 
-    /**
-     * Create the app
-     * @param options
-     * @param input_data
-     * @returns {*}
-     */
+    setupApp(props, input_data) {
+
+        const moduleContainer = document.querySelector('#module_' + props.module_key);
+
+        // Define ref/reactive and local variables
+        let records = reactive(props.records);
+        let records_backup = JSON.parse(JSON.stringify(toRaw(records)));
+        let status = ref('init'); // "init" state avoid watch() on records during initialization
+        let empty_record = props.empty_record;
+        let last_update = props.last_update;
+
+        // Inject common fields values into empty record
+        Object.keys(empty_record).forEach(function (key) {
+            if (props.common_fields.map((f => f['name'])).includes(key)) {
+                empty_record[key] = records[0][key];
+            }
+        });
+
+        // import Composables
+        const {
+            accordionTitle,
+            recordIsInGroup,
+            numRecordsInGroup,
+            ensureAteLeastOneRecordPerGroup,
+            addItem,
+            deleteItem
+        } = useArrangeRecords({
+            module_type: unref(props.module_type),
+            groups: unref(props.groups),
+            group_key_field: unref(props.group_key_field),
+            accordion_title_field: unref(props.accordion_title_field),
+            records: unref(records),
+            empty_record: unref(empty_record)
+        });
+        const {refreshDataStatus, isNotApplicable, isNotAvailable, toggleDataStatus} = useDataStatus({
+            enable_not_applicable: props.enable_not_applicable,
+            empty_record: empty_record,
+            records: records
+        });
+        const {
+            resetModule,
+            saveModule,
+            error_messages,
+            resetModuleCallback,
+            saveModuleDoneCallback,
+            saveModuleFailCallback,
+            saveModuleAlwaysCallback
+        } = useSave({
+            records: records,
+            records_backup: records_backup,
+            status: status,
+            last_update: last_update,
+            form_id: unref(props.form_id),
+            module_key: unref(props.module_key),
+            action_url: props.action_url,
+            refreshDataStatus: refreshDataStatus,
+            ensureAteLeastOneRecordPerGroup: ensureAteLeastOneRecordPerGroup
+        });
+
+        const {calculateAverage, sumColumn, sumColumnFloat} = useCalc({
+            records: records,
+            group_key_field: unref(props.group_key_field)
+        });
+
+        // Set initial status
+        refreshDataStatus();
+        ensureAteLeastOneRecordPerGroup();
+
+        // Watch for changes in records
+        watch(records, (value) => {
+            recordChangedCallback();
+            syncCommonFields(value);
+            if (status.value !== 'init') {
+                status.value = status.value !== 'changed' ? 'changed' : status.value;
+            }
+        });
+
+        onMounted(() => {
+            setPredefinedAsDisabled();
+            mountedCallback();
+            status.value = 'idle';
+        });
+
+        // #################################################
+        // ##################   Methods   ##################
+        // #################################################
+
+        /**
+         * Set predefined fields as disabled
+         */
+        function setPredefinedAsDisabled() {
+            records.forEach((record, i) => {
+                if (typeof record.__predefined !== 'undefined' && record.__predefined === true) {
+                    let input = moduleContainer.querySelector("[id$=_" + i + "_" + props.predefined_values['field'] + "]");
+                    input.setAttribute('readonly', 'readonly');
+                    input.classList.add('field-disabled');
+                }
+            });
+        }
+
+        /**
+         * Synchronize common fields on record change
+         */
+        function syncCommonFields() {
+            props.common_fields.forEach((field) => {
+                let value = records[0][field['name']];
+                records.forEach(function (item, index) {
+                    records[index][field['name']] = value;
+                });
+            });
+        }
+
+        function toggleNotApplicable() {
+            toggleDataStatus('not_applicable');
+        }
+
+        function toggleNotAvailable() {
+            toggleDataStatus('not_available');
+        }
+
+        // Allows additional executions by child components
+        function recordChangedCallback() {
+        }
+
+        function mountedCallback() {
+        }
+
+
+        return {
+            status,
+            records,
+            last_update,
+            error_messages,
+
+            // objects from or related to composables
+            isNotApplicable,
+            isNotAvailable,
+            toggleNotAvailable,
+            toggleNotApplicable,
+            saveModule,
+            resetModule,
+            recordIsInGroup,
+            numRecordsInGroup,
+            accordionTitle,
+            addItem,
+            deleteItem,
+            calculateAverage,
+            sumColumn,
+            sumColumnFloat,
+
+            // TODO: review
+            recordChangedCallback,
+            mountedCallback,
+            resetModuleCallback,
+            saveModuleDoneCallback,
+            saveModuleFailCallback,
+            saveModuleAlwaysCallback,
+
+            // TODO: remove
+            records_backup
+        }
+    }
+
     createApp(options, input_data) {
 
         return createApp(options, input_data)
@@ -270,6 +274,5 @@ export default class Module {
             // use Pinia
             .use(createPinia());
     }
-
 
 }

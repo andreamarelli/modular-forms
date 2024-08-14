@@ -39,6 +39,15 @@
 
     onBeforeMount(() => {
         list = initializeOptions();
+
+        // if value is numeric force to boolean
+        if(list.map((item) => item.value).includes('true') || list.map((item) => item.value).includes(true)) {
+            if (inputValue.value === '0' || inputValue.value === 0){
+                inputValue.value = false;
+            } else if (inputValue.value === '1' || inputValue.value === 1){
+                inputValue.value = true;
+            }
+        }
     });
 
     function initializeOptions() {

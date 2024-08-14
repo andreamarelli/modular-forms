@@ -86,7 +86,7 @@ class Module
                     $value = ' value="'.$average_value.'"';
                 }
                 $textToAdd .= '<td class="text-center">
-                                  <input type="text" disabled="disabled" '.$value.' ' . $v_model . ' class="field-disabled input-number field-edit text-center"/>
+                                  <input type="text" disabled="disabled" '.$value.' ' . $v_model . ' class="field-disabled field-numeric field-edit text-center"/>
                                </td>';
             } else {
                 $textToAdd .= '<td></td>';

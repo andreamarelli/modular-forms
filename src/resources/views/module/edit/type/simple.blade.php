@@ -3,8 +3,7 @@
 /** @var Mixed $definitions */
 /** @var Mixed $vueData */
 
-$vue_record_index = $definitions['module_type']==="ACCORDION" || $definitions['module_type']==="GROUP_ACCORDION"
-    ? 'index' : '0';
+$vue_record_index = \Illuminate\Support\Str::contains($definitions['module_type'], 'ACCORDION') ? 'index' : '0';
 
 ?>
 
