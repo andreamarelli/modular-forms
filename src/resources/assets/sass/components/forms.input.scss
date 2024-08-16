@@ -176,11 +176,7 @@
             @apply text-white;
         }
         &:disabled + label {
-            opacity: 0.65;
-        }
-        &:disabled + label::before {
-            @apply bg-white;
-            cursor: not-allowed;
+            opacity: 0.75;
         }
     }
 }

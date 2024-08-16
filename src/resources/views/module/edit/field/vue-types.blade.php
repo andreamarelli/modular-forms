@@ -29,14 +29,6 @@ $other_attributes = $other ?? '';
         /** @var string $type */
         $component_view = Str::replaceFirst('blade-', '', $type);
         $component_view = Str::replaceFirst('.fields.', '.edit.fields.', $component_view);
-//        if(Str::contains($component_view, '::')){
-//            $package = substr($component_view, 0, strpos($component_view, "::") + 2);
-//            $path = explode('-', str_replace($package, '', $component_view))[0];
-//
-//            $component_view = $package . $path;
-//        } else {
-//            $component_view = explode('-', $component_view)[0];
-//        }
     @endphp
 
     @include($component_view, [

@@ -3,16 +3,19 @@
 /** @var String $value */
 /** @var bool $only_label */
 
+use AndreaMarelli\ModularForms\Helpers\Input\SelectionList;
+use AndreaMarelli\ModularForms\Helpers\Type\JSON;
+
 $value = $value==='' ? null : $value;
 $only_label = $only_label ?? false;
 
 
 if($value!==null){
     if(preg_match('/dropdown-[\w]*/', $type)>0){
-        $value = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getLabel($type, $value);
+        $value = SelectionList::getLabel($type, $value);
     }
     elseif(preg_match('/suggestion[-_]{1}[\w]*/', $type)>0){
-        $label = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getLabel($type, $value);
+        $label = SelectionList::getLabel($type, $value);
         $value = $label!==null ? $label : $value;
     }
     elseif(preg_match('/[\w]*-yes_no/', $type)>0){
@@ -43,24 +46,29 @@ if($value!==null){
         @endif
     </div>
 
-@elseif(\Illuminate\Support\Str::contains($type, 'checkbox-boolean'))
-    <span class="checkbox">
-        <input type="checkbox"  disabled="disabled" {{ $value ? 'checked="checked"' : '' }}>
-        <label></label>
-    </span>
-@elseif(\Illuminate\Support\Str::contains($type, 'checkbox-'))
+@elseif(\Illuminate\Support\Str::contains($type, 'checkbox'))
     @php
-        $value = gettype($value) === 'string' ? json_decode($value) : $value;
+        $value = gettype($value) === 'string' && JSON::isJson($value) ? json_decode($value) : $value;
+        $value
     @endphp
-    @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $item)
-        <input type="checkbox" disabled="disabled"
-            {{ in_array($item, $value) ? 'checked="checked"' : '' }}
-        /> {{ $item }}<br />
-    @endforeach
+
+    @if(gettype($value) === 'array')
+        <span class="checkbox list inline">
+            @foreach(SelectionList::getList($type) as $item)
+                <input type="checkbox" disabled="disabled"  {{ in_array($item, $value) ? 'checked="checked"' : '' }}>
+                <label></label>{{ $item }}
+            @endforeach
+        </span>
+    @else
+        <span class="checkbox">
+            <input type="checkbox" disabled="disabled"  {{ $value ? 'checked="checked"' : '' }}>
+            <label></label>
+        </span>
+    @endif
 
 @elseif(\Illuminate\Support\Str::contains($type, 'toggle-'))
     <span class="toggle disabled">
-         @foreach(\AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getList($type) as $k=>$v)
+         @foreach(SelectionList::getList($type) as $k=>$v)
             @if((string) $v !== '')
                 <div class="{{ (string) $k === (string)$value ? 'active' : '' }}">
                     {{ $v }}
@@ -77,12 +85,6 @@ if($value!==null){
             </a>
         @endif
     </div>
-@elseif(\Illuminate\Support\Str::contains($type, 'boolean-') || \Illuminate\Support\Str::contains($type, 'boolean_numeric-'))
-
-    <span class="checkbox">
-        <input type="checkbox" {{ $value==1 ? 'checked=checked' : '' }} />
-        <label></label>
-    </span>
 
 @elseif(\Illuminate\Support\Str::contains($type, "rating-"))
     @php
