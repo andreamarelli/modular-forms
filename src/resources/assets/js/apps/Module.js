@@ -179,8 +179,10 @@ export default class Module {
             records.forEach((record, i) => {
                 if (typeof record.__predefined !== 'undefined' && record.__predefined === true) {
                     let input = moduleContainer.querySelector("[id$=_" + i + "_" + props.predefined_values['field'] + "]");
-                    input.setAttribute('readonly', 'readonly');
-                    input.classList.add('field-disabled');
+                    if(input){
+                        input.setAttribute('readonly', 'readonly');
+                        input.classList.add('field-disabled');
+                    }
                 }
             });
         }

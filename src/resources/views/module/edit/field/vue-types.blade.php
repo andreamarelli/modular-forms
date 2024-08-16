@@ -8,20 +8,22 @@
 
 /** @var String $module_key [optional] */
 
-use \Illuminate\Support\Str;
+use AndreaMarelli\ModularForms\Helpers\DOM;
+use AndreaMarelli\ModularForms\Helpers\Input\SelectionList;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 $id = $id ?? '';
 $class = $class ?? '';
 $rules = $rules ?? '';
 $other = $other ?? '';
 
-$vue_attributes = \AndreaMarelli\ModularForms\Helpers\DOM::vueAttributes($id, $v_value);
+$vue_attributes = DOM::vueAttributes($id, $v_value);
 $class_attribute = $class;
-$rules_attribute = \AndreaMarelli\ModularForms\Helpers\DOM::rulesAttribute($rules);
+$rules_attribute = DOM::rulesAttribute($rules);
 $other_attributes = $other ?? '';
 
 ?>
-
 
 {{--  ######  Use given blade template  ###### --}}
 @if(Str::contains($type, "blade-")>0)
@@ -106,10 +108,10 @@ $other_attributes = $other ?? '';
    || substr_count($type, "currency-unit")>0
    || substr_count($type, "checkbox")>0)
 
-        <?php
-        $list_type = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::getListType($type);
-        $cached_list = \AndreaMarelli\ModularForms\Helpers\Input\SelectionList::CacheListInSession($list_type);
-        ?>
+    @php
+        $list_type = SelectionList::getListType($type);
+        $cached_list = SelectionList::CacheListInSession($list_type);
+    @endphp
 
     {{-- ## dropdowns ## --}}
     @if(substr_count($type, "dropdown-")>0
@@ -148,10 +150,10 @@ $other_attributes = $other ?? '';
         {{-- ## checkbox ## --}}
     @elseif(substr_count($type, "checkbox-")>0)
         <checkbox
-            @if($type==="checkbox-boolean")
-                :boolean=true
-            @elseif($type==="checkbox-boolean_numeric")
+            @if(Str::contains($type, 'boolean_numeric') || (Str::contains($type, 'boolean') && DB::connection()->getDriverName()==='sqlite'))
                 :boolean-numeric=true
+            @elseif(Str::contains($type, 'boolean'))
+                :boolean=true
             @else
                 data-values='@json($cached_list)'
             @endif
