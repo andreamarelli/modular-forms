@@ -259,7 +259,7 @@ nav.steps{
             thead tr th,
             tbody tr td{
                 border: 0;
-                @apply border-b border-gray-300;
+                @apply border-b border-solid  border-gray-300;
             }
             tr.module-table-item td{
                 text-align: center;
