@@ -35,9 +35,10 @@ class Form extends BaseModel
         $modules = static::modules();
         if(array_is_list($modules)){
             return $modules;    // there are no steps: ignore $step and return all modules
-        } else {
+        } elseif(array_key_exists($step, $modules)){
             return $modules[$step];
         }
+        return [];
     }
 
     /**
