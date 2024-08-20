@@ -45,10 +45,10 @@ export function useSave(component_data) {
     function resetModule(){
         replaceRecords(component_data.records_backup);
         refreshDataStatus();
-        resetModuleCallback();
         ensureAteLeastOneRecordPerGroup();
         nextTick().then(() => {
             status.value = 'idle';
+            component_data.emitter.emit('moduleReset', { module_key: module_key });
         });
     }
 
@@ -86,12 +86,9 @@ export function useSave(component_data) {
                         if(window.Laravel.FormErrors){
                             window.Laravel.FormErrors.refreshErrors(data.form_errors);
                         }
-                        // TODO: check if yet needed
-                        // window.vueBus.$emit('module_saved', _this.module_key);
-                        // window.vueBus.$emit('refresh_assessment');      // only for IMET
-                        saveModuleDoneCallback(data);
                         nextTick().then(() => {
                             status.value = 'saved';
+                            component_data.emitter.emit('moduleSaved', { module_key: module_key });
                         });
                     }
                 } else if(data.status === 'validation_error') {
@@ -101,8 +98,7 @@ export function useSave(component_data) {
             })
             .catch(function (error) {
                 setErrorStatus(error);
-                saveModuleFailCallback(error);
-                saveModuleAlwaysCallback(error);
+                component_data.emitter.emit('moduleFail', { module_key: module_key, error: error });
             });
     }
 
@@ -120,21 +116,9 @@ export function useSave(component_data) {
         }
     }
 
-
-    // Allows additional executions by child components
-    function resetModuleCallback(){}
-    function saveModuleDoneCallback(response){}
-    function saveModuleFailCallback(response){}
-    function saveModuleAlwaysCallback(response){}
-
-
     return{
         resetModule,
         saveModule,
-        error_messages,
-        resetModuleCallback,
-        saveModuleDoneCallback,
-        saveModuleFailCallback,
-        saveModuleAlwaysCallback
+        error_messages
     }
 }

@@ -12,6 +12,7 @@ import {
     nextTick
 } from "vue";
 import {createPinia} from "~/pinia";
+import mitt from "mitt";
 
 // Components
 import tooltip from "../templates/tooltip.vue";
@@ -88,6 +89,7 @@ export default class Module {
     setupApp(props, input_data) {
 
         const moduleContainer = document.querySelector('#module_' + props.module_key);
+        const emitter = mitt()
 
         // Define ref/reactive and local variables
         let records = reactive(props.records);
@@ -128,10 +130,6 @@ export default class Module {
             resetModule,
             saveModule,
             error_messages,
-            resetModuleCallback,
-            saveModuleDoneCallback,
-            saveModuleFailCallback,
-            saveModuleAlwaysCallback
         } = useSave({
             records: records,
             records_backup: records_backup,
@@ -141,7 +139,8 @@ export default class Module {
             module_key: unref(props.module_key),
             action_url: props.action_url,
             refreshDataStatus: refreshDataStatus,
-            ensureAteLeastOneRecordPerGroup: ensureAteLeastOneRecordPerGroup
+            ensureAteLeastOneRecordPerGroup: ensureAteLeastOneRecordPerGroup,
+            emitter: emitter
         });
 
         const {calculateAverage, sumColumn, sumColumnFloat} = useCalc({
@@ -155,17 +154,17 @@ export default class Module {
 
         // Watch for changes in records
         watch(records, (value) => {
-            recordChangedCallback();
             syncCommonFields(value);
-            if (status.value !== 'init') {
-                status.value = status.value !== 'changed' ? 'changed' : status.value;
+            if (status.value !== 'init' && status.value !== 'changed'){
+                status.value = 'changed';
+                emitter.emit('moduleChanged', { module_key: props.module_key, records: value });
             }
         });
 
         onMounted(() => {
             setPredefinedAsDisabled();
-            mountedCallback();
             status.value = 'idle';
+            emitter.emit('moduleMounted', { module_key: props.module_key });
         });
 
         // #################################################
@@ -207,19 +206,12 @@ export default class Module {
             toggleDataStatus('not_available');
         }
 
-        // Allows additional executions by child components
-        function recordChangedCallback() {
-        }
-
-        function mountedCallback() {
-        }
-
-
         return {
             status,
             records,
             last_update,
             error_messages,
+            emitter,
 
             // objects from or related to composables
             isNotApplicable,
@@ -236,14 +228,6 @@ export default class Module {
             calculateAverage,
             sumColumn,
             sumColumnFloat,
-
-            // TODO: review
-            recordChangedCallback,
-            mountedCallback,
-            resetModuleCallback,
-            saveModuleDoneCallback,
-            saveModuleFailCallback,
-            saveModuleAlwaysCallback,
 
             // TODO: remove
             records_backup
