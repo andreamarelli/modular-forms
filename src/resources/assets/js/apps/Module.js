@@ -1,17 +1,4 @@
-import {
-    createApp,
-    ref,
-    unref,
-    computed,
-    onMounted,
-    toRaw,
-    watch,
-    reactive,
-    onBeforeMount,
-    getCurrentInstance,
-    nextTick
-} from "vue";
-import {createPinia} from "~/pinia";
+import {createApp, ref, unref, onMounted, toRaw, watch, reactive} from "vue";
 import mitt from "mitt";
 
 // Components
@@ -255,10 +242,7 @@ export default class Module {
             .component('checkbox', checkbox)
             .component('selector-species_animal', selectorSpeciesAnimal)
             .component('upload', uploadFile)
-            .component('textEditor', textEditor)
-
-            // use Pinia
-            .use(createPinia());
+            .component('textEditor', textEditor);
     }
 
 }
