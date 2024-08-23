@@ -9,7 +9,7 @@
             ref="selectElem"
             v-model=selectedValue
             @update:modelValue="onUpdateSelected"
-            :options=list
+            :options=optionList
         ></v-select>
 
         <input type="hidden"
@@ -34,10 +34,10 @@
 
 <script setup>
 
-import {onBeforeMount, onMounted, ref, watch} from "vue";
-    import {useList} from "./composables/list.js";
+    import {onBeforeMount, onMounted, ref, watch, computed} from "vue";
+    import { useList } from "./composables/list.js";
 
-    const {sortList} = useList({});
+    const { sortList } = useList({});
 
     const props = defineProps({
         id: {
@@ -61,14 +61,15 @@ import {onBeforeMount, onMounted, ref, watch} from "vue";
     const inputValue = defineModel();
     let selectedValue = defineModel('selectedValue', );
     const selectElem = ref(null);
-    let list = ref([]);
+    const optionList = computed(() => {
+        return buildOptionList();
+    });
 
     watch(inputValue, (value) => {
         onUpdateInput();
     });
 
     onBeforeMount(() => {
-        list = initializeOptions();
         selectedValue.value = refreshSelectValue();
     });
 
@@ -89,9 +90,9 @@ import {onBeforeMount, onMounted, ref, watch} from "vue";
     });
 
     /**
-     * Initialize the options list
+     * Build the options list
      */
-    function initializeOptions() {
+    function buildOptionList() {
         let option_list = JSON.parse(props.dataValues);
         let list = [];
         for(let key in option_list) {

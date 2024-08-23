@@ -55,7 +55,7 @@ export function useSave(component_data) {
     function saveModule(){
 
         let data = {
-            records_json: window.ModularForms.Helpers.Payload.encode(records),
+            records_json: window.ModularForms.Helpers.Payload.encode(Object.values(records)),
             form_id: form_id,
             module_key: module_key,
         };
@@ -81,6 +81,8 @@ export function useSave(component_data) {
                     } else {
                         replaceRecords(data.records);
                         replaceRecordsBackup(data.records);
+                        refreshDataStatus();
+                        ensureAteLeastOneRecordPerGroup();
                         component_data.last_update = component_data.last_update || {'date': null};
                         component_data.last_update.date = data.last_update.date;
                         if(window.Laravel.FormErrors){

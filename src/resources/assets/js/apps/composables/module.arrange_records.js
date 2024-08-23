@@ -17,6 +17,7 @@ export function useArrangeRecords(component_data) {
     }
 
     function recordIsInGroup(record, group_key) {
+        if(!record) return false;
         if(module_type.includes('GROUP_')){
             return record[group_key_field] === group_key;
         }
