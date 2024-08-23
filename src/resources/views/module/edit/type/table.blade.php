@@ -4,7 +4,7 @@
 /** @var Mixed $vueData */
 /** @var String $group_key (optional - only for GROUP_TABLE) */
 
-$group_key = $group_key ?? 'hello';
+$group_key = $group_key ?? '';
 
 $table_id = \Illuminate\Support\Str::contains($definitions['module_type'], 'GROUP_')
     ? 'group_table_'.$definitions['module_key'].'_'.$group_key

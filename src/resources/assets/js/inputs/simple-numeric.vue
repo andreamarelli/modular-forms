@@ -95,7 +95,7 @@
     });
 
     function format(value){
-        formattedValue.value = value
+        formattedValue.value = value!==null
             ? JSON.parse(JSON.stringify(value))
             : null;
     }

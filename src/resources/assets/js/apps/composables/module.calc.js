@@ -3,10 +3,11 @@ import {unref} from "vue";
 export function useCalc(component_data) {
 
     const records = unref(component_data.records);
+    const groups = component_data.groups;
     const group_key_field = component_data.group_key_field;
 
     /**
-     * Calculate the simple average of a field
+     * Calculate the simple average of a field (by group if provided)
      */
     function calculateAverage(field, group = null) {
         let sum = 0;
@@ -25,6 +26,17 @@ export function useCalc(component_data) {
         return count > 0
             ? (sum / count).toFixed(2)
             : 0;
+    }
+
+    /**
+     * Calculate the average of a field for each group
+     */
+    function calculateGroupsAverages(field) {
+        let averages = [];
+        Object.keys(groups).forEach(function(group){
+            averages[group] = calculateAverage(field, group);
+        });
+        return averages;
     }
 
     /**
@@ -81,6 +93,7 @@ export function useCalc(component_data) {
 
     return{
         calculateAverage,
+        calculateGroupsAverages,
         sumColumn,
         sumColumnFloat
     }

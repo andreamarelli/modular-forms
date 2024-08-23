@@ -130,8 +130,9 @@ export default class Module {
             emitter: emitter
         });
 
-        const {calculateAverage, sumColumn, sumColumnFloat} = useCalc({
+        const {calculateAverage, calculateGroupsAverages, sumColumn, sumColumnFloat} = useCalc({
             records: records,
+            groups: unref(props.groups),
             group_key_field: unref(props.group_key_field)
         });
 
@@ -213,6 +214,7 @@ export default class Module {
             addItem,
             deleteItem,
             calculateAverage,
+            calculateGroupsAverages,
             sumColumn,
             sumColumnFloat,
 
