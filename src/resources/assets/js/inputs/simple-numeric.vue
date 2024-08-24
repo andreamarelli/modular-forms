@@ -90,6 +90,7 @@
     });
 
     watch(inputValue, async (newValue, oldValue) => {
+        newValue = isNaN(newValue) ? null : newValue;
         autoNumericObject.value.set(newValue);
         format(newValue);
     });
