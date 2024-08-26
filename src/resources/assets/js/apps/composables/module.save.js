@@ -54,6 +54,8 @@ export function useSave(component_data) {
 
     function saveModule(){
 
+        status.value = 'saving';
+
         let data = {
             records_json: window.ModularForms.Helpers.Payload.encode(Object.values(records)),
             form_id: form_id,

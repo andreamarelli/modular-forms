@@ -164,7 +164,9 @@ export default class Module {
          */
         function setPredefinedAsDisabled() {
             records.forEach((record, i) => {
-                if (typeof record.__predefined !== 'undefined' && record.__predefined === true) {
+                if (typeof record.__predefined !== 'undefined'
+                    && record.__predefined === true
+                    && props.predefined_values!==null) {
                     let input = moduleContainer.querySelector("[id$=_" + i + "_" + props.predefined_values['field'] + "]");
                     if(input){
                         input.setAttribute('readonly', 'readonly');
