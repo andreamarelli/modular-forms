@@ -90,7 +90,7 @@ export function useSave(component_data) {
                         }
                         nextTick().then(() => {
                             status.value = 'saved';
-                            component_data.emitter.emit('moduleSaved', { module_key: module_key });
+                            component_data.emitter.emit('moduleSaved', data);
                         });
                     }
                 } else if(data.status === 'validation_error') {
