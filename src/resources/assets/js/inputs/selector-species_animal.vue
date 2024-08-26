@@ -12,13 +12,13 @@
         <template v-slot:searchResultFilters>
             <i>{{ Locale.getLabel('modular-forms::common.filter_results') }}: </i>&nbsp;&nbsp;
             {{ Locale.getLabel('modular-forms::entities.biodiversity.taxonomy.class') }}
-            <select v-model=filterByClass @change="filterList(true)" class="field-edit filterByClass">
+            <select v-model=filterByClass v-on:change="filterList(true)" class="field-edit filterByClass">
                 <option v-for="option in classes">
                     {{ option }}
                 </option>
             </select>
             {{ Locale.getLabel('modular-forms::entities.biodiversity.taxonomy.order') }}
-            <select v-model=filterByOrder @change="filterList(false)" class="field-edit filterByOrder">
+            <select v-model=filterByOrder v-on:change="filterList(false)" class="field-edit filterByOrder">
                 <option v-for="option in orderByClass()">
                     {{ option }}
                 </option>

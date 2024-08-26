@@ -1,8 +1,8 @@
 <template>
 
     <span>
-        <span v-if="disabled" :id=id class="field-preview disabled" @input="onInput" v-text="inputValue"></span>
-        <span v-else :id=id class="field-preview" contenteditable @input="onInput" v-text="inputValue"></span>
+        <span v-if="disabled" :id=id class="field-preview disabled" v-on:input="onInput" v-text="inputValue"></span>
+        <span v-else :id=id class="field-preview" contenteditable v-on:input="onInput" v-text="inputValue"></span>
     </span>
 
 </template>

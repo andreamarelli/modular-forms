@@ -1,4 +1,4 @@
-<button type="button" class="btn-nav small red " @click="{!! $onClick !!}">
+<button type="button" class="btn-nav small red " v-on:click="{!! $onClick !!}">
     {!! $icon !!}
 </button>
 

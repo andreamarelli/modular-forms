@@ -17,7 +17,7 @@
                 <div class="footer">
                     <div class="spacer"></div>
                     <!-- cancel -->
-                    <button type="button" @click="closeDestroyDialog" class="btn-nav small green">{{ Locale.getLabel('modular-forms::common.cancel') }}</button>
+                    <button type="button" v-on:click="closeDestroyDialog" class="btn-nav small green">{{ Locale.getLabel('modular-forms::common.cancel') }}</button>
                     <!-- confirm destroy -->
                     <form style="display: inline-block"
                           method="POST" :action=action>

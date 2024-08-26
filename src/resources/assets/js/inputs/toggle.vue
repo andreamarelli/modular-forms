@@ -4,7 +4,7 @@
 
         <div v-for="option in list"
              :class="isSelected(option.value) ? 'active' : ''"
-             @click="setOption(option.value)"
+             v-on:click="setOption(option.value)"
         >{{ option.label }}</div>
 
         <input type="hidden"

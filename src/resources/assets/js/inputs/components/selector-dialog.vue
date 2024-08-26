@@ -11,7 +11,7 @@
                 <span v-if="!Common.isEmpty(confirmedItem)"
                       v-for="item in confirmedItem" class="multiple dontOpenDialog">
                     <span v-html="anchorMultipleLabel(item)"></span>
-                    <i class="remove_item fa-solid fa-xmark" @click=removeItem(item)></i>
+                    <i class="remove_item fa-solid fa-xmark" v-on:click=removeItem(item)></i>
                 </span>
             </div>
         </template>
@@ -25,7 +25,7 @@
                 <!-- dialog header -->
                 <div class="header">
                     <div class="dialog-title">{{ Locale.getLabel('modular-forms::common.select_item') }}</div>
-                    <button type="button" class="close" @click=closeSelectorDialog><i class="fa fa-times black"></i></button>
+                    <button type="button" class="close" v-on:click=closeSelectorDialog><i class="fa fa-times black"></i></button>
                 </div>
 
                 <!-- dialog body -->
@@ -120,7 +120,7 @@
                     <button type="button"
                             class="btn-nav dark small"
                             v-show="withInsert && displaySearch"
-                            @click=enableInsert >
+                            v-on:click=enableInsert >
                         {{ Locale.getLabel('modular-forms::common.add_if_not_found') }}
                     </button>
 
@@ -132,7 +132,7 @@
                     <!-- cancel -->
                     <button type="button"
                             class="btn-nav dark small"
-                            @click=closeSelectorDialog >
+                            v-on:click=closeSelectorDialog >
                         {{ Locale.getLabel('modular-forms::common.cancel') }}
                     </button>
 
@@ -140,7 +140,7 @@
                     <button type="button"
                             class="btn-nav dark small"
                             v-show="displayInsertText || displayInsertObject"
-                            @click=confirmInsert >
+                            v-on:click=confirmInsert >
                         {{ Locale.getLabel('modular-forms::common.add') }}
                     </button>
 
@@ -149,7 +149,7 @@
                             class="btn-nav dark small"
                             :disabled="selectedItem===null"
                             v-show=displaySearch
-                            @click=confirmSelection >
+                            v-on:click=confirmSelection >
                         {{ Locale.getLabel('modular-forms::common.confirm_select') }}
                     </button>
 

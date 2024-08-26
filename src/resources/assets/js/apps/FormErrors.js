@@ -59,12 +59,14 @@ export default class FormErrors {
                 function refreshErrors(errors){
                     // remove everything from records
                     validation_errors.forEach(function (error, index) {
-                        delete validation_errors[index];
+                        // delete validation_errors[index];
+                        validation_errors.splice(index, 1);
                     });
                     // add back new records
                     errors.forEach(function (error, index) {
                         validation_errors[index] = JSON.parse(JSON.stringify(error));
                     })
+
                 }
 
                 return {

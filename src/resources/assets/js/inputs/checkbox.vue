@@ -5,7 +5,7 @@
                :name=id
                :id="'bool-check_' + id"
                :checked=isChecked
-               @change="checkChange()"
+               v-on:change="checkChange()"
         /><label :for="'bool-check_' + id"></label>
     </span>
 
@@ -15,7 +15,7 @@
                   :name=id
                   :id="'check_' + option.value + '_' + id"
                   :checked="isOptionChecked(option.value)"
-                  @change="checkChange(option.value)"
+                  v-on:change="checkChange(option.value)"
            /><label :for="'check_' + option.value + '_' + id">{{ option.label }}</label>
         </span>
 

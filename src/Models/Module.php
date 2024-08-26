@@ -659,7 +659,9 @@ class Module extends BaseModel
                 $errors = [
                     'key' => ModuleKey::ClassNameToKey(static::class),
                     'step' => $step ?? '',
-                    'title' => (new static())->module_title,
+                    'title' => (new static())->module_code!==null
+                        ? (new static())->module_code . ' - ' . (new static())->module_title
+                        : (new static())->module_title,
                     'messages' => $messages
                 ];
             }

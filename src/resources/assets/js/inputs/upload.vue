@@ -24,14 +24,14 @@
                 <!-- Delete Button -->
                 <button type="button" class="btn-nav small red"
                         v-show="inputValue.original_filename!==null"
-                        @click=deleteSelection>
+                        v-on:click=deleteSelection>
                     <i class="fa fa-times-circle white" />
                 </button>
 
                 <!-- Upload Button -->
                 <button type="button" class="btn-nav small"
                         v-show="inputValue.original_filename===null"
-                        @click=openUploadDialog>
+                        v-on:click=openUploadDialog>
                     <i class="fa fa-upload white" />&nbsp;
                     {{ Locale.getLabel('modular-forms::common.upload.upload_file') }}
                 </button>
@@ -45,14 +45,14 @@
         <!-- ###################################################### -->
         <template v-slot:dialog-content>
 
-            <input ref="fileInput" name="file_upload" type="file" v-show="false" @change="validateFile">
+            <input ref="fileInput" name="file_upload" type="file" v-show="false" v-on:change="validateFile">
 
             <div class="with_header_and_footer">
 
                 <!-- dialog header -->
                 <div class="header">
                     <div class="dialog-title">{{ Locale.getLabel('modular-forms::common.upload.upload_file') }}</div>
-                    <button type="button" class="close" @click=closeUploadDialog><i class="fa fa-times black"></i></button>
+                    <button type="button" class="close" v-on:click=closeUploadDialog><i class="fa fa-times black"></i></button>
                 </div>
 
                 <!-- dialog body -->
@@ -65,7 +65,7 @@
                         </label>
                         &nbsp;&nbsp;
                         <!-- open selection dialog button -->
-                        <button type="button" @click="openFileSelection" class="btn-nav small">
+                        <button type="button" v-on:click="openFileSelection" class="btn-nav small">
                             <i class="fa fa-folder-open white" />
                             {{ Locale.getLabel('modular-forms::common.upload.select_file') }}
                         </button>
@@ -83,7 +83,7 @@
                         <!-- upload spinner -->
                          <i v-if="isUploading" class="fa fa-spinner fa-spin fa-2x green-800"></i>
                         <!-- start upload button -->
-                        <button type="button" @click="uploadFile" class="btn-nav small" :class="{ hidden: isUploading }">
+                        <button type="button" v-on:click="uploadFile" class="btn-nav small" :class="{ hidden: isUploading }">
                             <i class="fa fa-upload white" />
                             {{ Locale.getLabel('modular-forms::common.upload.upload') }}
                         </button>
