@@ -1,5 +1,5 @@
 import {createApp, ref, unref, onMounted, toRaw, watch, reactive} from "vue";
-import mitt from "mitt";
+import mitt from "~/mitt";
 
 // Components
 import tooltip from "../templates/tooltip.vue";
