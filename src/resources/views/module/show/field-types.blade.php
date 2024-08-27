@@ -5,6 +5,7 @@
 
 use AndreaMarelli\ModularForms\Helpers\Input\SelectionList;
 use AndreaMarelli\ModularForms\Helpers\Type\JSON;
+use Illuminate\Support\Str;
 
 $value = $value==='' ? null : $value;
 $only_label = $only_label ?? false;
@@ -33,7 +34,7 @@ if($value!==null){
 @if($type=="hidden")
     {{-- nothing to show --}}
 
-@elseif(\Illuminate\Support\Str::contains($type, '_multiple'))
+@elseif(Str::contains($type, '_multiple'))
     <div class="field-preview">
         @if($value!==null)
             @php
@@ -46,7 +47,7 @@ if($value!==null){
         @endif
     </div>
 
-@elseif(\Illuminate\Support\Str::contains($type, 'checkbox'))
+@elseif(Str::contains($type, 'checkbox'))
     @php
         $value = gettype($value) === 'string' && JSON::isJson($value) ? json_decode($value) : $value;
         $value
@@ -55,18 +56,18 @@ if($value!==null){
     @if(gettype($value) === 'array')
         <span class="checkbox list inline">
             @foreach(SelectionList::getList($type) as $item)
-                <input type="checkbox" disabled="disabled"  {{ in_array($item, $value) ? 'checked="checked"' : '' }}>
+                <input type="checkbox" disabled="disabled"  {!! in_array($item, $value) ? 'checked="checked"' : ''!!} />
                 <label></label>{{ $item }}
             @endforeach
         </span>
     @else
         <span class="checkbox">
-            <input type="checkbox" disabled="disabled"  {{ $value ? 'checked="checked"' : '' }}>
+            <input type="checkbox" disabled="disabled"  {!! $value ? 'checked="checked"' : '' !!} />
             <label></label>
         </span>
     @endif
 
-@elseif(\Illuminate\Support\Str::contains($type, 'toggle-'))
+@elseif(Str::contains($type, 'toggle-'))
     <span class="toggle disabled">
          @foreach(SelectionList::getList($type) as $k=>$v)
             @if((string) $v !== '')
@@ -86,7 +87,7 @@ if($value!==null){
         @endif
     </div>
 
-@elseif(\Illuminate\Support\Str::contains($type, "rating-"))
+@elseif(Str::contains($type, "rating-"))
     @php
         /** @var string $type */
         $ratingType = explode('-', $type);
@@ -96,7 +97,7 @@ if($value!==null){
         [$min, $max] = explode('to', $ratingType);
     @endphp
     <span ref="ratingOptions" class="rating-container">
-        @if(\Illuminate\Support\Str::contains($type, 'WithNA'))
+        @if(Str::contains($type, 'WithNA'))
             <span class="rating field-edit ratingNa {{ $value=='-99' ? 'active' : '' }}">N/A</span>
         @endif
         @for($i=$min; $i<=$max; $i++)
@@ -104,9 +105,9 @@ if($value!==null){
         @endfor
     </span>
 
-@elseif(\Illuminate\Support\Str::contains($type, 'selector-species_animal'))
+@elseif(Str::contains($type, 'selector-species_animal'))
         <?php
-        if($value!==null && \Illuminate\Support\Str::contains($value, '|')){
+        if($value!==null && Str::contains($value, '|')){
             $value = implode(' ', array_slice(explode('|', $value), 4, 2));
         }
         ?>
@@ -123,12 +124,12 @@ if($value!==null){
         {!! $value !!}
     </div>
 
-@elseif(\Illuminate\Support\Str::contains($type, 'date') || \Illuminate\Support\Str::contains($type, 'year'))
+@elseif(Str::contains($type, 'date') || Str::contains($type, 'year'))
     <div class="field-preview field-date">
         {!! $value !!}
     </div>
 
-@elseif(\Illuminate\Support\Str::contains($type, 'blade-'))
+@elseif(Str::contains($type, 'blade-'))
     @php
         /** @var string $type */
         $view = str_replace('.fields.', '.show.fields.', $type);
@@ -144,6 +145,12 @@ if($value!==null){
             {!! $value !!}
         </div>
     @endif
+
+@elseif($type=='text' || $type=='text-area' || $type=='url')
+
+    <div class="field-preview">
+        {{ $value }}
+    </div>
 
 @else
 
