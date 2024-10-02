@@ -16,9 +16,13 @@ class ProtectedPlanet
      */
     private static function request($url, array $params = []): object
     {
-        $params = array_merge($params, [
-            'token' => Config::get('PROTECTED_PLANET_API_KEY')
-        ]);
+        // Get API key
+        $token = Config::get('PROTECTED_PLANET_API_KEY');
+        if($token === null){
+            return (object) ['error' => 'Protected Planet API key not found'];
+        }
+        $params = array_merge($params, ['token' => $token]);
+
         return API::execute_api_request($url, $params);
     }
 
