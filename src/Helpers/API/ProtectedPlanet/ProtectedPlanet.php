@@ -3,6 +3,7 @@
 namespace AndreaMarelli\ModularForms\Helpers\API\ProtectedPlanet;
 
 use AndreaMarelli\ModularForms\Helpers\API\API;
+use Illuminate\Support\Facades\Config;
 
 
 class ProtectedPlanet
@@ -16,7 +17,7 @@ class ProtectedPlanet
     private static function request($url, array $params = []): object
     {
         $params = array_merge($params, [
-            'token' => config('modular-forms.protected_planet_api_key')
+            'token' => Config::get('PROTECTED_PLANET_API_KEY')
         ]);
         return API::execute_api_request($url, $params);
     }
