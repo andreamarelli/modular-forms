@@ -2,6 +2,7 @@
 
 namespace AndreaMarelli\ModularForms\Helpers\API\ProtectedPlanet;
 
+use AndreaMarelli\ModularForms\Exceptions\MissingAPITokenException;
 use AndreaMarelli\ModularForms\Helpers\API\API;
 use Illuminate\Support\Facades\Config;
 
@@ -13,13 +14,14 @@ class ProtectedPlanet
 
     /**
      * Execute request to API
+     * @throws MissingAPITokenException
      */
     private static function request($url, array $params = []): object
     {
         // Get API key
         $token = Config::get('PROTECTED_PLANET_API_KEY');
         if($token === null){
-            return (object) ['error' => 'Protected Planet API key not found'];
+            throw new MissingAPITokenException('Protected Planet');
         }
         $params = array_merge($params, ['token' => $token]);
 
