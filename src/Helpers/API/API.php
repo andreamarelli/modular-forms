@@ -18,17 +18,9 @@ class API
 
 
     /**
-     * Alias for execute_api_request
-     */
-    public static function request($url, $params, $method = self::METHOD_GET, bool $no_cache = false): object
-    {
-        return self::execute_api_request($url, $params, $method, $no_cache);
-    }
-
-    /**
      * Execute a request to the given API endpoint
      */
-    public static function execute_api_request($url, $params, $method = self::METHOD_GET, bool $no_cache = false): object
+    public static function request($url, $params, $method = self::METHOD_GET, bool $no_cache = false): object
     {
         // Retrieve from cache
         $cache_key = Cache::buildKey($url, $params);
