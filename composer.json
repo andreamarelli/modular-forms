@@ -1,6 +1,7 @@
 {
     "name": "andreamarelli/modular-forms",
     "description": "A package to build modular data collection forms",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Andrea Marelli",
