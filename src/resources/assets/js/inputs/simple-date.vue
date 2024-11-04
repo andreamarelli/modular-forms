@@ -92,8 +92,6 @@
             }
         }
 
-        console.log('options', options);
-
         new AirDatepicker('#' + props.id, options);
     })
 
