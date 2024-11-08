@@ -145,8 +145,11 @@ export default class Module {
         // Watch for changes in records
         watch(records, (value) => {
             syncCommonFields(value);
-            if (status.value !== 'init' && status.value !== 'changed'){
-                status.value = 'changed';
+            if (status.value !== 'init'){
+                if(status.value !== 'changed') {
+                    status.value = 'changed';
+                    emitter.emit('moduleIsChanged', {module_key: props.module_key});
+                }
                 emitter.emit('moduleChanged', { module_key: props.module_key, records: value });
             }
         });
