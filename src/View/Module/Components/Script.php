@@ -10,6 +10,7 @@ use Illuminate\View\View;
 class Script extends Component{
 
     public function __construct(
+        public string $controller,
         public Collection $collection,
         public array $vueData,
         public array $definitions,
