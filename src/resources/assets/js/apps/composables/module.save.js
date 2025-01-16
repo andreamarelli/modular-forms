@@ -18,9 +18,9 @@ export function useSave(component_data) {
      */
     function replaceRecords(newRecords) {
         // remove everything from records
-        records.forEach(function (record, index) {
-            delete records[index];
-        });
+        while(records.length > 0){
+            records.pop();
+        }
         // add back new records
         newRecords.forEach(function (record, index) {
             records[index] = JSON.parse(JSON.stringify(newRecords[index]));
@@ -32,9 +32,9 @@ export function useSave(component_data) {
      */
     function replaceRecordsBackup(newRecords) {
         // remove everything from records
-        records_backup.forEach(function (record, index) {
-            delete records_backup[index];
-        });
+        while(records_backup.length > 0){
+            records_backup.pop();
+        }
         // add back new records
         newRecords.forEach(function (record, index) {
             records_backup[index] = JSON.parse(JSON.stringify(newRecords[index]));

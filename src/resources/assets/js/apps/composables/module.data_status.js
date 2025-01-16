@@ -44,14 +44,13 @@ export function useDataStatus(component_data) {
     }
 
     function updateRecords(toggle_key, toggle_value){
-        records.forEach(function (item, index) {
-            if(index === 0){
-                records[index] = Object.assign({}, empty_record);
-                records[index][toggle_key] = toggle_value === true ? true : null;
-            } else {
-                delete records[index];
-            }
-        });
+        // remove everything from records
+        while(records.length > 0){
+            records.pop();
+        }
+        // Add empty record with new toggle value
+        records[0] = Object.assign({}, empty_record);
+        records[0][toggle_key] = toggle_value === true ? true : null;
     }
 
 
