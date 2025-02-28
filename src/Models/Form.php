@@ -64,11 +64,17 @@ class Form extends BaseModel
     /**
      * Default method for getting form list
      *
-     * @param Builder $query
-     * @param Request $request
-     * @return Builder
+     * @deprecated: use scopeByRequestParams instead (which accepts an array of parameters)
      */
     public function scopeFilterList(Builder $query, Request $request): Builder
+    {
+        return $query;
+    }
+
+    /**
+     * Query scope: filter by request's parameters
+     */
+    public function scopeByRequestParams(Builder $query, array $params): Builder
     {
         return $query;
     }
