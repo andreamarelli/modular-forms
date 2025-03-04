@@ -25,11 +25,11 @@
 
     import {onMounted} from "vue";
 
-    import AirDatepicker from "~/air-datepicker";
-    import AirDatepicker_locale_en from "~/air-datepicker/locale/en";
-    import AirDatepicker_locale_fr from "~/air-datepicker/locale/fr";
-    import AirDatepicker_locale_sp from "~/air-datepicker/locale/es";
-    import AirDatepicker_locale_pt from "~/air-datepicker/locale/pt";
+    import AirDatepicker from "air-datepicker";
+    import AirDatepicker_locale_en from "air-datepicker/locale/en";
+    import AirDatepicker_locale_fr from "air-datepicker/locale/fr";
+    import AirDatepicker_locale_sp from "air-datepicker/locale/es";
+    import AirDatepicker_locale_pt from "air-datepicker/locale/pt";
 
     const AirDatepicker_locale = {
         'en': AirDatepicker_locale_en,
