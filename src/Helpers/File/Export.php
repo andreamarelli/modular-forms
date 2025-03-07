@@ -2,7 +2,6 @@
 
 namespace AndreaMarelli\ModularForms\Helpers\File;
 
-use PhpOffice\PhpSpreadsheet;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -54,39 +53,6 @@ trait Export
             fputcsv($file_handler, $row);
         }
         fclose($file_handler);
-
-        return File::download($path);
-    }
-
-    /**
-     * Generate a XLS file
-     *
-     * @param $path
-     * @param $data
-     * @return BinaryFileResponse
-     * @throws PhpSpreadsheet\Exception
-     * @throws PhpSpreadsheet\Writer\Exception
-     */
-    public static function exportToXLS($path, $data): BinaryFileResponse
-    {
-        $path = Storage::disk(File::TEMP_STORAGE)->path('') . $path;
-
-        $columns = array_keys($data[0]);
-        // Initialize XLS file
-        $objPHPExcel = new PhpSpreadsheet\Spreadsheet();
-        $objPHPExcel->setActiveSheetIndex(0);
-        // Append keys as first row
-        $objPHPExcel->getActiveSheet()->fromArray($columns);
-        // Append row by row
-        foreach ($data as $r => $record) {
-            $values = array();
-            foreach ($columns as $key) {
-                $values[] = $record[$key];
-            }
-            $objPHPExcel->getActiveSheet()->fromArray($values, null, 'A' . ($r + 2));
-        }
-        $objWriter = new PhpSpreadsheet\Writer\Xlsx($objPHPExcel);
-        $objWriter->save($path);
 
         return File::download($path);
     }

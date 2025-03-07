@@ -5,7 +5,6 @@ namespace AndreaMarelli\ModularForms\Controllers;
 use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
 use AndreaMarelli\ModularForms\Helpers\File\File;
 use AndreaMarelli\ModularForms\Helpers\HTTP;
-use AndreaMarelli\ModularForms\View\Module\Container;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -49,7 +48,7 @@ abstract class FormController extends Controller
         $query_builder = (new static::$form_class())
             ->filterList($request);
         $list = static::PAGINATE
-            ? $list = $query_builder->sortable()->paginate(static::PER_PAGE)
+            ? $query_builder->paginate(static::PER_PAGE)
             : $query_builder->get();
 
         return view(static::$form_view_prefix.'.list', [
@@ -194,17 +193,6 @@ abstract class FormController extends Controller
     {
         $collection = (static::$form_class)::exportCollection();
         return File::exportToCSV('export.csv', $collection->toArray());
-    }
-
-    /**
-     * Export: Generate and download XLS file
-     * @throws PhpSpreadsheet\Exception
-     * @throws PhpSpreadsheet\Writer\Exception
-     */
-    public function xls(): BinaryFileResponse
-    {
-        $collection = (static::$form_class)::exportCollection();
-        return File::exportToXLS('export.xls', $collection->toArray());
     }
 
     /**

@@ -4,18 +4,15 @@ namespace AndreaMarelli\ModularForms\Models;
 
 use AndreaMarelli\ModularForms\Helpers\ModuleKey;
 use AndreaMarelli\ModularForms\Models\Traits\Payload;
-use AndreaMarelli\ModularForms\Models\Traits\Sortable;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Form extends BaseModel
 {
-    use Sortable;
 
     public static $modules = null;
 

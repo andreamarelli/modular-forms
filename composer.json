@@ -14,9 +14,6 @@
         "ext-pdo": "*",
         "ext-zip": "*",
         "conedevelopment/i18n": "^1.1",
-        "intervention/image": "^3.1",
-        "kyslik/column-sortable": "^6.2",
-        "phpoffice/phpspreadsheet": "^2.0",
         "wa72/htmlpagedom": "^3.0"
     },
     "require-dev": {
