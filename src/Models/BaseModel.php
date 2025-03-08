@@ -146,7 +146,7 @@ class BaseModel extends Model
         return [
             'date' => $date!==null ? Carbon::parse($date)->toDateTimeString(): null,
             'id' => $user,
-            'name' => $user!==null ? User::find($this->{static::UPDATED_BY})->getName() : null
+            'name' => $user!==null ? (config('modular-forms.user'))::find($this->{static::UPDATED_BY})->getName() : null
         ];
     }
 
