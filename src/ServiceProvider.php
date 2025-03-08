@@ -8,12 +8,14 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
+    const BASE_PATH = __DIR__ . '/../';
+
     /**
      * Register services.
      */
     public function register(): void
     {
-
+        $this->mergeConfigFrom(static::BASE_PATH . 'config/config.php', 'imet-core');
     }
 
     /**
@@ -29,6 +31,11 @@ class ServiceProvider extends BaseServiceProvider
 
         // Routes
         $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
+
+        // Config
+        $this->publishes([
+            static::BASE_PATH . 'config/config.php' => config_path('modular-forms.php')
+        ], 'modular-forms');
 
         //Lang
         $this->loadTranslationsFrom(__DIR__.'/Lang', 'modular-forms');
