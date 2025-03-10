@@ -34,7 +34,7 @@ abstract class _Button extends Component
     {
         return function (array $data)
         {
-            $merged_attributes = $data['attributes']->merge(['class' => 'rounded']);
+            $merged_attributes = $data['attributes']->merge(['class' => 'rounded-sm']);
             $this->attributes->setAttributes([
                 'class' => $merged_attributes['class']
             ]);
