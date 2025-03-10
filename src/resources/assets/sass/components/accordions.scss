@@ -1,6 +1,6 @@
 @use "../abstracts/colors";
 
-// Manage Interactivity
+/* Manage Interactivity */
 .accordion {
     &-item {
         &-header {
@@ -29,7 +29,7 @@
     }
 }
 
-// ###  Form filters  ###
+/* ###  Form filters  ### */
 .accordion.form-filters{
 
     .accordion-item{
@@ -55,7 +55,7 @@
                 }
                 &::before{
                     font: var(--fa-font-solid);
-                    content: "\f105"; // fa-angle-right
+                    content: "\f105"; /* fa-angle-right */
                     padding-left: 5px;
                     padding-right: 10px;
                     @apply text-lg;
@@ -65,7 +65,7 @@
         &.show{
             .accordion-item-header-title::before{
                 font: var(--fa-font-solid);
-                content: "\f107"; // fa-angle-down
+                content: "\f107"; /* fa-angle-down */
             }
         }
         &-body {
@@ -81,7 +81,7 @@
 
 }
 
-// ####  Module  ####
+/* ####  Module  #### */
 .module-container{
 
     .accordion {

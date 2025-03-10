@@ -1,8 +1,8 @@
 @use "../components/forms.input" as input;
 
-// ##############################
-// ########  vue-select  ########
-// ##############################
+/* ############################## */
+/* ########  vue-select  ######## */
+/* ############################## */
 
 .v-select{
 
@@ -12,7 +12,7 @@
   &.vs--single{
     .vs__dropdown-toggle {
       .vs__selected-options {
-        .vs__selected { // applied to single
+        .vs__selected { /* applied to single */
           text-align: left;
         }
       }
@@ -25,7 +25,7 @@
 
     .vs__selected-options{
       padding: 0;
-      .vs__selected{ // applied to multiple
+      .vs__selected{ /* applied to multiple */
         padding: 0 4px;
         margin: 1px 5px 1px 0;
           button.vs__deselect{

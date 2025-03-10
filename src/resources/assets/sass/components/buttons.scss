@@ -16,7 +16,7 @@
   border-radius: 0.2rem;
   @include mixins.transition();
 
-  // Sizes
+  /* Sizes */
   &.small{
     font-size: 0.7rem;
     padding: 0 8px;
@@ -31,7 +31,7 @@
     }
   }
 
-  // Colors
+  /* Colors */
   &, &.basic{
     &.tag, &:hover{
       @apply bg-white;
@@ -142,7 +142,7 @@
     }
   }
 
-  // Variations
+  /* Variations */
   &.rounded-sm{
     border-radius: 50px !important;
   }
