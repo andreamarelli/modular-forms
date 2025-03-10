@@ -22,7 +22,7 @@ $action = $action ?? 'index';
             </div>
 
             <div class="text-right">
-                <button type="submit" class="btn-nav rounded">{{ Str::ucfirst(trans('modular-forms::common.apply_filters')) }}</button>
+                <button type="submit" class="btn-nav rounded-sm">{{ Str::ucfirst(trans('modular-forms::common.apply_filters')) }}</button>
             </div>
 
         </form>
