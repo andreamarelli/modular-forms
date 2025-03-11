@@ -106,7 +106,7 @@
 
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 
     .upload-anchor{
         display: flex;

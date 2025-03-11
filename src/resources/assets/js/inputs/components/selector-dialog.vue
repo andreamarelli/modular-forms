@@ -163,7 +163,7 @@
 </template>
 
 
-<style lang="scss">
+<style lang="postcss">
 
     .selector-dialog {
         .dialog-anchor{
@@ -173,7 +173,7 @@
 
 </style>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 
     .with_header_and_footer{
 
