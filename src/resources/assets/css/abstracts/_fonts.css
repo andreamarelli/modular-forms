@@ -4,21 +4,18 @@
     font-family: 'Varela Round';
     font-style: normal;
     font-weight: 400;
-    src: url('#/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.woff2') format('woff2'),
-    url('#/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.woff') format('woff');
+    src: url('/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/varela-round-v8-latin_latin-ext-regular.woff2') format('woff2'),
 }
 
 /* montserrat-regular*/
 @font-face {
     font-family: 'Montserrat';
     font-weight: 400;
-    src: url('#/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.woff2') format('woff2'),
-    url('#/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.woff') format('woff');
+    src: url('/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/montserrat-v10-latin_latin-ext-regular.woff2') format('woff2'),
 }
 /* montserrat-700*/
 @font-face {
     font-family: 'Montserrat';
     font-weight: 700;
-    src: url('#/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.woff2') format('woff2'),
-    url('#/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.woff') format('woff');
+    src: url('/vendor/andreamarelli/modular-forms/src/resources/assets/fonts/montserrat-v10-latin_latin-ext-700.woff2') format('woff2'),
 }
