@@ -23,7 +23,7 @@ body {
   outline: none !important;
 }
 
-// Scrollbar
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 15px;
 }

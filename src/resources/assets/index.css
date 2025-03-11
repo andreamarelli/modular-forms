@@ -1,23 +1,23 @@
-@import "~/tailwindcss";
+@import "tailwindcss";
 
 /* stylesheets */
-@import "./sass/abstracts/_colors.scss";
-@import "./sass/abstracts/_fonts.scss";
-@import "./sass/abstracts/_mixins.scss";
-@import "./sass/base/_reset.scss";
-@import "./sass/base/_typography.scss";
-@import "./sass/components/main.scss";
-@import "./sass/components/accordions.scss";
-@import "./sass/components/dialog.scss";
-@import "./sass/components/tables.scss";
-@import "./sass/components/buttons.scss";
-@import "./sass/components/forms.module.scss";
-@import "./sass/components/forms.input.scss";
-@import "./sass/components/forms.list.scss";
-@import "./sass/components/forms.print.scss";
-@import "./sass/layout/_layout.scss";
-@import "./sass/layout/_header.scss";
-@import "./sass/layout/_footer.scss";
+/*@import "./css/abstracts/_colors.css";*/
+@import "./css/abstracts/_fonts.css";
+@import "./css/abstracts/_mixins.css";
+@import "./css/base/_reset.css";
+@import "./css/base/_typography.css";
+@import "./css/components/main.css";
+@import "./css/components/accordions.css";
+@import "./css/components/dialog.css";
+@import "./css/components/tables.css";
+@import "./css/components/buttons.css";
+@import "./css/components/forms.module.css";
+@import "./css/components/forms.input.css";
+@import "./css/components/forms.list.css";
+@import "./css/components/forms.print.css";
+@import "./css/layout/_layout.css";
+@import "./css/layout/_header.css";
+@import "./css/layout/_footer.css";
 
 /* vendor */
 @import "~/air-datepicker/air-datepicker.css";
@@ -28,9 +28,9 @@
 @import "~/vue-select/dist/vue-select.css";
 
 /* vendor override */
-@import "./sass/vendor/air-datepicker.scss";
-@import "./sass/vendor/ckeditor.scss";
-@import "./sass/vendor/floating-ui.scss";
-@import "./sass/vendor/vue-select.scss";
+@import "./css/vendor/air-datepicker.css";
+@import "./css/vendor/ckeditor.css";
+@import "./css/vendor/floating-ui.css";
+@import "./css/vendor/vue-select.css";
 
 

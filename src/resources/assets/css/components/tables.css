@@ -1,6 +1,6 @@
 @use "../abstracts/colors";
 
-// ALL tables
+/* ALL tables */
 table {
     margin: 15px 0;
     border-collapse: collapse;
