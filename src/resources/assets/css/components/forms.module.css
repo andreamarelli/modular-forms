@@ -1,5 +1,3 @@
-@use "../abstracts/colors";
-@use "../abstracts/mixins";
 
 /* ####################################################### */
 /* ######################  heading  ###################### */
@@ -59,7 +57,6 @@ nav.steps{
         @apply border-y border-l border-gray-200;
         overflow-wrap: anywhere;
         min-width: 90px;
-        @include mixins.transition(background-color);
         &:last-child {
             @apply border-r border-gray-200;
         }
@@ -109,7 +106,16 @@ nav.steps{
         cursor: pointer;
         padding: 3px 8px;
         font-size: 0.9rem;
-        @include mixins.selector_border-radius-vertical(5px);
+        border-radius: 0;
+        &:first-child {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        &:last-child{
+            border-bottom: none;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
         &.standalone{
             font-size: 1.1rem;
             padding: 8px 12px;

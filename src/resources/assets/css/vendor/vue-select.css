@@ -1,5 +1,3 @@
-@use "../components/forms.input" as input;
-
 /* ############################## */
 /* ########  vue-select  ######## */
 /* ############################## */
@@ -7,7 +5,10 @@
 .v-select{
 
   @apply text-xs;
-  @include input.field-size;
+  min-width: 80px;
+  max-width: 450px;
+  width: 100%;
+  min-height: 28px;
 
   &.vs--single{
     .vs__dropdown-toggle {
@@ -20,7 +21,9 @@
   }
 
   .vs__dropdown-toggle{
-    @include input.field-base;
+    @apply text-xs text-gray-800 bg-white;
+    @apply border border-gray-300;
+    font-family: var(--font-secondary);
     padding: 4px 7px;
 
     .vs__selected-options{

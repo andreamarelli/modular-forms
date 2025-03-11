@@ -1,4 +1,3 @@
-@use "../abstracts/colors";
 
 .air-datepicker-cell.-current- {
   @apply text-primary-500;

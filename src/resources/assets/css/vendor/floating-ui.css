@@ -1,4 +1,3 @@
-@use "../abstracts/colors";
 
 [role=tooltip] {
     @apply bg-gray-700;

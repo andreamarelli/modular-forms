@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
 /* stylesheets */
-/*@import "./css/abstracts/_colors.css";*/
 @import "./css/abstracts/_fonts.css";
-@import "./css/abstracts/_mixins.css";
 @import "./css/base/_reset.css";
 @import "./css/base/_typography.css";
 @import "./css/components/main.css";
@@ -32,5 +30,9 @@
 @import "./css/vendor/ckeditor.css";
 @import "./css/vendor/floating-ui.css";
 @import "./css/vendor/vue-select.css";
+
+[v-cloak] {
+    display: none;
+}
 
 

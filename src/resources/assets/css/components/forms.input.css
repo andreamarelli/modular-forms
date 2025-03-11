@@ -1,26 +1,11 @@
-@use "../abstracts/colors";
-@use "../abstracts/fonts";
-
-@mixin field-base{
-    font-family: fonts.$secondary-font;
-    @apply text-xs;
-    @apply text-gray-800;
-    @apply bg-white;
-}
-@mixin field-size{
-    min-width: 80px;
-    max-width: 450px;
-    width: 100%;
-    min-height: 28px;
-}
-
 
 .field-edit,
 .field-preview{
-    @include field-base;
+    @apply text-xs text-gray-800 bg-white;
+    @apply border border-gray-300;
+    font-family: var(--font-secondary);
     display: inline-block;
     border-radius: 5px;
-    @apply border border-gray-300;
     padding: 5px 7px;
 
     &.field-disabled,
@@ -60,7 +45,10 @@
 /* Width & alignment */
 .field-edit,
 .field-preview{
-    @include field-size;
+    min-width: 80px;
+    max-width: 450px;
+    width: 100%;
+    min-height: 28px;
 
     &.field-numeric{
         max-width: 180px;
@@ -99,17 +87,12 @@
             @apply border-r border-gray-300;
         }
         &.active{
-            @extend .text-primary-50;
-            @extend .bg-primary-800;
-            border: 1px solid;
-            @extend .border-primary-800;
+            @apply text-primary-50 bg-primary-800 border border-solid border-primary-800;
         }
     }
     &:not(.disabled){
         div:hover:not(.active){
-            @extend .border-primary-500;
-            @extend .bg-primary-300;
-            @apply text-black;
+            @apply text-black border-primary-500 bg-primary-300;
             cursor: pointer;
         }
     }
