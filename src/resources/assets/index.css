@@ -1,7 +1,7 @@
-@import "~/tailwindcss";
+@import "tailwindcss";
 
 /* stylesheets */
-@import "./css/abstracts/_colors.css";
+/*@import "./css/abstracts/_colors.css";*/
 @import "./css/abstracts/_fonts.css";
 @import "./css/abstracts/_mixins.css";
 @import "./css/base/_reset.css";

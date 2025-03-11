@@ -12,42 +12,42 @@
   .accordion-item-header,
   .accordion-item-body,
   .progress{
-    @apply bg-gray-50 #{!important};
+    @apply bg-gray-50! ;
   }
   .field-preview,
   .checkbox label::before{
-    @apply bg-white #{!important};
+    @apply bg-white! ;
   }
   input[type="checkbox"]:checked + label::before {
-    @apply bg-primary-800 #{!important};
+    @apply bg-primary-800! ;
   }
   .btn.act-btn-active{
-    @apply bg-primary-800 #{!important};
+    @apply bg-primary-800! ;
   }
   .rating.active{
     @apply text-white;
-    @apply bg-primary-800 #{!important};
+    @apply bg-primary-800! ;
   }
   .module-container{
     .module-header{
-      @apply bg-gray-500 #{!important};
+      @apply bg-gray-500! ;
     }
     .module-body{
-      @apply bg-gray-200 #{!important};
+      @apply bg-gray-200! ;
     }
     .module_accordion{
       .card-header,
       .card-body{
-        @apply bg-gray-50 #{!important};
+        @apply bg-gray-50! ;
       }
     }
   }
   .module-bar.info-bar,
   .module-bar.info-black-bar{
-    @apply bg-contextual-light-info #{!important};
+    @apply bg-contextual-light-info! ;
   }
   .module-bar.module_subTitle{
-    @apply bg-gray-200 #{!important};
+    @apply bg-gray-200! ;
   }
 }
 
