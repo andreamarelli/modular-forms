@@ -37,8 +37,7 @@ span.red-list_VU,
 span.red-list_NT,
 span.red-list_LC,
 span.red-list_DD,
-span.red-list_NE,
-{
+span.red-list_NE {
   display: inline-block;
   padding: 3px 10px;
   border-radius: 4px;

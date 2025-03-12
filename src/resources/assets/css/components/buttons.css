@@ -86,13 +86,13 @@
   }
   &.yellow{
     @apply text-gray-800;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: oklch(0.879 0.169 91.605);
+    border-color: oklch(0.879 0.169 91.605);
     &.tag, &:hover{
       @apply bg-white;
-        color: color.adjust(#ffc107, $lightness: 30%);
+        color: oklch(0.987 0.022 95.277);
         .fas{
-            color: color.adjust(#ffc107, $lightness: -30%);
+            color: oklch(0.828 0.189 84.429);
       }
     }
   }
