@@ -1,10 +1,13 @@
+# Development/Envirnoment
 .idea/
-
 .env
-
+composer
 composer.phar
 composer.lock
 package-lock.json
+sbom-*.xml
+
+# Modules & Libraries
 /vendor/
 /node_modules/
 
