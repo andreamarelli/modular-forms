@@ -1,9 +1,9 @@
 
 /* Manage Interactivity */
 .accordion {
-    &-item {
-        &-header {
-            &-title {
+    .accordion-item {
+        .accordion-item-header {
+            .accordion-item-header-title {
                 cursor: pointer;
             }
         }
@@ -36,13 +36,13 @@
         border: none;
         border-radius: 0.5rem;
         margin-bottom: 25px;
-        &-header {
+        .accordion-item-header {
             @apply bg-gray-100;
             padding: 10px 10px 10px 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            &-title {
+            .accordion-item-title {
                 flex-grow: 1;
                 font-weight: bold;
                 @apply text-primary-600;
@@ -52,13 +52,13 @@
                     @apply text-primary-800;
                     text-decoration: none;
                 }
-                &::before{
-                    font: var(--fa-font-solid);
-                    content: "\f105"; /* fa-angle-right */
-                    padding-left: 5px;
-                    padding-right: 10px;
-                    @apply text-lg;
-                }
+            }
+            .accordion-item-title::before{
+                font: var(--fa-font-solid);
+                content: "\f105"; /* fa-angle-right */
+                padding-left: 5px;
+                padding-right: 10px;
+                @apply text-lg;
             }
         }
         &.show{
@@ -67,12 +67,12 @@
                 content: "\f107"; /* fa-angle-down */
             }
         }
-        &-body {
+        .accordion-item-body {
             @apply bg-gray-50;
             margin: 0;
             padding: 0;
             border: none;
-            &-content{
+            .accordion-item-body-content{
                 padding: 15px;
             }
         }
@@ -84,12 +84,12 @@
 .module-container{
 
     .accordion {
-        &-item {
+        .accordion-item {
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
             border: none;
             margin-bottom: 8px;
 
-            &-header {
+            .accordion-item-header {
                 padding: 5px 10px 5px 15px;
                 display: flex;
                 align-items: center;
@@ -98,7 +98,7 @@
                 &:hover{
                   @apply bg-gray-100;
                 }
-                &-title {
+                .accordion-item-header-title {
                     flex-grow: 1;
                     font-weight: bold;
                     @apply text-gray-800;
@@ -117,12 +117,12 @@
                 }
             }
 
-            &-body {
+            .accordion-item-body {
                 @apply bg-gray-50;
                 margin: 0;
                 padding: 0;
                 border: none;
-                &-content{
+                .accordion-item-body-content{
                     @apply border-t border-gray-300;
                     padding: 15px 15px 10px 15px;
                 }
