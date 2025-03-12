@@ -1,9 +1,3 @@
-/*   ######  Font sizes (not included in tailwind)  ###### */
-.text-2xs{
-    font-size: 0.7rem;
-    line-height: 0.8em;
-}
-
 /*  ######  Text & paragraphs  ###### */
 .highlight{
     @apply text-primary-800;

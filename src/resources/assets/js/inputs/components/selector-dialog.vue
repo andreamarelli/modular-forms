@@ -173,7 +173,9 @@
 
 </style>
 
-<style lang="postcss" scoped>
+<style scoped>
+
+    @import "tailwindcss";
 
     .with_header_and_footer{
 
