@@ -16,7 +16,6 @@
         "wa72/htmlpagedom": "^3.0"
     },
     "require-dev": {
-        "cyclonedx/cyclonedx-php-composer": "^5.2",
         "orchestra/testbench": "^9.0"
     },
     "autoload": {
@@ -37,14 +36,8 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true,
-        "allow-plugins": {
-            "cyclonedx/cyclonedx-php-composer": true
-        }
+        "sort-packages": true
     },
     "minimum-stability": "stable",
-    "prefer-stable": true,
-    "scripts": {
-        "sbom": "composer CycloneDX:make-sbom --output-format=XML --output-file=sbom-php.xml "
-    }
+    "prefer-stable": true
 }
