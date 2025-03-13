@@ -1,43 +1,59 @@
 <template>
 
-    <ckeditor
-        :editor="editor"
-        :model-value="editorData"
-        :config="editorConfig"
-    ></ckeditor>
+    <div class="container">
+        <div class="field-edit" ref="textEditorComponent" v-html="editorValue"></div>
+    </div>
 
 </template>
 
-<script>
-    import { ClassicEditor, Essentials, Paragraph, Undo, Bold, Italic, Link, List, Heading } from "~/ckeditor5";
-    import CKEditor from "@ckeditor/ckeditor5-vue";
-    import "~/ckeditor5/dist/ckeditor5.css";
+<style scoped>
+.container, .ql-container{
+    max-width: 800px;
+}
 
-    export default {
+</style>
+<style>
+.ql-toolbar{
+    background: white;
+}
+</style>
 
-        components: {
-            ckeditor: CKEditor.component
-        },
+<script setup>
+import { onMounted, ref, unref } from 'vue';
+import Quill from 'quill';
+import Bold from 'quill/formats/bold';
+import Italic from 'quill/formats/italic';
+import Link from 'quill/formats/link';
+import List from 'quill/formats/list';
+import Header from 'quill/formats/header';
 
-        data() {
-            return {
-                editor: ClassicEditor,
-                editorData: null,
-                editorConfig: {
-                    plugins: [
-                        Essentials, Paragraph, Undo, // mandatory plugins (seems not to work without them)
-                        Italic, Bold, Link, List, Heading
-                    ],
-                    toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList'],
-                    heading: {
-                        options: [
-                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                            { model: 'heading2', view: 'h2', title: 'Heading', class: 'ck-heading_heading2' }
-                        ]
-                    }
-                }
-            };
-        }
-    }
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+
+
+const inputValue = defineModel();
+const editorValue = ref(unref(inputValue));
+const textEditorComponent = ref(null);
+
+let quill = null;
+const options = {
+    modules: {
+        toolbar: [
+            ['bold', 'italic'],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            ['link'],
+            [{ header: [2, false] }],
+        ],
+    },
+    theme: 'snow'
+};
+
+onMounted(() => {
+    quill = new Quill(textEditorComponent.value, options);
+    quill.on('text-change', () => {
+        inputValue.value = quill.container.querySelector('.ql-editor').innerHTML;
+    });
+});
+
 
 </script>
