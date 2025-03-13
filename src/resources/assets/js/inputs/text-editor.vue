@@ -1,43 +1,64 @@
 <template>
 
-    <ckeditor
-        :editor="editor"
-        :model-value="editorData"
-        :config="editorConfig"
-    ></ckeditor>
+    <div class="editorjs" ref="htmlelement"></div>
 
 </template>
 
-<script>
-    import { ClassicEditor, Essentials, Paragraph, Undo, Bold, Italic, Link, List, Heading } from "~/ckeditor5";
-    import CKEditor from "@ckeditor/ckeditor5-vue";
-    import "~/ckeditor5/dist/ckeditor5.css";
+<script setup>
+import EditorJS from '@editorjs/editorjs';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 
-    export default {
-
-        components: {
-            ckeditor: CKEditor.component
-        },
-
-        data() {
-            return {
-                editor: ClassicEditor,
-                editorData: null,
-                editorConfig: {
-                    plugins: [
-                        Essentials, Paragraph, Undo, // mandatory plugins (seems not to work without them)
-                        Italic, Bold, Link, List, Heading
-                    ],
-                    toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList'],
-                    heading: {
-                        options: [
-                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                            { model: 'heading2', view: 'h2', title: 'Heading', class: 'ck-heading_heading2' }
-                        ]
-                    }
-                }
-            };
-        }
+const props = defineProps({
+    id: {
+        type: String,
+        default: null
     }
+});
+
+const htmlelement = ref(null);
+const inputValue = defineModel();
+let editor;
+let updatingModel = false;
+
+// model -> view
+function modelToView() {
+    if (!inputValue.value) { return; }
+    if (typeof inputValue.value === 'string') {
+        editor.blocks.renderFromHTML(inputValue.value);
+        return;
+    }
+    editor.render(inputValue.value);
+}
+// view -> model
+function viewToModel(api, event) {
+    updatingModel = true;
+    editor.save().then((outputData) => {
+        console.log(event, 'Saving completed: ', outputData)
+        emit('update:modelValue', outputData);
+    }).catch((error) => {
+        console.log(event, 'Saving failed: ', error)
+    }).finally(() => {
+        updatingModel = false;
+    })
+}
+
+
+onMounted(() => {
+    editor = new EditorJS({
+        holder: htmlelement.value,
+        placeholder: null,
+        inlineToolbar: ['bold', 'italic', 'link'],
+        tools: {
+            // embed: EmbedTool,
+            // list: ListTool,
+            // image: ImageTool,
+            // video: VideoTool,
+        },
+        minHeight: 'auto',
+        data: inputValue.value,
+        onReady: modelToView,
+        onChange: viewToModel,
+    })
+})
 
 </script>
