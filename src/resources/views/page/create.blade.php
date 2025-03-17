@@ -1,6 +1,6 @@
 <?php
-/** @var AndreaMarelli\ModularForms\Controllers\Controller $controller */
-/** @var \AndreaMarelli\ModularForms\Models\Module $module */
+/** @var \ModularForms\Controllers\Controller $controller */
+/** @var \ModularForms\Models\Module $module */
 
 ?>
 
