@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms;
+namespace ModularForms;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -22,7 +22,7 @@ class ServiceProvider extends BaseServiceProvider
     public function boot(): void
     {
         // Components
-        Blade::componentNamespace('AndreaMarelli\\ModularForms\\View', 'modular-forms');
+        Blade::componentNamespace('ModularForms\\View', 'modular-forms');
 
         // Views
         $this->loadViewsFrom(__DIR__.'/resources/views', 'modular-forms');

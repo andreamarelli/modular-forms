@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models\Utils;
+namespace ModularForms\Models\Utils;
 
-use AndreaMarelli\ModularForms\Models\BaseModel;
+use ModularForms\Models\BaseModel;
 use Illuminate\Database\Eloquent\Builder;
 
 

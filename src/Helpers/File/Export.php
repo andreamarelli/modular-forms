@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\File;
+namespace ModularForms\Helpers\File;
 
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;

@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\API\DOPA;
+namespace ModularForms\Helpers\API\DOPA;
 
 
 trait Country{

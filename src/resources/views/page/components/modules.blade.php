@@ -1,6 +1,6 @@
 <?php
-/** @var \AndreaMarelli\ModularForms\Controllers\Controller $controller */
-/** @var \AndreaMarelli\ModularForms\Models\Form $item */
+/** @var \ModularForms\Controllers\Controller $controller */
+/** @var \ModularForms\Models\Form $item */
 /** @var string $step */
 /** @var string $mode "edit" or "show" */
 

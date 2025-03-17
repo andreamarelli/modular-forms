@@ -1,5 +1,5 @@
 <?php
-use AndreaMarelli\ModularForms\View\Module\Container;
+use ModularForms\View\Module\Container;
 
 ?>
 

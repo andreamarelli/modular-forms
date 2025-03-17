@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\API\ProtectedPlanet;
+namespace ModularForms\Helpers\API\ProtectedPlanet;
 
-use AndreaMarelli\ModularForms\Exceptions\MissingAPITokenException;
-use AndreaMarelli\ModularForms\Helpers\API\API;
+use ModularForms\Exceptions\MissingAPITokenException;
+use ModularForms\Helpers\API\API;
 use Illuminate\Support\Facades\Config;
 
 

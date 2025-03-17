@@ -1,5 +1,5 @@
 <?php
-/** @var \AndreaMarelli\ModularForms\Models\Form $item */
+/** @var \ModularForms\Models\Form $item */
 /** @var string $url */
 
     $formErrors = $item->validateFormRules();

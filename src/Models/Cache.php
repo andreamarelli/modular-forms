@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models;
+namespace ModularForms\Models;
 
 use Carbon\Carbon;
 use DateInterval;

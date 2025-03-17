@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Button\Action;
+namespace ModularForms\View\Button\Action;
 
-use AndreaMarelli\ModularForms\Helpers\Template;
+use ModularForms\Helpers\Template;
 use Illuminate\Support\Str;
 
 class Generic extends _Button

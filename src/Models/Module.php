@@ -1,13 +1,13 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models;
+namespace ModularForms\Models;
 
-use AndreaMarelli\ModularForms\Exceptions\ValidationException;
-use AndreaMarelli\ModularForms\Helpers\ModuleKey;
-use AndreaMarelli\ModularForms\Helpers\PhpClass;
-use AndreaMarelli\ModularForms\Models\Traits\Payload;
-use AndreaMarelli\ModularForms\Models\Traits\PredefinedValues;
-use AndreaMarelli\ModularForms\Models\Traits\Upload;
+use ModularForms\Exceptions\ValidationException;
+use ModularForms\Helpers\ModuleKey;
+use ModularForms\Helpers\PhpClass;
+use ModularForms\Models\Traits\Payload;
+use ModularForms\Models\Traits\PredefinedValues;
+use ModularForms\Models\Traits\Upload;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\DB;
 use Exception;

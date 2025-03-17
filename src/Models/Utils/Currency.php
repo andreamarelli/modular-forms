@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models\Utils;
+namespace ModularForms\Models\Utils;
 
-use AndreaMarelli\ModularForms\Helpers\Locale;
-use AndreaMarelli\ModularForms\Models\BaseModel;
+use ModularForms\Helpers\Locale;
+use ModularForms\Models\BaseModel;
 
 if(!defined('UPPER_LOCALE')) {
     define('UPPER_LOCALE', Locale::upper());

@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers;
+namespace ModularForms\Helpers;
 
-use AndreaMarelli\ModularForms\Helpers\File\File;
+use ModularForms\Helpers\File\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class Template

@@ -3,8 +3,8 @@
 /** @var String $value */
 /** @var bool $only_label */
 
-use AndreaMarelli\ModularForms\Helpers\Input\SelectionList;
-use AndreaMarelli\ModularForms\Helpers\Type\JSON;
+use ModularForms\Helpers\Input\SelectionList;
+use ModularForms\Helpers\Type\JSON;
 use Illuminate\Support\Str;
 
 $value = $value==='' ? null : $value;
@@ -82,7 +82,7 @@ if($value!==null){
     <div class="field-preview">
         @if($value['original_filename']!==null)
             <a target="_blank" href="{{ $value['download_link'] }}">
-                {!! \AndreaMarelli\ModularForms\Helpers\Template::icon('file') !!} {!! $value['original_filename'] !!}
+                {!! \ModularForms\Helpers\Template::icon('file') !!} {!! $value['original_filename'] !!}
             </a>
         @endif
     </div>

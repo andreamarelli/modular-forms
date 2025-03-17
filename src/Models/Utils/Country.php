@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models\Utils;
+namespace ModularForms\Models\Utils;
 
-use AndreaMarelli\ModularForms\Helpers\Locale;
-use AndreaMarelli\ModularForms\Models\BaseModel;
+use ModularForms\Helpers\Locale;
+use ModularForms\Models\BaseModel;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
@@ -45,7 +45,7 @@ abstract class Country extends BaseModel
      * Get country by iso
      *
      * @param $iso
-     * @return \AndreaMarelli\ModularForms\Models\Utils\Country|\Illuminate\Database\Eloquent\Model|object|null
+     * @return \ModularForms\Models\Utils\Country|\Illuminate\Database\Eloquent\Model|object|null
      * @throws \Exception
      */
     public static function getByISO($iso)

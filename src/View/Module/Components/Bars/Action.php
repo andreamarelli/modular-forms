@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Module\Components\Bars;
+namespace ModularForms\View\Module\Components\Bars;
 
-use AndreaMarelli\ModularForms\Controllers\Controller;
+use ModularForms\Controllers\Controller;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 

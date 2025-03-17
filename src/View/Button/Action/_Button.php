@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Button\Action;
+namespace ModularForms\View\Button\Action;
 
 use Closure;
 use Illuminate\View\Component;

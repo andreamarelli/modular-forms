@@ -1,7 +1,7 @@
 <?php
-/** @var AndreaMarelli\ModularForms\Controllers\Controller $controller */
-/** @var Illuminate\Http\Request $request */
-/** @var Illuminate\Pagination\LengthAwarePaginator $list */
+/** @var \ModularForms\Controllers\Controller $controller */
+/** @var \Illuminate\Http\Request $request */
+/** @var \Illuminate\Pagination\LengthAwarePaginator $list */
 
 $num_records = $list instanceof \Illuminate\Pagination\LengthAwarePaginator ? $list->total() : count($list);
 

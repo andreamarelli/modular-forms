@@ -1,6 +1,6 @@
 <?php
 
-use AndreaMarelli\ModularForms\View\Module\Container;
+use ModularForms\View\Module\Container;
 use Illuminate\Support\Facades\Blade;
 
 ?>
@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Blade;
             <div class="no-data">
                 @lang('modular-forms::common.form.not_available')
             </div>
-        @elseif($mode===\AndreaMarelli\ModularForms\Enums\ModuleViewModes::PRINT && $noData)
+        @elseif($mode===\ModularForms\Enums\ModuleViewModes::PRINT && $noData)
             <div class="no-data">
                 @lang('modular-forms::common.data_not_available')
             </div>

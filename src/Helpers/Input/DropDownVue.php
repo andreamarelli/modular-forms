@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\Input;
+namespace ModularForms\Helpers\Input;
 
 
 class DropDownVue

@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Module\Components\Buttons;
+namespace ModularForms\View\Module\Components\Buttons;
 
-use AndreaMarelli\ModularForms\Helpers\Template;
+use ModularForms\Helpers\Template;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 

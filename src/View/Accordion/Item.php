@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Accordion;
+namespace ModularForms\View\Accordion;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;

@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Enums;
+namespace ModularForms\Enums;
 
 enum ModuleViewModes: string
 {

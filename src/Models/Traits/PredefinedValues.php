@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models\Traits;
+namespace ModularForms\Models\Traits;
 
 
 use Illuminate\Support\Str;

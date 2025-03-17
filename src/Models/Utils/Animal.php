@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models\Utils;
+namespace ModularForms\Models\Utils;
 
-use AndreaMarelli\ModularForms\Helpers\Type\Chars;
-use AndreaMarelli\ModularForms\Models\BaseModel;
+use ModularForms\Helpers\Type\Chars;
+use ModularForms\Models\BaseModel;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
@@ -29,7 +29,7 @@ use Illuminate\Support\Str;
  * @property-read string $name
  * @property-read string $binomial
  *
- * @package AndreaMarelli\ImetCore\Models\Animals
+ * @package ImetCore\Models\Animals
  */
 abstract class Animal extends BaseModel
 {
@@ -109,7 +109,7 @@ abstract class Animal extends BaseModel
      *
      * @param string|null $taxonomy
      * @param string $separator
-     * @return \AndreaMarelli\ModularForms\Models\Utils\Animal|\Illuminate\Database\Eloquent\Model
+     * @return \ModularForms\Models\Utils\Animal|\Illuminate\Database\Eloquent\Model
      */
     public static function getByTaxonomy(string $taxonomy = null, string $separator = '|')
     {

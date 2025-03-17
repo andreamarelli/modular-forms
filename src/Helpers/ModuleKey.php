@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers;
+namespace ModularForms\Helpers;
 
-use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
+use ModularForms\Enums\ModuleViewModes;
 use Illuminate\Support\Str;
 
 

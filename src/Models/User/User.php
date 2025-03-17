@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models\User;
+namespace ModularForms\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,7 +13,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $name
  * @mixin \Illuminate\Database\Eloquent\Model
  * @mixin \Illuminate\Database\Eloquent\Builder
- * @package AndreaMarelli\ModularForms\Models\User
+ * @package ModularForms\Models\User
  */
 class User extends Authenticatable
 {
