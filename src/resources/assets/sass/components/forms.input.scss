@@ -2,7 +2,7 @@
 @use "../abstracts/fonts";
 
 @mixin field-base{
-    font-family: fonts.$secondary-font;
+    font-family: fonts.$input-font;
     @apply text-xs;
     @apply text-gray-800;
     @apply bg-white;
