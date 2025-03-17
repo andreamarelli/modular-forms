@@ -1,4 +1,4 @@
-@if($mode===\AndreaMarelli\ModularForms\Enums\ModuleViewModes::EDIT)
+@if($mode===\ModularForms\Enums\ModuleViewModes::EDIT)
     <p class="text-right module-log" v-if="last_update!=null && last_update.id!=null">
         @lang('modular-forms::entities.common.last_update'):&nbsp;
         <b>@{{ last_update.name }}</b>

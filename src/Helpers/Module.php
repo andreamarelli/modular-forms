@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers;
+namespace ModularForms\Helpers;
 
 use Illuminate\Support\Facades\DB;
 

@@ -1,5 +1,5 @@
 {
-    "name": "andreamarelli/modular-forms",
+    "name": "modular-forms",
     "description": "A package to build modular data collection forms",
     "authors": [
         {
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "AndreaMarelli\\ModularForms\\": "src"
+            "ModularForms\\": "src"
         },
         "files": [
             "src/helpers.php"
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AndreaMarelli\\ModularForms\\ServiceProvider"
+                "ModularForms\\ServiceProvider"
             ]
         }
     },

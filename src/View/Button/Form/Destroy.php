@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Button\Form;
+namespace ModularForms\View\Button\Form;
 
-use AndreaMarelli\ModularForms\Helpers\Template;
+use ModularForms\Helpers\Template;
 use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -12,7 +12,7 @@ use Illuminate\View\View;
 class Destroy extends Component
 {
     private string $action = 'destroy';
-    
+
     public function __construct(
         public String $controller,
         public Model|String $item

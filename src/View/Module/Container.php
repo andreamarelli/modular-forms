@@ -1,16 +1,16 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Module;
+namespace ModularForms\View\Module;
 
-use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
-use AndreaMarelli\ModularForms\Helpers\ModuleKey;
-use AndreaMarelli\ModularForms\Models\Module;
-use AndreaMarelli\ModularForms\View\Module\Components\Actions;
-use AndreaMarelli\ModularForms\View\Module\Components\Bars;
-use AndreaMarelli\ModularForms\View\Module\Components\LastUpdate;
-use AndreaMarelli\ModularForms\View\Module\Components\Observations;
-use AndreaMarelli\ModularForms\View\Module\Components\Script;
-use AndreaMarelli\ModularForms\View\Module\Components\Title;
+use ModularForms\Enums\ModuleViewModes;
+use ModularForms\Helpers\ModuleKey;
+use ModularForms\Models\Module;
+use ModularForms\View\Module\Components\Actions;
+use ModularForms\View\Module\Components\Bars;
+use ModularForms\View\Module\Components\LastUpdate;
+use ModularForms\View\Module\Components\Observations;
+use ModularForms\View\Module\Components\Script;
+use ModularForms\View\Module\Components\Title;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;

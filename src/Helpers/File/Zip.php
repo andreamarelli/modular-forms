@@ -1,7 +1,7 @@
 <?php
 
 
-namespace AndreaMarelli\ModularForms\Helpers\File;
+namespace ModularForms\Helpers\File;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -14,8 +14,8 @@ class Zip
      *
      * @param string $zip_path
      * @param string $unzip_path
-     * @param boolean $remove_zip
-     * @param boolean $return_full_path
+     * @param bool $remove_zip
+     * @param bool $return_full_path
      * @return array
      * @throws \Exception
      */

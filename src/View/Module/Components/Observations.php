@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Module\Components;
+namespace ModularForms\View\Module\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;

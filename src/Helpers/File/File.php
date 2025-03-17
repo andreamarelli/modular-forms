@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\File;
+namespace ModularForms\Helpers\File;
 
-use AndreaMarelli\ModularForms\Helpers\Type\Chars;
+use ModularForms\Helpers\Type\Chars;
 use Illuminate\Http\Testing\MimeType;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 

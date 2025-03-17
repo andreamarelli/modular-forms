@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Controllers;
+namespace ModularForms\Controllers;
 
-use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
-use AndreaMarelli\ModularForms\Helpers\File\File;
-use AndreaMarelli\ModularForms\Helpers\HTTP;
+use ModularForms\Enums\ModuleViewModes;
+use ModularForms\Helpers\File\File;
+use ModularForms\Helpers\HTTP;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 /**
  * Class FormController
  *
- * @package AndreaMarelli\ModularForms\Controllers
+ * @package ModularForms\Controllers
  *
  */
 abstract class FormController extends Controller

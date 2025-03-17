@@ -1,5 +1,5 @@
 <?php
-namespace AndreaMarelli\ModularForms\Helpers;
+namespace ModularForms\Helpers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;

@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Controllers\Traits;
+namespace ModularForms\Controllers\Traits;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 /**
  * Trait API
  *
- * @package AndreaMarelli\ModularForms\Controllers\Traits
+ * @package ModularForms\Controllers\Traits
  */
 trait API {
 

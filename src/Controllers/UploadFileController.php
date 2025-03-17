@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Controllers;
+namespace ModularForms\Controllers;
 
-use AndreaMarelli\ModularForms\Helpers\File\File;
-use AndreaMarelli\ModularForms\Models\Module;
-use AndreaMarelli\ModularForms\Models\Traits\Upload;
+use ModularForms\Helpers\File\File;
+use ModularForms\Models\Module;
+use ModularForms\Models\Traits\Upload;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 /**
  * Class UploadFileController
  *
- * @package AndreaMarelli\ModularForms\Controllers
+ * @package ModularForms\Controllers
  */
 class UploadFileController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\Type;
+namespace ModularForms\Helpers\Type;
 
 use Illuminate\Support\Str;
 

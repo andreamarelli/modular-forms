@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Button\Form;
+namespace ModularForms\View\Button\Form;
 
-use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
-use AndreaMarelli\ModularForms\Helpers\Template;
+use ModularForms\Enums\ModuleViewModes;
+use ModularForms\Helpers\Template;
 use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;

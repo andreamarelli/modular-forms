@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Exceptions;
+namespace ModularForms\Exceptions;
 
 use Exception;
 use Throwable;

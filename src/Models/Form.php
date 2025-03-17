@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Models;
+namespace ModularForms\Models;
 
-use AndreaMarelli\ModularForms\Helpers\ModuleKey;
-use AndreaMarelli\ModularForms\Models\Traits\Payload;
+use ModularForms\Helpers\ModuleKey;
+use ModularForms\Models\Traits\Payload;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Builder;

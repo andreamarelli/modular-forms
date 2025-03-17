@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\Input;
+namespace ModularForms\Helpers\Input;
 
-use AndreaMarelli\ModularForms\Helpers\Type\DataArray;
+use ModularForms\Helpers\Type\DataArray;
 use Exception;
 use Illuminate\Support\Facades\Session;
 

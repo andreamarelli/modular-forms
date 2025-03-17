@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\API;
+namespace ModularForms\Helpers\API;
 
-use AndreaMarelli\ModularForms\Models\Cache;
+use ModularForms\Models\Cache;
 use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\App;

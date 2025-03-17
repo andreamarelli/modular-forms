@@ -1,13 +1,13 @@
 <?php
-/** @var \AndreaMarelli\ModularForms\Controllers\Controller $controller */
-/** @var \AndreaMarelli\ModularForms\Models\Form $item */
+/** @var \ModularForms\Controllers\Controller $controller */
+/** @var \ModularForms\Models\Form $item */
 /** @var string $step */
 /** @var string $label_prefix */
-/** @var boolean $show_steps [optional] */
+/** @var bool $show_steps [optional] */
 
-/** @var boolean $show_scrollbar [optional] */
+/** @var bool $show_scrollbar [optional] */
 
-use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
+use ModularForms\Enums\ModuleViewModes;
 
 $show_steps = $show_steps ?? true;
 $show_scrollbar = $show_scrollbar ?? true;

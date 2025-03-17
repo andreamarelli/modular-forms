@@ -1,6 +1,6 @@
 <?php
-/** @var \AndreaMarelli\ModularForms\Controllers\Controller $controller */
-/** @var \AndreaMarelli\ModularForms\Models\Form $item */
+/** @var \ModularForms\Controllers\Controller $controller */
+/** @var \ModularForms\Models\Form $item */
 /** @var string $mode */
 
 ?>
@@ -22,7 +22,7 @@
             'controller' => $controller,
             'item' => $item,
             'step' => $step,
-            'mode' => \AndreaMarelli\ModularForms\Enums\ModuleViewModes::PRINT
+            'mode' => \ModularForms\Enums\ModuleViewModes::PRINT
         ])
 
     @endforeach

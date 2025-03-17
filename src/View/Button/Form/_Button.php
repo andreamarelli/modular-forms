@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Button\Form;
+namespace ModularForms\View\Button\Form;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;

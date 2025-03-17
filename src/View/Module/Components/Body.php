@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\View\Module\Components;
+namespace ModularForms\View\Module\Components;
 
-use AndreaMarelli\ModularForms\Enums\ModuleViewModes;
+use ModularForms\Enums\ModuleViewModes;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 use Illuminate\View\View;

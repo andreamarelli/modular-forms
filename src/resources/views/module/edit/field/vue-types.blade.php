@@ -8,8 +8,8 @@
 
 /** @var String $module_key [optional] */
 
-use AndreaMarelli\ModularForms\Helpers\DOM;
-use AndreaMarelli\ModularForms\Helpers\Input\SelectionList;
+use ModularForms\Helpers\DOM;
+use ModularForms\Helpers\Input\SelectionList;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 

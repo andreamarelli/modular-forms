@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreaMarelli\ModularForms\Helpers\API\DOPA;
+namespace ModularForms\Helpers\API\DOPA;
 
-use AndreaMarelli\ModularForms\Helpers\API\API;
+use ModularForms\Helpers\API\API;
 use Exception;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
