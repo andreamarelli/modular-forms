@@ -36,7 +36,7 @@
         <template #searchResultItem="{ item }">
             <td><span class="result_left" v-html="getSpeciesDescription(item)"></span></td>
             <td><redlist_category :category=item.iucn_redlist_category></redlist_category></td>
-            <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"><img style="display: inline-block" :src=redListImgUrl alt="IUCN RedList"/></a></td>
+            <td><a target="_blank" :href="'http://www.iucnredlist.org/details/'+item.iucn_redlist_id+'/0'"></a></td>
         </template>
 
     </selector-dialog>
@@ -61,7 +61,6 @@
     import {ref, provide} from "vue";
     import selectorDialog from "./components/selector-dialog.vue";
     import redlist_category from "../templates/redlist_category.vue";
-    import redListImgUrl from "../../images/iucn_red_list.png";
     const Locale = window.ModularForms.Helpers.Locale;
 
     const props = defineProps({
