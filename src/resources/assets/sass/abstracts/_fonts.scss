@@ -1,6 +1,3 @@
-
-$font_path: '/vendor/modular-forms/src/resources/assets/fonts/';
-
 $ui-font: 'Varela Round', sans-serif;
 $input-font: Verdana, sans-serif;
 
@@ -11,5 +8,5 @@ $input-font: Verdana, sans-serif;
     font-family: 'Varela Round';
     font-style: normal;
     font-weight: 400;
-    src: url('#{$font_path}varela_round/VarelaRound-Regular.woff2') format('woff2'),
+    src: url('@modular-forms/fonts/varela_round/VarelaRound-Regular.woff2') format('woff2'),
 }
