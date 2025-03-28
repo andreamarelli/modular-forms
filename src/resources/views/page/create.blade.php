@@ -20,7 +20,7 @@
         :controller="$controller"
         :module="$module"
         :formId="null"
-        :mode="\AndreaMarelli\ModularForms\Enums\ModuleViewModes::EDIT"
+        :mode="\ModularForms\Enums\ModuleViewModes::EDIT"
     ></x-modular-forms::module.container>
 
 @endsection
